@@ -1,0 +1,83 @@
+<meta charset="utf-8">
+
+<block-ui>
+
+<div class="big3"><p-messages [(value)]="msgs"></p-messages></div>
+
+<div class="{{paso != 1 ? 'hide' : ''}}">
+	<div class="big2">
+	Ingrese uno de los siguientes datos
+	</div>
+	
+	<div class="space"></div>	
+	
+	<div class="big">
+	<input class="big" #soc_sumi id="soc_sumi" size="20" placeholder="Socio/suministro" />
+	</div>
+
+	<div class="space"></div>	
+	
+	<div class="big">
+	<input class="big" #dni id="dni" size="20" placeholder="D.N.I." />
+	</div>
+	
+	<div class="space"></div>	
+	
+	<div class="big">
+	<input class="big" #nombre id="nombre"  size="20" placeholder="Apellido y nombres" />
+	</div>
+	
+	<div class="space"></div>	
+	
+	<div class="big">
+	<input class="big" #direccion id="direccion"  size="20" placeholder="Calle y altura" />
+	</div>
+	
+</div>
+
+<div *ngIf="paso == 2" style="width: 820px; text-align:center; margin: auto;">
+	<p-dataList [value]="socios" >
+	   <p-header>
+	       <div class="big2">Seleccione el titular del servicio</div>
+	   </p-header>
+	   <ng-template let-socio pTemplate="item">
+		<div  style="padding:5px" >
+              <div> <input class="big" type="button" style="height: 100px; width: 802px;" 
+             		value="{{socio.Soc_apelli}}"
+             		(click)="seleccionarSocio(socio.Soc_numero)"/> 
+              </div>	                
+	    </div>
+	   </ng-template>
+	</p-dataList>
+</div>
+
+<div *ngIf="paso == 3" ui-g>
+
+<div style="margin: 50px;">
+	<p-dataGrid [value]="facturas" >
+	   <p-header>
+	       <div class="big2">Facturas Adeudadas</div>
+	   </p-header>
+	  	<ng-template let-fact pTemplate="item">
+		  <div style="padding:3px" class="ui-md-3">
+			<p-panel class="big2" [header]="fact.Comp_letra + '-' + fact.Comp_numer + ' / $' + fact.CompSaldo.substring(0, fact.CompSaldo.length - 2).replace('.', ',')" [style]="{'text-align':'center'}">
+	               <div> <button pButton type="button" style="height: 128px; width: 128px;" icon="fa-print fa-3x" (click)="imprimir(fact.Comp_letra, fact.Comp_numer)"></button> </div>	                
+	              	<hr class="ui-widget-content" style="border-top:0">
+	              	<div class="small">1º vencimiento: {{fact.Comp_vto1}}</div>
+	              	<div class="small">2º vencimiento: {{fact.Comp_vto2}}</div>
+			</p-panel> 
+	     </div>
+	   </ng-template>
+	</p-dataGrid>
+</div>
+
+</div>
+
+</block-ui>
+
+<div class="space"></div>	
+<div  *ngIf="paso != 1" class="big2">
+<button pButton type="button" style="height: 128px; width: 128px;" icon="fa-home fa-3x" (click)="restart()"></button>
+</div>
+
+

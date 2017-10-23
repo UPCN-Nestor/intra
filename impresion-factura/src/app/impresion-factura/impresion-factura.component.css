@@ -1,0 +1,33 @@
+
+
+.big  {
+	font-size: 2.2em;
+	text-align: center;
+}
+
+.big2 {
+	font-size: 2em;
+	text-align: center;
+	font-family: "Verdana", Verdana, sans-serif; 	
+}
+
+.big3 {
+	font-size: 1.2em;
+	padding: 0px;
+	margin: 0px;
+	text-align: center;
+	font-family: "Verdana", Verdana, sans-serif; 	
+}
+
+.small {
+	font-size: 0.75em;
+	font-family: "Verdana", Verdana, sans-serif; 	
+}
+
+.space {
+	margin: 10px;	
+}
+
+.hide {
+	display: none;
+}

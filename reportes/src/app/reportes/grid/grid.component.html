@@ -1,0 +1,80 @@
+
+<script src="http://blueimp.github.io/JavaScript-MD5/js/md5.js"></script>
+
+<div class="ui-g">
+<div class="ui-g-9">
+
+<p-toolbar>
+    <div class="ui-toolbar-group-left">
+		 <font size="+1">{{tituloGrid}}</font>
+    </div>
+    	
+    <div class="ui-toolbar-group-right">
+    	Agrupar por <p-dropdown [options]="colsParaAgrupar" [(ngModel)]="agruparCol" (onChange)="agruparChanged($event)"></p-dropdown>
+    	<button style="vertical-align: middle" type="button" pButton icon="fa-file-excel-o" iconPos="left" (click)="dt.exportCSV()"></button>
+		<button style="vertical-align: middle" pButton type="button" (click)="guardarClick()" icon="fa-save"></button>
+    </div>
+</p-toolbar>
+
+<p-dataTable #dt [value]="filas" sortMode="single" [sortField]="selectedCol" [sortOrder]="orderAscDesc" (onSort)="onSort($event)" 	
+	[rows]="20" [paginator]="true" [pageLinks]="3" loadingIcon="fa-spinner" [loading]="loading" emptyMessage="Cargando datos..."
+	>
+		
+	<p-column *ngFor="let col of cols" [field]="col.value" sortable="custom" (sortFunction)="doSort($event)" 
+		[footer]="totales[col.value]"  [style]="getStyle(col.value)">
+   			
+		<ng-template pTemplate="header">
+			<div tooltipPosition="top" pTooltip="{{colsMetadata[col.value].tooltip ? colsMetadata[col.value].tooltip : ''}}" showDelay="0"
+				tooltipStyleClass="tooltip">{{col.label}}</div>	
+
+			<div *ngIf="colsMetadata[col.value] ? colsMetadata[col.value].inputFiltro == 'text' :_false"> 
+				<input type="text" size="6" pInputText (input)="manualFilter(col.value, $event.target.value)" [value]="filters[col.value]"/>
+			</div>
+			<div *ngIf="colsMetadata[col.value] ? colsMetadata[col.value].inputFiltro == 'date' :_false"> 
+				<dp-date-picker placeholder="desde..." type="month" [ngModel]="filters[col.value]['desde']" (ngModelChange)="onDateDesdeChange($event, col.value)" [config]="datePickerConfig"></dp-date-picker>
+				<dp-date-picker placeholder="hasta..." type="month" [ngModel]="filters[col.value]['hasta']" (ngModelChange)="onDateHastaChange($event, col.value)" [config]="datePickerConfig"></dp-date-picker>
+			</div>
+			<div *ngIf="colsMetadata[col.value] ? colsMetadata[col.value].inputFiltro == 'multiselect' :_false"> 
+				<p-multiSelect defaultLabel="(elegir)" filter="false" maxSelectedLabels="3" selectedItemsLabel="{0} seleccionados" [options]="multiselectValues[col.value]" 
+					appendTo="body" [ngModel]="filters[col.value]" (ngModelChange)="onMultiselectChange($event, col.value)"></p-multiSelect>
+			</div>
+			
+			<div *ngIf="colsMetadata[col.value] ? colsMetadata[col.value].inputFiltro == 'range' :_false"> 
+				{{filters[col.value][0]}} a {{filters[col.value][1]}}
+				<p-slider [(ngModel)]="filters[col.value]" [range]="true"></p-slider>
+			</div>    
+    	</ng-template>	    
+	</p-column>		
+
+</p-dataTable>
+
+
+<p-growl id="growl" [value]="msgs"></p-growl>
+
+
+</div>
+
+<div class="ui-g-3">
+	<app-sidebar #sb user="1" grid="consumos" (changed)="cargarConsultaSeleccionada($event, sb, false)"></app-sidebar>
+</div>
+
+
+<div class="ui-g-8">
+
+<button style="vertical-align: middle" pButton type="button" (click)="refreshChart()" icon="fa-refresh" label="Actualizar"></button>
+Tipo: <p-dropdown [options]="tiposGrafico" [(ngModel)]="tipoGrafico" (onChange)="reloadChartData()"></p-dropdown>
+Eje X: <p-dropdown [options]="colsParaAgrupar" [(ngModel)]="chartX" (onChange)="reloadChartData()"></p-dropdown>
+Eje Y: <p-dropdown [options]="colsParaAgrupar" [(ngModel)]="chartY" (onChange)="reloadChartData()"></p-dropdown>
+
+<app-chart [data]="chartData" [tipo]="tipoGrafico"></app-chart>
+
+</div>
+
+
+<p-dialog header="Guardar consulta" [modal]="true" [dismissableMask]="true" [(visible)]="mostrarPopupGuardar" (onShow)="showModal($event, inputNombre)">
+    Nombre de la consulta
+    <input #inputNombre type="text" pInputText [(ngModel)]="nombreGuardar"/>
+    <button pButton type="button" (click)="guardarConfirmar()" label="OK"></button>    
+</p-dialog>
+
+</div>

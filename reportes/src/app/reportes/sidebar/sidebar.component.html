@@ -1,0 +1,17 @@
+
+<meta charset="UTF-8">
+
+<p-dataTable [value]="filas" sortMode="single" sortField="lastused" [sortOrder]="-1" [loading]="loading" emptyMessage="Cargando consultas...">
+	<p-column field="nombre" header="Consulta guardada" [sortable]="true" [style]="{'width':'65%'}">
+		<ng-template let-nom="rowData" pTemplate="body">
+			<button pButton type="button" [disabled]="nom.userid == 0" (click)="confirm(nom.id, nom.nombre)" icon="fa-trash"></button>
+			<button pButton type="button" class="{{selected && nom.id == selected.id ? 'ui-button-success' : (nom.userid == 0 ? 'ui-button-secondary' : '')}}"  (click)="select(nom, true)" [label]="nom.nombre"></button>			
+		</ng-template>
+	</p-column>
+	<p-column field="lastused" header="Fecha de uso" [sortable]="true"></p-column>
+</p-dataTable>
+
+
+<p-confirmDialog #cd header="Confirmar" icon="fa fa-question-circle" width="425">
+
+</p-confirmDialog>
