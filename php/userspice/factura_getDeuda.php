@@ -22,7 +22,7 @@ try{
 
     $pdo->query("SET NAMES 'utf8'");
 
-	$sql = "SELECT Comp_letra, Comp_numer, CompSaldo, CONVERT(varchar, Comp_vto1, 103) as Comp_vto1, CONVERT(varchar, Comp_vto2, 103) as Comp_vto2
+	$sql = "SELECT Comp_letra, Comp_numer, CompSaldo, CONVERT(varchar, Comp_vto1, 103) as Comp_vto1, CONVERT(varchar, Comp_fecha, 103) as Comp_fecha
 		FROM UPCCOMPROD.dbo.COMSAL C JOIN UPCCOMPROD.dbo.SOCIOS S ON (C.SucCodigo = S.SucCodigo AND C.Soc_numero = S.Soc_numero)
 		WHERE ((C.Soc_numero = $socio AND (C.Sumi_numer = $suministro OR $suministro = 0)) OR ($socio = 0 AND $suministro = 0))
 			AND (S.Soc_docnro = $dni OR $dni = 0)	

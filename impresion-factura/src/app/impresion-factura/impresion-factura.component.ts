@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, Injectable, ViewChild, ElementRef, AfterViewInit, Renderer2 } from '@angular/core';
+import { Component, OnInit, Inject, Injectable, ViewChild, ElementRef, AfterViewInit, Renderer2, ApplicationRef } from '@angular/core';
 import {InputMaskModule, InputTextModule} from 'primeng/primeng';
 import { environment } from '../../environments/environment';
 import {HttpModule, Response, Http, Headers, URLSearchParams} from '@angular/http';
@@ -11,6 +11,7 @@ import { BlockUI, NgBlockUI } from 'ng-block-ui';
 
 const jQuery = require('jquery');
 declare var printJS : any;
+//declare var jQuery;
 
 @Injectable()
 @Component({
@@ -36,18 +37,28 @@ export class ImpresionFacturaComponent implements OnInit {
 
   msgs: any[];
 
-  constructor(private http : Http, private renderer : Renderer2) { }
- 
+  cualFoto : number;
+
+  urlFoto = 'linear-gradient(rgba(220, 220, 220, 0.6), rgba(220, 220, 220, 0.6)), url("https://source.unsplash.com/1920x1080/?nature,';
+
+  constructor(private http : Http, private renderer : Renderer2) { 
+          
+  }
   
   ngOnInit() {
+      this.cualFoto = 0;
+      document.body.style.backgroundImage = this.urlFoto + this.cualFoto + '")';
+    
       this.loading = false;
       this.msgs = [];
       this.socios = [];
       this.facturas = [];
       
+      
+
       this.paso = 1;
       
-      this.url_fondo = environment.baseUrl + "intra/src/assets/imagenes/fondo_3.jpg";
+      //this.url_fondo = "https://source.unsplash.com/random";
       this.url_deuda = environment.baseUrl + 'php/userspice/factura_getDeuda.php';
       this.url_socios = environment.baseUrl + 'php/userspice/factura_getSocios.php';
  
@@ -173,9 +184,11 @@ export class ImpresionFacturaComponent implements OnInit {
               else
                   return res.json();
               })
-          .then(data => { this.facturas = data; this.paso = 3; this.checkNoResults(); });    
+          .then(data => { this.facturas = data; this.paso = 3; 
+                this.checkNoResults(); });    
   }
   
+
   @ViewChild('soc_sumi') ss:ElementRef;
   @ViewChild('dni') dni:ElementRef;
   @ViewChild('nombre') nombre:ElementRef;
@@ -310,6 +323,10 @@ export class ImpresionFacturaComponent implements OnInit {
   
   
   restart() {
+    // collection/658265
+      this.cualFoto++;
+      document.body.style.backgroundImage = this.urlFoto + this.cualFoto + '")';
+
       this.socios = [];
       this.facturas = [];
       this.ss.nativeElement.value="";

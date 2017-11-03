@@ -33,9 +33,9 @@ export class ConsumosComponent implements OnInit {
         //this.defaultFilters["Consumo"] = "100000";
         
         this.cols = [
-                     {value: 'Cons_area', label: 'Ãƒï¿½rea' },
-                     {value: 'ETTCodigo', label: 'CÃƒÂ³digo' },
-                     {value: 'Cons_cate', label: 'CategorÃƒÂ­a' },
+                     {value: 'Cons_area', label: 'Área' },
+                     {value: 'ETTCodigo', label: 'Código' },
+                     {value: 'Cons_cate', label: 'Categoría' },
                      {value: 'Periodo', label: 'Periodo' },
                      {value: 'Consumo', label: 'Consumo' },
                      {value: 'Pico', label: 'Pico' },

@@ -47,7 +47,7 @@ FROM (
        SUM(Cons_coner * Cons_multi) AS Reactiva,
        SUM(Cons_potde * Cons_multi) AS PotPico,
        SUM(Cons_potfu * Cons_multi) AS PotFPico
-	FROM CONSUM CO JOIN EPRE02 E2 ON (CO.Cons_sucur = E2.ETTSucurs AND CO.Cons_Serv = E2.ETTServic AND CO.Cons_cate = E2.ETTCatego) 
+	FROM UPCCOMPROD.dbo.CONSUM CO JOIN UPCCOMPROD.dbo.EPRE02 E2 ON (CO.Cons_sucur = E2.ETTSucurs AND CO.Cons_Serv = E2.ETTServic AND CO.Cons_cate = E2.ETTCatego) 
 	WHERE Cons_sucur = 1 AND Cons_serv = 1 AND Cons_ano >= $desde_ano
 	GROUP BY Cons_area, ETTCodigo, Cons_cate, Cons_ano, Cons_mes) B
 WHERE Periodo >= '$desde' AND Periodo <= '$hasta'

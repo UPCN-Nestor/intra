@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
    
     ocultarEnRutas: string = "/factura"; // Rutas separadas por "/"
 
-    constructor(private http: Http) { 
+    constructor(private http: Http, private r: Router) { 
         this.msgs = [];
     }
 

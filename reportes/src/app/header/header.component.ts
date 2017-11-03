@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
    
     ocultarEnRutas: string = "/factura"; // Rutas separadas por "/"
 
-    constructor(private http: Http, private r : Router) { 
+    constructor(private http: Http) { 
         this.msgs = [];
     }
 
@@ -36,16 +36,18 @@ export class HeaderComponent implements OnInit {
             .then(res => this.user = res.json());
     }
     
-    esOculto() {
-        return this.r.url != "/" && this.ocultarEnRutas.indexOf(this.r.url) > -1;
-    }
     
+    //esOculto() {
+    //    return this.r.url != "/" && this.ocultarEnRutas.indexOf(this.r.url) > -1;
+    //}  
+  
     logout() {
         this.http.get(environment.baseUrl + 'php/userspice/users/logout.php', {withCredentials: true})
             .toPromise()
             .then(res => { 
                     this.password = "";
-                    this.user = null; this.r.navigateByUrl("/"); 
+                    this.user = null; 
+                    window.location.href = "/"; 
                 });
     }
     
@@ -60,9 +62,10 @@ export class HeaderComponent implements OnInit {
                 if(res.json() != "error") {        
                     this.user = res.json();
                     this.password = "";
-                    this.msgs.push({severity:'login', summary:'', detail:this.r.url});
-                    let refreshUrl = this.r.url;
-                    this.r.navigateByUrl("").then(() => this.r.navigateByUrl(refreshUrl));                                     
+                    //this.msgs.push({severity:'login', summary:'', detail:this.r.url});
+                    //let refreshUrl = this.r.url;
+                    window.location.reload(false); 
+                    //this.r.navigateByUrl("").then(() => this.r.navigateByUrl(refreshUrl));                                     
                 } else {
                     this.msgs.push({severity:'error', summary:'', detail:'Usuario o contraseña no válidos'});
                 }
@@ -71,7 +74,8 @@ export class HeaderComponent implements OnInit {
     }
 
     home() {
-        this.r.navigateByUrl("");
+        window.location.href = "/";
+        //this.r.navigateByUrl("");
     }
     
 }

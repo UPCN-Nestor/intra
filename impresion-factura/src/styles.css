@@ -14,8 +14,54 @@ body {
 }
 
 .fondo_upc {
-	background: url("assets\\imagenes\\fondo_3.jpg") #FFFFFF;
+
 	background-repeat:no-repeat;
 	background-attachment:fixed;
-	background-position:center top;
+	background-position:center top;    
+	background-image: linear-gradient(rgba(200, 200, 200, 0.7), rgba(200, 200, 200, 0.7)), 
+		url("https://source.unsplash.com/collection/658265/1920x1080");
+}
+
+
+.ui-datagrid-content {
+	background: rgba(200,200,200,0.0) !important;
+	border-color: rgba(200,200,200,0) !important;
+	
+}
+
+.ui-datalist-content {
+	background: rgba(200,200,200,0.0) !important;
+	border-color: rgba(200,200,200,0) !important;
+	
+}
+
+.ui-datatable-data {
+	background: rgba(200,200,200,0.0) !important;
+	border-color: rgba(200,200,200,0) !important;
+}
+
+.ui-datatable-tablewrapper {
+	background: rgba(200,200,200,0.0) !important;
+	border-color: rgba(200,200,200,0) !important;
+}
+
+.rowInvisible {
+	background: rgba(200,200,200,0.0) !important;
+	border-color: rgba(200,200,200,0) !important;
+}
+
+.ui-datatable-emptymessage {
+	background: rgba(200,200,200,0.0) !important;
+	border-color: rgba(200,200,200,0) !important;
+}
+
+.ui-widget-header {
+	opacity:1 !important;
+}
+.ui-widget-content {
+	opacity:0.88;
+}
+tr.ui-widget-content {
+	background: rgba(200,200,200,0.0) !important;
+	border-color: rgba(200,200,200,0) !important;
 }

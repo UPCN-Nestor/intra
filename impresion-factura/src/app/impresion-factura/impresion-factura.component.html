@@ -4,10 +4,16 @@
 
 <div class="big3"><p-messages [(value)]="msgs"></p-messages></div>
 
-<div class="{{paso != 1 ? 'hide' : ''}}">
-	<div class="big2">
-	Ingrese uno de los siguientes datos
-	</div>
+<div style="width: 1000px; margin-top:50px; margin-left:auto; margin-right:auto;" class="{{paso != 1 ? 'hide' : ''}}">
+
+	<p-dataTable emptyMessage="" rowStyleClass="rowInvisible">
+		<p-header>
+			<div class="big2">Ingrese uno de los siguientes datos</div>
+		</p-header>
+		<ng-template pTemplate="emptymessage">
+			
+		</ng-template>
+	</p-dataTable>
 	
 	<div class="space"></div>	
 	
@@ -35,49 +41,52 @@
 	
 </div>
 
-<div *ngIf="paso == 2" style="width: 820px; text-align:center; margin: auto;">
-	<p-dataList [value]="socios" >
-	   <p-header>
-	       <div class="big2">Seleccione el titular del servicio</div>
-	   </p-header>
-	   <ng-template let-socio pTemplate="item">
-		<div  style="padding:5px" >
-              <div> <input class="big" type="button" style="height: 100px; width: 802px;" 
-             		value="{{socio.Soc_apelli}}"
-             		(click)="seleccionarSocio(socio.Soc_numero)"/> 
-              </div>	                
-	    </div>
-	   </ng-template>
-	</p-dataList>
+
+<div class="space"></div>	
+<div  *ngIf="paso != 1" class="big2">
+<button pButton type="button" style="height: 128px; width: 128px;" icon="fa-arrow-left fa-3x" (click)="restart()"></button>
 </div>
 
 <div *ngIf="paso == 3" ui-g>
 
-<div style="margin: 50px;">
-	<p-dataGrid [value]="facturas" >
-	   <p-header>
-	       <div class="big2">Facturas Adeudadas</div>
-	   </p-header>
-	  	<ng-template let-fact pTemplate="item">
-		  <div style="padding:3px" class="ui-md-3">
-			<p-panel class="big2" [header]="fact.Comp_letra + '-' + fact.Comp_numer + ' / $' + fact.CompSaldo.substring(0, fact.CompSaldo.length - 2).replace('.', ',')" [style]="{'text-align':'center'}">
-	               <div> <button pButton type="button" style="height: 128px; width: 128px;" icon="fa-print fa-3x" (click)="imprimir(fact.Comp_letra, fact.Comp_numer)"></button> </div>	                
-	              	<hr class="ui-widget-content" style="border-top:0">
-	              	<div class="small">1º vencimiento: {{fact.Comp_vto1}}</div>
-	              	<div class="small">2º vencimiento: {{fact.Comp_vto2}}</div>
-			</p-panel> 
-	     </div>
-	   </ng-template>
-	</p-dataGrid>
+	<div style="margin: 50px; background-color:transparent;">
+		<p-dataGrid [value]="facturas" >
+		<p-header>
+			<div class="big2">Seleccione factura a imprimir</div>
+		</p-header>
+			<ng-template let-fact pTemplate="item">
+			<div style="padding:15px" class="ui-md-3">
+				<p-panel class="big2" [header]="fact.Comp_letra + '-' + fact.Comp_numer + ' / $' + fact.CompSaldo.substring(0, fact.CompSaldo.length - 2).replace('.', ',')" [style]="{'text-align':'center'}">
+					<div> <button pButton type="button" style="height: 128px; width: 128px;" icon="fa-print fa-3x" (click)="imprimir(fact.Comp_letra, fact.Comp_numer)"></button> </div>	                
+						<hr class="ui-widget-content" style="border-top:0">
+						<div class="small">Emisión: {{fact.Comp_fecha}}</div>
+						<div class="small">Vncimiento: {{fact.Comp_vto1}}</div>
+				</p-panel> 
+			</div>
+		</ng-template>
+		</p-dataGrid>
+	</div>
 </div>
 
+<div *ngIf="paso == 2" style="width: 820px; text-align:center; margin-top:50px; margin-left:auto; margin-right:auto;  background-color:transparent;">
+		<p-dataList [value]="socios">
+		   <p-header>
+			   <div class="big2">Seleccione el titular del servicio</div>
+		   </p-header>
+		   <ng-template let-socio pTemplate="item">
+			<div  style="padding:10px" >
+				  <div> <input class="big" type="button" style="height: 100px; width: 782px;" 
+						 value="{{socio.Soc_apelli}}"
+						 (click)="seleccionarSocio(socio.Soc_numero)"/> 
+				  </div>	                
+			</div>
+		   </ng-template>
+		</p-dataList>
 </div>
+
+
+
 
 </block-ui>
-
-<div class="space"></div>	
-<div  *ngIf="paso != 1" class="big2">
-<button pButton type="button" style="height: 128px; width: 128px;" icon="fa-home fa-3x" (click)="restart()"></button>
-</div>
 
 

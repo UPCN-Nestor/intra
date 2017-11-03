@@ -90,7 +90,7 @@ export class GridComponent implements OnInit {
       };      
       
       this.tiposGrafico =  [
-                  {value: 'line', label: 'LÃ­neas' },
+                  {value: 'line', label: 'Líneas' },
                   {value: 'pie', label: 'Circular' }
              ];
       
@@ -461,7 +461,9 @@ export class GridComponent implements OnInit {
   }
   
   doSort(event) {
+
       this.filas = this.sortBy(this.filas, event.field, event.order);
+      this.msg('info', 'Ordenamiento', this.filas[0][event.field]);
   }
   
   sortBy(filas, field, order) {

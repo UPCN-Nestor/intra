@@ -14,7 +14,7 @@ try{
     $pdo->query("SET NAMES 'utf8'");;
 
 	$q = $pdo->query("SELECT DISTINCT($campo) AS $campo 
-FROM CONSUM CO JOIN EPRE02 E2 ON (CO.Cons_sucur = E2.ETTSucurs AND CO.Cons_Serv = E2.ETTServic AND CO.Cons_cate = E2.ETTCatego)
+FROM UPCCOMPROD.dbo.CONSUM CO JOIN UPCCOMPROD.dbo.EPRE02 E2 ON (CO.Cons_sucur = E2.ETTSucurs AND CO.Cons_Serv = E2.ETTServic AND CO.Cons_cate = E2.ETTCatego)
 WHERE Cons_sucur = 1 AND Cons_serv = 1 ");
 	
 	//error case
