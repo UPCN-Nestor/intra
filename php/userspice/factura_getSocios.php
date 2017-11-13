@@ -27,7 +27,13 @@ try{
 		WHERE SU.Sumi_estad < 4
 			AND (S.Soc_apelli LIKE '%$nombre%' OR '$nombre'='0')
 			AND ((SU.Sumi_calle = '$calle' AND SU.Sumi_nroca = '$altura') OR '$calle'='0')		
-			AND ((SELECT COUNT(*) FROM UPCCOMPROD.dbo.COMSAL CS WHERE CS.Soc_numero = S.Soc_numero AND CS.SucCodigo = S.SucCodigo AND CS.Sumi_numer = SU.Sumi_numer) > 0)
+			AND (SELECT COUNT(*) FROM UPCCOMPROD.dbo.COMSAL CS WHERE CS.Soc_numero = S.Soc_numero AND CS.SucCodigo = S.SucCodigo AND CS.Sumi_numer = SU.Sumi_numer
+				AND CS.Comp_tipo = 3 AND CS.CompSaldo > 0 
+				AND CS.Comp_fecha > DATEADD(mm, -6, getdate())
+				AND (SELECT COUNT(*) FROM UPCCOMPROD.dbo.SUMSER SS 
+					WHERE SS.SucCodigo = CS.SucCodigo AND SS.Soc_numero = CS.Soc_numero AND SS.Sumi_numer = CS.Sumi_numer AND SS.Sum2Servi = 1) > 0
+				) > 0	
+				
 		GROUP BY S.Soc_apelli, S.Soc_numero
 		;";
 	

@@ -27,6 +27,11 @@ try{
 		WHERE ((C.Soc_numero = $socio AND (C.Sumi_numer = $suministro OR $suministro = 0)) OR ($socio = 0 AND $suministro = 0))
 			AND (S.Soc_docnro = $dni OR $dni = 0)	
 			AND Comp_tipo = 3 AND CompSaldo > 0 
+			AND Comp_fecha > DATEADD(mm, -6, getdate())
+			AND (SELECT COUNT(*) FROM UPCCOMPROD.dbo.SUMSER SS 
+				WHERE SS.SucCodigo = S.SucCodigo AND SS.Soc_numero = S.Soc_numero
+					AND (SS.Sumi_numer = C.Sumi_numer) 
+					AND SS.Sum2Servi = 1) > 0
 		;";
 	
 	//echo $sql;
