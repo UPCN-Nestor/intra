@@ -1,0 +1,39 @@
+{
+  "name": "upcn-header-lib",
+  "version": "4.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/username/repo"
+  },
+  "author": {
+    "name": "Nestor Echegoyen",
+    "email": "nestor.echegoyen@upcnecochea.com.ar"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/username/repo/issues"
+  },
+  "main": "upcn-header-lib.umd.js",
+  "module": "upcn-header-lib.js",
+  "jsnext:main": "upcn-header-lib.js",
+  "typings": "upcn-header-lib.d.ts",
+  "peerDependencies": {
+    "@angular/core": "^4.2.4",
+    "rxjs": "^5.4.2",
+    "zone.js": "^0.8.14",
+    "@angular/animations": "^4.2.4",
+    "@angular/common": "^4.2.4",
+    "@angular/compiler": "^4.2.4",
+    "@angular/forms": "^4.2.4",
+    "@angular/http": "^4.2.4",
+    "@angular/platform-browser": "^4.2.4",
+    "@angular/platform-browser-dynamic": "^4.2.4",
+    "@angular/router": "^4.2.4",
+    "core-js": "^2.4.1",
+    "font-awesome": "^4.7.0",
+    "primeng": "^4.3.0"
+  }
+}

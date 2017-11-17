@@ -1,0 +1,46 @@
+{
+  "name": "upcn-reporte-lib",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/username/repo"
+  },
+  "author": {
+    "name": "Nestor Echegoyen",
+    "email": "nestor.echegoyen@upcnecochea.com.ar"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/username/repo/issues"
+  },
+  "main": "reporte-lib.umd.js",
+  "module": "reporte-lib.js",
+  "jsnext:main": "reporte-lib.js",
+  "typings": "reporte-lib.d.ts",
+  "peerDependencies": {
+	"@angular/animations": "^4.2.4",
+    "@angular/cdk": "^2.0.0-beta.11",
+    "@angular/common": "^4.2.4",
+    "@angular/compiler": "^4.2.4",
+    "@angular/core": "^4.2.4",
+    "@angular/forms": "^4.2.4",
+    "@angular/http": "^4.2.4",
+    "@angular/platform-browser": "^4.2.4",
+    "@angular/platform-browser-dynamic": "^4.2.4",
+    "@angular/router": "^4.2.4",
+    "core-js": "^2.4.1",
+    "font-awesome": "^4.6.3",
+    "ng-block-ui": "^1.0.0-beta.15",
+    "ng2-date-picker": "^1.4.3",
+    "primeng": "^4.2.2",
+    "ts-helpers": "^1.1.1",
+    "rxjs": "^5.4.2",
+    "zone.js": "^0.8.14",
+    "chart.js": "^2.7.0",
+    "print-js": "^1.0.23",
+    "jquery": "^3.2.1"
+  }
+}
