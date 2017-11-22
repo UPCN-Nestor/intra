@@ -7,7 +7,7 @@ require_once 'loc.php';
 if (!securePage($_SERVER['PHP_SELF'])){ 
 	//header("Location: $loc");
 	//die();
-	echo json_encode("error");
+	echo json_encode("error de credenciales");
 }
 
 else

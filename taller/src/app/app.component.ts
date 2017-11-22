@@ -80,19 +80,32 @@ ngOnInit() {
 
 
 inicializarGrilla() {
-  let params: URLSearchParams = new URLSearchParams();
-  params.set('descripcion', 'abc');
 
-  /*
-  this.http.get(environment.baseUrl + 'php/userspice/tal_abmVehiculos.php', {withCredentials: true, search: params})
-    .toPromise().then(res => {
-      console.log(res);
-    });;*/
+  let paramg: URLSearchParams = new URLSearchParams();
+  paramg.set('id', '10');
   
-  this.http.post(environment.baseUrl + 'php/userspice/tal_abmVehiculos.php', params, {withCredentials: true})
+  this.http.get(environment.baseUrl + 'php/userspice/tal_tipos_vehiculos_r.php', {withCredentials: true, search: paramg})
     .toPromise().then(res => {
       console.log(res);
     });
+  
+  let params: URLSearchParams = new URLSearchParams();
+  params.set('id', '10');
+  //params.set('descripcion', 'cambiada');
+    /*
+  this.http.post(environment.baseUrl + 'php/userspice/tal_tipos_vehiculos_w.php', params, {withCredentials: true})
+    .toPromise().then(res => {
+      console.log(res);
+    });*/
+  this.http.delete(environment.baseUrl + 'php/userspice/tal_tipos_vehiculos_w.php', {withCredentials: true, search: params})
+    .toPromise().then(res => {
+      console.log(res);
+    });
+    /*
+  this.http.put(environment.baseUrl + 'php/userspice/tal_tipos_vehiculos_w.php', params, {withCredentials: true})
+    .toPromise().then(res => {
+      console.log(res);
+    });*/
 }
 
 
