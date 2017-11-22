@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
 
   user = '';
 
-  title = 'Reporte de Consumos';
+  title = 'Administración de Vehículos';
 
 baseURL = environment.baseUrl;
 cols : SelectItem[];
@@ -38,6 +38,8 @@ constructor(private http: Http, private el:ElementRef) {
 }
 
 ngOnInit() {
+
+  this.inicializarGrilla();
 
   this.defaultFilters["Periodo"] = {"desde" : "2016-07", "hasta" : "2020-01"};
   //this.defaultFilters["Consumo"] = "100000";
@@ -74,23 +76,28 @@ ngOnInit() {
 
   this.jsonURL = environment.baseUrl + 'php/userspice/getJSONConsumo.php';
   this.multiselectURL = environment.baseUrl + 'php/userspice/getOpcionesConsumo.php';
-  
-  //alert(this.jsonURL);
-  
-  // Los datos de login vienen desde afuera (no angular)
-  
-  /*
-  let data = new URLSearchParams();
-  data.append('username', 'admin');
-  data.append('password', 'password');
-
-  this.http.post('http://localhost:80/intra/php/userspice/users/login.php', data, {withCredentials: true} ).subscribe((response: Response)=> {
-          alert(response);
-    }, error => {
-        alert(error.json());
-        console.log(JSON.stringify(error.json()));
-    });*/
 }
+
+
+inicializarGrilla() {
+  let params: URLSearchParams = new URLSearchParams();
+  params.set('descripcion', 'abc');
+
+  /*
+  this.http.get(environment.baseUrl + 'php/userspice/tal_abmVehiculos.php', {withCredentials: true, search: params})
+    .toPromise().then(res => {
+      console.log(res);
+    });;*/
+  
+  this.http.post(environment.baseUrl + 'php/userspice/tal_abmVehiculos.php', params, {withCredentials: true})
+    .toPromise().then(res => {
+      console.log(res);
+    });
+}
+
+
+
+
 
 // Funciones para agrupar
 
