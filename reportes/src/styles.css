@@ -12,3 +12,7 @@ body {
 .colAgrupada {
 	background-color: red;
 }
+
+.dp-picker-input {
+    width: 100px !important;
+}

@@ -90,7 +90,7 @@ export class GridComponent implements OnInit {
       };      
       
       this.tiposGrafico =  [
-                  {value: 'line', label: 'Líneas' },
+                  {value: 'line', label: 'LÃ­neas' },
                   {value: 'pie', label: 'Circular' }
              ];
       
@@ -203,6 +203,7 @@ export class GridComponent implements OnInit {
           this.filas = this.sortBy(this.filas, this.selectedCol, this.orderAscDesc);
       }
       else {
+          this.filas = this.sortBy(this.filas, this.selectedCol, this.orderAscDesc);
           //this.filas = this.filasDesagrupado;
       }
       
@@ -455,9 +456,10 @@ export class GridComponent implements OnInit {
       this.selectedCol = event.field;
       this.orderAscDesc = event.order;
       let ascdesc =  (event.order == 1 ? "asc." : "desc.");
-      this.msg('info', 'Ordenamiento', 'Por ' + event.field + ', ' + ascdesc);
+      //this.msg('info', 'Ordenamiento', 'Por ' + event.field + ', ' + ascdesc);
       
-      //this.reloadChartData();
+      //this.doSort(event);
+      this.agruparChanged(event);
   }
   
   doSort(event) {

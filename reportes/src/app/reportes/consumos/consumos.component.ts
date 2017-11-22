@@ -29,13 +29,13 @@ export class ConsumosComponent implements OnInit {
 
     ngOnInit() {
                 
-        this.defaultFilters["Periodo"] = {"desde" : "201501", "hasta" : "202001"};
+        this.defaultFilters["Periodo"] = {"desde" : "2016-07", "hasta" : "2020-01"};
         //this.defaultFilters["Consumo"] = "100000";
         
         this.cols = [
-                     {value: 'Cons_area', label: '¡rea' },
-                     {value: 'ETTCodigo', label: 'CÛdigo' },
-                     {value: 'Cons_cate', label: 'CategorÌa' },
+                     {value: 'Cons_area', label: '√Årea' },
+                     {value: 'ETTCodigo', label: 'C√≥digo' },
+                     {value: 'Cons_cate', label: 'Categor√≠a' },
                      {value: 'Periodo', label: 'Periodo' },
                      {value: 'Consumo', label: 'Consumo' },
                      {value: 'Pico', label: 'Pico' },
@@ -43,7 +43,7 @@ export class ConsumosComponent implements OnInit {
                      {value: 'Valle', label: 'Valle' },
                      {value: 'Reactiva', label: 'Reactiva' },
                      {value: 'PotPico', label: 'Potencia pico' },
-                     {value: 'PotFPico', label: 'Pot. fuera de pico' }
+                     {value: 'PotFPico', label: 'Potencia f/pico' }
                  ];
         
         this.colsMetadata = { 
@@ -88,14 +88,14 @@ export class ConsumosComponent implements OnInit {
         let toRet = 0;
         for(var n of values)
             toRet += parseFloat(""+n);
-        return toRet / values.length;
+        return parseFloat((toRet / values.length).toFixed(2));
     }
     
     sum(values:number[]) : number {
         let toRet = 0;
         for(var n of values)
             toRet += parseFloat(""+n);
-        return toRet;
+        return parseFloat(toRet.toFixed(2));
     }
     
     range(values:number[]) : string {
