@@ -1,7 +1,7 @@
 <?php
 
 require_once 'users/init.php';
-require_once 'pdo.php';
+require_once 'pdo_glm.php';
 
 //if (!securePage($_SERVER['PHP_SELF'])){ die("{}");}
 //else

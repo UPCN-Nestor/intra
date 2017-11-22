@@ -1,7 +1,7 @@
 <?php
 
 require_once 'users/init.php';
-require_once 'pdo.php';
+require_once 'pdo_glm.php';
 require_once 'loc.php';
 
 if (!securePage($_SERVER['PHP_SELF'])){ 
@@ -13,18 +13,14 @@ if (!securePage($_SERVER['PHP_SELF'])){
 else
 try{
 	ini_set('memory_limit', '512M');
-	//SET NAMES 'utf8';
-	//echo "x";
-    //$pdo = new PDO ("odbc:UPCNDESA", "sa", "mateando");
 
 	// FILTROS
 	$desde = ""; $hasta = "";
 	$filters = json_decode($_GET["filters"], true);	
-	if (count($filters) > 0) {
-		$desde = str_replace($filters["Periodo"]["desde"], '-', '');
-		$hasta = str_replace($filters["Periodo"]["hasta"], '-', '');
-		//echo $desde;
-		//echo $hasta;
+
+	if (count($filters["Periodo"]) > 0) {
+		$desde = $filters["Periodo"]["desde"];
+		$hasta = $filters["Periodo"]["hasta"];
 	}
 	
 	if($desde == "")
@@ -39,14 +35,14 @@ try{
 	$sql = "
 SELECT Cons_area, ETTCodigo, Cons_cate, Periodo, Consumo, Pico, FPico, Valle, Reactiva, PotPico, PotFPico 
 FROM (		
-	SELECT Cons_area, ETTCodigo, Cons_cate, CAST(Cons_ano AS varchar(4)) + RIGHT(REPLICATE('0', 2) + '-' + CAST(Cons_mes AS varchar(2)), 2) AS Periodo,
-       SUM(Cons_consu) AS Consumo,
-       SUM(Cons_conpi * Cons_multi) AS Pico,
-       SUM(Cons_confp * Cons_multi) AS FPico,
-       SUM(Cons_conva * Cons_multi) AS Valle,
-       SUM(Cons_coner * Cons_multi) AS Reactiva,
-       SUM(Cons_potde * Cons_multi) AS PotPico,
-       SUM(Cons_potfu * Cons_multi) AS PotFPico
+	SELECT Cons_area, ETTCodigo, Cons_cate, CAST(Cons_ano AS varchar(4)) + '-' + RIGHT(REPLICATE('0', 2) + CAST(Cons_mes AS varchar(2)), 2) AS Periodo,
+       CONVERT(DECIMAL(10,2), SUM(Cons_consu)) AS Consumo,
+       CONVERT(DECIMAL(10,2), SUM(Cons_conpi * Cons_multi)) AS Pico,
+       CONVERT(DECIMAL(10,2), SUM(Cons_confp * Cons_multi)) AS FPico,
+       CONVERT(DECIMAL(10,2), SUM(Cons_conva * Cons_multi)) AS Valle,
+       CONVERT(DECIMAL(10,2), SUM(Cons_coner * Cons_multi)) AS Reactiva,
+       CONVERT(DECIMAL(10,2), SUM(Cons_potde * Cons_multi)) AS PotPico,
+       CONVERT(DECIMAL(10,2), SUM(Cons_potfu * Cons_multi)) AS PotFPico
 	FROM UPCCOMPROD.dbo.CONSUM CO JOIN UPCCOMPROD.dbo.EPRE02 E2 ON (CO.Cons_sucur = E2.ETTSucurs AND CO.Cons_Serv = E2.ETTServic AND CO.Cons_cate = E2.ETTCatego) 
 	WHERE Cons_sucur = 1 AND Cons_serv = 1 AND Cons_ano >= $desde_ano
 	GROUP BY Cons_area, ETTCodigo, Cons_cate, Cons_ano, Cons_mes) B

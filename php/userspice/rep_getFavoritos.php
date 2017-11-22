@@ -1,6 +1,7 @@
 <?php
 
 require_once 'users/init.php';
+require_once 'pdo_mysql.php';
 
 //if (!securePage($_SERVER['PHP_SELF'])){ die("{}");}
 //else
@@ -8,7 +9,6 @@ try{
 	ini_set('memory_limit', '512M');
 	//SET NAMES 'utf8';
 	
-    $pdo = new PDO("mysql:host=localhost;dbname=userspice", "root", "bitnami");
 
 	$grid = $_GET['grid'];
 	$u = $user->data()->id;
