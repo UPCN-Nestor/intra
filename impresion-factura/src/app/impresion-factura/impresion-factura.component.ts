@@ -62,7 +62,7 @@ export class ImpresionFacturaComponent implements OnInit {
       this.url_deuda = environment.baseUrl + 'php/userspice/factura_getDeuda.php';
       this.url_socios = environment.baseUrl + 'php/userspice/factura_getSocios.php';
  
-      this.url_factura_individual = environment.baseUrl + 'php/userspice/getFactura.php';
+      this.url_factura_individual = environment.baseUrl + 'php/userspice/factura_getFactura.php';
       
       this.renderer.addClass(document.body, 'fondo_upc'); 
               
