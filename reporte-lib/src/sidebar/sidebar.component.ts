@@ -26,7 +26,7 @@ export class SidebarComponent implements OnInit {
   
   constructor(private http:Http, private confirmationService: ConfirmationService) {
       this.user = 1;
-      this.grid = "consumos";
+      //this.grid = "consumos";
   }
 
   ngOnInit() {
@@ -43,7 +43,7 @@ export class SidebarComponent implements OnInit {
       let params: URLSearchParams = new URLSearchParams();
       params.set('grid', this.grid);
 
-      return this.http.get(this.backendURL + 'php/userspice/getFavoritos.php', {withCredentials: true, search: params})
+      return this.http.get(this.backendURL + 'php/userspice/rep_getFavoritos.php', {withCredentials: true, search: params})
                   .toPromise()
                   .then(res => <SidebarElement[]> res.json())
                   .then(data => { this.loading = false; return data; });
@@ -57,7 +57,7 @@ export class SidebarComponent implements OnInit {
           accept: () => {
               let params: URLSearchParams = new URLSearchParams();
               params.set('id', id);
-              this.http.get(this.backendURL + 'php/userspice/delFavorito.php', {withCredentials: true, search: params})
+              this.http.get(this.backendURL + 'php/userspice/rep_delFavorito.php', {withCredentials: true, search: params})
                   .toPromise()
                   .then(res => res.json()); // Acá podría devolver OK o error.
               
@@ -71,7 +71,7 @@ export class SidebarComponent implements OnInit {
       let params: URLSearchParams = new URLSearchParams();
       params.set('id', consulta.id);
   
-      this.http.get(this.backendURL + 'php/userspice/useFavorito.php', {withCredentials: true, search: params})
+      this.http.get(this.backendURL + 'php/userspice/rep_useFavorito.php', {withCredentials: true, search: params})
                   .toPromise()
                   .then(res => <SidebarElement[]> res.json())
                   .then(data => { return data; });

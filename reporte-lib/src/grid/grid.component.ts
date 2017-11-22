@@ -429,7 +429,7 @@ export class GridComponent implements OnInit {
       let filtros = JSON.stringify(this.filters);
       params.set('filtros', filtros);
       
-      this.http.get(this.backendURL + 'php/userspice/addFavorito.php', {withCredentials: true, search: params})
+      this.http.get(this.backendURL + 'php/userspice/rep_addFavorito.php', {withCredentials: true, search: params})
           .toPromise()
           .then(res => res.json()) // Acá podría devolver OK o error.
           .then(data => { this.sidebar.select({id: data[0].id}, false); return data; });
