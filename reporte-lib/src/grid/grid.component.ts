@@ -29,6 +29,9 @@ export class GridComponent implements OnInit {
  
   filteredValues : Fila[];
   
+  @Input() mostrarGrafico : boolean;
+  @Input() mostrarSidebar : boolean;
+
   @ViewChild(SidebarComponent) sidebar:SidebarComponent;
   @Input() nombreGrid = "";
   @Input() tituloGrid = "";
@@ -506,7 +509,21 @@ export class GridComponent implements OnInit {
   }
   
   getStyle(col) {
-      return this.colsMetadata[col].orden == "numerico" ? {'text-align' : 'right'} : {};
+    let style = {};
+    if (this.colsMetadata[col].orden == "numerico") 
+        style['text-align'] = 'right';
+    if (this.colsMetadata[col].iconoBoton) 
+        style['width'] = '48px';  
+
+    return style;
+  }
+
+  gridButtonClick(fila, col){
+    this.colsMetadata[col.value]["accionBoton"](fila);
+  } 
+
+  refreshGrid() {
+    this.agruparChanged(null);
   }
   
 

@@ -47,7 +47,8 @@ export class ConsumosComponent implements OnInit {
                  ];
         
         this.colsMetadata = { 
-                              'Cons_area': { 'orden' : 'alfabetico', 'filtro': this.inArray, 'inputFiltro': 'multiselect' },    
+                              'Cons_area': { 'orden' : 'alfabetico', 'filtro': this.inArray, 'inputFiltro': 'multiselect', 
+                                    iconoBoton: 'fa-edit', accionBoton: this.click, tooltipBoton: 'Editar' },    
                               'ETTCodigo': { 'orden' : 'alfabetico', 'filtro': this.inArray, 'inputFiltro': 'multiselect' },
                               'Cons_cate': { 'orden' : 'numerico', 'filtro': this.inArray, 'inputFiltro': 'multiselect' },
                               'Periodo': { 'orden' : 'alfabetico', 'filtro': this.inDateRange, 'inputFiltro': 'date', lazy: true},
@@ -82,6 +83,11 @@ export class ConsumosComponent implements OnInit {
           });*/
     }
     
+
+    click(fila) {
+        alert(fila.Cons_area);
+    }
+
     // Funciones para agrupar
     
     avg(values:number[]) : number {

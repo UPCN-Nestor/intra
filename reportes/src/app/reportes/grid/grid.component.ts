@@ -38,6 +38,8 @@ export class GridComponent implements OnInit {
   @Input() colsMetadata : {};
   @Input() jsonURL : string;
   @Input() multiselectURL : string;
+  @Input() mostrarGrafico : boolean;
+  @Input() mostrarSidebar : boolean;
     
   @Input() selectedCol : string;
   orderAscDesc = "1";
@@ -504,10 +506,25 @@ export class GridComponent implements OnInit {
       this.msgs = [];
   }
   
+
   getStyle(col) {
-      return this.colsMetadata[col].orden == "numerico" ? {'text-align' : 'right'} : {};
+    let style = {};
+    if (this.colsMetadata[col].orden == "numerico") 
+        style['text-align'] = 'right';
+    if (this.colsMetadata[col].iconoBoton) 
+        style['width'] = '48px';  
+
+    return style;
   }
-  
+
+  gridButtonClick(fila, col){
+    this.colsMetadata[col.value]["accionBoton"](fila);
+  } 
+
+  refreshGrid() {
+    this.agruparChanged(null);
+  }
+
 
 
   // AUX   

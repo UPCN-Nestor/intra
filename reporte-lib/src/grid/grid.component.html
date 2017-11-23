@@ -2,7 +2,7 @@
 <script src="http://blueimp.github.io/JavaScript-MD5/js/md5.js"></script>
 
 <div class="ui-g">
-<div class="ui-g-9">
+<div class="{{mostrarSidebar ? 'ui-g-9' : ''}}">
 
 <p-toolbar>
     <div class="ui-toolbar-group-left">
@@ -44,7 +44,17 @@
 				{{filters[col.value][0]}} a {{filters[col.value][1]}}
 				<p-slider [(ngModel)]="filters[col.value]" [range]="true"></p-slider>
 			</div>    
-    	</ng-template>	    
+		</ng-template>	 
+		
+		<ng-template let-fila="rowData" pTemplate="body">
+			<div *ngIf="colsMetadata[col.value] ? colsMetadata[col.value].iconoBoton :_false">
+				<button style="vertical-align: middle" type="button" pButton [icon]="colsMetadata[col.value].iconoBoton" iconPos="left" 
+					(click)="gridButtonClick(fila, col)" [pTooltip]="colsMetadata[col.value].tooltipBoton"></button>
+			</div>
+			<div *ngIf="colsMetadata[col.value] ? !colsMetadata[col.value].iconoBoton :_false">
+				{{fila[col.value]}}  
+			</div>         
+        </ng-template>
 	</p-column>		
 
 </p-dataTable>
@@ -55,12 +65,12 @@
 
 </div>
 
-<div class="ui-g-3">
+<div class="ui-g-3" *ngIf="mostrarSidebar">
 	<app-sidebar #sb [backendURL]="backendURL" user="1" [grid]="nombreGrid" (changed)="cargarConsultaSeleccionada($event, sb)"></app-sidebar>
 </div>
 
 
-<div class="ui-g-8">
+<div class="ui-g-8" *ngIf="mostrarGrafico">
 
 <button style="vertical-align: middle" pButton type="button" (click)="refreshChart()" icon="fa-refresh" label="Actualizar"></button>
 Tipo: <p-dropdown [options]="tiposGrafico" [(ngModel)]="tipoGrafico" (onChange)="reloadChartData()"></p-dropdown>
