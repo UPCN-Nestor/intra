@@ -37,11 +37,12 @@ switch ($method) {
 	catch(PDOException $e) { echo $e->getMessage();	}
     break;
 	
-  case 'GET':		
-	// Read. Sin parámetros devuelve todo. Soporta un parámetro de la forma ?campo=valor (ej. ?id=1)
-	$where = '';
-	foreach($_GET as $key => $value)
-		$where = "WHERE $key = '$value'";
+  case 'GET':		// Read. Sin parámetros devuelve todo. Soporta una cláusula "where" definida antes de llamar a abm.php, o bien un parámetro de la forma ?campo=valor (ej. ?id=1)
+	if(!isset($where)) {
+		$where = '';
+		foreach($_GET as $key => $value)
+			$where = "WHERE $key = '$value'";
+	}
 	
 	$sql = "SELECT * FROM $tabla $where";
 

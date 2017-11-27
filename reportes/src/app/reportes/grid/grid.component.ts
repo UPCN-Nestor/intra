@@ -57,7 +57,10 @@ export class GridComponent implements OnInit {
   msgs : Message[] = [];
   
   chartData : any;
-  
+   
+  datePickerConfigMes : IDatePickerConfig;
+  datePickerConfigDia : IDatePickerConfig;
+
   tiposGrafico: SelectItem[]; 
   tipoGrafico: string = "";
   chartX : string = "";
@@ -86,22 +89,49 @@ export class GridComponent implements OnInit {
       this.filters = this.defaultFilters;
       
       this.tipoGrafico = "line";          
-  
-      this.datePickerConfig = { appendTo : "body", format: "YYYY-MM", disableKeypress: true, 
-              monthBtnFormatter : m => { return this.mesesEspanol[m.month()] }                                 
-      };      
-      
+      this.datePickerConfigMes = { appendTo : "body", format: "YYYY-MM", disableKeypress: true, 
+        monthBtnFormatter : m => { return this.mesesEspanol[m.month()] }                                 
+        };     
+      this.datePickerConfigDia = { appendTo : "body", format: "YYYY-MM-DD", disableKeypress: true, 
+                monthBtnFormatter : m => { return this.mesesEspanol[m.month()] }                                 
+        };        
+            
       this.tiposGrafico =  [
                   {value: 'line', label: 'Líneas' },
                   {value: 'pie', label: 'Circular' }
              ];
+
+      // Inicializo multiselects con arrays vacíos
+      this.multiselectValues = {};      
+      this.cols.forEach(c => {
+        if(this.colsMetadata[c.value].inputFiltro == "multiselect")
+          this.multiselectValues[c.value] = [];
+      });
       
-      this.multiselectValues = {};
-      
+      // Inicializo pares id:datos de dependencias foráneas (para campos id_*)^
+
       this.getFilas().then(f => { 
           this.filas = f; 
           this.filasDesagrupado = this.filas;
           
+          // Multiselect 2.0, basado en los datos que se traen
+          this.cols.forEach(c => {
+            this.multiselectValues[c.value] = [];
+            if(this.colsMetadata[c.value].inputFiltro == "multiselect") {
+                this.filters[c.value]=[];
+                let uniques = this.filas.map(f => f[c.value]).filter((x,i,a)=>a.indexOf(x)==i).sort((a:string,b:string)=>{ return a>b ? 1 : -1; });
+                uniques.forEach(u => {
+                    if(this.multiselectValues[c.value]) 
+                        this.multiselectValues[c.value].push({label: u, value: u})
+                    else
+                        this.multiselectValues[c.value] = [{label: u, value: u}];
+                });
+            }
+
+            this.inicializarForaneas();
+            
+          });
+
           this.loading = false;
           this.agruparChanged(null);
       });
@@ -114,6 +144,7 @@ export class GridComponent implements OnInit {
           
           if(this.colsMetadata[c.value].inputFiltro == "date")              
               this.filters[c.value]={"desde" : "", "hasta" : ""};
+              /*
           else if(this.colsMetadata[c.value].inputFiltro == "multiselect") {
               this.filters[c.value]=[];
               this.getMultiselectValues(c.value).then(res => { 
@@ -125,14 +156,18 @@ export class GridComponent implements OnInit {
                                   this.multiselectValues[c.value] = [{label: a, value: a}];
                       });                      
                   });                      
-          }
-          else
+          }*/
+          else if(this.colsMetadata[c.value].inputFiltro !== "multiselect")
               this.filters[c.value]="";                
       });
          
       //this.agruparChanged(null);
   }
   
+    
+        
+    
+
   msg(severity, summary, detail)
   {
       let sev = severity;
@@ -146,7 +181,7 @@ export class GridComponent implements OnInit {
       let params: URLSearchParams = new URLSearchParams();
       params.set('campo', col);
   
-      return this.http.get(this.multiselectURL, {withCredentials: true, search: params})
+      return this.http.get(this.colsMetadata[col].multiselectURL, {withCredentials: true, search: params})
           .toPromise()
       /*
       let toRet = [];      
@@ -379,8 +414,7 @@ export class GridComponent implements OnInit {
   
   onDateHastaChange(event, col) {
       if(this.loading) return;
-      
-      this.msgs.push({severity:'info', summary:'hst', detail:''});  
+
       if(typeof event === "object")
           this.filters[col]['hasta'] = event.format("YYYYMM");
       else
@@ -391,10 +425,8 @@ export class GridComponent implements OnInit {
     
   manualFilter(field, value) {
       if(this.loading) return;
-      
-      this.msgs.push({severity:'info', summary:'mf', detail:''});  
-      this.debounce( (field,value) => {
-          this.msgs.push({severity:'info', summary:'deb', detail:''});  
+
+      this.debounce( (field,value) => { 
           this.filters[field] = value;
           this.checkLazyLoad(field);
       },
@@ -494,18 +526,7 @@ export class GridComponent implements OnInit {
       return filas;
   }
   
-  onClick(dt: DataTable) {
-      this.msgs.push({severity:'info', summary:'dt', detail:''});
-  }
 
-  show() {
-      this.msgs.push({severity:'info', summary:'Info', detail:'' + this.selectedCol});
-  }
-  
-  hide() {
-      this.msgs = [];
-  }
-  
 
   getStyle(col) {
     let style = {};
@@ -523,6 +544,35 @@ export class GridComponent implements OnInit {
 
   refreshGrid() {
     this.agruparChanged(null);
+  }
+
+
+  rowClick(e, dt) {
+    //console.log(dt);
+    //if(this.agruparCol != "")
+    //    this.msg('info', 'Info', 'No se puede editar en modo Agrupado');
+    //else
+        e.data.isEditing=true;
+  }
+
+  inicializarForaneas() {
+      this.cols.forEach(c => {
+          if(this.colsMetadata[c.value].fk_url) {
+            this.http.get(this.colsMetadata[c.value].fk_url, {withCredentials: true})
+                .toPromise().then(d => {
+                    let toRet = [];
+                    let mostrar = this.colsMetadata[c.value].fk_mostrar;
+                    d.json().forEach(x => toRet.push({'value': x.id, 'label': x[mostrar]}));                
+                    this.multiselectValues[c.value] = toRet;
+                });
+          }        
+      });
+  }
+
+  getMostrarFk(col, val) {
+    if(!this.multiselectValues[col]) 
+        return;
+    return this.multiselectValues[col].filter(x=>x.value==val).length > 0 ? this.multiselectValues[col].filter(x=>x.value==val)[0].label : "";
   }
 
 

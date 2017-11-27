@@ -65,7 +65,8 @@ export class GridComponent implements OnInit {
   chartX : string = "";
   chartY : string = "";
  
-  datePickerConfig : IDatePickerConfig;
+  datePickerConfigMes : IDatePickerConfig;
+  datePickerConfigDia : IDatePickerConfig;
   mesesEspanol = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
   
   mostrarPopupGuardar = false;
@@ -89,8 +90,12 @@ export class GridComponent implements OnInit {
       
       this.tipoGrafico = "line";          
   
-      this.datePickerConfig = { appendTo : "body", format: "YYYY-MM", disableKeypress: true, 
-              monthBtnFormatter : m => { return this.mesesEspanol[m.month()] }                                 
+      this.datePickerConfigMes = { appendTo : "body", format: "YYYY-MM", disableKeypress: true, 
+            monthBtnFormatter : m => { return this.mesesEspanol[m.month()] }                                 
+      };     
+      this.datePickerConfigDia = { appendTo : "body", format: "YYYY-MM-DD", disableKeypress: true, 
+            monthBtnFormatter : m => { return this.mesesEspanol[m.month()] },
+            weekdayNames: {su: 'D',mo: 'L',tu: 'M',we: 'X',th: 'J',fr: 'V',sa: 'S'}                                     
       };      
       
       this.tiposGrafico =  [
@@ -99,11 +104,32 @@ export class GridComponent implements OnInit {
              ];
       
       this.multiselectValues = {};
-      
+
+      // Inicializo multiselects con arrays vacíos
+      this.cols.forEach(c => {
+        if(this.colsMetadata[c.value].inputFiltro == "multiselect")
+            this.multiselectValues[c.value] = [];
+        });
+
       this.getFilas().then(f => { 
           this.filas = f; 
           this.filasDesagrupado = this.filas;
-          
+
+        // Multiselect 2.0, basado en los datos que se traen
+          this.cols.forEach(c => {
+            this.multiselectValues[c.value] = [];
+            if(this.colsMetadata[c.value].inputFiltro == "multiselect") {
+                this.filters[c.value]=[];
+                let uniques = this.filas.map(f => f[c.value]).filter((x,i,a)=>a.indexOf(x)==i).sort((a:string,b:string)=>{ return a>b ? 1 : -1; });
+                uniques.forEach(u => {
+                    if(this.multiselectValues[c.value]) 
+                        this.multiselectValues[c.value].push({label: u, value: u})
+                    else
+                        this.multiselectValues[c.value] = [{label: u, value: u}];
+                });
+            }
+            });
+                      
           this.loading = false;
           this.agruparChanged(null);
       });
@@ -114,8 +140,9 @@ export class GridComponent implements OnInit {
           if(this.filters[c.value])
               return;
           
-          if(this.colsMetadata[c.value].inputFiltro == "date")              
+          if(this.colsMetadata[c.value].inputFiltro == "dateRangeMes" || this.colsMetadata[c.value].inputFiltro == "dateRangeDia")              
               this.filters[c.value]={"desde" : "", "hasta" : ""};
+              /*
           else if(this.colsMetadata[c.value].inputFiltro == "multiselect") {
               this.filters[c.value]=[];
               this.getMultiselectValues(c.value).then(res => { 
@@ -127,7 +154,7 @@ export class GridComponent implements OnInit {
                                   this.multiselectValues[c.value] = [{label: a, value: a}];
                       });                      
                   });                      
-          }
+          }*/
           else
               this.filters[c.value]="";                
       });
@@ -143,13 +170,13 @@ export class GridComponent implements OnInit {
       this.msgs.push({severity: sev, summary: summary, detail: detail });
   }
  
-  
+  // SIN USO
   getMultiselectValues(col) : any {
       let params: URLSearchParams = new URLSearchParams();
       params.set('campo', col);
   
-      return this.http.get(this.multiselectURL, {withCredentials: true, search: params})
-          .toPromise()
+      return this.http.get(this.colsMetadata[col].multiselectURL, {withCredentials: true, search: params})
+        .toPromise();
       /*
       let toRet = [];      
       this.filasDesagrupado.map(x => x[col]).filter(this.onlyUnique).forEach(u => toRet.push({label: u, value: u}));
@@ -370,7 +397,7 @@ export class GridComponent implements OnInit {
   onDateDesdeChange(event, col) {
       if(this.loading) return;
       
-      this.msgs.push({severity:'info', summary:'dsd', detail:''});  
+      //this.msgs.push({severity:'info', summary:'dsd', detail:''});  
       if(typeof event === "object")
           this.filters[col]['desde'] = event.format("YYYYMM");
       else
@@ -382,7 +409,7 @@ export class GridComponent implements OnInit {
   onDateHastaChange(event, col) {
       if(this.loading) return;
       
-      this.msgs.push({severity:'info', summary:'hst', detail:''});  
+      //this.msgs.push({severity:'info', summary:'hst', detail:''});  
       if(typeof event === "object")
           this.filters[col]['hasta'] = event.format("YYYYMM");
       else
@@ -394,9 +421,9 @@ export class GridComponent implements OnInit {
   manualFilter(field, value) {
       if(this.loading) return;
       
-      this.msgs.push({severity:'info', summary:'mf', detail:''});  
+      //this.msgs.push({severity:'info', summary:'mf', detail:''});  
       this.debounce( (field,value) => {
-          this.msgs.push({severity:'info', summary:'deb', detail:''});  
+          //this.msgs.push({severity:'info', summary:'deb', detail:''});  
           this.filters[field] = value;
           this.checkLazyLoad(field);
       },
@@ -467,6 +494,8 @@ export class GridComponent implements OnInit {
   }
   
   doSort(event) {
+      if(this.filas.length == 0)
+        return;   
 
       this.filas = this.sortBy(this.filas, event.field, event.order);
       this.msg('info', 'Ordenamiento', this.filas[0][event.field]);

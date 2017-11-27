@@ -21,45 +21,42 @@ export class AppComponent implements OnInit {
 
   user = '';
 
-  title = 'Administración de Vehículos';
+  title = 'Administración de Taller';
 
-baseURL = environment.baseUrl;
-cols : SelectItem[];
-colsMetadata : {};    
-selectedCol : string;
-jsonURL : string;
-multiselectURL : string;
-//baseURL: string;
-defaultFilters : {} = {};
+  baseURL = environment.baseUrl;
+  cols : SelectItem[];
+  colsMetadata : {};    
+  selectedCol : string;
+  jsonURL : string;
 
-constructor(private http: Http, private el:ElementRef) { 
-  //alert(el.nativeElement.getAttribute('base'));
-  //this.baseURL = el.nativeElement.getAttribute('base');        
+  //baseURL: string;
+  defaultFilters : {} = {};
+
+  constructor(private http: Http, private el:ElementRef) { 
+    //alert(el.nativeElement.getAttribute('base'));
+    //this.baseURL = el.nativeElement.getAttribute('base');        
 }
 
 ngOnInit() {
 
-  this.inicializarGrilla();
+  //this.inicializarGrilla();
 
-  this.defaultFilters["Periodo"] = {"desde" : "2016-07", "hasta" : "2020-01"};
+  this.defaultFilters["fecha_creacion"] = {desde: "2017-01-01", hasta: "2017-12"};
   //this.defaultFilters["Consumo"] = "100000";
   
   this.cols = [
-               {value: 'Cons_area', label: 'Área' },
-               {value: 'ETTCodigo', label: 'Código' },
-               {value: 'Cons_cate', label: 'Categoría' },
-               {value: 'Periodo', label: 'Periodo' },
-               {value: 'Consumo', label: 'Consumo' },
-               {value: 'Pico', label: 'Pico' },
-               {value: 'FPico', label: 'Fuera de pico' },
-               {value: 'Valle', label: 'Valle' },
-               {value: 'Reactiva', label: 'Reactiva' },
-               {value: 'PotPico', label: 'Potencia pico' },
-               {value: 'PotFPico', label: 'Potencia f/pico' }
+               {value: 'fecha_creacion', label: 'Fecha inicio' },
+               {value: 'fecha_cierre', label: 'Fecha fin' },
+               {value: 'factura_numero', label: 'Nº Factura'},
+               
            ];
   
   this.colsMetadata = { 
-                        'Cons_area': { 'orden' : 'alfabetico', 'filtro': this.inArray, 'inputFiltro': 'multiselect' },    
+                        fecha_creacion: { orden : 'alfabetico', filtro: this.inDateRange, inputFiltro: 'dateRangeMes', lazy: true },
+                        fecha_cierre: { orden : 'alfabetico', filtro: this.inDateRange, inputFiltro: 'dateRangeDia', lazy: true },
+                        factura_numero: { orden : 'alfabetico', inputFiltro: 'text'}
+                        
+                        /*    
                         'ETTCodigo': { 'orden' : 'alfabetico', 'filtro': this.inArray, 'inputFiltro': 'multiselect' },
                         'Cons_cate': { 'orden' : 'numerico', 'filtro': this.inArray, 'inputFiltro': 'multiselect' },
                         'Periodo': { 'orden' : 'alfabetico', 'filtro': this.inDateRange, 'inputFiltro': 'date', lazy: true},
@@ -69,13 +66,12 @@ ngOnInit() {
                         'Valle': { 'orden': 'numerico', 'agrupado': this.sum, 'filtro': this.mayor, 'inputFiltro': 'text' },
                         'Reactiva': { 'orden': 'numerico', 'agrupado': this.sum, 'filtro': this.mayor, 'inputFiltro': 'text' },
                         'PotPico': { 'orden': 'numerico', 'agrupado': this.sum, 'filtro': this.mayor, 'inputFiltro': 'text' },
-                        'PotFPico': { 'orden': 'numerico', 'agrupado': this.sum, 'filtro': this.mayor, 'inputFiltro': 'text' }
+                        'PotFPico': { 'orden': 'numerico', 'agrupado': this.sum, 'filtro': this.mayor, 'inputFiltro': 'text' }*/
   };
         
-  this.selectedCol = "Cons_area";     
+  this.selectedCol = "fecha_creacion";     
 
-  this.jsonURL = environment.baseUrl + 'php/userspice/getJSONConsumo.php';
-  this.multiselectURL = environment.baseUrl + 'php/userspice/getOpcionesConsumo.php';
+  this.jsonURL = environment.baseUrl + 'php/userspice/tal_tareas_r.php';
 }
 
 

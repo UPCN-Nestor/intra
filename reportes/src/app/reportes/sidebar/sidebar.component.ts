@@ -42,7 +42,7 @@ export class SidebarComponent implements OnInit {
       let params: URLSearchParams = new URLSearchParams();
       params.set('grid', this.grid);
 
-      return this.http.get(environment.baseUrl + 'php/userspice/getFavoritos.php', {withCredentials: true, search: params})
+      return this.http.get(environment.baseUrl + 'php/userspice/rep_getFavoritos.php', {withCredentials: true, search: params})
                   .toPromise()
                   .then(res => <SidebarElement[]> res.json())
                   .then(data => { this.loading = false; return data; });

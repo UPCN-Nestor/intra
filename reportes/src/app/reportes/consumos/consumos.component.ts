@@ -28,7 +28,44 @@ export class ConsumosComponent implements OnInit {
     }
 
     ngOnInit() {
+             
+        //this.inicializarGrilla();
+
+        this.defaultFilters["fecha_creacion"] = {desde: "2017-01-01", hasta: "2017-12"};
+        //this.defaultFilters["Consumo"] = "100000";
+        
+        this.cols = [
+                    {value: 'fecha_creacion', label: 'Fecha inicio' },
+                    {value: 'fecha_cierre', label: 'Fecha fin' },
+                    {value: 'factura_numero', label: 'Nº Factura'},
+                    {value: 'id_vehiculo', label: 'Vehículo'}
+                    
+                ];
+        
+        this.colsMetadata = { 
+                                fecha_creacion: { orden : 'alfabetico', filtro: this.inDateRange, inputFiltro: 'dateRangeMes', lazy: true },
+                                fecha_cierre: { orden : 'alfabetico', filtro: this.inDateRange, inputFiltro: 'dateRangeDia', lazy: true },
+                                factura_numero: { orden : 'alfabetico', inputFiltro: 'text'},
+                                id_vehiculo: { orden: 'numerico', 'filtro': this.inArray, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_vehiculos_r.php',
+                                    fk_mostrar:'descripcion'}
+                                /*    
+                                'ETTCodigo': { 'orden' : 'alfabetico', 'filtro': this.inArray, 'inputFiltro': 'multiselect' },
+                                'Cons_cate': { 'orden' : 'numerico', 'filtro': this.inArray, 'inputFiltro': 'multiselect' },
+                                'Periodo': { 'orden' : 'alfabetico', 'filtro': this.inDateRange, 'inputFiltro': 'date', lazy: true},
+                                'Consumo': { 'orden': 'numerico', 'agrupado': this.sum, 'filtro': this.mayor, 'inputFiltro': 'text', tooltip: 'En <<unidad>>' },      
+                                'Pico': { 'orden': 'numerico', 'agrupado': this.sum, 'filtro': this.mayor, 'inputFiltro': 'text' },
+                                'FPico': { 'orden': 'numerico', 'agrupado': this.sum, 'filtro': this.mayor, 'inputFiltro': 'text' },
+                                'Valle': { 'orden': 'numerico', 'agrupado': this.sum, 'filtro': this.mayor, 'inputFiltro': 'text' },
+                                'Reactiva': { 'orden': 'numerico', 'agrupado': this.sum, 'filtro': this.mayor, 'inputFiltro': 'text' },
+                                'PotPico': { 'orden': 'numerico', 'agrupado': this.sum, 'filtro': this.mayor, 'inputFiltro': 'text' },
+                                'PotFPico': { 'orden': 'numerico', 'agrupado': this.sum, 'filtro': this.mayor, 'inputFiltro': 'text' }*/
+        };
                 
+        this.selectedCol = "fecha_creacion";     
+
+        this.jsonURL = environment.baseUrl + 'php/userspice/tal_tareas_r.php';
+            
+        /*
         this.defaultFilters["Periodo"] = {"desde" : "2016-07", "hasta" : "2020-01"};
         //this.defaultFilters["Consumo"] = "100000";
         
@@ -48,10 +85,13 @@ export class ConsumosComponent implements OnInit {
         
         this.colsMetadata = { 
                               'Cons_area': { 'orden' : 'alfabetico', 'filtro': this.inArray, 'inputFiltro': 'multiselect', 
+                                    multiselectURL: environment.baseUrl + 'php/userspice/getOpcionesConsumo.php',
                                     iconoBoton: 'fa-edit', accionBoton: this.click, tooltipBoton: 'Editar' },    
-                              'ETTCodigo': { 'orden' : 'alfabetico', 'filtro': this.inArray, 'inputFiltro': 'multiselect' },
-                              'Cons_cate': { 'orden' : 'numerico', 'filtro': this.inArray, 'inputFiltro': 'multiselect' },
-                              'Periodo': { 'orden' : 'alfabetico', 'filtro': this.inDateRange, 'inputFiltro': 'date', lazy: true},
+                              'ETTCodigo': { 'orden' : 'alfabetico', 'filtro': this.inArray, 'inputFiltro': 'multiselect',
+                                    multiselectURL: environment.baseUrl + 'php/userspice/getOpcionesConsumo.php' },
+                              'Cons_cate': { 'orden' : 'numerico', 'filtro': this.inArray, 'inputFiltro': 'multiselect',
+                                    multiselectURL: environment.baseUrl + 'php/userspice/getOpcionesConsumo.php' },
+                              'Periodo': { 'orden' : 'alfabetico', 'filtro': this.inDateRange, 'inputFiltro': 'dateRangeMes', lazy: true},
                               'Consumo': { 'orden': 'numerico', 'agrupado': this.sum, 'filtro': this.mayor, 'inputFiltro': 'text', tooltip: 'En <<unidad>>' },      
                               'Pico': { 'orden': 'numerico', 'agrupado': this.sum, 'filtro': this.mayor, 'inputFiltro': 'text' },
                               'FPico': { 'orden': 'numerico', 'agrupado': this.sum, 'filtro': this.mayor, 'inputFiltro': 'text' },
@@ -64,12 +104,12 @@ export class ConsumosComponent implements OnInit {
         this.selectedCol = "Cons_area";     
       
         this.jsonURL = environment.baseUrl + 'php/userspice/getJSONConsumo.php';
-        this.multiselectURL = environment.baseUrl + 'php/userspice/getOpcionesConsumo.php';
+        //this.multiselectURL = environment.baseUrl + 'php/userspice/getOpcionesConsumo.php';
         
         //alert(this.jsonURL);
         
         // Los datos de login vienen desde afuera (no angular)
-        
+        */
         /*
         let data = new URLSearchParams();
         data.append('username', 'admin');

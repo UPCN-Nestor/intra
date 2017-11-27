@@ -18,6 +18,7 @@ import { ConfirmDialogModule, DataTableModule,SharedModule, DataTable, DropdownM
     PanelModule, InputTextModule, SliderModule, ButtonModule, DialogModule, OverlayPanelModule, MultiSelectModule, ToolbarModule, PasswordModule, DataGridModule, TooltipModule, InputMaskModule,
     DataListModule, ChartModule } from 'primeng/primeng';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AbmComponent } from './reportes/abm/abm.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HeaderComponent,
     SidebarComponent,
     ChartComponent,
-    GridComponent
+    GridComponent,
+    AbmComponent
   ],
   imports: [
     BlockUIModule,

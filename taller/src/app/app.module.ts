@@ -10,6 +10,11 @@ import { HeaderModule } from 'upcn-header-lib';
 import { GridModule } from 'upcn-reporte-lib';
 
 
+// Imports para llevar a lib ABM
+import { ButtonModule, ToolbarModule } from 'primeng/primeng';
+
+
+
 @NgModule({
   declarations: [
     AppComponent
@@ -19,7 +24,9 @@ import { GridModule } from 'upcn-reporte-lib';
     FormsModule,
     HttpModule,
     HeaderModule.forRoot(),
-    GridModule.forRoot()
+    GridModule.forRoot(),
+    // Imports para llevar a lib ABM
+    ToolbarModule, ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

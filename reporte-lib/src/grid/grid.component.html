@@ -29,10 +29,18 @@
 			<div style="text-align:center;" *ngIf="colsMetadata[col.value] ? colsMetadata[col.value].inputFiltro == 'text' : 0"> 
 				<input type="text" size="6" pInputText (input)="manualFilter(col.value, $event.target.value)" [value]="filters[col.value]"/>
 			</div>
-			<div style="text-align:center;" *ngIf="colsMetadata[col.value] ? colsMetadata[col.value].inputFiltro == 'date' : 0"> 
-				<div id="dateAnchor">
-				<dp-date-picker placeholder="desde..." type="month" [ngModel]="filters[col.value]['desde']" (ngModelChange)="onDateDesdeChange($event, col.value)" [config]="datePickerConfig"></dp-date-picker>
-				<dp-date-picker placeholder="hasta..." type="month" [ngModel]="filters[col.value]['hasta']" (ngModelChange)="onDateHastaChange($event, col.value)" [config]="datePickerConfig"></dp-date-picker>
+			<div id="dateAnchor">
+				<div style="text-align:center;" *ngIf="colsMetadata[col.value] ? colsMetadata[col.value].inputFiltro == 'dateRangeMes' : 0"> 
+					<div >
+					<dp-date-picker placeholder="desde..." type="month" [ngModel]="filters[col.value]['desde']" (ngModelChange)="onDateDesdeChange($event, col.value)" [config]="datePickerConfigMes"></dp-date-picker>
+					<dp-date-picker placeholder="hasta..." type="month" [ngModel]="filters[col.value]['hasta']" (ngModelChange)="onDateHastaChange($event, col.value)" [config]="datePickerConfigMes"></dp-date-picker>
+					</div>
+				</div>
+				<div style="text-align:center;" *ngIf="colsMetadata[col.value] ? colsMetadata[col.value].inputFiltro == 'dateRangeDia' : 0"> 
+					<div id="dateAnchor">
+					<dp-date-picker placeholder="desde..." [ngModel]="filters[col.value]['desde']" (ngModelChange)="onDateDesdeChange($event, col.value)" [config]="datePickerConfigDia"></dp-date-picker>
+					<dp-date-picker placeholder="hasta..." [ngModel]="filters[col.value]['hasta']" (ngModelChange)="onDateHastaChange($event, col.value)" [config]="datePickerConfigDia"></dp-date-picker>
+					</div>
 				</div>
 			</div>
 			<div style="text-align:center;" *ngIf="colsMetadata[col.value] ? colsMetadata[col.value].inputFiltro == 'multiselect' : 0"> 
