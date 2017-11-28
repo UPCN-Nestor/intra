@@ -1,3 +1,5 @@
+import { TaskRunner } from 'protractor/built/taskRunner';
+
 import { Component, OnInit, Injectable, Input, ViewChild, Inject } from '@angular/core';
 import {HttpModule, Response, Http, Headers,URLSearchParams} from '@angular/http';
 
@@ -5,7 +7,7 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/debounceTime';
 
 import { DataTableModule,SharedModule, DataTable, DropdownModule, SelectItem, GrowlModule, Message, CheckboxModule, DragDropModule, 
-    PanelModule, InputTextModule, SliderModule, ButtonModule, DialogModule , OverlayPanelModule, MultiSelectModule, TooltipModule} from 'primeng/primeng';
+    PanelModule, InputTextModule, SliderModule, ButtonModule, DialogModule , OverlayPanelModule, MultiSelectModule, TooltipModule, PaginatorModule} from 'primeng/primeng';
 
 import { SidebarComponent } from '../sidebar/sidebar.component';
 
@@ -37,6 +39,7 @@ export class GridComponent implements OnInit {
   colsParaAgrupar : SelectItem[];
   @Input() colsMetadata : {};
   @Input() jsonURL : string;
+  @Input() writeURL : string;
   @Input() multiselectURL : string;
   @Input() mostrarGrafico : boolean;
   @Input() mostrarSidebar : boolean;
@@ -46,6 +49,9 @@ export class GridComponent implements OnInit {
   agruparCol: string = "";
   
   agrupar : boolean = false;
+
+  accion : number = 0; // Consultar: 0, Nuevo: 1, Editar: 2
+  editRow : {};
 
   totales : {}
   
@@ -126,12 +132,10 @@ export class GridComponent implements OnInit {
                     else
                         this.multiselectValues[c.value] = [{label: u, value: u}];
                 });
-            }
-
-            this.inicializarForaneas();
-            
+            }        
           });
-
+          
+          this.inicializarForaneas();
           this.loading = false;
           this.agruparChanged(null);
       });
@@ -142,7 +146,7 @@ export class GridComponent implements OnInit {
           if(this.filters[c.value])
               return;
           
-          if(this.colsMetadata[c.value].inputFiltro == "date")              
+          if(this.colsMetadata[c.value].inputFiltro == "dateRangeMes" || this.colsMetadata[c.value].inputFiltro == "dateRangeDia")              
               this.filters[c.value]={"desde" : "", "hasta" : ""};
               /*
           else if(this.colsMetadata[c.value].inputFiltro == "multiselect") {
@@ -462,7 +466,7 @@ export class GridComponent implements OnInit {
       let filtros = JSON.stringify(this.filters);
       params.set('filtros', filtros);
       
-      this.http.get(environment.baseUrl + 'php/userspice/addFavorito.php', {withCredentials: true, search: params})
+      this.http.get(environment.baseUrl + 'php/userspice/rep_addFavorito.php', {withCredentials: true, search: params})
           .toPromise()
           .then(res => res.json()) // Acá podría devolver OK o error.
           .then(data => { this.sidebar.select({id: data[0].id}, false); return data; });
@@ -549,10 +553,16 @@ export class GridComponent implements OnInit {
 
   rowClick(e, dt) {
     //console.log(dt);
-    //if(this.agruparCol != "")
-    //    this.msg('info', 'Info', 'No se puede editar en modo Agrupado');
-    //else
-        e.data.isEditing=true;
+    if(this.agruparCol != "") {
+        this.msg('info', 'Info', 'No se puede editar en modo Agrupado');
+        return;
+    }
+    if(this.accion > 0)
+        return;
+    
+    dt.dataToRender.forEach(f=> f.isEditing = false);
+
+    this.editarIniciar(e);
   }
 
   inicializarForaneas() {
@@ -575,6 +585,55 @@ export class GridComponent implements OnInit {
     return this.multiselectValues[col].filter(x=>x.value==val).length > 0 ? this.multiselectValues[col].filter(x=>x.value==val)[0].label : "";
   }
 
+  editarNuevo(dt) {
+    this.accion = 1;    
+    this.editRow = { isEditing:true };
+    this.filas =  [ this.editRow, ...this.filas ];
+    this.filasDesagrupado =  [ ...this.filasDesagrupado, this.editRow ];
+  }
+
+  editarIniciar(e) {
+    this.accion = 2;
+    this.editRow = e.data;
+    e.data.isEditing=true;
+  }
+
+  editarAceptar(dt) {
+    dt.dataToRender.forEach(f=> f.isEditing = false);
+
+    let params: URLSearchParams = new URLSearchParams();
+    this.cols.forEach(c => { 
+        params.set(c.value, this.editRow[c.value]);
+    });
+
+    if(this.editRow["id"])  // Update
+        this.http.put(this.writeURL, params, {withCredentials: true}).toPromise().then(res => {
+            //this.msg("info","info","Editado id " + this.editRow["id"]);
+            console.log(res);
+            this.accion = 0;
+        });
+    else {        
+        this.http.post(this.writeURL, params, {withCredentials: true}).toPromise().then(res => {
+            //this.msg("info","info","Nuevo insertado");
+            console.log(res);
+            if(res.json()[0] == "error") 
+                this.editarCancelar(dt);
+            else {
+                this.editRow["id"] = res.json();
+                this.accion = 0;
+            }
+        });
+    }
+  }
+
+  editarCancelar(dt) {
+    if(this.accion==1) {
+        this.filas = this.filas.filter(f=> f["id"]);
+        this.filasDesagrupado = this.filasDesagrupado.filter(f=> f["id"]);
+    }
+    this.accion = 0;
+    dt.dataToRender.forEach(f=> f.isEditing = false);
+  }
 
 
   // AUX   
@@ -619,5 +678,5 @@ class Group<T> {
 
 
 interface Fila {
-
+ 
 }

@@ -9,7 +9,13 @@
 
 <p-toolbar>
     <div class="ui-toolbar-group-left">
-		 <font size="+1">{{tituloGrid}}</font>
+		<table><tr><td>
+			<div *ngIf="accion==0"><button style="vertical-align: middle; background-color:rgb(255, 174, 0);" type="button" pButton icon="fa-plus" iconPos="left" (click)="editarNuevo(dt)"></button></div>
+			<div *ngIf="accion>0"><button style="vertical-align: middle; background-color:rgb(17, 202, 0);" type="button" pButton icon="fa-check" iconPos="left" (click)="editarAceptar(dt)"></button>			
+				<button style="vertical-align: middle; background-color:rgb(236, 0, 0);" type="button" pButton icon="fa-times" iconPos="left" (click)="editarCancelar(dt)"></button></div>			
+		</td><td><div style="width:15px"></div></td><td>
+		 	<font size="+1">{{tituloGrid}}</font>
+		</td></tr></table>
     </div>
     	
     <div class="ui-toolbar-group-right">
@@ -20,13 +26,13 @@
 </p-toolbar>
 
 <p-dataTable #dt [value]="filas" sortMode="single" [sortField]="selectedCol" [sortOrder]="orderAscDesc" (onSort)="onSort($event)" 	
-	[rows]="20" [paginator]="true" [pageLinks]="3" loadingIcon="fa-spinner" [loading]="loading" emptyMessage="Sin datos..."
-	(onRowClick)="rowClick($event, dt)"
+	[rows]="20" [paginator]="true" [pageLinks]="3" loadingIcon="fa-circle-o-notch" [loading]="loading" emptyMessage="Sin datos..."
+	(onRowClick)="rowClick($event, dt)" 
 	>
 		
 	<p-column *ngFor="let col of cols" [field]="col.value" sortable="custom" (sortFunction)="doSort($event)" 
-		[footer]="totales[col.value]"  [style]="getStyle(col.value)">
-   			
+		[footer]="totales[col.value]"  [style]="getStyle(col.value)" [hidden]="colsMetadata[col.value].hidden">
+
 		<ng-template pTemplate="header" >
 			<div style="text-align:center;" tooltipPosition="top" pTooltip="{{colsMetadata[col.value].tooltip ? colsMetadata[col.value].tooltip : ''}}" showDelay="0"
 				tooltipStyleClass="tooltip">{{col.label}}</div>	
@@ -64,12 +70,18 @@
 					(click)="gridButtonClick(fila, col)" [pTooltip]="colsMetadata[col.value].tooltipBoton"></button>
 			</div>
 			<div *ngIf="colsMetadata[col.value] ? !colsMetadata[col.value].iconoBoton :_false">
-				<div *ngIf="fila.isEditing">[E]</div>
-				 
-				<div *ngIf="colsMetadata[col.value].fk_mostrar">{{getMostrarFk(col.value, fila[col.value])}}</div>
-				<div *ngIf="!colsMetadata[col.value].fk_mostrar">{{fila[col.value]}}</div>
+				<div *ngIf="fila.isEditing">
+					<div> 
+						<input type="text" size="10" pInputText [(ngModel)]="editRow[col.value]"/>
+					</div>
+				</div>
+				<div *ngIf="!fila.isEditing">
+					<div *ngIf="colsMetadata[col.value].fk_mostrar">{{getMostrarFk(col.value, fila[col.value])}}</div>
+					<div *ngIf="!colsMetadata[col.value].fk_mostrar">{{fila[col.value]}}</div>
+				</div>
 			</div>         
-        </ng-template>
+		</ng-template>
+
 	</p-column>		
 
 </p-dataTable>

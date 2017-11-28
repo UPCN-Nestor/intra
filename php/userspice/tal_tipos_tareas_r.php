@@ -2,9 +2,6 @@
 	$page = $_SERVER['PHP_SELF'];
 	require('check_permissions.php');
 
-	$tabla = "tal_tareas";
-	
-	$filters = json_decode($_GET["filters"], true);	  
-		
+	$tabla = "tal_tipos_tareas";
 	include('abm.php');
 ?>

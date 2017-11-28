@@ -56,7 +56,7 @@ export class SidebarComponent implements OnInit {
           accept: () => {
               let params: URLSearchParams = new URLSearchParams();
               params.set('id', id);
-              this.http.get(environment.baseUrl + 'php/userspice/delFavorito.php', {withCredentials: true, search: params})
+              this.http.get(environment.baseUrl + 'php/userspice/rep_delFavorito.php', {withCredentials: true, search: params})
                   .toPromise()
                   .then(res => res.json()); // Acá podría devolver OK o error.
               
@@ -70,7 +70,7 @@ export class SidebarComponent implements OnInit {
       let params: URLSearchParams = new URLSearchParams();
       params.set('id', consulta.id);
   
-      this.http.get(environment.baseUrl + 'php/userspice/useFavorito.php', {withCredentials: true, search: params})
+      this.http.get(environment.baseUrl + 'php/userspice/rep_useFavorito.php', {withCredentials: true, search: params})
                   .toPromise()
                   .then(res => <SidebarElement[]> res.json())
                   .then(data => { return data; });

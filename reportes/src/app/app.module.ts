@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -16,7 +17,7 @@ import { BlockUIModule } from 'ng-block-ui';
 
 import { ConfirmDialogModule, DataTableModule,SharedModule, DataTable, DropdownModule, SelectItem, GrowlModule, Message, CheckboxModule, DragDropModule, MessagesModule,
     PanelModule, InputTextModule, SliderModule, ButtonModule, DialogModule, OverlayPanelModule, MultiSelectModule, ToolbarModule, PasswordModule, DataGridModule, TooltipModule, InputMaskModule,
-    DataListModule, ChartModule } from 'primeng/primeng';
+    DataListModule, ChartModule, PaginatorModule } from 'primeng/primeng';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AbmComponent } from './reportes/abm/abm.component';
 
@@ -57,7 +58,8 @@ import { AbmComponent } from './reportes/abm/abm.component';
     TooltipModule,    
     InputMaskModule,
     ChartModule,
-    DpDatePickerModule
+    DpDatePickerModule,
+    PaginatorModule
   ],
   exports: [
     HttpModule

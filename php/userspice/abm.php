@@ -19,7 +19,7 @@ switch ($method) {
 	
 	echo $sql;
 	
-	try{ $q = $pdo->exec($sql); echo $q; }
+	try{ $q = $pdo->exec($sql); }
 	catch(PDOException $e) { echo $e->getMessage();	}
     break;
 	
@@ -33,11 +33,30 @@ switch ($method) {
 		$sql = $sql . "'$value',";
 	$sql = substr($sql, 0, -1) . ");";
 	
-	try{ $q = $pdo->exec($sql); echo $q; }
-	catch(PDOException $e) { echo $e->getMessage();	}
+	try{ $q = $pdo->exec($sql); 
+		$res = $pdo->lastInsertId();
+		echo json_encode($res, JSON_PARTIAL_OUTPUT_ON_ERROR);
+	}
+	catch(PDOException $e) { echo '["error"]';	}
     break;
 	
-  case 'GET':		// Read. Sin parámetros devuelve todo. Soporta una cláusula "where" definida antes de llamar a abm.php, o bien un parámetro de la forma ?campo=valor (ej. ?id=1)
+  case 'GET':		// Read. Sin parámetros devuelve todo. Soporta una cláusula "where" definida a partir de un diccionario "$filters", o bien un parámetro GET de la forma ?campo=valor (ej. ?id=1)
+  	$where = 'WHERE';
+	if(isset($filters)) foreach($filters as $key => $value) {			
+		if (strpos($key, 'fecha') !== false) {
+			$desde = strlen($value['desde'])==7 ? $value['desde'] . '-01' : $value['desde'];
+			$hasta = strlen($value['hasta'])==7 ? $value['hasta'] . '-01' : $value['hasta'];
+			
+			$where .= " $key >= '$desde' AND $key < '$hasta' AND";
+		}
+		else {
+			$where .= " $key = '$value' AND";
+		}
+	}
+	if(strlen($where)==5)
+		unset($where);
+	else $where=substr($where, 0, -4);
+	
 	if(!isset($where)) {
 		$where = '';
 		foreach($_GET as $key => $value)

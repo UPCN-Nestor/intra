@@ -18,6 +18,7 @@ export class ConsumosComponent implements OnInit {
     colsMetadata : {};    
     selectedCol : string;
     jsonURL : string;
+    writeURL : string;
     multiselectURL : string;
     //baseURL: string;
     defaultFilters : {} = {};
@@ -35,19 +36,27 @@ export class ConsumosComponent implements OnInit {
         //this.defaultFilters["Consumo"] = "100000";
         
         this.cols = [
+                    {value: 'id', label: ''},
                     {value: 'fecha_creacion', label: 'Fecha inicio' },
                     {value: 'fecha_cierre', label: 'Fecha fin' },
                     {value: 'factura_numero', label: 'Nº Factura'},
-                    {value: 'id_vehiculo', label: 'Vehículo'}
+                    {value: 'id_vehiculo', label: 'Vehículo'},
+                    {value: 'id_tipo_tarea', label: 'Tipo tarea'},
+                    {value: 'id_responsable', label: 'Responsable'}
                     
                 ];
         
         this.colsMetadata = { 
+                                id: { xhidden: 'true '},
                                 fecha_creacion: { orden : 'alfabetico', filtro: this.inDateRange, inputFiltro: 'dateRangeMes', lazy: true },
                                 fecha_cierre: { orden : 'alfabetico', filtro: this.inDateRange, inputFiltro: 'dateRangeDia', lazy: true },
-                                factura_numero: { orden : 'alfabetico', inputFiltro: 'text'},
-                                id_vehiculo: { orden: 'numerico', 'filtro': this.inArray, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_vehiculos_r.php',
-                                    fk_mostrar:'descripcion'}
+                                factura_numero: { orden : 'alfabetico', filtro: this.inArray, inputFiltro: 'text'},
+                                id_vehiculo: { orden: 'alfabetico', filtro: this.inArray, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_vehiculos_r.php',
+                                    fk_mostrar:'descripcion'},
+                                id_tipo_tarea: { orden: 'alfabetico', filtro: this.inArray, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_tipos_tareas_r.php',
+                                    fk_mostrar:'nombre'},
+                                id_responsable: { orden: 'alfabetico', filtro: this.inArray, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_responsables_r.php',
+                                    fk_mostrar:'nombre'}
                                 /*    
                                 'ETTCodigo': { 'orden' : 'alfabetico', 'filtro': this.inArray, 'inputFiltro': 'multiselect' },
                                 'Cons_cate': { 'orden' : 'numerico', 'filtro': this.inArray, 'inputFiltro': 'multiselect' },
@@ -64,7 +73,7 @@ export class ConsumosComponent implements OnInit {
         this.selectedCol = "fecha_creacion";     
 
         this.jsonURL = environment.baseUrl + 'php/userspice/tal_tareas_r.php';
-            
+        this.writeURL = environment.baseUrl + 'php/userspice/tal_tareas_w.php';   
         /*
         this.defaultFilters["Periodo"] = {"desde" : "2016-07", "hasta" : "2020-01"};
         //this.defaultFilters["Consumo"] = "100000";
