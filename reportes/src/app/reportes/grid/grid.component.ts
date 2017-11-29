@@ -2,6 +2,7 @@ import { TaskRunner } from 'protractor/built/taskRunner';
 
 import { Component, OnInit, Injectable, Input, ViewChild, Inject } from '@angular/core';
 import {HttpModule, Response, Http, Headers,URLSearchParams} from '@angular/http';
+import {DatePipe} from '@angular/common';
 
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/debounceTime';
@@ -409,9 +410,9 @@ export class GridComponent implements OnInit {
       
       this.msgs.push({severity:'info', summary:'dsd', detail:''});  
       if(typeof event === "object")
-          this.filters[col]['desde'] = event.format("YYYYMM");
+          this.filters[col]['desde'] = event.format("YYYY-MM-DD");
       else
-          this.filters[col]['desde'] = event;
+          this.filters[col]['desde'] = event.length == 7 ? event + "-01" : event;
       
       this.checkLazyLoad(col); 
   }
@@ -420,13 +421,20 @@ export class GridComponent implements OnInit {
       if(this.loading) return;
 
       if(typeof event === "object")
-          this.filters[col]['hasta'] = event.format("YYYYMM");
+          this.filters[col]['hasta'] = event.format("YYYY-MM-DD");
       else
-          this.filters[col]['hasta'] = event;
+          this.filters[col]['hasta'] = event.length == 7 ? event + "-31" : event;
       
       this.checkLazyLoad(col);   
   }
     
+  onDateChange(event, col) {
+    if(typeof event === "object")
+        this.editRow[col] = event.format("YYYY-MM-DD");
+    else
+        this.editRow[col] = event.length == 7 ? event + "-01" : event;
+  }
+
   manualFilter(field, value) {
       if(this.loading) return;
 

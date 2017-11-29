@@ -1,0 +1,133 @@
+
+
+SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion < '2017-12-01'
+SELECT * FROM tal_vehiculos 
+SELECT * FROM tal_tipos_tareas 
+SELECT * FROM tal_responsables 
+2017-11-29 07:39:18\tSELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-02-01' AND fecha_creacion < '2017-12-01' AND fecha_cierre >= '' AND fecha_cierre < ''
+2017-11-29 07:40:21	SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion < '2017-12-01'
+2017-11-29 07:40:24	SELECT * FROM tal_vehiculos 
+2017-11-29 07:40:24	SELECT * FROM tal_tipos_tareas 
+2017-11-29 07:40:24	SELECT * FROM tal_responsables 
+2017-11-29 07:40:40	SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-02-01' AND fecha_creacion < '2017-12-01' AND fecha_cierre >= '' AND fecha_cierre < ''
+2017-11-29 07:40:50	SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion < '2017-12-01' AND fecha_cierre >= '' AND fecha_cierre < ''
+2017-11-29 07:41:00	SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-02-01' AND fecha_creacion < '2017-12-01' AND fecha_cierre >= '' AND fecha_cierre < ''
+2017-11-29 07:41:01	SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion < '2017-12-01' AND fecha_cierre >= '' AND fecha_cierre < ''
+2017-11-29 07:41:08	SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-02-01' AND fecha_creacion < '2017-12-01' AND fecha_cierre >= '' AND fecha_cierre < ''
+2017-11-29 07:41:50	SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion < '2017-12-01'
+2017-11-29 07:41:53	SELECT * FROM tal_vehiculos 
+2017-11-29 07:41:53	SELECT * FROM tal_tipos_tareas 
+2017-11-29 07:41:53	SELECT * FROM tal_responsables 
+2017-11-29 07:43:59	SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion < '2017-12-01'
+2017-11-29 07:44:02	SELECT * FROM tal_vehiculos 
+2017-11-29 07:44:03	SELECT * FROM tal_tipos_tareas 
+2017-11-29 07:44:03	SELECT * FROM tal_responsables 
+2017-11-29 07:45:14	SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion < '2017-11-01' AND fecha_cierre >= '' AND fecha_cierre < ''
+2017-11-29 07:48:17	SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion < '2017-12-01'
+2017-11-29 07:48:20	SELECT * FROM tal_vehiculos 
+2017-11-29 07:48:20	SELECT * FROM tal_tipos_tareas 
+2017-11-29 07:48:21	SELECT * FROM tal_responsables 
+2017-11-29 07:48:50	SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion < '2017-12-01'
+2017-11-29 07:48:53	SELECT * FROM tal_vehiculos 
+2017-11-29 07:48:53	SELECT * FROM tal_tipos_tareas 
+2017-11-29 07:48:53	SELECT * FROM tal_responsables 
+2017-11-29 07:48:56	SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-02-01' AND fecha_creacion < '2017-12-01' AND fecha_cierre >= '' AND fecha_cierre < ''
+2017-11-29 07:51:38	SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion < '2017-12-01' AND fecha_cierre >= '' AND fecha_cierre < ''
+2017-11-29 07:51:47	SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion < '2017-12-01'
+2017-11-29 07:51:51	SELECT * FROM tal_vehiculos 
+2017-11-29 07:51:52	SELECT * FROM tal_tipos_tareas 
+2017-11-29 07:51:52	SELECT * FROM tal_responsables 
+2017-11-29 07:52:28		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-02-01' AND fecha_creacion < '2017-12-01' AND fecha_cierre >= '' AND fecha_cierre < ''
+2017-11-29 07:55:49		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion < '2017-12-01' AND fecha_cierre >= '1000-01-01' AND fecha_cierre < '9999-01-01'
+2017-11-29 07:56:18		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion < '2017-12-01'
+2017-11-29 07:56:19		SELECT * FROM tal_vehiculos 
+2017-11-29 07:56:19		SELECT * FROM tal_tipos_tareas 
+2017-11-29 07:56:19		SELECT * FROM tal_responsables 
+2017-11-29 07:56:33		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-02-01' AND fecha_creacion < '2017-12-01' AND fecha_cierre >= '1000-01-01' AND fecha_cierre < '9999-01-01'
+2017-11-29 07:56:37		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-02-01' AND fecha_creacion < '2017-12-01' AND fecha_cierre >= '2017-11-01' AND fecha_cierre < '9999-01-01'
+2017-11-29 07:56:40		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-02-01' AND fecha_creacion < '2017-12-01' AND fecha_cierre >= '2017-11-01' AND fecha_cierre < '2017-11-30'
+2017-11-29 07:56:42		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-02-01' AND fecha_creacion < '2017-12-01' AND fecha_cierre >= '2017-11-01' AND fecha_cierre < '2017-11-14'
+2017-11-29 07:56:44		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-02-01' AND fecha_creacion < '2017-12-01' AND fecha_cierre >= '2017-11-01' AND fecha_cierre < '2017-11-15'
+2017-11-29 07:56:45		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-02-01' AND fecha_creacion < '2017-12-01' AND fecha_cierre >= '2017-11-01' AND fecha_cierre < '2017-11-16'
+2017-11-29 07:57:45		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-03-01' AND fecha_creacion <= '2017-12-01' AND fecha_cierre >= '2017-11-01' AND fecha_cierre <= '2017-11-16'
+2017-11-29 07:57:47		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01' AND fecha_cierre >= '2017-11-01' AND fecha_cierre <= '2017-11-16'
+2017-11-29 07:57:51		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01' AND fecha_cierre >= '2017-11-01' AND fecha_cierre <= '2017-11-30'
+2017-11-29 07:57:54		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-11-01' AND fecha_cierre >= '2017-11-01' AND fecha_cierre <= '2017-11-30'
+2017-11-29 07:59:05		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-10-01' AND fecha_cierre >= '2017-11-01' AND fecha_cierre <= '2017-11-30'
+2017-11-29 07:59:06		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-11-01' AND fecha_cierre >= '2017-11-01' AND fecha_cierre <= '2017-11-30'
+2017-11-29 08:01:44		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-10-01' AND fecha_creacion <= '2017-11-01' AND fecha_cierre >= '2017-11-01' AND fecha_cierre <= '2017-11-30'
+2017-11-29 08:01:56		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-11-29 08:02:00		SELECT * FROM tal_vehiculos 
+2017-11-29 08:02:00		SELECT * FROM tal_tipos_tareas 
+2017-11-29 08:02:00		SELECT * FROM tal_responsables 
+2017-11-29 08:02:08		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-02-01' AND fecha_creacion <= '2017-12-01' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '9999-01-01'
+2017-11-29 08:02:18		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-02-01' AND fecha_creacion <= '2017-10-01' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '9999-01-01'
+2017-11-29 08:02:54		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-11-29 08:03:01		SELECT * FROM tal_vehiculos 
+2017-11-29 08:03:01		SELECT * FROM tal_tipos_tareas 
+2017-11-29 08:03:01		SELECT * FROM tal_responsables 
+2017-11-29 08:03:09		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-02-01' AND fecha_creacion <= '2017-12-01' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '9999-01-01'
+2017-11-29 08:26:59		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-11-29 08:27:02		SELECT * FROM tal_vehiculos 
+2017-11-29 08:27:02		SELECT * FROM tal_tipos_tareas 
+2017-11-29 08:27:02		SELECT * FROM tal_responsables 
+2017-11-29 08:27:14		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-22'
+2017-11-29 08:27:16		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01' AND fecha_cierre >= '2017-11-01' AND fecha_cierre <= '2017-11-22'
+2017-11-29 08:27:18		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-03-01' AND fecha_creacion <= '2017-12-01' AND fecha_cierre >= '2017-11-01' AND fecha_cierre <= '2017-11-22'
+2017-11-29 08:27:52		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-11-29 08:27:54		SELECT * FROM tal_vehiculos 
+2017-11-29 08:27:54		SELECT * FROM tal_tipos_tareas 
+2017-11-29 08:27:54		SELECT * FROM tal_responsables 
+2017-11-29 08:27:57		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-29'
+2017-11-29 08:28:19		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
+2017-11-29 08:28:32		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-11-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
+2017-11-29 08:28:42		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-07-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
+2017-11-29 08:28:45		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-08-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
+2017-11-29 08:29:00		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-11-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
+2017-11-29 08:29:01		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-07-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
+2017-11-29 08:29:22		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-08-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
+2017-11-29 08:29:53		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-07-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
+2017-11-29 08:40:47		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-08-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
+2017-11-29 08:40:49		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-07-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
+2017-11-29 08:40:50		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-06-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
+2017-11-29 08:40:52		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-07-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
+2017-11-29 08:40:59		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-08-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
+2017-11-29 08:41:02		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-07-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
+2017-11-29 08:41:04		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-08-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
+2017-11-29 08:41:05		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-09-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
+2017-11-29 08:41:06		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-08-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
+2017-11-29 08:41:17		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-06-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
+2017-11-29 08:41:19		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-07-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
+2017-11-29 08:41:21		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-08-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
+2017-11-29 08:41:57		SELECT * FROM tal_tareas WHERE filters = '{}'
+2017-11-29 08:48:36		SELECT * FROM tal_tareas WHERE filters = '{}'
+2017-11-29 08:51:17		SELECT * FROM tal_tareas 
+2017-11-29 08:54:12		SELECT * FROM tal_tareas 
+2017-11-29 08:54:16		SELECT * FROM tal_vehiculos 
+2017-11-29 08:54:16		SELECT * FROM tal_tipos_tareas 
+2017-11-29 08:54:16		SELECT * FROM tal_responsables 
+2017-11-29 08:54:28		SELECT * FROM tal_tareas 
+2017-11-29 08:54:32		SELECT * FROM tal_vehiculos 
+2017-11-29 08:54:32		SELECT * FROM tal_responsables 
+2017-11-29 08:54:32		SELECT * FROM tal_tipos_tareas 
+2017-11-29 09:55:01		SELECT * FROM tal_tareas WHERE fecha_cierre >= '2017-11-01' AND fecha_cierre <= '9999-01-01'
+2017-11-29 09:55:03		SELECT * FROM tal_tareas WHERE fecha_cierre >= '2017-11-01' AND fecha_cierre <= '2017-11-16'
+2017-11-29 09:55:05		SELECT * FROM tal_tareas WHERE fecha_cierre >= '2017-11-01' AND fecha_cierre <= '2017-11-15'
+2017-11-29 09:55:06		SELECT * FROM tal_tareas WHERE fecha_cierre >= '2017-11-01' AND fecha_cierre <= '2017-11-14'
+2017-11-29 09:55:08		SELECT * FROM tal_tareas WHERE fecha_cierre >= '2017-11-01' AND fecha_cierre <= '2017-11-23'
+2017-11-29 09:55:27		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-11-29 09:55:31		SELECT * FROM tal_vehiculos 
+2017-11-29 09:55:31		SELECT * FROM tal_tipos_tareas 
+2017-11-29 09:55:31		SELECT * FROM tal_responsables 
+2017-11-29 10:26:02		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-11-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '9999-01-01'
+2017-11-29 10:26:03		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-10-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '9999-01-01'
+2017-11-29 10:26:05		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-08-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '9999-01-01'
+2017-11-29 10:26:06		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-07-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '9999-01-01'
+2017-11-29 10:26:15		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-08-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '9999-01-01'
+2017-11-29 10:26:17		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-07-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '9999-01-01'
+2017-11-29 10:26:18		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-06-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '9999-01-01'
+2017-11-29 10:26:52		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-07-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '9999-01-01'
+2017-11-29 10:26:56		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-08-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '9999-01-01'
+2017-11-29 10:26:57		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-07-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '9999-01-01'
+2017-11-29 10:26:58		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-06-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '9999-01-01'
+2017-11-29 10:27:00		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-07-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '9999-01-01'

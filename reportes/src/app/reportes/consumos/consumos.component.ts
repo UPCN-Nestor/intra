@@ -32,7 +32,7 @@ export class ConsumosComponent implements OnInit {
              
         //this.inicializarGrilla();
 
-        this.defaultFilters["fecha_creacion"] = {desde: "2017-01-01", hasta: "2017-12"};
+        this.defaultFilters["fecha_creacion"] = {desde: "2017-01-01", hasta: "2017-12-01"};
         //this.defaultFilters["Consumo"] = "100000";
         
         this.cols = [
@@ -183,9 +183,10 @@ export class ConsumosComponent implements OnInit {
     }
     
     inDateRange(d:string, dr:any) : boolean {
-        let inicio = dr["desde"] ? parseInt(dr["desde"]) : -Number.MAX_VALUE;
-        let fin = dr["hasta"] ? parseInt(dr["hasta"]) : Number.MAX_VALUE;
-        let fecha = parseInt(d);
+        var re = new RegExp('-', 'g');        
+        let inicio = dr["desde"] ? parseInt(dr["desde"].replace(re,'')) : -Number.MAX_VALUE;
+        let fin = dr["hasta"] ? parseInt(dr["hasta"].replace(re,'')) : Number.MAX_VALUE;
+        let fecha = parseInt(d.replace(re,''));
         //alert(inicio + " " + fin + " " + fecha);
         return fecha >= inicio && fecha <= fin;                
     }

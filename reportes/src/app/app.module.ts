@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { CommonModule} from '@angular/common';
 import { AppComponent } from './app.component';
 import { GridComponent } from './reportes/grid/grid.component';
 import { ChartComponent } from './reportes/chart/chart.component';
@@ -59,7 +60,8 @@ import { AbmComponent } from './reportes/abm/abm.component';
     InputMaskModule,
     ChartModule,
     DpDatePickerModule,
-    PaginatorModule
+    PaginatorModule,
+    CommonModule
   ],
   exports: [
     HttpModule

@@ -6,6 +6,7 @@ require_once 'pdo_mysql.php';
 $pdo->query("SET NAMES 'utf8'");
 
 require_once 'cors.php';
+require_once 'log.php';
 
 switch ($method) {
   case 'PUT':		// Update
@@ -17,9 +18,9 @@ switch ($method) {
 	$id = $_PUT['id'];
 	$sql = substr($sql, 0, -1) . " WHERE id = $id;";
 	
-	echo $sql;
+	//echo $sql;
 	
-	try{ $q = $pdo->exec($sql); }
+	try{ $q = $pdo->exec($sql); echo $q; }
 	catch(PDOException $e) { echo $e->getMessage();	}
     break;
 	
@@ -45,26 +46,29 @@ switch ($method) {
 	if(isset($filters)) foreach($filters as $key => $value) {			
 		if (strpos($key, 'fecha') !== false) {
 			$desde = strlen($value['desde'])==7 ? $value['desde'] . '-01' : $value['desde'];
-			$hasta = strlen($value['hasta'])==7 ? $value['hasta'] . '-01' : $value['hasta'];
+			$hasta = strlen($value['hasta'])==7 ? $value['hasta'] . '-31' : $value['hasta'];
 			
-			$where .= " $key >= '$desde' AND $key < '$hasta' AND";
+			if($desde=="") $desde='1000-01-01';
+			if($hasta=="") $hasta='9999-01-01';
+			
+			$where .= " $key >= '$desde' AND $key <= '$hasta' AND";
 		}
 		else {
 			$where .= " $key = '$value' AND";
 		}
 	}
 	if(strlen($where)==5)
-		unset($where);
+		$where="";
 	else $where=substr($where, 0, -4);
 	
-	if(!isset($where)) {
-		$where = '';
+	if(!isset($filters) && strlen($where)==0) {
 		foreach($_GET as $key => $value)
 			$where = "WHERE $key = '$value'";
 	}
 	
 	$sql = "SELECT * FROM $tabla $where";
 
+	upc_log($sql);
 	$q = $pdo->query($sql);
 	$res = $q->fetchAll(PDO::FETCH_ASSOC);
 	echo json_encode($res, JSON_PARTIAL_OUTPUT_ON_ERROR);
