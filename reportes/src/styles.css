@@ -16,3 +16,7 @@ body {
 .dp-picker-input {
     width: 100px !important;
 }
+
+.editingRow {
+    background-color: rgb(255, 220, 175) !important;
+}

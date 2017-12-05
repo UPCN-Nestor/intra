@@ -11,3 +11,6 @@
 		background-color: #FFFFAA;
 	}
 	
+	.editingRow {
+		background-color: rgb(231, 193, 66) !important;
+	}

@@ -1,3 +1,5 @@
+import { ChartComponent } from './reportes/chart/chart.component';
+import { ConsumosComponent } from './reportes/consumos/consumos.component';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -5,14 +7,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { CommonModule} from '@angular/common';
 import { AppComponent } from './app.component';
-import { GridComponent } from './reportes/grid/grid.component';
-import { ChartComponent } from './reportes/chart/chart.component';
-import { SidebarComponent } from './reportes/sidebar/sidebar.component';
+import { GridModule } from 'upcn-reporte-lib';
 
 import {DpDatePickerModule} from 'ng2-date-picker';
 
-import {ConsumosComponent} from './reportes/consumos/consumos.component';
-import {HeaderComponent} from './header/header.component';
 
 import { BlockUIModule } from 'ng-block-ui';
 
@@ -20,19 +18,15 @@ import { ConfirmDialogModule, DataTableModule,SharedModule, DataTable, DropdownM
     PanelModule, InputTextModule, SliderModule, ButtonModule, DialogModule, OverlayPanelModule, MultiSelectModule, ToolbarModule, PasswordModule, DataGridModule, TooltipModule, InputMaskModule,
     DataListModule, ChartModule, PaginatorModule } from 'primeng/primeng';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AbmComponent } from './reportes/abm/abm.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent,   
-    ConsumosComponent,
-    HeaderComponent,
-    SidebarComponent,
-    ChartComponent,
-    GridComponent,
-    AbmComponent
+    AppComponent,
+    ConsumosComponent    
   ],
   imports: [
+    GridModule.forRoot(),
     BlockUIModule,
     DataListModule,
     DataGridModule,

@@ -28,7 +28,8 @@ import { HttpModule } from '@angular/http';
     HttpModule
   ],
   exports: [
-    HttpModule
+    HttpModule,
+    HeaderComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

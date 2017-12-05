@@ -6,21 +6,36 @@
 
 <p-toolbar>
     <div class="ui-toolbar-group-left">
-		 <font size="+1">{{tituloGrid}}</font>
+		<table><tr><td>
+			<div *ngIf="accion==0"><button style="vertical-align: middle; background-color:rgb(255, 174, 0);" type="button" pButton icon="fa-plus" iconPos="left" (click)="editarNuevo(dt)"></button></div>
+			<div *ngIf="accion>0">			
+				<button style="vertical-align: middle; background-color:rgb(236, 0, 0);" type="button" pButton icon="fa-times" iconPos="left" (click)="editarCancelar(dt)"></button>
+				<button style="vertical-align: middle; background-color:rgb(17, 202, 0);" type="button" pButton icon="fa-check" iconPos="left" (click)="editarAceptar(dt)"></button>
+				<button *ngIf="accion>1" style="vertical-align: middle; background-color:rgb(136, 190, 196);" type="button" pButton icon="fa-trash" iconPos="left" (click)="confirm(dt)"></button>					
+			</div>						
+			</td><td><div style="width:15px"></div></td><td>
+		 	<font size="+1">{{tituloGridArmado}}</font>
+		</td></tr></table>
     </div>
     	
     <div class="ui-toolbar-group-right">
-    	Agrupar por <p-dropdown [options]="colsParaAgrupar" [(ngModel)]="agruparCol" (onChange)="agruparChanged($event)"></p-dropdown>
-    	<button style="vertical-align: middle" type="button" pButton icon="fa-file-excel-o" iconPos="left" (click)="dt.exportCSV()"></button>
-		<button style="vertical-align: middle" pButton type="button" (click)="guardarClick()" icon="fa-save"></button>
+		<table><tr><td>
+			<i class="fa fa-object-group"></i>
+			<p-dropdown [options]="colsParaAgrupar" [(ngModel)]="agruparCol" (onChange)="agruparChanged($event)"></p-dropdown>		
+		</td><td>
+			<button style="vertical-align: middle" type="button" pButton icon="fa-file-excel-o" iconPos="left" (click)="dt.exportCSV()"></button>
+			<button style="vertical-align: middle" pButton type="button" (click)="guardarClick()" icon="fa-save"></button>
+		</td></tr></table>
     </div>
 </p-toolbar>
 
 <p-dataTable #dt [value]="filas" sortMode="single" [sortField]="selectedCol" [sortOrder]="orderAscDesc" (onSort)="onSort($event)" 	
-	[rows]="20" [paginator]="true" [pageLinks]="3" loadingIcon="fa-circle-o-notch" [loading]="loading" emptyMessage="Cargando datos...">
+	[rows]="20" [paginator]="true" [pageLinks]="3" loadingIcon="fa-circle-o-notch" [loading]="loading" emptyMessage="Sin datos..."
+	(onRowClick)="rowClick($event, dt)" [rowStyleClass]="getRowStyleClass"
+	>
 		
-	<p-column *ngFor="let col of cols" [field]="col.value" sortable="custom" (sortFunction)="doSort($event)" 
-		[footer]="totales[col.value]"  [style]="getStyle(col.value)">
+	<p-column *ngFor="let col of cols" [field]="col.value" sortable="custom" (sortFunction)="doSort($event, dt)" 
+		[footer]="totales[col.value]"  [style]="getStyle(col.value)" [hidden]="colsMetadata[col.value].hidden">
    			
 		<ng-template pTemplate="header" >
 			<div style="text-align:center;" tooltipPosition="top" pTooltip="{{colsMetadata[col.value].tooltip ? colsMetadata[col.value].tooltip : ''}}" showDelay="0"
@@ -60,7 +75,31 @@
 					(click)="gridButtonClick(fila, col)" [pTooltip]="colsMetadata[col.value].tooltipBoton"></button>
 			</div>
 			<div *ngIf="colsMetadata[col.value] ? !colsMetadata[col.value].iconoBoton :_false">
-				{{fila[col.value]}}  
+				<div *ngIf="fila.isEditing">
+					<div style="text-align:center;" *ngIf="colsMetadata[col.value] ? colsMetadata[col.value].inputFiltro == 'text' : 0"> 
+						<input type="text" size="10" pInputText [(ngModel)]="editRow[col.value]"/>
+					</div>
+					<div id="dateAnchor">
+						<div style="text-align:center;" *ngIf="colsMetadata[col.value] ? colsMetadata[col.value].inputFiltro == 'dateRangeMes' : 0"> 
+							<dp-date-picker type="month" [ngModel]="editRow[col.value]"  (ngModelChange)="onDateChange($event, col.value)" [config]="datePickerConfigMes"></dp-date-picker>
+						</div>
+						<div style="text-align:center;" *ngIf="colsMetadata[col.value] ? colsMetadata[col.value].inputFiltro == 'dateRangeDia' : 0"> 
+							<dp-date-picker [ngModel]="editRow[col.value]" (ngModelChange)="onDateChange($event, col.value)" [config]="datePickerConfigDia"></dp-date-picker>
+						</div>
+					</div>
+					<div style="text-align:center;" *ngIf="colsMetadata[col.value] ? colsMetadata[col.value].inputFiltro == 'multiselect' : 0"> 
+						<p-dropdown placeholder="(elegir)" [options]="multiselectValues[col.value]" 
+							appendTo="body" [(ngModel)]="editRow[col.value]"></p-dropdown>
+					</div>			
+					<div style="text-align:center;" *ngIf="colsMetadata[col.value] ? colsMetadata[col.value].inputFiltro == 'range' : 0"> 
+						{{filters[col.value][0]}} a {{filters[col.value][1]}}
+						<p-slider [(ngModel)]="filters[col.value]" [range]="true"></p-slider>
+					</div>    
+				</div>
+				<div *ngIf="!fila.isEditing">
+					<div *ngIf="colsMetadata[col.value].fk_mostrar">{{getMostrarFk(col.value, fila[col.value])}}</div>
+					<div *ngIf="!colsMetadata[col.value].fk_mostrar">{{fila[col.value]}}</div>
+				</div>																									
 			</div>         
         </ng-template>
 	</p-column>		
@@ -74,11 +113,11 @@
 </div>
 
 <div class="ui-g-3" *ngIf="mostrarSidebar">
-	<app-sidebar #sb [backendURL]="backendURL" user="1" [grid]="nombreGrid" (changed)="cargarConsultaSeleccionada($event, sb)"></app-sidebar>
+	<app-sidebar #sb [user]="userId" [grid]="nombreGrid" (changed)="cargarConsultaSeleccionada($event, sb, false)" [backendURL]="backendURL"></app-sidebar>
 </div>
 
 
-<div class="ui-g-8" *ngIf="mostrarGrafico">
+<div *ngIf="mostrarGrafico" class="ui-g-8">
 
 <button style="vertical-align: middle" pButton type="button" (click)="refreshChart()" icon="fa-refresh" label="Actualizar"></button>
 Tipo: <p-dropdown [options]="tiposGrafico" [(ngModel)]="tipoGrafico" (onChange)="reloadChartData()"></p-dropdown>
@@ -96,4 +135,12 @@ Eje Y: <p-dropdown [options]="colsParaAgrupar" [(ngModel)]="chartY" (onChange)="
     <button pButton type="button" (click)="guardarConfirmar()" label="OK"></button>    
 </p-dialog>
 
+<p-confirmDialog #cd header="Confirmar" icon="fa fa-question-circle" width="425">
+	<p-footer>
+		<button type="button" pButton icon="fa-close" label="No" (click)="cd.reject()"></button>
+		<button type="button" pButton icon="fa-check" label="Sí" (click)="cd.accept()"></button>
+	</p-footer>
+</p-confirmDialog>
+
+		
 </div>

@@ -18,6 +18,10 @@
   </head>
 
   <body>
-    <app>Loading AppComponent content here ...</app>
+
+    <app-grid tituloGrid="Listado de tareas" nombreGrid="taller" [cols]="cols" [colsMetadata]="colsMetadata" [selectedCol]="selectedCol" 
+        [backendURL]="backendURL" [writeURL]="writeURL" [jsonURL]="jsonURL" [defaultFilters]="defaultFilters" [userId]="getLoggedUser()"
+        mostrarGrafico="true" mostrarSidebar="true">Grid...
+    </app-grid>
   </body>
 </html>

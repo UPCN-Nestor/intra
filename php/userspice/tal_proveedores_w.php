@@ -2,6 +2,6 @@
 	$page = $_SERVER['PHP_SELF'];
 	require('check_permissions.php');
 
-	$tabla = "tal_responsables";
-	include('get.php');
+	$tabla = "tal_proveedores";
+	include('abm.php');
 ?>

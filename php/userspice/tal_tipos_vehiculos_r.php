@@ -3,5 +3,5 @@
 	require('check_permissions.php');
 
 	$tabla = "tal_tipos_vehiculos";
-	include('abm.php');
+	include('get.php');
 ?>

@@ -624,9 +624,10 @@ export class GridComponent implements OnInit {
         this.http.post(this.writeURL, params, {withCredentials: true}).toPromise().then(res => {
             //this.msg("info","info","Nuevo insertado");
             console.log(res);
-            if(res.json()[0] == "error") 
+            if(res.json()[0] == "error") {
                 this.editarCancelar(dt);
-            else {
+                this.msg("info","Error","No se pudo insertar fila en base de datos");
+            } else {
                 this.editRow["id"] = res.json();
                 this.accion = 0;
             }

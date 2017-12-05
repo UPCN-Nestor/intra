@@ -6,7 +6,7 @@ import {Router} from '@angular/router';
 
 import {InputTextModule, PasswordModule} from 'primeng/primeng';
 import {MessagesModule, Message} from 'primeng/primeng';
-import {GrowlModule} from 'primeng/primeng';
+
 
 @Component({
   selector: 'app-header',
@@ -19,7 +19,8 @@ export class HeaderComponent implements OnInit {
     username: string = "";
     password: string = "";
     msgs: Message[];
-   
+    permissions: any;
+    
     @Input() backendURL;
 
     ocultarEnRutas: string = "/factura"; // Rutas separadas por "/"
@@ -32,7 +33,21 @@ export class HeaderComponent implements OnInit {
 
         this.http.get(this.backendURL + 'php/userspice/getLoggedUser.php', {withCredentials: true})
             .toPromise()
-            .then(res => this.user = res.json());
+            .then(res => {
+                this.user = res.json()
+
+                if(this.user) {
+                    let params: URLSearchParams = new URLSearchParams();
+                    params.set('userId', this.user["id"]);
+            
+                    this.http.get(this.backendURL + 'php/userspice/getPermissions.php', {withCredentials: true, search: params}).toPromise()
+                        .then(res => {
+                            this.permissions = res.json();     
+                        });
+                } else {
+                    this.permissions = [];
+                };
+            });
     }
     
     

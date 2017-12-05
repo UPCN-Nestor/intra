@@ -3,5 +3,5 @@
 	require('check_permissions.php');
 
 	$tabla = "tal_responsables";
-	include('get.php');
+	include('abm.php');
 ?>

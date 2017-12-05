@@ -1,133 +1,1897 @@
 
-
-SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion < '2017-12-01'
-SELECT * FROM tal_vehiculos 
-SELECT * FROM tal_tipos_tareas 
-SELECT * FROM tal_responsables 
-2017-11-29 07:39:18\tSELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-02-01' AND fecha_creacion < '2017-12-01' AND fecha_cierre >= '' AND fecha_cierre < ''
-2017-11-29 07:40:21	SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion < '2017-12-01'
-2017-11-29 07:40:24	SELECT * FROM tal_vehiculos 
-2017-11-29 07:40:24	SELECT * FROM tal_tipos_tareas 
-2017-11-29 07:40:24	SELECT * FROM tal_responsables 
-2017-11-29 07:40:40	SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-02-01' AND fecha_creacion < '2017-12-01' AND fecha_cierre >= '' AND fecha_cierre < ''
-2017-11-29 07:40:50	SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion < '2017-12-01' AND fecha_cierre >= '' AND fecha_cierre < ''
-2017-11-29 07:41:00	SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-02-01' AND fecha_creacion < '2017-12-01' AND fecha_cierre >= '' AND fecha_cierre < ''
-2017-11-29 07:41:01	SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion < '2017-12-01' AND fecha_cierre >= '' AND fecha_cierre < ''
-2017-11-29 07:41:08	SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-02-01' AND fecha_creacion < '2017-12-01' AND fecha_cierre >= '' AND fecha_cierre < ''
-2017-11-29 07:41:50	SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion < '2017-12-01'
-2017-11-29 07:41:53	SELECT * FROM tal_vehiculos 
-2017-11-29 07:41:53	SELECT * FROM tal_tipos_tareas 
-2017-11-29 07:41:53	SELECT * FROM tal_responsables 
-2017-11-29 07:43:59	SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion < '2017-12-01'
-2017-11-29 07:44:02	SELECT * FROM tal_vehiculos 
-2017-11-29 07:44:03	SELECT * FROM tal_tipos_tareas 
-2017-11-29 07:44:03	SELECT * FROM tal_responsables 
-2017-11-29 07:45:14	SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion < '2017-11-01' AND fecha_cierre >= '' AND fecha_cierre < ''
-2017-11-29 07:48:17	SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion < '2017-12-01'
-2017-11-29 07:48:20	SELECT * FROM tal_vehiculos 
-2017-11-29 07:48:20	SELECT * FROM tal_tipos_tareas 
-2017-11-29 07:48:21	SELECT * FROM tal_responsables 
-2017-11-29 07:48:50	SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion < '2017-12-01'
-2017-11-29 07:48:53	SELECT * FROM tal_vehiculos 
-2017-11-29 07:48:53	SELECT * FROM tal_tipos_tareas 
-2017-11-29 07:48:53	SELECT * FROM tal_responsables 
-2017-11-29 07:48:56	SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-02-01' AND fecha_creacion < '2017-12-01' AND fecha_cierre >= '' AND fecha_cierre < ''
-2017-11-29 07:51:38	SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion < '2017-12-01' AND fecha_cierre >= '' AND fecha_cierre < ''
-2017-11-29 07:51:47	SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion < '2017-12-01'
-2017-11-29 07:51:51	SELECT * FROM tal_vehiculos 
-2017-11-29 07:51:52	SELECT * FROM tal_tipos_tareas 
-2017-11-29 07:51:52	SELECT * FROM tal_responsables 
-2017-11-29 07:52:28		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-02-01' AND fecha_creacion < '2017-12-01' AND fecha_cierre >= '' AND fecha_cierre < ''
-2017-11-29 07:55:49		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion < '2017-12-01' AND fecha_cierre >= '1000-01-01' AND fecha_cierre < '9999-01-01'
-2017-11-29 07:56:18		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion < '2017-12-01'
-2017-11-29 07:56:19		SELECT * FROM tal_vehiculos 
-2017-11-29 07:56:19		SELECT * FROM tal_tipos_tareas 
-2017-11-29 07:56:19		SELECT * FROM tal_responsables 
-2017-11-29 07:56:33		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-02-01' AND fecha_creacion < '2017-12-01' AND fecha_cierre >= '1000-01-01' AND fecha_cierre < '9999-01-01'
-2017-11-29 07:56:37		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-02-01' AND fecha_creacion < '2017-12-01' AND fecha_cierre >= '2017-11-01' AND fecha_cierre < '9999-01-01'
-2017-11-29 07:56:40		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-02-01' AND fecha_creacion < '2017-12-01' AND fecha_cierre >= '2017-11-01' AND fecha_cierre < '2017-11-30'
-2017-11-29 07:56:42		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-02-01' AND fecha_creacion < '2017-12-01' AND fecha_cierre >= '2017-11-01' AND fecha_cierre < '2017-11-14'
-2017-11-29 07:56:44		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-02-01' AND fecha_creacion < '2017-12-01' AND fecha_cierre >= '2017-11-01' AND fecha_cierre < '2017-11-15'
-2017-11-29 07:56:45		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-02-01' AND fecha_creacion < '2017-12-01' AND fecha_cierre >= '2017-11-01' AND fecha_cierre < '2017-11-16'
-2017-11-29 07:57:45		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-03-01' AND fecha_creacion <= '2017-12-01' AND fecha_cierre >= '2017-11-01' AND fecha_cierre <= '2017-11-16'
-2017-11-29 07:57:47		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01' AND fecha_cierre >= '2017-11-01' AND fecha_cierre <= '2017-11-16'
-2017-11-29 07:57:51		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01' AND fecha_cierre >= '2017-11-01' AND fecha_cierre <= '2017-11-30'
-2017-11-29 07:57:54		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-11-01' AND fecha_cierre >= '2017-11-01' AND fecha_cierre <= '2017-11-30'
-2017-11-29 07:59:05		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-10-01' AND fecha_cierre >= '2017-11-01' AND fecha_cierre <= '2017-11-30'
-2017-11-29 07:59:06		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-11-01' AND fecha_cierre >= '2017-11-01' AND fecha_cierre <= '2017-11-30'
-2017-11-29 08:01:44		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-10-01' AND fecha_creacion <= '2017-11-01' AND fecha_cierre >= '2017-11-01' AND fecha_cierre <= '2017-11-30'
-2017-11-29 08:01:56		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
-2017-11-29 08:02:00		SELECT * FROM tal_vehiculos 
-2017-11-29 08:02:00		SELECT * FROM tal_tipos_tareas 
-2017-11-29 08:02:00		SELECT * FROM tal_responsables 
-2017-11-29 08:02:08		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-02-01' AND fecha_creacion <= '2017-12-01' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '9999-01-01'
-2017-11-29 08:02:18		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-02-01' AND fecha_creacion <= '2017-10-01' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '9999-01-01'
-2017-11-29 08:02:54		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
-2017-11-29 08:03:01		SELECT * FROM tal_vehiculos 
-2017-11-29 08:03:01		SELECT * FROM tal_tipos_tareas 
-2017-11-29 08:03:01		SELECT * FROM tal_responsables 
-2017-11-29 08:03:09		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-02-01' AND fecha_creacion <= '2017-12-01' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '9999-01-01'
-2017-11-29 08:26:59		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
-2017-11-29 08:27:02		SELECT * FROM tal_vehiculos 
-2017-11-29 08:27:02		SELECT * FROM tal_tipos_tareas 
-2017-11-29 08:27:02		SELECT * FROM tal_responsables 
-2017-11-29 08:27:14		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-22'
-2017-11-29 08:27:16		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01' AND fecha_cierre >= '2017-11-01' AND fecha_cierre <= '2017-11-22'
-2017-11-29 08:27:18		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-03-01' AND fecha_creacion <= '2017-12-01' AND fecha_cierre >= '2017-11-01' AND fecha_cierre <= '2017-11-22'
-2017-11-29 08:27:52		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
-2017-11-29 08:27:54		SELECT * FROM tal_vehiculos 
-2017-11-29 08:27:54		SELECT * FROM tal_tipos_tareas 
-2017-11-29 08:27:54		SELECT * FROM tal_responsables 
-2017-11-29 08:27:57		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-29'
-2017-11-29 08:28:19		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
-2017-11-29 08:28:32		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-11-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
-2017-11-29 08:28:42		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-07-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
-2017-11-29 08:28:45		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-08-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
-2017-11-29 08:29:00		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-11-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
-2017-11-29 08:29:01		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-07-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
-2017-11-29 08:29:22		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-08-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
-2017-11-29 08:29:53		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-07-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
-2017-11-29 08:40:47		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-08-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
-2017-11-29 08:40:49		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-07-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
-2017-11-29 08:40:50		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-06-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
-2017-11-29 08:40:52		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-07-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
-2017-11-29 08:40:59		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-08-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
-2017-11-29 08:41:02		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-07-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
-2017-11-29 08:41:04		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-08-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
-2017-11-29 08:41:05		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-09-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
-2017-11-29 08:41:06		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-08-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
-2017-11-29 08:41:17		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-06-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
-2017-11-29 08:41:19		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-07-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
-2017-11-29 08:41:21		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-08-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '2017-11-30'
-2017-11-29 08:41:57		SELECT * FROM tal_tareas WHERE filters = '{}'
-2017-11-29 08:48:36		SELECT * FROM tal_tareas WHERE filters = '{}'
-2017-11-29 08:51:17		SELECT * FROM tal_tareas 
-2017-11-29 08:54:12		SELECT * FROM tal_tareas 
-2017-11-29 08:54:16		SELECT * FROM tal_vehiculos 
-2017-11-29 08:54:16		SELECT * FROM tal_tipos_tareas 
-2017-11-29 08:54:16		SELECT * FROM tal_responsables 
-2017-11-29 08:54:28		SELECT * FROM tal_tareas 
-2017-11-29 08:54:32		SELECT * FROM tal_vehiculos 
-2017-11-29 08:54:32		SELECT * FROM tal_responsables 
-2017-11-29 08:54:32		SELECT * FROM tal_tipos_tareas 
-2017-11-29 09:55:01		SELECT * FROM tal_tareas WHERE fecha_cierre >= '2017-11-01' AND fecha_cierre <= '9999-01-01'
-2017-11-29 09:55:03		SELECT * FROM tal_tareas WHERE fecha_cierre >= '2017-11-01' AND fecha_cierre <= '2017-11-16'
-2017-11-29 09:55:05		SELECT * FROM tal_tareas WHERE fecha_cierre >= '2017-11-01' AND fecha_cierre <= '2017-11-15'
-2017-11-29 09:55:06		SELECT * FROM tal_tareas WHERE fecha_cierre >= '2017-11-01' AND fecha_cierre <= '2017-11-14'
-2017-11-29 09:55:08		SELECT * FROM tal_tareas WHERE fecha_cierre >= '2017-11-01' AND fecha_cierre <= '2017-11-23'
-2017-11-29 09:55:27		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
-2017-11-29 09:55:31		SELECT * FROM tal_vehiculos 
-2017-11-29 09:55:31		SELECT * FROM tal_tipos_tareas 
-2017-11-29 09:55:31		SELECT * FROM tal_responsables 
-2017-11-29 10:26:02		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-11-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '9999-01-01'
-2017-11-29 10:26:03		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-10-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '9999-01-01'
-2017-11-29 10:26:05		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-08-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '9999-01-01'
-2017-11-29 10:26:06		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-07-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '9999-01-01'
-2017-11-29 10:26:15		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-08-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '9999-01-01'
-2017-11-29 10:26:17		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-07-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '9999-01-01'
-2017-11-29 10:26:18		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-06-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '9999-01-01'
-2017-11-29 10:26:52		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-07-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '9999-01-01'
-2017-11-29 10:26:56		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-08-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '9999-01-01'
-2017-11-29 10:26:57		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-07-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '9999-01-01'
-2017-11-29 10:26:58		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-06-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '9999-01-01'
-2017-11-29 10:27:00		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-07-31' AND fecha_cierre >= '1000-01-01' AND fecha_cierre <= '9999-01-01'
+2017-12-01 17:35:38		
+2017-12-01 13:35:38		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-01 13:35:38		SELECT * FROM tal_tipos_tareas 
+2017-12-01 13:35:38		SELECT * FROM tal_vehiculos 
+2017-12-01 13:35:40		SELECT * FROM tal_vehiculos 
+2017-12-01 13:35:40		SELECT * FROM tal_tipos_tareas 
+2017-12-01 13:35:40		SELECT * FROM tal_responsables 
+2017-12-01 13:35:40		SELECT * FROM tal_proveedores 
+2017-12-01 13:35:41		SELECT * FROM tal_tipos_vehiculos 
+2017-12-01 17:36:22		[{"id":"1","name":"User"},{"id":"2","name":"Administrator"},{"id":"5","name":"Consumo"},{"id":"6","name":"tal_gerencia"},{"id":"7","name":"tal_usuario"}]
+2017-12-01 13:36:22		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-01 13:36:22		SELECT * FROM tal_vehiculos 
+2017-12-01 13:36:22		SELECT * FROM tal_tipos_tareas 
+2017-12-01 13:36:24		SELECT * FROM tal_vehiculos 
+2017-12-01 13:36:24		SELECT * FROM tal_tipos_tareas 
+2017-12-01 13:36:24		SELECT * FROM tal_responsables 
+2017-12-01 13:36:24		SELECT * FROM tal_proveedores 
+2017-12-01 13:36:24		SELECT * FROM tal_tipos_vehiculos 
+2017-12-01 17:36:30		[{"id":"1","name":"User"},{"id":"2","name":"Administrator"},{"id":"5","name":"Consumo"},{"id":"6","name":"tal_gerencia"},{"id":"7","name":"tal_usuario"}]
+2017-12-01 13:36:30		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-01 13:36:30		SELECT * FROM tal_vehiculos 
+2017-12-01 13:36:30		SELECT * FROM tal_tipos_tareas 
+2017-12-01 13:36:32		SELECT * FROM tal_vehiculos 
+2017-12-01 13:36:32		SELECT * FROM tal_tipos_tareas 
+2017-12-01 13:36:32		SELECT * FROM tal_responsables 
+2017-12-01 13:36:32		SELECT * FROM tal_proveedores 
+2017-12-01 13:36:32		SELECT * FROM tal_tipos_vehiculos 
+2017-12-01 13:50:37		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-01 13:50:37		SELECT * FROM tal_tipos_tareas 
+2017-12-01 13:50:38		SELECT * FROM tal_vehiculos 
+2017-12-01 13:50:39		SELECT * FROM tal_vehiculos 
+2017-12-01 13:50:39		SELECT * FROM tal_tipos_tareas 
+2017-12-01 13:50:39		SELECT * FROM tal_responsables 
+2017-12-01 13:50:40		SELECT * FROM tal_proveedores 
+2017-12-01 13:50:40		SELECT * FROM tal_tipos_vehiculos 
+2017-12-01 13:53:44		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-01 13:53:44		SELECT * FROM tal_vehiculos 
+2017-12-01 13:53:44		SELECT * FROM tal_tipos_tareas 
+2017-12-01 13:53:46		SELECT * FROM tal_vehiculos 
+2017-12-01 13:53:46		SELECT * FROM tal_tipos_tareas 
+2017-12-01 13:53:46		SELECT * FROM tal_responsables 
+2017-12-01 13:53:46		SELECT * FROM tal_proveedores 
+2017-12-01 13:53:46		SELECT * FROM tal_tipos_vehiculos 
+2017-12-01 13:54:23		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-01 13:54:23		SELECT * FROM tal_vehiculos 
+2017-12-01 13:54:23		SELECT * FROM tal_tipos_tareas 
+2017-12-01 13:54:26		SELECT * FROM tal_vehiculos 
+2017-12-01 13:54:26		SELECT * FROM tal_tipos_tareas 
+2017-12-01 13:54:26		SELECT * FROM tal_responsables 
+2017-12-01 13:54:26		SELECT * FROM tal_proveedores 
+2017-12-01 13:54:26		SELECT * FROM tal_tipos_vehiculos 
+2017-12-01 13:55:52		SELECT * FROM tal_vehiculos 
+2017-12-01 13:55:52		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-01 13:55:52		SELECT * FROM tal_tipos_tareas 
+2017-12-01 13:55:53		SELECT * FROM tal_tipos_vehiculos 
+2017-12-01 13:55:54		SELECT * FROM tal_vehiculos 
+2017-12-01 13:55:54		SELECT * FROM tal_tipos_tareas 
+2017-12-01 13:55:54		SELECT * FROM tal_responsables 
+2017-12-01 13:55:54		SELECT * FROM tal_proveedores 
+2017-12-01 13:56:27		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-01 13:56:27		SELECT * FROM tal_tipos_tareas 
+2017-12-01 13:56:27		SELECT * FROM tal_vehiculos 
+2017-12-01 13:56:29		SELECT * FROM tal_vehiculos 
+2017-12-01 13:56:29		SELECT * FROM tal_tipos_tareas 
+2017-12-01 13:56:29		SELECT * FROM tal_responsables 
+2017-12-01 13:56:29		SELECT * FROM tal_proveedores 
+2017-12-01 13:56:30		SELECT * FROM tal_tipos_vehiculos 
+2017-12-01 14:01:31		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-01 14:01:31		SELECT * FROM tal_vehiculos 
+2017-12-01 14:01:31		SELECT * FROM tal_tipos_tareas 
+2017-12-01 14:01:34		SELECT * FROM tal_vehiculos 
+2017-12-01 14:01:34		SELECT * FROM tal_tipos_tareas 
+2017-12-01 14:01:34		SELECT * FROM tal_responsables 
+2017-12-01 14:01:34		SELECT * FROM tal_proveedores 
+2017-12-01 14:01:34		SELECT * FROM tal_tipos_vehiculos 
+2017-12-01 14:02:07		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-01 14:02:07		SELECT * FROM tal_vehiculos 
+2017-12-01 14:02:07		SELECT * FROM tal_tipos_tareas 
+2017-12-01 14:02:22		SELECT * FROM tal_vehiculos 
+2017-12-01 14:02:22		SELECT * FROM tal_tipos_tareas 
+2017-12-01 14:02:22		SELECT * FROM tal_responsables 
+2017-12-01 14:02:22		SELECT * FROM tal_proveedores 
+2017-12-01 14:02:23		SELECT * FROM tal_tipos_vehiculos 
+2017-12-01 14:03:25		SELECT * FROM tal_tipos_tareas 
+2017-12-01 14:03:25		SELECT * FROM tal_vehiculos 
+2017-12-01 14:03:25		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-01 14:03:55		SELECT * FROM tal_tipos_vehiculos 
+2017-12-01 14:03:56		SELECT * FROM tal_vehiculos 
+2017-12-01 14:03:56		SELECT * FROM tal_proveedores 
+2017-12-01 14:03:56		SELECT * FROM tal_responsables 
+2017-12-01 14:03:56		SELECT * FROM tal_tipos_tareas 
+2017-12-01 14:04:33		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-01 14:04:33		SELECT * FROM tal_vehiculos 
+2017-12-01 14:04:33		SELECT * FROM tal_tipos_tareas 
+2017-12-01 14:04:54		SELECT * FROM tal_vehiculos 
+2017-12-01 14:04:55		SELECT * FROM tal_tipos_tareas 
+2017-12-01 14:04:55		SELECT * FROM tal_proveedores 
+2017-12-01 14:04:55		SELECT * FROM tal_responsables 
+2017-12-01 14:04:55		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 11:05:39		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-04 11:05:40		SELECT * FROM tal_vehiculos 
+2017-12-04 11:05:40		SELECT * FROM tal_tipos_tareas 
+2017-12-04 11:05:41		SELECT * FROM tal_vehiculos 
+2017-12-04 11:05:41		SELECT * FROM tal_tipos_tareas 
+2017-12-04 11:05:41		SELECT * FROM tal_responsables 
+2017-12-04 11:05:41		SELECT * FROM tal_proveedores 
+2017-12-04 11:05:41		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 11:16:02		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-04 11:16:02		SELECT * FROM tal_vehiculos 
+2017-12-04 11:16:02		SELECT * FROM tal_proveedores 
+2017-12-04 11:16:02		SELECT * FROM tal_responsables 
+2017-12-04 11:16:02		SELECT * FROM tal_tipos_tareas 
+2017-12-04 11:16:05		SELECT * FROM tal_vehiculos 
+2017-12-04 11:16:05		SELECT * FROM tal_tipos_tareas 
+2017-12-04 11:16:05		SELECT * FROM tal_responsables 
+2017-12-04 11:16:05		SELECT * FROM tal_proveedores 
+2017-12-04 11:16:05		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 11:16:39		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-04 11:16:39		SELECT * FROM tal_vehiculos 
+2017-12-04 11:16:39		SELECT * FROM tal_proveedores 
+2017-12-04 11:16:39		SELECT * FROM tal_responsables 
+2017-12-04 11:16:39		SELECT * FROM tal_tipos_tareas 
+2017-12-04 11:16:44		SELECT * FROM tal_vehiculos 
+2017-12-04 11:16:44		SELECT * FROM tal_tipos_tareas 
+2017-12-04 11:16:44		SELECT * FROM tal_responsables 
+2017-12-04 11:16:44		SELECT * FROM tal_proveedores 
+2017-12-04 11:16:45		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 12:18:24		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-04 12:18:24		SELECT * FROM tal_vehiculos 
+2017-12-04 12:18:24		SELECT * FROM tal_proveedores 
+2017-12-04 12:18:24		SELECT * FROM tal_responsables 
+2017-12-04 12:18:24		SELECT * FROM tal_tipos_tareas 
+2017-12-04 12:18:25		SELECT * FROM tal_vehiculos 
+2017-12-04 12:18:25		SELECT * FROM tal_tipos_tareas 
+2017-12-04 12:18:25		SELECT * FROM tal_responsables 
+2017-12-04 12:18:25		SELECT * FROM tal_proveedores 
+2017-12-04 12:18:26		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 12:21:15		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-04 12:21:15		SELECT * FROM tal_vehiculos 
+2017-12-04 12:21:15		SELECT * FROM tal_proveedores 
+2017-12-04 12:21:15		SELECT * FROM tal_responsables 
+2017-12-04 12:21:15		SELECT * FROM tal_tipos_tareas 
+2017-12-04 12:21:16		SELECT * FROM tal_vehiculos 
+2017-12-04 12:21:16		SELECT * FROM tal_tipos_tareas 
+2017-12-04 12:21:16		SELECT * FROM tal_responsables 
+2017-12-04 12:21:17		SELECT * FROM tal_proveedores 
+2017-12-04 12:21:17		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 12:21:38		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-04 12:21:38		SELECT * FROM tal_vehiculos 
+2017-12-04 12:21:38		SELECT * FROM tal_proveedores 
+2017-12-04 12:21:38		SELECT * FROM tal_tipos_tareas 
+2017-12-04 12:21:38		SELECT * FROM tal_responsables 
+2017-12-04 12:21:38		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 12:21:39		SELECT * FROM tal_vehiculos 
+2017-12-04 12:21:39		SELECT * FROM tal_tipos_tareas 
+2017-12-04 12:21:39		SELECT * FROM tal_responsables 
+2017-12-04 12:21:39		SELECT * FROM tal_proveedores 
+2017-12-04 12:21:40		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 12:22:44		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-04 12:22:44		SELECT * FROM tal_vehiculos 
+2017-12-04 12:22:44		SELECT * FROM tal_proveedores 
+2017-12-04 12:22:44		SELECT * FROM tal_responsables 
+2017-12-04 12:22:44		SELECT * FROM tal_tipos_tareas 
+2017-12-04 12:22:44		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 12:22:45		SELECT * FROM tal_vehiculos 
+2017-12-04 12:22:45		SELECT * FROM tal_tipos_tareas 
+2017-12-04 12:22:45		SELECT * FROM tal_responsables 
+2017-12-04 12:22:45		SELECT * FROM tal_proveedores 
+2017-12-04 12:22:46		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 12:23:40		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-04 12:23:40		SELECT * FROM tal_vehiculos 
+2017-12-04 12:23:40		SELECT * FROM tal_proveedores 
+2017-12-04 12:23:40		SELECT * FROM tal_responsables 
+2017-12-04 12:23:40		SELECT * FROM tal_tipos_tareas 
+2017-12-04 12:23:41		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 12:23:42		SELECT * FROM tal_vehiculos 
+2017-12-04 12:23:42		SELECT * FROM tal_responsables 
+2017-12-04 12:23:42		SELECT * FROM tal_proveedores 
+2017-12-04 12:23:42		SELECT * FROM tal_tipos_tareas 
+2017-12-04 12:23:43		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 12:26:36		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-04 12:26:36		SELECT * FROM tal_vehiculos 
+2017-12-04 12:26:36		SELECT * FROM tal_proveedores 
+2017-12-04 12:26:36		SELECT * FROM tal_responsables 
+2017-12-04 12:26:36		SELECT * FROM tal_tipos_tareas 
+2017-12-04 12:26:36		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 12:26:38		SELECT * FROM tal_vehiculos 
+2017-12-04 12:26:38		SELECT * FROM tal_tipos_tareas 
+2017-12-04 12:26:38		SELECT * FROM tal_proveedores 
+2017-12-04 12:26:38		SELECT * FROM tal_responsables 
+2017-12-04 12:26:38		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 12:43:34		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-04 12:43:34		SELECT * FROM tal_vehiculos 
+2017-12-04 12:43:34		SELECT * FROM tal_proveedores 
+2017-12-04 12:43:34		SELECT * FROM tal_tipos_tareas 
+2017-12-04 12:43:34		SELECT * FROM tal_responsables 
+2017-12-04 12:43:34		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 12:43:36		SELECT * FROM tal_vehiculos 
+2017-12-04 12:43:36		SELECT * FROM tal_tipos_tareas 
+2017-12-04 12:43:36		SELECT * FROM tal_responsables 
+2017-12-04 12:43:36		SELECT * FROM tal_proveedores 
+2017-12-04 12:43:36		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 12:44:41		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-04 12:44:41		SELECT * FROM tal_vehiculos 
+2017-12-04 12:44:41		SELECT * FROM tal_proveedores 
+2017-12-04 12:44:41		SELECT * FROM tal_responsables 
+2017-12-04 12:44:41		SELECT * FROM tal_tipos_tareas 
+2017-12-04 12:44:41		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 12:44:44		SELECT * FROM tal_vehiculos 
+2017-12-04 12:44:44		SELECT * FROM tal_tipos_tareas 
+2017-12-04 12:44:44		SELECT * FROM tal_responsables 
+2017-12-04 12:44:44		SELECT * FROM tal_proveedores 
+2017-12-04 12:44:45		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 12:56:56		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-04 12:56:56		SELECT * FROM tal_vehiculos 
+2017-12-04 12:56:56		SELECT * FROM tal_proveedores 
+2017-12-04 12:56:56		SELECT * FROM tal_responsables 
+2017-12-04 12:56:56		SELECT * FROM tal_tipos_tareas 
+2017-12-04 12:56:56		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 12:56:58		SELECT * FROM tal_vehiculos 
+2017-12-04 12:56:59		SELECT * FROM tal_tipos_tareas 
+2017-12-04 12:56:59		SELECT * FROM tal_responsables 
+2017-12-04 12:56:59		SELECT * FROM tal_proveedores 
+2017-12-04 12:56:59		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 13:02:19		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 13:02:19		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-04 13:02:19		SELECT * FROM tal_proveedores 
+2017-12-04 13:02:19		SELECT * FROM tal_vehiculos 
+2017-12-04 13:02:20		SELECT * FROM tal_responsables 
+2017-12-04 13:02:20		SELECT * FROM tal_tipos_tareas 
+2017-12-04 13:02:23		SELECT * FROM tal_vehiculos 
+2017-12-04 13:02:23		SELECT * FROM tal_tipos_tareas 
+2017-12-04 13:02:23		SELECT * FROM tal_responsables 
+2017-12-04 13:02:23		SELECT * FROM tal_proveedores 
+2017-12-04 13:02:24		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 13:10:10		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 13:10:10		SELECT * FROM tal_tipos_tareas 
+2017-12-04 13:10:10		SELECT * FROM tal_proveedores 
+2017-12-04 13:10:10		SELECT * FROM tal_vehiculos 
+2017-12-04 13:10:10		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-04 13:10:10		SELECT * FROM tal_responsables 
+2017-12-04 13:10:14		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 13:10:14		SELECT * FROM tal_vehiculos 
+2017-12-04 13:10:14		SELECT * FROM tal_tipos_tareas 
+2017-12-04 13:10:14		SELECT * FROM tal_responsables 
+2017-12-04 13:10:14		SELECT * FROM tal_proveedores 
+2017-12-04 13:24:41		SELECT * FROM tal_vehiculos 
+2017-12-04 13:24:41		SELECT * FROM tal_responsables 
+2017-12-04 13:24:41		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 13:24:41		SELECT * FROM tal_tipos_tareas 
+2017-12-04 13:24:41		SELECT * FROM tal_proveedores 
+2017-12-04 13:24:41		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-04 13:24:42		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 13:24:43		SELECT * FROM tal_vehiculos 
+2017-12-04 13:24:43		SELECT * FROM tal_tipos_tareas 
+2017-12-04 13:24:43		SELECT * FROM tal_responsables 
+2017-12-04 13:24:43		SELECT * FROM tal_proveedores 
+2017-12-04 13:25:30		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-04 13:25:30		SELECT * FROM tal_vehiculos 
+2017-12-04 13:25:30		SELECT * FROM tal_proveedores 
+2017-12-04 13:25:30		SELECT * FROM tal_responsables 
+2017-12-04 13:25:30		SELECT * FROM tal_tipos_tareas 
+2017-12-04 13:25:30		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 13:25:33		SELECT * FROM tal_vehiculos 
+2017-12-04 13:25:33		SELECT * FROM tal_tipos_tareas 
+2017-12-04 13:25:33		SELECT * FROM tal_responsables 
+2017-12-04 13:25:33		SELECT * FROM tal_proveedores 
+2017-12-04 13:25:33		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 13:34:05		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-04 13:34:06		SELECT * FROM tal_vehiculos 
+2017-12-04 13:34:06		SELECT * FROM tal_proveedores 
+2017-12-04 13:34:06		SELECT * FROM tal_responsables 
+2017-12-04 13:34:06		SELECT * FROM tal_tipos_tareas 
+2017-12-04 13:34:06		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 13:38:48		SELECT * FROM tal_vehiculos 
+2017-12-04 13:38:48		SELECT * FROM tal_tipos_tareas 
+2017-12-04 13:38:48		SELECT * FROM tal_proveedores 
+2017-12-04 13:38:48		SELECT * FROM tal_responsables 
+2017-12-04 13:38:49		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 13:39:03		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-04 13:39:03		SELECT * FROM tal_vehiculos 
+2017-12-04 13:39:04		SELECT * FROM tal_proveedores 
+2017-12-04 13:39:04		SELECT * FROM tal_responsables 
+2017-12-04 13:39:04		SELECT * FROM tal_tipos_tareas 
+2017-12-04 13:39:04		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 13:39:07		SELECT * FROM tal_vehiculos 
+2017-12-04 13:39:07		SELECT * FROM tal_tipos_tareas 
+2017-12-04 13:39:07		SELECT * FROM tal_responsables 
+2017-12-04 13:39:07		SELECT * FROM tal_proveedores 
+2017-12-04 13:39:08		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 13:39:22		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-04 13:39:22		SELECT * FROM tal_vehiculos 
+2017-12-04 13:39:22		SELECT * FROM tal_proveedores 
+2017-12-04 13:39:22		SELECT * FROM tal_responsables 
+2017-12-04 13:39:22		SELECT * FROM tal_tipos_tareas 
+2017-12-04 13:39:22		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 13:39:25		SELECT * FROM tal_vehiculos 
+2017-12-04 13:39:25		SELECT * FROM tal_tipos_tareas 
+2017-12-04 13:39:25		SELECT * FROM tal_responsables 
+2017-12-04 13:39:26		SELECT * FROM tal_proveedores 
+2017-12-04 13:39:26		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 13:40:04		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-04 13:40:04		SELECT * FROM tal_vehiculos 
+2017-12-04 13:40:04		SELECT * FROM tal_proveedores 
+2017-12-04 13:40:05		SELECT * FROM tal_responsables 
+2017-12-04 13:40:05		SELECT * FROM tal_tipos_tareas 
+2017-12-04 13:40:05		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 13:40:07		SELECT * FROM tal_vehiculos 
+2017-12-04 13:40:07		SELECT * FROM tal_tipos_tareas 
+2017-12-04 13:40:07		SELECT * FROM tal_responsables 
+2017-12-04 13:40:07		SELECT * FROM tal_proveedores 
+2017-12-04 13:40:07		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 13:55:25		SELECT * FROM tal_tipos_tareas 
+2017-12-04 13:55:25		SELECT * FROM tal_vehiculos 
+2017-12-04 13:55:25		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-04 13:55:25		SELECT * FROM tal_responsables 
+2017-12-04 13:55:25		SELECT * FROM tal_proveedores 
+2017-12-04 13:55:25		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 13:55:29		SELECT * FROM tal_tipos_vehiculos 
+2017-12-04 13:55:30		SELECT * FROM tal_vehiculos 
+2017-12-04 13:55:30		SELECT * FROM tal_tipos_tareas 
+2017-12-04 13:55:30		SELECT * FROM tal_responsables 
+2017-12-04 13:55:30		SELECT * FROM tal_proveedores 
+2017-12-05 07:27:43		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 07:27:43		SELECT * FROM tal_vehiculos 
+2017-12-05 07:27:43		SELECT * FROM tal_proveedores 
+2017-12-05 07:27:43		SELECT * FROM tal_responsables 
+2017-12-05 07:27:43		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 07:27:43		SELECT * FROM tal_tipos_tareas 
+2017-12-05 07:27:45		SELECT * FROM tal_vehiculos 
+2017-12-05 07:27:45		SELECT * FROM tal_tipos_tareas 
+2017-12-05 07:27:45		SELECT * FROM tal_responsables 
+2017-12-05 07:27:45		SELECT * FROM tal_proveedores 
+2017-12-05 07:27:45		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 07:28:03		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 07:28:03		SELECT * FROM tal_vehiculos 
+2017-12-05 07:28:03		SELECT * FROM tal_proveedores 
+2017-12-05 07:28:03		SELECT * FROM tal_tipos_tareas 
+2017-12-05 07:28:03		SELECT * FROM tal_responsables 
+2017-12-05 07:28:03		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 07:28:06		SELECT * FROM tal_vehiculos 
+2017-12-05 07:28:06		SELECT * FROM tal_tipos_tareas 
+2017-12-05 07:28:06		SELECT * FROM tal_responsables 
+2017-12-05 07:28:06		SELECT * FROM tal_proveedores 
+2017-12-05 07:28:06		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 07:29:53		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 07:29:53		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 07:29:53		SELECT * FROM tal_proveedores 
+2017-12-05 07:29:54		SELECT * FROM tal_responsables 
+2017-12-05 07:29:54		SELECT * FROM tal_tipos_tareas 
+2017-12-05 07:29:54		SELECT * FROM tal_vehiculos 
+2017-12-05 07:29:56		SELECT * FROM tal_vehiculos 
+2017-12-05 07:29:56		SELECT * FROM tal_tipos_tareas 
+2017-12-05 07:29:56		SELECT * FROM tal_responsables 
+2017-12-05 07:29:56		SELECT * FROM tal_proveedores 
+2017-12-05 07:29:58		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 07:31:31		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 07:31:31		SELECT * FROM tal_vehiculos 
+2017-12-05 07:31:31		SELECT * FROM tal_proveedores 
+2017-12-05 07:31:31		SELECT * FROM tal_responsables 
+2017-12-05 07:31:31		SELECT * FROM tal_tipos_tareas 
+2017-12-05 07:31:31		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 07:31:33		SELECT * FROM tal_vehiculos 
+2017-12-05 07:31:33		SELECT * FROM tal_tipos_tareas 
+2017-12-05 07:31:33		SELECT * FROM tal_responsables 
+2017-12-05 07:31:33		SELECT * FROM tal_proveedores 
+2017-12-05 07:31:34		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 07:32:21		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 07:32:21		SELECT * FROM tal_vehiculos 
+2017-12-05 07:32:21		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 07:32:21		SELECT * FROM tal_proveedores 
+2017-12-05 07:32:21		SELECT * FROM tal_tipos_tareas 
+2017-12-05 07:32:21		SELECT * FROM tal_responsables 
+2017-12-05 07:32:23		SELECT * FROM tal_vehiculos 
+2017-12-05 07:32:23		SELECT * FROM tal_tipos_tareas 
+2017-12-05 07:32:23		SELECT * FROM tal_responsables 
+2017-12-05 07:32:23		SELECT * FROM tal_proveedores 
+2017-12-05 07:32:24		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 07:47:31		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 07:47:31		SELECT * FROM tal_vehiculos 
+2017-12-05 07:47:31		SELECT * FROM tal_proveedores 
+2017-12-05 07:47:31		SELECT * FROM tal_responsables 
+2017-12-05 07:47:31		SELECT * FROM tal_tipos_tareas 
+2017-12-05 07:47:31		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 07:47:32		SELECT * FROM tal_vehiculos 
+2017-12-05 07:47:32		SELECT * FROM tal_tipos_tareas 
+2017-12-05 07:47:32		SELECT * FROM tal_responsables 
+2017-12-05 07:47:32		SELECT * FROM tal_proveedores 
+2017-12-05 07:47:33		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 07:49:10		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 07:49:10		SELECT * FROM tal_vehiculos 
+2017-12-05 07:49:10		SELECT * FROM tal_proveedores 
+2017-12-05 07:49:10		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 07:49:10		SELECT * FROM tal_tipos_tareas 
+2017-12-05 07:49:10		SELECT * FROM tal_responsables 
+2017-12-05 07:49:11		SELECT * FROM tal_vehiculos 
+2017-12-05 07:49:11		SELECT * FROM tal_tipos_tareas 
+2017-12-05 07:49:11		SELECT * FROM tal_responsables 
+2017-12-05 07:49:11		SELECT * FROM tal_proveedores 
+2017-12-05 07:49:12		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 07:49:19		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 07:49:19		SELECT * FROM tal_vehiculos 
+2017-12-05 07:49:19		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 07:49:19		SELECT * FROM tal_proveedores 
+2017-12-05 07:49:19		SELECT * FROM tal_responsables 
+2017-12-05 07:49:19		SELECT * FROM tal_tipos_tareas 
+2017-12-05 07:49:20		SELECT * FROM tal_vehiculos 
+2017-12-05 07:49:20		SELECT * FROM tal_tipos_tareas 
+2017-12-05 07:49:20		SELECT * FROM tal_responsables 
+2017-12-05 07:49:20		SELECT * FROM tal_proveedores 
+2017-12-05 07:49:20		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 07:50:11		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 07:50:11		SELECT * FROM tal_vehiculos 
+2017-12-05 07:50:11		SELECT * FROM tal_proveedores 
+2017-12-05 07:50:11		SELECT * FROM tal_responsables 
+2017-12-05 07:50:11		SELECT * FROM tal_tipos_tareas 
+2017-12-05 07:50:11		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 07:50:15		SELECT * FROM tal_vehiculos 
+2017-12-05 07:50:15		SELECT * FROM tal_tipos_tareas 
+2017-12-05 07:50:15		SELECT * FROM tal_responsables 
+2017-12-05 07:50:15		SELECT * FROM tal_proveedores 
+2017-12-05 07:50:15		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:14:04		SELECT * FROM tal_proveedores 
+2017-12-05 08:14:04		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:14:04		SELECT * FROM tal_vehiculos 
+2017-12-05 08:14:04		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 08:14:04		SELECT * FROM tal_responsables 
+2017-12-05 08:14:04		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:14:06		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:14:06		SELECT * FROM tal_vehiculos 
+2017-12-05 08:14:06		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:14:06		SELECT * FROM tal_responsables 
+2017-12-05 08:14:06		SELECT * FROM tal_proveedores 
+2017-12-05 08:14:45		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 08:14:45		SELECT * FROM tal_vehiculos 
+2017-12-05 08:14:45		SELECT * FROM tal_proveedores 
+2017-12-05 08:14:45		SELECT * FROM tal_responsables 
+2017-12-05 08:14:45		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:14:45		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:14:46		SELECT * FROM tal_vehiculos 
+2017-12-05 08:14:46		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:14:47		SELECT * FROM tal_responsables 
+2017-12-05 08:14:47		SELECT * FROM tal_proveedores 
+2017-12-05 08:14:47		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:18:09		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 08:18:09		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:18:09		SELECT * FROM tal_vehiculos 
+2017-12-05 08:18:09		SELECT * FROM tal_proveedores 
+2017-12-05 08:18:09		SELECT * FROM tal_responsables 
+2017-12-05 08:18:09		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:18:10		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:18:10		SELECT * FROM tal_vehiculos 
+2017-12-05 08:18:10		SELECT * FROM tal_responsables 
+2017-12-05 08:18:10		SELECT * FROM tal_proveedores 
+2017-12-05 08:18:11		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:18:50		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 08:18:50		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:18:51		SELECT * FROM tal_vehiculos 
+2017-12-05 08:18:51		SELECT * FROM tal_proveedores 
+2017-12-05 08:18:51		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:18:51		SELECT * FROM tal_responsables 
+2017-12-05 08:18:52		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:18:52		SELECT * FROM tal_vehiculos 
+2017-12-05 08:18:52		SELECT * FROM tal_responsables 
+2017-12-05 08:18:52		SELECT * FROM tal_proveedores 
+2017-12-05 08:18:53		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:20:05		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 08:20:05		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:20:05		SELECT * FROM tal_proveedores 
+2017-12-05 08:20:05		SELECT * FROM tal_vehiculos 
+2017-12-05 08:20:05		SELECT * FROM tal_responsables 
+2017-12-05 08:20:05		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:20:07		SELECT * FROM tal_vehiculos 
+2017-12-05 08:20:07		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:20:07		SELECT * FROM tal_responsables 
+2017-12-05 08:20:07		SELECT * FROM tal_proveedores 
+2017-12-05 08:20:08		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:20:57		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 08:20:57		SELECT * FROM tal_vehiculos 
+2017-12-05 08:20:57		SELECT * FROM tal_proveedores 
+2017-12-05 08:20:58		SELECT * FROM tal_responsables 
+2017-12-05 08:20:58		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:20:58		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:20:58		SELECT * FROM tal_vehiculos 
+2017-12-05 08:20:58		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:20:59		SELECT * FROM tal_responsables 
+2017-12-05 08:20:59		SELECT * FROM tal_proveedores 
+2017-12-05 08:20:59		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:21:17		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 08:21:17		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:21:17		SELECT * FROM tal_vehiculos 
+2017-12-05 08:21:17		SELECT * FROM tal_proveedores 
+2017-12-05 08:21:17		SELECT * FROM tal_responsables 
+2017-12-05 08:21:17		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:21:18		SELECT * FROM tal_vehiculos 
+2017-12-05 08:21:19		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:21:19		SELECT * FROM tal_responsables 
+2017-12-05 08:21:19		SELECT * FROM tal_proveedores 
+2017-12-05 08:21:19		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:21:39		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 08:21:39		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:21:40		SELECT * FROM tal_vehiculos 
+2017-12-05 08:21:40		SELECT * FROM tal_proveedores 
+2017-12-05 08:21:40		SELECT * FROM tal_responsables 
+2017-12-05 08:21:40		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:21:41		SELECT * FROM tal_vehiculos 
+2017-12-05 08:21:41		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:21:41		SELECT * FROM tal_responsables 
+2017-12-05 08:21:41		SELECT * FROM tal_proveedores 
+2017-12-05 08:21:42		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:22:07		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 08:22:07		SELECT * FROM tal_vehiculos 
+2017-12-05 08:22:07		SELECT * FROM tal_proveedores 
+2017-12-05 08:22:07		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:22:07		SELECT * FROM tal_responsables 
+2017-12-05 08:22:07		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:22:09		SELECT * FROM tal_vehiculos 
+2017-12-05 08:22:09		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:22:09		SELECT * FROM tal_responsables 
+2017-12-05 08:22:09		SELECT * FROM tal_proveedores 
+2017-12-05 08:22:10		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:23:26		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 08:23:26		SELECT * FROM tal_vehiculos 
+2017-12-05 08:23:26		SELECT * FROM tal_responsables 
+2017-12-05 08:23:26		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:23:26		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:23:26		SELECT * FROM tal_proveedores 
+2017-12-05 08:23:27		SELECT * FROM tal_vehiculos 
+2017-12-05 08:23:27		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:23:27		SELECT * FROM tal_responsables 
+2017-12-05 08:23:27		SELECT * FROM tal_proveedores 
+2017-12-05 08:23:28		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:24:03		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 08:24:03		SELECT * FROM tal_responsables 
+2017-12-05 08:24:03		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:24:03		SELECT * FROM tal_vehiculos 
+2017-12-05 08:24:03		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:24:03		SELECT * FROM tal_proveedores 
+2017-12-05 08:24:05		SELECT * FROM tal_vehiculos 
+2017-12-05 08:24:05		SELECT * FROM tal_responsables 
+2017-12-05 08:24:05		SELECT * FROM tal_proveedores 
+2017-12-05 08:24:05		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:24:06		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:24:39		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:24:39		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 08:24:39		SELECT * FROM tal_vehiculos 
+2017-12-05 08:24:39		SELECT * FROM tal_proveedores 
+2017-12-05 08:24:39		SELECT * FROM tal_responsables 
+2017-12-05 08:24:39		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:24:41		SELECT * FROM tal_vehiculos 
+2017-12-05 08:24:41		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:24:41		SELECT * FROM tal_responsables 
+2017-12-05 08:24:41		SELECT * FROM tal_proveedores 
+2017-12-05 08:24:41		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:26:20		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 08:26:20		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:26:20		SELECT * FROM tal_vehiculos 
+2017-12-05 08:26:20		SELECT * FROM tal_proveedores 
+2017-12-05 08:26:20		SELECT * FROM tal_responsables 
+2017-12-05 08:26:20		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:26:22		SELECT * FROM tal_vehiculos 
+2017-12-05 08:26:22		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:26:22		SELECT * FROM tal_responsables 
+2017-12-05 08:26:22		SELECT * FROM tal_proveedores 
+2017-12-05 08:26:22		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:27:28		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:27:28		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 08:27:28		SELECT * FROM tal_vehiculos 
+2017-12-05 08:27:28		SELECT * FROM tal_proveedores 
+2017-12-05 08:27:28		SELECT * FROM tal_responsables 
+2017-12-05 08:27:28		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:27:30		SELECT * FROM tal_vehiculos 
+2017-12-05 08:27:30		SELECT * FROM tal_responsables 
+2017-12-05 08:27:30		SELECT * FROM tal_proveedores 
+2017-12-05 08:27:30		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:27:30		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:29:00		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 08:29:00		SELECT * FROM tal_vehiculos 
+2017-12-05 08:29:00		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:29:00		SELECT * FROM tal_proveedores 
+2017-12-05 08:29:00		SELECT * FROM tal_responsables 
+2017-12-05 08:29:00		SELECT * FROM tal_tipos_tareas 
+2017-12-05 12:29:03		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:03		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 08:29:03		SELECT * FROM tal_vehiculos 
+2017-12-05 08:29:03		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:29:03		SELECT * FROM tal_responsables 
+2017-12-05 08:29:03		SELECT * FROM tal_proveedores 
+2017-12-05 12:29:03		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:03		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 08:29:03		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 12:29:03		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:04		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:04		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:04		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:04		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:04		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:04		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:04		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:04		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:04		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:05		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:05		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:05		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:05		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:05		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:05		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:05		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:05		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:05		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:06		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:06		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:06		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:06		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:06		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:06		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:06		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:06		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:06		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:06		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:06		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:06		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:07		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:07		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:07		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:07		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:07		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:07		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:07		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:07		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:07		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:07		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:07		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:07		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:08		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:08		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:08		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:08		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:08		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:08		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:08		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:08		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:08		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:08		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:08		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:08		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:08		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:08		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:09		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:09		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:09		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:09		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:09		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:09		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:09		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:09		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:09		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:09		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:09		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:09		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:10		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:10		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:10		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:10		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:10		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:10		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:10		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:10		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:10		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:11		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:11		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:11		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:11		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:11		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:11		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:11		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:11		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:11		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:11		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:12		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:12		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:12		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:12		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:12		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:12		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:12		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:13		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:13		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:13		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:13		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:13		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:14		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:14		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:14		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:14		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:14		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:14		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:14		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:15		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:15		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:15		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:15		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:15		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:15		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:15		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:15		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:15		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:15		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:16		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:16		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:16		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:16		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:16		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:16		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:16		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:16		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:17		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:17		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:17		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:17		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:17		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:17		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:17		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:17		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:17		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:17		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:18		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:18		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:18		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:18		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:18		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:18		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:18		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:18		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:18		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:18		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:19		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:19		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:19		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:19		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:19		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:19		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:19		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:19		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:19		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:19		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:19		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:20		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:20		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:20		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:20		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:20		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:20		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:20		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:20		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:20		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:20		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:20		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:20		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:21		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:21		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:21		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:21		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:21		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:21		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:21		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:21		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:21		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:21		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:22		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:22		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:22		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:22		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:22		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:22		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:22		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:22		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:22		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:22		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:22		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:22		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:22		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:22		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:23		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:23		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:23		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:23		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:23		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:23		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:23		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:23		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:23		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:23		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:23		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:23		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:23		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:23		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:23		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:23		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:23		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:24		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:24		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:24		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:24		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:24		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:24		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:24		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:24		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:24		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:24		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:24		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:25		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:25		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:25		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:25		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:25		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:25		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:25		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:25		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:25		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:25		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:25		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:26		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:26		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:26		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:26		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:26		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:26		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:26		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:26		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:26		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:26		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:26		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:26		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:27		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:27		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:27		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:27		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:27		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:27		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:27		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:27		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:28		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:28		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:28		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:28		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:28		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:28		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:28		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:28		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:29		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:29		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:29		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:29		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:29		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:29		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:29		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:29		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:29		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:29		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:29		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:29		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:30		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:30		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:30		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:30		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:30		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:30		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:30		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:30		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:30		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:30		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:30		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:30		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:30		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:30		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:31		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:31		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:31		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:31		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:31		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:31		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:31		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:31		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:31		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:31		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:31		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:31		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:31		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:31		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:32		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:32		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:32		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:32		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:32		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:32		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:32		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:32		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:32		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:32		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:32		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:32		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:33		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:33		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:33		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:33		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:33		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:33		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:33		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:33		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:33		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:33		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:33		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:33		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:33		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:33		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:33		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:33		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:34		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:34		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:34		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:34		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:34		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:34		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:34		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:34		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:34		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:34		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:34		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:34		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:34		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:35		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:35		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:35		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:35		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:35		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:35		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:35		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:35		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:35		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:35		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:35		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:35		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:35		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:35		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:35		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:35		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:36		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:36		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:36		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:36		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:36		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:36		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:36		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:36		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:36		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:36		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:36		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:36		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:36		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:36		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:37		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:37		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:37		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:37		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:37		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:37		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:37		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:37		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:37		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:37		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:37		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:37		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:37		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:38		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:38		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:38		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:38		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:38		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:38		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:38		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:38		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:38		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:38		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:38		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:39		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:39		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:39		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:39		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:39		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:39		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:39		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:39		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:39		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:39		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:40		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:40		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:40		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:40		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:40		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:40		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:40		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:40		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:41		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:41		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:41		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:41		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:41		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:41		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:41		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:41		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:41		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:41		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:41		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:42		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:42		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:42		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:42		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:42		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:42		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:42		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:42		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:42		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:42		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:43		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:43		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:43		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:43		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:43		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:43		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:43		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:44		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:44		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:44		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:44		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:44		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:44		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:44		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:44		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:44		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:44		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:44		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:44		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:44		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:44		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:44		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:45		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:45		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:45		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:45		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:45		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:45		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:45		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:45		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:45		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:45		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:45		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:46		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:46		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:46		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:46		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:46		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:46		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:46		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:46		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:46		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:46		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:46		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:46		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:46		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:47		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:47		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:47		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:47		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:47		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:47		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:47		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:47		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:47		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:47		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:47		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:47		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:48		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:48		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:48		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:48		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:48		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:48		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:48		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:48		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:48		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:48		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:48		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:49		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:49		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:49		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:49		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:49		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:49		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:49		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:49		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:49		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:49		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:49		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:49		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:50		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:50		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:50		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:50		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:50		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:50		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:50		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:50		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:50		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:50		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:50		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:51		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:51		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:51		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:51		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:51		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:51		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:51		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:51		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:51		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:51		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:51		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:51		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:51		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:51		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:52		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:52		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:52		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:52		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:52		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:52		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:52		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:52		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:52		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:52		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:52		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:52		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:53		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:53		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:53		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:53		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:53		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:53		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:53		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:53		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:53		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:53		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:53		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:53		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:54		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:54		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:54		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:54		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:54		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:54		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:54		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:54		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:54		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:54		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:54		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:54		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:54		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:55		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:55		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:55		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:55		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:55		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:55		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:55		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:55		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:55		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:55		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:55		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:55		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:56		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:56		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:56		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:56		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:56		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:56		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:56		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:56		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:56		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:56		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:56		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:56		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:57		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:57		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:57		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:57		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:57		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:57		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:57		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:57		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:57		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:57		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:57		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:57		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:58		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:58		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:58		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:58		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:58		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:58		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:58		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:58		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:58		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:59		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:59		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:59		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:59		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:59		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:59		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:59		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:59		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:59		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:29:59		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:00		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:00		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:00		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:00		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:00		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:00		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:00		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:00		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:00		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:00		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:00		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:00		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:00		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:01		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:01		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:01		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:01		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:01		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:01		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:01		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:01		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:01		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:01		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:01		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:02		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:02		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:02		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:02		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:02		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:02		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:02		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:02		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:02		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:02		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:02		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:03		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:03		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:03		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:03		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:03		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:03		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:03		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:03		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:03		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:03		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:03		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:04		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:04		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:04		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:04		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:04		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:04		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:04		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:04		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:04		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:04		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:04		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:04		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:05		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:05		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:05		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:05		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:05		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:05		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:05		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:05		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:05		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:05		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:06		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:06		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:06		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:06		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:06		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:06		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:06		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:06		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:06		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:06		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:06		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:07		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:07		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:07		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:07		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:07		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:07		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:07		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:07		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:07		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:07		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:08		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:08		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:08		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:08		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:09		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:09		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:09		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:09		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:09		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:09		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:09		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:09		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:09		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:09		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:09		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:09		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:09		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:10		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:10		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:10		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:10		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:10		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:11		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:11		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:11		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:11		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:11		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:12		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:12		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:12		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:12		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:13		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:13		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:13		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:13		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:13		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:13		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:13		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:13		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:14		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:14		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:14		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:14		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:14		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:14		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:14		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:14		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:14		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:14		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:15		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:15		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:15		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:15		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:15		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:15		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:15		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:16		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:16		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:16		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:16		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:16		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:16		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:16		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:16		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:16		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:16		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:16		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:17		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:17		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:17		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:17		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:17		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:17		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:17		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:17		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:17		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:18		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:18		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:18		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:18		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:18		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:18		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:18		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:18		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:18		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:19		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:19		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:19		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:19		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:19		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:19		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:19		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:19		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:20		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:20		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:20		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:20		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:20		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:20		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:20		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:20		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:20		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:20		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:21		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:21		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:21		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:21		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:21		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:21		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:21		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:21		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:21		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:21		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:21		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:21		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:21		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:21		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:21		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:22		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:22		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:22		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:22		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:22		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:22		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:22		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:22		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:22		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:22		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 12:30:22		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 08:32:21		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 08:32:21		SELECT * FROM tal_vehiculos 
+2017-12-05 08:32:21		SELECT * FROM tal_proveedores 
+2017-12-05 08:32:21		SELECT * FROM tal_responsables 
+2017-12-05 08:32:21		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:32:21		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:32:22		SELECT * FROM tal_vehiculos 
+2017-12-05 08:32:22		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:32:22		SELECT * FROM tal_responsables 
+2017-12-05 08:32:22		SELECT * FROM tal_proveedores 
+2017-12-05 08:32:23		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:32:47		SELECT * FROM tal_vehiculos 
+2017-12-05 08:32:48		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 08:32:48		SELECT * FROM tal_proveedores 
+2017-12-05 08:32:48		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:32:48		SELECT * FROM tal_responsables 
+2017-12-05 08:32:48		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:32:49		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:32:50		SELECT * FROM tal_vehiculos 
+2017-12-05 08:32:50		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:32:50		SELECT * FROM tal_responsables 
+2017-12-05 08:32:50		SELECT * FROM tal_proveedores 
+2017-12-05 08:33:06		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 08:33:06		SELECT * FROM tal_proveedores 
+2017-12-05 08:33:06		SELECT * FROM tal_responsables 
+2017-12-05 08:33:06		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:33:06		SELECT * FROM tal_vehiculos 
+2017-12-05 08:33:06		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:33:08		SELECT * FROM tal_vehiculos 
+2017-12-05 08:33:08		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:33:08		SELECT * FROM tal_responsables 
+2017-12-05 08:33:08		SELECT * FROM tal_proveedores 
+2017-12-05 08:33:09		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:36:27		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 08:36:27		SELECT * FROM tal_vehiculos 
+2017-12-05 08:36:27		SELECT * FROM tal_proveedores 
+2017-12-05 08:36:27		SELECT * FROM tal_responsables 
+2017-12-05 08:36:27		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:36:27		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:36:29		SELECT * FROM tal_vehiculos 
+2017-12-05 08:36:29		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:36:29		SELECT * FROM tal_responsables 
+2017-12-05 08:36:29		SELECT * FROM tal_proveedores 
+2017-12-05 08:36:30		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:38:06		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 08:38:06		SELECT * FROM tal_proveedores 
+2017-12-05 08:38:06		SELECT * FROM tal_responsables 
+2017-12-05 08:38:06		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:38:06		SELECT * FROM tal_vehiculos 
+2017-12-05 08:38:06		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:38:07		SELECT * FROM tal_vehiculos 
+2017-12-05 08:38:07		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:38:08		SELECT * FROM tal_responsables 
+2017-12-05 08:38:08		SELECT * FROM tal_proveedores 
+2017-12-05 08:38:08		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:39:34		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:39:34		SELECT * FROM tal_vehiculos 
+2017-12-05 08:39:34		SELECT * FROM tal_proveedores 
+2017-12-05 08:39:34		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 08:39:34		SELECT * FROM tal_responsables 
+2017-12-05 08:39:34		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:39:36		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:39:36		SELECT * FROM tal_vehiculos 
+2017-12-05 08:39:36		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:39:36		SELECT * FROM tal_responsables 
+2017-12-05 08:39:36		SELECT * FROM tal_proveedores 
+2017-12-05 08:40:16		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 08:40:16		SELECT * FROM tal_vehiculos 
+2017-12-05 08:40:16		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:40:16		SELECT * FROM tal_proveedores 
+2017-12-05 08:40:16		SELECT * FROM tal_responsables 
+2017-12-05 08:40:16		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:40:18		SELECT * FROM tal_vehiculos 
+2017-12-05 08:40:18		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:40:18		SELECT * FROM tal_responsables 
+2017-12-05 08:40:18		SELECT * FROM tal_proveedores 
+2017-12-05 08:40:19		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:40:47		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 08:40:47		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:40:47		SELECT * FROM tal_vehiculos 
+2017-12-05 08:40:47		SELECT * FROM tal_proveedores 
+2017-12-05 08:40:47		SELECT * FROM tal_responsables 
+2017-12-05 08:40:47		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:40:49		SELECT * FROM tal_vehiculos 
+2017-12-05 08:40:49		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:40:49		SELECT * FROM tal_responsables 
+2017-12-05 08:40:49		SELECT * FROM tal_proveedores 
+2017-12-05 08:40:50		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:41:19		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 08:41:19		SELECT * FROM tal_vehiculos 
+2017-12-05 08:41:19		SELECT * FROM tal_proveedores 
+2017-12-05 08:41:19		SELECT * FROM tal_responsables 
+2017-12-05 08:41:19		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:41:19		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:41:21		SELECT * FROM tal_vehiculos 
+2017-12-05 08:41:21		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:41:21		SELECT * FROM tal_responsables 
+2017-12-05 08:41:21		SELECT * FROM tal_proveedores 
+2017-12-05 08:41:22		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:42:20		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:42:20		SELECT * FROM tal_responsables 
+2017-12-05 08:42:20		SELECT * FROM tal_vehiculos 
+2017-12-05 08:42:20		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 08:42:20		SELECT * FROM tal_proveedores 
+2017-12-05 08:42:20		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:42:23		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:42:23		SELECT * FROM tal_vehiculos 
+2017-12-05 08:42:23		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:42:23		SELECT * FROM tal_responsables 
+2017-12-05 08:42:23		SELECT * FROM tal_proveedores 
+2017-12-05 08:42:54		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 08:42:54		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:42:54		SELECT * FROM tal_vehiculos 
+2017-12-05 08:42:54		SELECT * FROM tal_proveedores 
+2017-12-05 08:42:54		SELECT * FROM tal_responsables 
+2017-12-05 08:42:54		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:42:56		SELECT * FROM tal_vehiculos 
+2017-12-05 08:42:56		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:42:56		SELECT * FROM tal_responsables 
+2017-12-05 08:42:56		SELECT * FROM tal_proveedores 
+2017-12-05 08:42:57		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:43:20		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 08:43:20		SELECT * FROM tal_responsables 
+2017-12-05 08:43:20		SELECT * FROM tal_vehiculos 
+2017-12-05 08:43:20		SELECT * FROM tal_proveedores 
+2017-12-05 08:43:20		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:43:20		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:43:22		SELECT * FROM tal_vehiculos 
+2017-12-05 08:43:22		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:43:22		SELECT * FROM tal_responsables 
+2017-12-05 08:43:22		SELECT * FROM tal_proveedores 
+2017-12-05 08:43:23		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:43:38		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 08:43:38		SELECT * FROM tal_vehiculos 
+2017-12-05 08:43:38		SELECT * FROM tal_proveedores 
+2017-12-05 08:43:38		SELECT * FROM tal_responsables 
+2017-12-05 08:43:38		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:43:38		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:43:40		SELECT * FROM tal_vehiculos 
+2017-12-05 08:43:40		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:43:40		SELECT * FROM tal_responsables 
+2017-12-05 08:43:40		SELECT * FROM tal_proveedores 
+2017-12-05 08:43:41		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:43:48		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 08:43:48		SELECT * FROM tal_vehiculos 
+2017-12-05 08:43:48		SELECT * FROM tal_proveedores 
+2017-12-05 08:43:48		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:43:48		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:43:48		SELECT * FROM tal_responsables 
+2017-12-05 08:43:51		SELECT * FROM tal_vehiculos 
+2017-12-05 08:43:51		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:43:51		SELECT * FROM tal_responsables 
+2017-12-05 08:43:51		SELECT * FROM tal_proveedores 
+2017-12-05 08:43:51		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:45:20		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 08:45:20		SELECT * FROM tal_responsables 
+2017-12-05 08:45:20		SELECT * FROM tal_vehiculos 
+2017-12-05 08:45:20		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:45:20		SELECT * FROM tal_proveedores 
+2017-12-05 08:45:20		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 08:45:27		SELECT * FROM tal_vehiculos 
+2017-12-05 08:45:27		SELECT * FROM tal_tipos_tareas 
+2017-12-05 08:45:27		SELECT * FROM tal_responsables 
+2017-12-05 08:45:27		SELECT * FROM tal_proveedores 
+2017-12-05 08:45:27		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 09:00:24		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 09:00:24		SELECT * FROM tal_vehiculos 
+2017-12-05 09:00:25		SELECT * FROM tal_proveedores 
+2017-12-05 09:00:25		SELECT * FROM tal_responsables 
+2017-12-05 09:00:25		SELECT * FROM tal_tipos_tareas 
+2017-12-05 09:00:25		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 13:00:27		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 09:00:27		SELECT * FROM tal_vehiculos 
+2017-12-05 09:00:27		SELECT * FROM tal_tipos_tareas 
+2017-12-05 09:00:27		SELECT * FROM tal_responsables 
+2017-12-05 09:00:27		SELECT * FROM tal_proveedores 
+2017-12-05 09:00:27		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 09:00:53		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 09:00:53		SELECT * FROM tal_vehiculos 
+2017-12-05 09:00:53		SELECT * FROM tal_proveedores 
+2017-12-05 09:00:53		SELECT * FROM tal_responsables 
+2017-12-05 09:00:53		SELECT * FROM tal_tipos_tareas 
+2017-12-05 09:00:53		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 13:01:00		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 09:01:00		SELECT * FROM tal_vehiculos 
+2017-12-05 09:01:00		SELECT * FROM tal_tipos_tareas 
+2017-12-05 09:01:00		SELECT * FROM tal_responsables 
+2017-12-05 09:01:00		SELECT * FROM tal_proveedores 
+2017-12-05 09:01:01		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 09:04:14		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 09:04:14		SELECT * FROM tal_vehiculos 
+2017-12-05 09:04:14		SELECT * FROM tal_proveedores 
+2017-12-05 09:04:14		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 09:04:14		SELECT * FROM tal_responsables 
+2017-12-05 09:04:14		SELECT * FROM tal_tipos_tareas 
+2017-12-05 13:04:16		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 09:04:17		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 09:04:17		SELECT * FROM tal_vehiculos 
+2017-12-05 09:04:17		SELECT * FROM tal_tipos_tareas 
+2017-12-05 09:04:17		SELECT * FROM tal_responsables 
+2017-12-05 09:04:17		SELECT * FROM tal_proveedores 
+2017-12-05 09:06:27		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 09:06:27		SELECT * FROM tal_vehiculos 
+2017-12-05 09:06:27		SELECT * FROM tal_proveedores 
+2017-12-05 09:06:27		SELECT * FROM tal_responsables 
+2017-12-05 09:06:27		SELECT * FROM tal_tipos_tareas 
+2017-12-05 09:06:27		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 13:06:29		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 09:06:29		SELECT * FROM tal_vehiculos 
+2017-12-05 09:06:29		SELECT * FROM tal_tipos_tareas 
+2017-12-05 09:06:29		SELECT * FROM tal_responsables 
+2017-12-05 09:06:30		SELECT * FROM tal_proveedores 
+2017-12-05 09:06:30		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 09:07:04		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 09:07:04		SELECT * FROM tal_vehiculos 
+2017-12-05 09:07:04		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 09:07:04		SELECT * FROM tal_proveedores 
+2017-12-05 09:07:04		SELECT * FROM tal_responsables 
+2017-12-05 09:07:04		SELECT * FROM tal_tipos_tareas 
+2017-12-05 13:07:06		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 09:07:07		SELECT * FROM tal_vehiculos 
+2017-12-05 09:07:07		SELECT * FROM tal_tipos_tareas 
+2017-12-05 09:07:07		SELECT * FROM tal_responsables 
+2017-12-05 09:07:07		SELECT * FROM tal_proveedores 
+2017-12-05 09:07:07		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 09:07:16		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 09:07:16		SELECT * FROM tal_vehiculos 
+2017-12-05 09:07:16		SELECT * FROM tal_proveedores 
+2017-12-05 09:07:16		SELECT * FROM tal_responsables 
+2017-12-05 09:07:16		SELECT * FROM tal_tipos_tareas 
+2017-12-05 09:07:16		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 13:07:19		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 09:07:19		SELECT * FROM tal_vehiculos 
+2017-12-05 09:07:19		SELECT * FROM tal_tipos_tareas 
+2017-12-05 09:07:19		SELECT * FROM tal_responsables 
+2017-12-05 09:07:19		SELECT * FROM tal_proveedores 
+2017-12-05 09:07:20		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 09:09:06		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 09:09:06		SELECT * FROM tal_responsables 
+2017-12-05 09:09:06		SELECT * FROM tal_tipos_tareas 
+2017-12-05 09:09:06		SELECT * FROM tal_proveedores 
+2017-12-05 09:09:07		SELECT * FROM tal_vehiculos 
+2017-12-05 09:09:07		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 13:09:11		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 09:09:11		SELECT * FROM tal_vehiculos 
+2017-12-05 09:09:11		SELECT * FROM tal_tipos_tareas 
+2017-12-05 09:09:11		SELECT * FROM tal_responsables 
+2017-12-05 09:09:11		SELECT * FROM tal_proveedores 
+2017-12-05 09:09:13		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 09:26:28		SELECT * FROM tal_responsables 
+2017-12-05 09:26:28		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 09:26:28		SELECT * FROM tal_proveedores 
+2017-12-05 09:26:28		SELECT * FROM tal_vehiculos 
+2017-12-05 09:26:28		SELECT * FROM tal_tipos_tareas 
+2017-12-05 09:26:28		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 13:26:31		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 09:26:31		SELECT * FROM tal_vehiculos 
+2017-12-05 09:26:31		SELECT * FROM tal_tipos_tareas 
+2017-12-05 09:26:31		SELECT * FROM tal_proveedores 
+2017-12-05 09:26:31		SELECT * FROM tal_responsables 
+2017-12-05 09:26:31		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 09:58:21		SELECT * FROM tal_tipos_tareas 
+2017-12-05 09:58:21		SELECT * FROM tal_responsables 
+2017-12-05 09:58:21		SELECT * FROM tal_vehiculos 
+2017-12-05 09:58:21		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 09:58:21		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 09:58:21		SELECT * FROM tal_proveedores 
+2017-12-05 13:58:24		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 09:58:25		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 09:58:25		SELECT * FROM tal_vehiculos 
+2017-12-05 09:58:26		SELECT * FROM tal_tipos_tareas 
+2017-12-05 09:58:26		SELECT * FROM tal_responsables 
+2017-12-05 09:58:26		SELECT * FROM tal_proveedores 
+2017-12-05 10:00:06		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 10:00:06		SELECT * FROM tal_vehiculos 
+2017-12-05 10:00:06		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 10:00:06		SELECT * FROM tal_proveedores 
+2017-12-05 10:00:06		SELECT * FROM tal_responsables 
+2017-12-05 10:00:06		SELECT * FROM tal_tipos_tareas 
+2017-12-05 14:00:08		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 10:00:08		SELECT * FROM tal_vehiculos 
+2017-12-05 10:00:08		SELECT * FROM tal_tipos_tareas 
+2017-12-05 10:00:09		SELECT * FROM tal_responsables 
+2017-12-05 10:00:09		SELECT * FROM tal_proveedores 
+2017-12-05 10:00:09		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 10:02:23		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 10:02:23		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 10:02:24		SELECT * FROM tal_vehiculos 
+2017-12-05 10:02:24		SELECT * FROM tal_proveedores 
+2017-12-05 10:02:24		SELECT * FROM tal_responsables 
+2017-12-05 10:02:24		SELECT * FROM tal_tipos_tareas 
+2017-12-05 14:02:26		[{"name":"User"},{"name":"Administrator"}]
+2017-12-05 10:02:26		SELECT * FROM tal_vehiculos 
+2017-12-05 10:02:26		SELECT * FROM tal_tipos_tareas 
+2017-12-05 10:02:26		SELECT * FROM tal_responsables 
+2017-12-05 10:02:26		SELECT * FROM tal_proveedores 
+2017-12-05 10:02:27		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 10:02:54		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 10:02:54		SELECT * FROM tal_vehiculos 
+2017-12-05 10:02:54		SELECT * FROM tal_proveedores 
+2017-12-05 10:02:54		SELECT * FROM tal_responsables 
+2017-12-05 10:02:54		SELECT * FROM tal_tipos_tareas 
+2017-12-05 10:02:54		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 14:02:56		[{"name":"tal_gerencia"}]
+2017-12-05 10:02:56		SELECT * FROM tal_vehiculos 
+2017-12-05 10:02:56		SELECT * FROM tal_tipos_tareas 
+2017-12-05 10:02:56		SELECT * FROM tal_responsables 
+2017-12-05 10:02:56		SELECT * FROM tal_proveedores 
+2017-12-05 10:02:57		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 10:03:21		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 10:03:21		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 10:03:21		SELECT * FROM tal_vehiculos 
+2017-12-05 10:03:21		SELECT * FROM tal_responsables 
+2017-12-05 10:03:21		SELECT * FROM tal_tipos_tareas 
+2017-12-05 10:03:21		SELECT * FROM tal_proveedores 
+2017-12-05 14:03:23		[{"name":"tal_gerencia"}]
+2017-12-05 10:03:24		SELECT * FROM tal_vehiculos 
+2017-12-05 10:03:24		SELECT * FROM tal_tipos_tareas 
+2017-12-05 10:03:24		SELECT * FROM tal_responsables 
+2017-12-05 10:03:24		SELECT * FROM tal_proveedores 
+2017-12-05 10:03:24		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 10:20:23		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 10:20:23		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 10:20:24		SELECT * FROM tal_vehiculos 
+2017-12-05 10:20:24		SELECT * FROM tal_proveedores 
+2017-12-05 10:20:24		SELECT * FROM tal_responsables 
+2017-12-05 10:20:24		SELECT * FROM tal_tipos_tareas 
+2017-12-05 14:20:26		[{"name":"tal_gerencia"}]
+2017-12-05 10:20:26		SELECT * FROM tal_vehiculos 
+2017-12-05 10:20:26		SELECT * FROM tal_tipos_tareas 
+2017-12-05 10:20:26		SELECT * FROM tal_responsables 
+2017-12-05 10:20:26		SELECT * FROM tal_proveedores 
+2017-12-05 10:20:26		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 10:21:07		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 10:21:08		SELECT * FROM tal_vehiculos 
+2017-12-05 10:21:08		SELECT * FROM tal_proveedores 
+2017-12-05 10:21:08		SELECT * FROM tal_responsables 
+2017-12-05 10:21:08		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 10:21:08		SELECT * FROM tal_tipos_tareas 
+2017-12-05 14:21:10		[{"name":"tal_gerencia"}]
+2017-12-05 10:21:10		SELECT * FROM tal_vehiculos 
+2017-12-05 10:21:10		SELECT * FROM tal_tipos_tareas 
+2017-12-05 10:21:10		SELECT * FROM tal_responsables 
+2017-12-05 10:21:10		SELECT * FROM tal_proveedores 
+2017-12-05 10:21:10		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 14:27:29		[{"name":"tal_gerencia"}]
+2017-12-05 14:30:50		[{"name":"tal_gerencia"}]
+2017-12-05 10:31:16		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 10:31:16		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 10:31:16		SELECT * FROM tal_vehiculos 
+2017-12-05 10:31:16		SELECT * FROM tal_proveedores 
+2017-12-05 10:31:16		SELECT * FROM tal_responsables 
+2017-12-05 10:31:16		SELECT * FROM tal_tipos_tareas 
+2017-12-05 14:31:18		[{"name":"tal_gerencia"}]
+2017-12-05 10:31:18		SELECT * FROM tal_vehiculos 
+2017-12-05 10:31:18		SELECT * FROM tal_tipos_tareas 
+2017-12-05 10:31:18		SELECT * FROM tal_responsables 
+2017-12-05 10:31:18		SELECT * FROM tal_proveedores 
+2017-12-05 10:31:18		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 11:25:50		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 11:25:50		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 11:25:50		SELECT * FROM tal_vehiculos 
+2017-12-05 11:25:50		SELECT * FROM tal_proveedores 
+2017-12-05 11:25:50		SELECT * FROM tal_responsables 
+2017-12-05 11:25:50		SELECT * FROM tal_tipos_tareas 
+2017-12-05 15:25:53		[{"name":"tal_gerencia"}]
+2017-12-05 11:25:53		SELECT * FROM tal_vehiculos 
+2017-12-05 11:25:54		SELECT * FROM tal_tipos_tareas 
+2017-12-05 11:25:54		SELECT * FROM tal_responsables 
+2017-12-05 11:25:54		SELECT * FROM tal_proveedores 
+2017-12-05 11:25:54		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 11:31:51		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 11:31:51		SELECT * FROM tal_vehiculos 
+2017-12-05 11:31:51		SELECT * FROM tal_responsables 
+2017-12-05 11:31:51		SELECT * FROM tal_tipos_tareas 
+2017-12-05 11:31:51		SELECT * FROM tal_proveedores 
+2017-12-05 11:31:51		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 15:31:53		[{"name":"tal_gerencia"}]
+2017-12-05 11:31:54		SELECT * FROM tal_vehiculos 
+2017-12-05 11:31:54		SELECT * FROM tal_tipos_tareas 
+2017-12-05 11:31:54		SELECT * FROM tal_responsables 
+2017-12-05 11:31:54		SELECT * FROM tal_proveedores 
+2017-12-05 11:31:54		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 11:38:20		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 11:38:20		SELECT * FROM tal_proveedores 
+2017-12-05 11:38:20		SELECT * FROM tal_responsables 
+2017-12-05 11:38:20		SELECT * FROM tal_vehiculos 
+2017-12-05 11:38:20		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 11:38:20		SELECT * FROM tal_tipos_tareas 
+2017-12-05 15:38:22		[{"name":"tal_gerencia"}]
+2017-12-05 11:38:23		SELECT * FROM tal_vehiculos 
+2017-12-05 11:38:23		SELECT * FROM tal_tipos_tareas 
+2017-12-05 11:38:23		SELECT * FROM tal_responsables 
+2017-12-05 11:38:23		SELECT * FROM tal_proveedores 
+2017-12-05 11:38:24		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 15:40:58		[{"name":"tal_gerencia"}]
+2017-12-05 11:42:05		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 11:42:06		SELECT * FROM tal_tipos_tareas 
+2017-12-05 11:42:06		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 11:42:06		SELECT * FROM tal_responsables 
+2017-12-05 11:42:06		SELECT * FROM tal_proveedores 
+2017-12-05 11:42:06		SELECT * FROM tal_vehiculos 
+2017-12-05 11:42:09		SELECT * FROM tal_vehiculos 
+2017-12-05 11:42:09		SELECT * FROM tal_tipos_tareas 
+2017-12-05 11:42:10		SELECT * FROM tal_responsables 
+2017-12-05 15:42:10		[{"name":"tal_gerencia"}]
+2017-12-05 11:42:10		SELECT * FROM tal_proveedores 
+2017-12-05 11:42:12		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 11:43:24		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 11:43:24		SELECT * FROM tal_vehiculos 
+2017-12-05 11:43:24		SELECT * FROM tal_proveedores 
+2017-12-05 11:43:24		SELECT * FROM tal_responsables 
+2017-12-05 11:43:24		SELECT * FROM tal_tipos_tareas 
+2017-12-05 11:43:24		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 15:43:27		[{"name":"tal_gerencia"}]
+2017-12-05 11:43:27		SELECT * FROM tal_vehiculos 
+2017-12-05 11:43:27		SELECT * FROM tal_tipos_tareas 
+2017-12-05 11:43:27		SELECT * FROM tal_responsables 
+2017-12-05 11:43:27		SELECT * FROM tal_proveedores 
+2017-12-05 11:43:28		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 11:59:44		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 11:59:44		SELECT * FROM tal_vehiculos 
+2017-12-05 11:59:44		SELECT * FROM tal_proveedores 
+2017-12-05 11:59:44		SELECT * FROM tal_responsables 
+2017-12-05 11:59:44		SELECT * FROM tal_tipos_tareas 
+2017-12-05 11:59:44		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 15:59:46		[{"name":"tal_gerencia"}]
+2017-12-05 11:59:46		SELECT * FROM tal_vehiculos 
+2017-12-05 11:59:46		SELECT * FROM tal_tipos_tareas 
+2017-12-05 11:59:47		SELECT * FROM tal_responsables 
+2017-12-05 11:59:47		SELECT * FROM tal_proveedores 
+2017-12-05 11:59:47		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 12:03:40		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 12:03:40		SELECT * FROM tal_responsables 
+2017-12-05 12:03:40		SELECT * FROM tal_tipos_tareas 
+2017-12-05 12:03:40		SELECT * FROM tal_vehiculos 
+2017-12-05 12:03:40		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 12:03:40		SELECT * FROM tal_proveedores 
+2017-12-05 16:03:43		[{"name":"tal_gerencia"}]
+2017-12-05 12:03:43		SELECT * FROM tal_vehiculos 
+2017-12-05 12:03:43		SELECT * FROM tal_tipos_tareas 
+2017-12-05 12:03:43		SELECT * FROM tal_responsables 
+2017-12-05 12:03:43		SELECT * FROM tal_proveedores 
+2017-12-05 12:03:44		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 12:04:27		SELECT * FROM tal_tipos_vehiculos 
+2017-12-05 12:04:27		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-05 12:04:27		SELECT * FROM tal_proveedores 
+2017-12-05 12:04:27		SELECT * FROM tal_responsables 
+2017-12-05 12:04:27		SELECT * FROM tal_tipos_tareas 
+2017-12-05 12:04:28		SELECT * FROM tal_vehiculos 
+2017-12-05 16:04:30		[{"name":"tal_gerencia"}]
+2017-12-05 12:04:30		SELECT * FROM tal_vehiculos 
+2017-12-05 12:04:30		SELECT * FROM tal_tipos_tareas 
+2017-12-05 12:04:30		SELECT * FROM tal_proveedores 
+2017-12-05 12:04:31		SELECT * FROM tal_responsables 
+2017-12-05 12:04:32		SELECT * FROM tal_tipos_vehiculos 

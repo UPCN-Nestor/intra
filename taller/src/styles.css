@@ -3,7 +3,7 @@
 
 /* Hack Date Picker de la grilla */
 .dp-picker-input {
-    width: 70px !important;
+    width: 100px !important;
 }
 
 body {
@@ -17,4 +17,8 @@ body {
 
 .colAgrupada {
 	background-color: red;
+}
+
+.editingRow {
+    background-color: rgb(255, 220, 175) !important;
 }

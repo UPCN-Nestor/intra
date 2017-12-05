@@ -21,10 +21,9 @@ try{
 	$chart = $_GET['chart'];
 	$filtros = $_GET['filtros'];
 	
-	$q = $pdo->query("INSERT INTO favoritos
-		(`userid`, `grid`, `groupby`, `nombre`, `lastused`, `sortby`, `sortbyasc`, `ejex`, `ejey`, `filtros`, `chart`) VALUES ('$userid', '$grid', '$groupby', '$nombre', '".date("Y-m-d H:i:s")."', '$sortby', '$sortbyasc', '$ejex', '$ejey', '$filtros', '$chart')"
-	);
-	
+	$q = "INSERT INTO favoritos
+		(`userid`, `grid`, `groupby`, `nombre`, `lastused`, `sortby`, `sortbyasc`, `ejex`, `ejey`, `filtros`, `chart`) VALUES ('$userid', '$grid', '$groupby', '$nombre', '".date("Y-m-d H:i:s")."', '$sortby', '$sortbyasc', '$ejex', '$ejey', '$filtros', '$chart')";
+		
 	//error case
 	if(!$q)
 	{
@@ -33,9 +32,9 @@ try{
 	//success case
 	else{
 		//header('Content-Type: application/json');
-		$res = $q->fetchAll(PDO::FETCH_ASSOC);
+		$res = $pdo->exec($q);
 		//print_r($res);
-		$id = $pdo->query("SELECT LAST_INSERT_ID() AS id")->fetchAll(PDO::FETCH_ASSOC);
+		$id = $pdo->lastInsertId();
 		echo json_encode($id, JSON_PARTIAL_OUTPUT_ON_ERROR);
 		
 		/*

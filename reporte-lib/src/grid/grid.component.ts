@@ -1,3 +1,4 @@
+import { forEach } from '@angular/router/src/utils/collection';
 import { Component, OnInit, Injectable, Input, ViewChild, Inject } from '@angular/core';
 import {HttpModule, Response, Http, Headers,URLSearchParams} from '@angular/http';
 
@@ -5,7 +6,8 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/debounceTime';
 
 import { DataTableModule,SharedModule, DataTable, DropdownModule, SelectItem, GrowlModule, Message, CheckboxModule, DragDropModule, 
-    PanelModule, InputTextModule, SliderModule, ButtonModule, DialogModule , OverlayPanelModule, MultiSelectModule, TooltipModule} from 'primeng/primeng';
+    PanelModule, InputTextModule, SliderModule, ButtonModule, DialogModule , OverlayPanelModule, MultiSelectModule, TooltipModule, PaginatorModule} from 'primeng/primeng';
+import {ConfirmDialogModule,ConfirmationService} from 'primeng/primeng';
 
 import { SidebarComponent } from '../sidebar/sidebar.component';
 
@@ -19,7 +21,8 @@ var timeout = null; // Debe ser global para que funcione el debounce
 @Component({
   selector: 'app-grid',
   templateUrl: './grid.component.html',
-  styleUrls: ['./grid.component.css']
+  styleUrls: ['./grid.component.css'],
+  providers: [ConfirmationService]
 })
 export class GridComponent implements OnInit {
 
@@ -35,20 +38,24 @@ export class GridComponent implements OnInit {
   @ViewChild(SidebarComponent) sidebar:SidebarComponent;
   @Input() nombreGrid = "";
   @Input() tituloGrid = "";
+  tituloGridArmado: string;
   @Input() cols : SelectItem[];
   colsParaAgrupar : SelectItem[];
   @Input() colsMetadata : {};
   @Input() jsonURL : string;
-  @Input() multiselectURL : string;
+  @Input() writeURL : string;						 
 
   @Input() backendURL : string;
-    
+  @Input() userId: string;
+
   @Input() selectedCol : string;
   orderAscDesc = "1";
   agruparCol: string = "";
   
   agrupar : boolean = false;
 
+  accion : number = 0; // Consultar: 0, Nuevo: 1, Editar: 2
+  editRow : {};													   
   totales : {}
   
   @Input() defaultFilters : {}
@@ -65,6 +72,7 @@ export class GridComponent implements OnInit {
   chartX : string = "";
   chartY : string = "";
  
+  datePickerConfig : IDatePickerConfig;
   datePickerConfigMes : IDatePickerConfig;
   datePickerConfigDia : IDatePickerConfig;
   mesesEspanol = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
@@ -76,13 +84,14 @@ export class GridComponent implements OnInit {
   
   loading = false; // Para que en la carga inicial los filtros default no activen el refresh lazy.
   
-  constructor(private http: Http) { 
+  constructor(private http: Http, private confirmationService: ConfirmationService) { 
 
   }
 
   
   ngOnInit() {
             
+      this.tituloGridArmado = this.tituloGrid;
       this.loading = true;
       
       this.totales = {};
@@ -91,12 +100,11 @@ export class GridComponent implements OnInit {
       this.tipoGrafico = "line";          
   
       this.datePickerConfigMes = { appendTo : "body", format: "YYYY-MM", disableKeypress: true, 
-            monthBtnFormatter : m => { return this.mesesEspanol[m.month()] }                                 
-      };     
+        monthBtnFormatter : m => { return this.mesesEspanol[m.month()] }                                 
+        };     
       this.datePickerConfigDia = { appendTo : "body", format: "YYYY-MM-DD", disableKeypress: true, 
-            monthBtnFormatter : m => { return this.mesesEspanol[m.month()] },
-            weekdayNames: {su: 'D',mo: 'L',tu: 'M',we: 'X',th: 'J',fr: 'V',sa: 'S'}                                     
-      };      
+                monthBtnFormatter : m => { return this.mesesEspanol[m.month()] }                                 
+        };        
       
       this.tiposGrafico =  [
                   {value: 'line', label: 'Líneas' },
@@ -130,6 +138,7 @@ export class GridComponent implements OnInit {
             }
             });
                       
+		  this.inicializarForaneas();					 
           this.loading = false;
           this.agruparChanged(null);
       });
@@ -155,7 +164,7 @@ export class GridComponent implements OnInit {
                       });                      
                   });                      
           }*/
-          else
+          else if(this.colsMetadata[c.value].inputFiltro !== "multiselect")
               this.filters[c.value]="";                
       });
          
@@ -210,9 +219,10 @@ export class GridComponent implements OnInit {
       });      
       
       if(this.agruparCol != "") {      
-          this.msg('', 'Agrupamiento', 'Agrupado por '+this.agruparCol );
+          //this.msg('', 'Agrupamiento', 'Agrupado por '+this.agruparCol );
         
-          this.filas = this.groupBy(this.sortBy(this.filas, this.agruparCol, 1), f => f[this.agruparCol]).map(grupo => { 
+          this.sortBy(this.agruparCol, 1);
+          this.filas = this.groupBy(this.filas, f => f[this.agruparCol]).map(grupo => { 
               let toRet = [];
               
               // Para cada columna, recorre todo el grupo y "sumariza" según la función que corresponda a la columna según sus metadatos (suma, promedio, etc.) 
@@ -231,29 +241,31 @@ export class GridComponent implements OnInit {
               return toRet;
           });
           
-          this.filas = this.sortBy(this.filas, this.selectedCol, this.orderAscDesc);
+          this.sortBy(this.selectedCol, this.orderAscDesc);
       }
       else {
-          this.filas = this.sortBy(this.filas, this.selectedCol, this.orderAscDesc);
+          this.sortBy(this.selectedCol, this.orderAscDesc);
           //this.filas = this.filasDesagrupado;
       }
       
-      // Totales de columnas
-      for(var c of this.cols) {   
-          let col = c.value;
-          let fc = this.colsMetadata[col] ? this.colsMetadata[col].agrupado : null; // Se usa la función de agrupamiento de la columna, podría ser diferente la forma de agrupar y de totalizar
-          if(fc) {
-              let colVals = this.filas.map(f => f[col]);   
-              this.totales[col] = fc(colVals);
-          }
-          else
-              this.totales[col] = "";       
-      }
-      
+      this.calcularTotales();      
       //this.reloadChartData();
   }
   
- 
+  calcularTotales() {
+      // Totales de columnas
+      for(var c of this.cols) {   
+        let col = c.value;
+        let fc = this.colsMetadata[col] ? this.colsMetadata[col].agrupado : null; // Se usa la función de agrupamiento de la columna, podría ser diferente la forma de agrupar y de totalizar
+        if(fc) {
+            let colVals = this.filas.map(f => f[col]);   
+            this.totales[col] = fc(colVals);
+        }
+        else
+            this.totales[col] = "";       
+    }
+  }
+
   refreshChart() {
       this.reloadChartData();
   }
@@ -324,7 +336,7 @@ export class GridComponent implements OnInit {
   checkLazyLoad(field) {
         
       if(this.colsMetadata[field].lazy) {    
-          this.msgs.push({severity:'info', summary:'Lazy loading', detail:''+field});  
+          //this.msgs.push({severity:'info', summary:'Lazy loading', detail:''+field});  
           this.loading = true;
           this.getFilas().then(f => {
               this.filasDesagrupado = f;
@@ -396,28 +408,33 @@ export class GridComponent implements OnInit {
     
   onDateDesdeChange(event, col) {
       if(this.loading) return;
-      
-      //this.msgs.push({severity:'info', summary:'dsd', detail:''});  
+ 
       if(typeof event === "object")
-          this.filters[col]['desde'] = event.format("YYYYMM");
+          this.filters[col]['desde'] = event.format("YYYY-MM-DD");
       else
-          this.filters[col]['desde'] = event;
+          this.filters[col]['desde'] = event.length == 7 ? event + "-01" : event;
       
       this.checkLazyLoad(col); 
   }
   
   onDateHastaChange(event, col) {
       if(this.loading) return;
-      
-      //this.msgs.push({severity:'info', summary:'hst', detail:''});  
+																	  
       if(typeof event === "object")
-          this.filters[col]['hasta'] = event.format("YYYYMM");
+          this.filters[col]['hasta'] = event.format("YYYY-MM-DD");
       else
-          this.filters[col]['hasta'] = event;
+          this.filters[col]['hasta'] = event.length == 7 ? event + "-31" : event;
       
       this.checkLazyLoad(col);   
   }
     
+  onDateChange(event, col) {
+    if(typeof event === "object")
+        this.editRow[col] = event.format("YYYY-MM-DD");
+    else
+        this.editRow[col] = event.length == 7 ? event + "-01" : event;
+  }
+  
   manualFilter(field, value) {
       if(this.loading) return;
       
@@ -437,7 +454,7 @@ export class GridComponent implements OnInit {
       inputNombre.focus();
   }
   
-  guardarClick() {     
+  guardarClick(e) {     
       this.mostrarPopupGuardar = true;
       this.nombreGuardar = this.sidebar.selected ? this.sidebar.selected.nombre + " (modif.)" : "";   
   }
@@ -459,7 +476,7 @@ export class GridComponent implements OnInit {
       let filtros = JSON.stringify(this.filters);
       params.set('filtros', filtros);
       
-      this.http.get(this.backendURL + 'php/userspice/rep_addFavorito.php', {withCredentials: true, search: params})
+      this.http.get(this.backendURL + 'php/userspice/rep_addFavorito.php', {	withCredentials: true, search: params})
           .toPromise()
           .then(res => res.json()) // Acá podría devolver OK o error.
           .then(data => { this.sidebar.select({id: data[0].id}, false); return data; });
@@ -474,7 +491,8 @@ export class GridComponent implements OnInit {
       this.orderAscDesc = sidebar.selected.sortbyasc;
       this.chartX = sidebar.selected.ejex;
       this.chartY = sidebar.selected.ejey;        
-      this.tipoGrafico = sidebar.selected.chart;      
+      this.tipoGrafico = sidebar.selected.chart;    
+      this.tituloGridArmado = this.tituloGrid + ": " + sidebar.selected.nombre;
       
       this.filters = JSON.parse(sidebar.selected.filtros);
       
@@ -493,50 +511,39 @@ export class GridComponent implements OnInit {
       this.agruparChanged(event);
   }
   
-  doSort(event) {
+  doSort(event, dt) {
       if(this.filas.length == 0)
         return;   
 
-      this.filas = this.sortBy(this.filas, event.field, event.order);
-      this.msg('info', 'Ordenamiento', this.filas[0][event.field]);
+      this.sortBy(event.field, event.order);
+      this.filas = this.filas.slice(0); // ******* HACK REFRESH DATOS DE GRILLA ********
+      //this.msg('info', 'Ordenamiento', this.filas[0][event.field]);
   }
   
-  sortBy(filas, field, order) {
+  sortBy(field, order) {
 
       if(this.colsMetadata[field] && this.colsMetadata[field] .orden == "numerico") {
           if(order == 1)
-              filas.sort((a,b) => {return a[field] - b[field];});
+              this.filas = this.filas.sort((a,b) => {return a[field] - b[field];});
           else
-              filas.sort((a,b) => {return b[field] - a[field];});
+              this.filas = this.filas.sort((a,b) => {return b[field] - a[field];});
       }
       else if(this.colsMetadata[field] && this.colsMetadata[field] .orden == "alfabetico") {
           if(order == 1)
-              filas.sort((a,b) => {return a[field] > b[field] ? 1 : -1;});
+              this.filas = this.filas.sort((a,b) => {return a[field] > b[field] ? 1 : -1;});
           else
-              filas.sort((a,b) => {return b[field] > a[field] ? 1 : -1;});
+              this.filas = this.filas.sort((a,b) => {return b[field] > a[field] ? 1 : -1;});
       }
       else { // Default
           if(order == 1)
-              filas.sort((a,b) => {return a[field] > b[field] ? 1 : -1;});
+              this.filas = this.filas.sort((a,b) => {return a[field] > b[field] ? 1 : -1;});
           else
-              filas.sort((a,b) => {return b[field] > a[field] ? 1 : -1;});
+              this.filas = this.filas.sort((a,b) => {return b[field] > a[field] ? 1 : -1;});
       }
       
-      return filas;
-  }
-  
-  onClick(dt: DataTable) {
-      this.msgs.push({severity:'info', summary:'dt', detail:''});
+      //return filas;
   }
 
-  show() {
-      this.msgs.push({severity:'info', summary:'Info', detail:'' + this.selectedCol});
-  }
-  
-  hide() {
-      this.msgs = [];
-  }
-  
   getStyle(col) {
     let style = {};
     if (this.colsMetadata[col].orden == "numerico") 
@@ -555,6 +562,150 @@ export class GridComponent implements OnInit {
     this.agruparChanged(null);
   }
   
+
+  rowClick(e, dt) {
+    //console.log(dt);
+    if(this.agruparCol != "") {
+        this.msg('info', 'Info', 'No se puede editar en modo Agrupado');
+        return;
+    }
+    if(this.accion > 0)
+        return;
+    
+    dt.dataToRender.forEach(f=> f.isEditing = false);
+
+    this.editarIniciar(e);
+  }
+
+  inicializarForaneas() {
+      this.cols.forEach(c => {
+          if(this.colsMetadata[c.value].fk_url) {
+            this.http.get(this.colsMetadata[c.value].fk_url, {withCredentials: true})
+                .toPromise().then(d => {
+                    let toRet = [];
+                    let mostrar = this.colsMetadata[c.value].fk_mostrar;
+                    d.json().forEach(x => toRet.push({'value': x.id, 'label': x[mostrar]}));                
+                    this.multiselectValues[c.value] = toRet;
+                });
+          }        
+      });
+  }
+
+  getMostrarFk(col, val) {
+    if(!this.multiselectValues[col]) 
+        return;
+    return this.multiselectValues[col].filter(x=>x.value==val).length > 0 ? this.multiselectValues[col].filter(x=>x.value==val)[0].label : "";
+  }
+
+
+  isObject ( obj ) {
+    return obj && (typeof obj  === "object");
+  }
+
+  editarNuevo(dt) {
+    this.accion = 1;    
+    this.editRow = { isEditing:true };
+    this.cols.forEach(c=> { // Por defecto la fila nueva tiene el valor del filtro activo en cada columna
+        if(this.colsMetadata[c.value]["defaultNew"]) {
+            if(this.colsMetadata[c.value]["defaultNew"] == "%hoy%")
+                this.editRow[c.value] = new Date().toISOString().substr(0,10);
+            else
+                this.editRow[c.value] = this.colsMetadata[c.value]["defaultNew"];
+        }
+        if(this.filters[c.value] instanceof Array && this.filters[c.value].length == 1)
+            this.editRow[c.value] = this.filters[c.value][0];
+        else if(!this.isObject(this.filters[c.value]))
+            this.editRow[c.value] = this.filters[c.value];
+    });
+    this.filas =  [ this.editRow, ...this.filas ];
+    this.filasDesagrupado =  [ ...this.filasDesagrupado, this.editRow ];
+  }
+
+  editarIniciar(e) {
+    this.accion = 2;
+    this.editRow = e.data;
+    e.data.isEditing=true;
+  }
+
+  editarAceptar(dt) {
+    dt.dataToRender.forEach(f=> f.isEditing = false);
+
+    let params: URLSearchParams = new URLSearchParams();
+    this.cols.forEach(c => { 
+        params.set(c.value, this.editRow[c.value]);
+    });
+
+    if(this.editRow["id"])  // Update
+        this.http.put(this.writeURL, params, {withCredentials: true}).toPromise().then(res => {
+            //this.msg("info","info","Editado id " + this.editRow["id"]);
+            console.log(res);
+            if(res.json()[0] == "error") {
+                this.editarCancelar(dt);
+                this.msg("warn","Error","No se pudo modificar fila en base de datos");
+            } else {        
+                this.accion = 0;
+                this.calcularTotales();
+            }
+        });
+    else {        
+        this.http.post(this.writeURL, params, {withCredentials: true}).toPromise().then(res => {
+            //this.msg("info","info","Nuevo insertado");
+            console.log(res);
+            if(res.json()[0] == "error") {
+                this.editarCancelar(dt);
+                this.msg("warn","Error","No se pudo insertar fila en base de datos");
+            } else {
+                this.editRow["id"] = res.json();
+                this.accion = 0;
+                this.calcularTotales();
+            }
+        });
+    }
+  }
+
+  confirm(dt) {
+    this.confirmationService.confirm({
+        message: '¿Está seguro de que desea eliminar esta fila?',
+        accept: () => {
+            this.editarEliminar(dt);
+        }
+    });
+  }
+
+  editarEliminar(dt) {
+    let params: URLSearchParams = new URLSearchParams();
+    params.set('id', this.editRow["id"]);
+
+    this.http.delete(this.writeURL, {withCredentials: true, search: params})
+                .toPromise()
+                .then(res => { 
+                    console.log(res.json()); 
+                    if(res.json() == 1) { // Se borró con éxito
+                        this.filas = this.filas.filter(f=>f["id"] != this.editRow["id"]);
+                        this.filasDesagrupado = this.filasDesagrupado.filter(f=>f["id"] != this.editRow["id"]);
+                        this.accion = 0;
+                        this.calcularTotales();
+                    }
+                    else {
+                        this.msg("warn","Error","No se pudo eliminar fila en base de datos. Puede que un dato de otra tabla dependa de este.");
+                        this.editarCancelar(dt);
+                    }
+                });
+  }
+
+  editarCancelar(dt) {
+    if(this.accion==1) {
+        this.filas = this.filas.filter(f=> f["id"]);
+        this.filasDesagrupado = this.filasDesagrupado.filter(f=> f["id"]);
+    }
+    this.accion = 0;
+    dt.dataToRender.forEach(f=> f.isEditing = false);
+  }
+
+
+  getRowStyleClass(data) {
+      return data["isEditing"] ? 'editingRow' : 'tooltip';
+  }
 
 
   // AUX   

@@ -1,7 +1,39 @@
 
-<app-header [backendURL]="baseURL">Header...</app-header>
-<br/>
+<app-header #header [backendURL]="baseURL">Header...</app-header>
+
+<p-panel [header]="getPanelTitle()">  
+    <div class="ui-inputgroup">
+        <span class="ui-inputgroup-addon"><i class="fa fa-table"></i></span>
+        <p-dropdown [options]="entidades" [(ngModel)]="entidadSeleccionada"></p-dropdown>
+    </div>
+</p-panel>
+
+<div [hidden]="entidadSeleccionada!=0">
 <app-grid tituloGrid="Listado de tareas" nombreGrid="taller" [cols]="cols" [colsMetadata]="colsMetadata" [selectedCol]="selectedCol" 
-    [backendURL]="baseURL" [jsonURL]="jsonURL" [multiselectURL]="multiselectURL" [defaultFilters]="defaultFilters"
-    mostrarGrafico="true">Grid...
-</app-grid>
+    [backendURL]="backendURL" [writeURL]="writeURL" [jsonURL]="jsonURL" [defaultFilters]="defaultFilters" [userId]="user"
+     mostrarSidebar="true">Grid...
+</app-grid></div>
+
+<div [hidden]="entidadSeleccionada!=1">
+<app-grid tituloGrid="Listado de vehiculos" nombreGrid="vehiculos" [cols]="vcols" [colsMetadata]="vcolsMetadata" [selectedCol]="vselectedCol" 
+[backendURL]="backendURL" [writeURL]="vwriteURL" [jsonURL]="vjsonURL" [defaultFilters]="vdefaultFilters" [userId]="user">Grid...
+</app-grid></div>
+
+<div [hidden]="entidadSeleccionada!=2">
+    <app-grid tituloGrid="Listado de proveedores" nombreGrid="proveedores" [cols]="pcols" [colsMetadata]="pcolsMetadata" [selectedCol]="pselectedCol" 
+    [backendURL]="backendURL" [writeURL]="pwriteURL" [jsonURL]="pjsonURL" [defaultFilters]="pdefaultFilters" [userId]="user">Grid...
+</app-grid></div>
+
+<div [hidden]="entidadSeleccionada!=3">
+    <app-grid tituloGrid="Listado de responsables" nombreGrid="responsables" [cols]="rcols" [colsMetadata]="rcolsMetadata" [selectedCol]="rselectedCol" 
+    [backendURL]="backendURL" [writeURL]="rwriteURL" [jsonURL]="rjsonURL" [defaultFilters]="rdefaultFilters" [userId]="user">Grid...
+</app-grid></div>
+
+<div [hidden]="entidadSeleccionada!=4" class="ui-g-6">
+    <app-grid tituloGrid="Listado de tipos de tareas" nombreGrid="tiposTareas" [cols]="ttcols" [colsMetadata]="ttcolsMetadata" selectedCol="nombre" 
+    [backendURL]="backendURL" [writeURL]="ttwriteURL" [jsonURL]="ttjsonURL" [defaultFilters]="ttdefaultFilters" [userId]="user">Grid...
+</app-grid></div>
+<div [hidden]="entidadSeleccionada!=4" class="ui-g-6">
+    <app-grid tituloGrid="Listado de tipos de vehículos" nombreGrid="tiposVehiculos" [cols]="tvcols" [colsMetadata]="tvcolsMetadata" selectedCol="descripcion" 
+    [backendURL]="backendURL" [writeURL]="tvwriteURL" [jsonURL]="tvjsonURL" [defaultFilters]="tvdefaultFilters" [userId]="user">Grid...
+</app-grid></div>

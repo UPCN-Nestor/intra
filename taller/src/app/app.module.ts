@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -9,9 +10,7 @@ import { HttpModule } from '@angular/http';
 import { HeaderModule } from 'upcn-header-lib';
 import { GridModule } from 'upcn-reporte-lib';
 
-
-// Imports para llevar a lib ABM
-import { ButtonModule, ToolbarModule } from 'primeng/primeng';
+import { DropdownModule, PanelModule } from 'primeng/primeng';
 
 
 
@@ -20,13 +19,12 @@ import { ButtonModule, ToolbarModule } from 'primeng/primeng';
     AppComponent
   ],
   imports: [
+    DropdownModule, PanelModule,
     BrowserModule,
     FormsModule,
     HttpModule,
     HeaderModule.forRoot(),
-    GridModule.forRoot(),
-    // Imports para llevar a lib ABM
-    ToolbarModule, ButtonModule
+    GridModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -21,7 +21,7 @@ switch ($method) {
 	//echo $sql;
 	
 	try{ $q = $pdo->exec($sql); echo $q; }
-	catch(PDOException $e) { echo $e->getMessage();	}
+	catch(PDOException $e) { echo '["error"]';	}
     break;
 	
   case 'POST':		// Create
@@ -40,45 +40,12 @@ switch ($method) {
 	}
 	catch(PDOException $e) { echo '["error"]';	}
     break;
-	
-  case 'GET':		// Read. Sin parámetros devuelve todo. Soporta una cláusula "where" definida a partir de un diccionario "$filters", o bien un parámetro GET de la forma ?campo=valor (ej. ?id=1)
-  	$where = 'WHERE';
-	if(isset($filters)) foreach($filters as $key => $value) {			
-		if (strpos($key, 'fecha') !== false) {
-			$desde = strlen($value['desde'])==7 ? $value['desde'] . '-01' : $value['desde'];
-			$hasta = strlen($value['hasta'])==7 ? $value['hasta'] . '-31' : $value['hasta'];
-			
-			if($desde=="") $desde='1000-01-01';
-			if($hasta=="") $hasta='9999-01-01';
-			
-			$where .= " $key >= '$desde' AND $key <= '$hasta' AND";
-		}
-		else {
-			$where .= " $key = '$value' AND";
-		}
-	}
-	if(strlen($where)==5)
-		$where="";
-	else $where=substr($where, 0, -4);
-	
-	if(!isset($filters) && strlen($where)==0) {
-		foreach($_GET as $key => $value)
-			$where = "WHERE $key = '$value'";
-	}
-	
-	$sql = "SELECT * FROM $tabla $where";
 
-	upc_log($sql);
-	$q = $pdo->query($sql);
-	$res = $q->fetchAll(PDO::FETCH_ASSOC);
-	echo json_encode($res, JSON_PARTIAL_OUTPUT_ON_ERROR);
-    break;
-	
   case 'DELETE':	// Delete
 	$sql = "DELETE FROM $tabla WHERE id = " . $_GET['id'] . ";";
 
 	try{ $q = $pdo->exec($sql); echo $q; }
-	catch(PDOException $e) { echo $e->getMessage();	}
+	catch(PDOException $e) { echo '["error"]';	}
     break;
 	
   default:

@@ -1,7 +1,7 @@
 
 <meta charset="UTF-8">
 
-<p-dataTable [value]="filas" sortMode="single" sortField="lastused" [sortOrder]="-1" [loading]="loading" emptyMessage="Cargando consultas...">
+<p-dataTable [value]="filas" sortMode="single" sortField="lastused" [sortOrder]="-1" [loading]="loading" emptyMessage="No hay elementos.">
 	<p-column field="nombre" header="Consulta guardada" [sortable]="true" [style]="{'width':'65%'}">
 		<ng-template let-nom="rowData" pTemplate="body">
 			<button pButton type="button" [disabled]="nom.userid == 0" (click)="confirm(nom.id, nom.nombre)" icon="fa-trash"></button>
