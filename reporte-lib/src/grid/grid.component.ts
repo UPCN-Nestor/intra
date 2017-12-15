@@ -55,7 +55,8 @@ export class GridComponent implements OnInit {
   agrupar : boolean = false;
 
   accion : number = 0; // Consultar: 0, Nuevo: 1, Editar: 2
-  editRow : {};													   
+  editRow : {};			
+  editBackup : {};									   
   totales : {}
   
   @Input() defaultFilters : {}
@@ -71,6 +72,7 @@ export class GridComponent implements OnInit {
   tipoGrafico: string = "";
   chartX : string = "";
   chartY : string = "";
+  series : string = "";
  
   datePickerConfig : IDatePickerConfig;
   datePickerConfigMes : IDatePickerConfig;
@@ -138,7 +140,8 @@ export class GridComponent implements OnInit {
             }
             });
                       
-		  this.inicializarForaneas();					 
+          this.inicializarForaneas();		
+          this.calculadas();			 
           this.loading = false;
           this.agruparChanged(null);
       });
@@ -200,6 +203,8 @@ export class GridComponent implements OnInit {
       if(!this.filasDesagrupado)
           return;
       
+    
+
       this.filas = this.filasDesagrupado; // Vuelvo a las filas originales
       
       // Aplico cada filtro
@@ -218,6 +223,8 @@ export class GridComponent implements OnInit {
           }
       });      
       
+      this.calculadas();
+
       if(this.agruparCol != "") {      
           //this.msg('', 'Agrupamiento', 'Agrupado por '+this.agruparCol );
         
@@ -247,6 +254,7 @@ export class GridComponent implements OnInit {
           this.sortBy(this.selectedCol, this.orderAscDesc);
           //this.filas = this.filasDesagrupado;
       }
+      
       
       this.calcularTotales();      
       //this.reloadChartData();
@@ -282,7 +290,7 @@ export class GridComponent implements OnInit {
           return;
 
       //this.msgs.push({severity:'info', summary:'Gráfico', detail:'Eje X: ' + this.chartX + ', Eje Y: ' + this.chartY });
-      
+            
       let groupedArray = this.groupByAndSum(rows, this.chartX, this.chartY);
       //this.sortedArray = this.groupedArray.sort((x,y) => x[this.selectedCol] - y[this.selectedCol] );
       
@@ -591,6 +599,16 @@ export class GridComponent implements OnInit {
       });
   }
 
+  calculadas() {
+    this.cols.forEach(c => {
+        if(this.colsMetadata[c.value].calculada) {
+            this.filas.forEach(f => {                
+                f[c.value] = this.colsMetadata[c.value].calculada(f);
+            })            
+        }   
+    });
+  }
+
   getMostrarFk(col, val) {
     if(!this.multiselectValues[col]) 
         return;
@@ -622,6 +640,7 @@ export class GridComponent implements OnInit {
   }
 
   editarIniciar(e) {
+    this.editBackup = { ... e.data };
     this.accion = 2;
     this.editRow = e.data;
     e.data.isEditing=true;
@@ -632,7 +651,8 @@ export class GridComponent implements OnInit {
 
     let params: URLSearchParams = new URLSearchParams();
     this.cols.forEach(c => { 
-        params.set(c.value, this.editRow[c.value]);
+        if(this.colsMetadata[c.value].calculada === undefined)
+            params.set(c.value, this.editRow[c.value]);
     });
 
     if(this.editRow["id"])  // Update
@@ -644,6 +664,7 @@ export class GridComponent implements OnInit {
                 this.msg("warn","Error","No se pudo modificar fila en base de datos");
             } else {        
                 this.accion = 0;
+                this.calculadas();
                 this.calcularTotales();
             }
         });
@@ -657,6 +678,7 @@ export class GridComponent implements OnInit {
             } else {
                 this.editRow["id"] = res.json();
                 this.accion = 0;
+                this.calculadas();
                 this.calcularTotales();
             }
         });
@@ -698,13 +720,29 @@ export class GridComponent implements OnInit {
         this.filas = this.filas.filter(f=> f["id"]);
         this.filasDesagrupado = this.filasDesagrupado.filter(f=> f["id"]);
     }
-    this.accion = 0;
-    dt.dataToRender.forEach(f=> f.isEditing = false);
+    if(this.accion==2) {
+        this.filas = this.filas.filter(f => f["id"] != this.editBackup["id"]);
+        this.filasDesagrupado = this.filasDesagrupado.filter(f => f["id"] != this.editBackup["id"]);
+        this.filas.push({ ... this.editBackup });
+        this.filasDesagrupado.push({ ... this.editBackup });
+        
+        //dt.dataToRender.filter(f => f["id"] == this.editBackup["id"])[0] = { ... this.editBackup };
+    }
+    this.accion = 0;    
+    
+    dt.dataToRender.forEach(f=> { 
+            f.isEditing = false;        
+        });
   }
 
 
-  getRowStyleClass(data) {
-      return data["isEditing"] ? 'editingRow' : 'tooltip';
+  getRowStyleClass(data, index) {
+      //alert(this.rowStyle());
+       
+      let toRet = data["isEditing"] ? 'editingRow' : 
+        data["isHighlighted"] ? 'highlightedRow' : 'tooltip';
+
+      return toRet;
   }
 
 

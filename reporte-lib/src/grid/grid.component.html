@@ -19,13 +19,15 @@
     </div>
     	
     <div class="ui-toolbar-group-right">
-		<table><tr><td>
-			<i class="fa fa-object-group"></i>
-			<p-dropdown [options]="colsParaAgrupar" [(ngModel)]="agruparCol" (onChange)="agruparChanged($event)"></p-dropdown>		
-		</td><td>
-			<button style="vertical-align: middle" type="button" pButton icon="fa-file-excel-o" iconPos="left" (click)="dt.exportCSV()"></button>
-			<button style="vertical-align: middle" pButton type="button" (click)="guardarClick()" icon="fa-save"></button>
-		</td></tr></table>
+		<div style="white-space: nowrap; vertical-align: middle;">
+			<span style="display: inline-block; vertical-align: middle;" class="ui-inputgroup">
+				<span class="ui-inputgroup-addon" style="vertical-align: middle;"><i class="fa fa-object-group"></i></span>
+				<p-dropdown [options]="colsParaAgrupar" [(ngModel)]="agruparCol" (onChange)="agruparChanged($event)"></p-dropdown>		
+			</span>
+			<span style="vertical-align: middle; display: inline-block; width:20px"></span>
+			<button style="vertical-align: middle; display: inline-block;" type="button" pButton icon="fa-file-excel-o" iconPos="left" (click)="dt.exportCSV()"></button>
+			<button style="vertical-align: middle; display: inline-block;" pButton type="button" (click)="guardarClick()" icon="fa-save"></button>
+		</div>	
     </div>
 </p-toolbar>
 
@@ -75,7 +77,7 @@
 					(click)="gridButtonClick(fila, col)" [pTooltip]="colsMetadata[col.value].tooltipBoton"></button>
 			</div>
 			<div *ngIf="colsMetadata[col.value] ? !colsMetadata[col.value].iconoBoton :_false">
-				<div *ngIf="fila.isEditing">
+				<div *ngIf="fila.isEditing && !colsMetadata[col.value].calculada">
 					<div style="text-align:center;" *ngIf="colsMetadata[col.value] ? colsMetadata[col.value].inputFiltro == 'text' : 0"> 
 						<input type="text" size="10" pInputText [(ngModel)]="editRow[col.value]"/>
 					</div>
@@ -121,6 +123,7 @@
 
 <button style="vertical-align: middle" pButton type="button" (click)="refreshChart()" icon="fa-refresh" label="Actualizar"></button>
 Tipo: <p-dropdown [options]="tiposGrafico" [(ngModel)]="tipoGrafico" (onChange)="reloadChartData()"></p-dropdown>
+Series: <p-dropdown [options]="colsParaAgrupar" [(ngModel)]="series" (onChange)="reloadChartData()"></p-dropdown>
 Eje X: <p-dropdown [options]="colsParaAgrupar" [(ngModel)]="chartX" (onChange)="reloadChartData()"></p-dropdown>
 Eje Y: <p-dropdown [options]="colsParaAgrupar" [(ngModel)]="chartY" (onChange)="reloadChartData()"></p-dropdown>
 

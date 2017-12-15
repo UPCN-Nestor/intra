@@ -31,6 +31,7 @@ export class ConsumosComponent implements OnInit {
       backendURL: string;
       defaultFilters : {} = {};
       
+
       constructor(private http: Http, private el:ElementRef) { 
           //alert(el.nativeElement.getAttribute('base'));
           //this.baseURL = el.nativeElement.getAttribute('base');        
@@ -40,9 +41,11 @@ export class ConsumosComponent implements OnInit {
                
           //this.inicializarGrilla();
     
-          this.defaultFilters["fecha_creacion"] = {desde: "2017-01-01", hasta: "2017-12-01"};
+          this.defaultFilters["fecha_creacion"] = {desde: "2017-01-01", hasta: "2018-12-01"};
           //this.defaultFilters["Consumo"] = "100000";
-          
+
+          //alert(this.fnRowStyle());
+
           this.cols = [
                       {value: 'id', label: ''},
                       {value: 'id_vehiculo', label: 'Vehículo'},
@@ -52,8 +55,8 @@ export class ConsumosComponent implements OnInit {
                       {value: 'factura_numero', label: 'Nº Factura'},  
                       {value: 'id_proveedor', label: 'Proveedor'},
                       {value: 'factura_importe', label: 'Monto'},
-                      {value: 'horas_hombre', label: 'Horas hombre'}
-                      
+                      {value: 'horas_hombre', label: 'Horas hombre'},
+                      {value: 'estado', label: 'Estado'}                      
                   ];
           
           this.colsMetadata = { 
@@ -69,7 +72,8 @@ export class ConsumosComponent implements OnInit {
                                   id_proveedor: { orden: 'alfabetico', filtro: this.equals, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_proveedores_r.php',
                                       fk_mostrar:'nombre'},
                                   factura_importe: { orden: 'numerico', filtro: this.mayor, inputFiltro: 'text', agrupado: this.sum},
-                                  horas_hombre: { orden: 'numerico', filtro: this.mayor, inputFiltro: 'text', agrupado: this.sum}
+                                  horas_hombre: { orden: 'numerico', filtro: this.mayor, inputFiltro: 'text', agrupado: this.sum},
+                                  estado: { orden: 'alfabetico', filtro: this.startsWith, inputFiltro: 'text', agrupado: this.vacio, calculada: this.estado }
     
                                   /*    
                                   'ETTCodigo': { 'orden' : 'alfabetico', 'filtro': this.inArray, 'inputFiltro': 'multiselect' },
@@ -100,7 +104,18 @@ export class ConsumosComponent implements OnInit {
           alert(fila.Cons_area);
       }
     
+
+      estado(row) {
+        return (row["horas_hombre"] == null || row["horas_hombre"] == 0) && 
+                (row["factura_numero"] == null || row["factura_numero"] == "") 
+                    ? "Pendiente" : "Finalizada";
+
+
+      }
+
       // Funciones para agrupar
+      
+      vacio() : string { return ""; }
       
       avg(values:number[]) : number {
           let toRet = 0;
