@@ -108,9 +108,9 @@
 
 </p-dataTable>
 
-
 <p-growl id="growl" [value]="msgs"></p-growl>
 
+<br/>
 
 </div>
 
@@ -119,19 +119,19 @@
 </div>
 
 
-<div *ngIf="mostrarGrafico" class="ui-g-8">
+<div *ngIf="mostrarGrafico" class="ui-g-9 chartBackground">
 
-<button style="vertical-align: middle" pButton type="button" (click)="refreshChart()" icon="fa-refresh" label="Actualizar"></button>
+<button style="vertical-align: middle" pButton type="button" (click)="refreshChart()" icon="fa-refresh"></button>
 Tipo: <p-dropdown [options]="tiposGrafico" [(ngModel)]="tipoGrafico" (onChange)="reloadChartData()"></p-dropdown>
 Series: <p-dropdown [options]="colsParaAgrupar" [(ngModel)]="series" (onChange)="reloadChartData()"></p-dropdown>
 Eje X: <p-dropdown [options]="colsParaAgrupar" [(ngModel)]="chartX" (onChange)="reloadChartData()"></p-dropdown>
 Eje Y: <p-dropdown [options]="colsParaAgrupar" [(ngModel)]="chartY" (onChange)="reloadChartData()"></p-dropdown>
 
 <app-chart [data]="chartData" [tipo]="tipoGrafico"></app-chart>
-
+	
 </div>
 
-
+		
 <p-dialog header="Guardar consulta" [modal]="true" [dismissableMask]="true" [(visible)]="mostrarPopupGuardar" (onShow)="showModal($event, inputNombre)">
     Nombre de la consulta
     <input #inputNombre type="text" pInputText [(ngModel)]="nombreGuardar"/>

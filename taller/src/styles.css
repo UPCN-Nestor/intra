@@ -22,3 +22,7 @@ body {
 .editingRow {
     background-color: rgb(255, 220, 175) !important;
 }
+
+.chartBackground {
+    background-color: rgb(232, 232, 224) !important;
+}

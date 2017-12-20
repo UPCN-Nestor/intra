@@ -37,7 +37,7 @@ try{
 
 }
 catch(PDOException $ex){
-     die(json_encode(array('outcome' => false, 'message' => 'Fallo al conectar a la base de datos')));
+     die(json_encode(array('outcome' => false, 'message' => print_r($pdo->errorInfo(),true))));
 }
 
 

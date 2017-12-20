@@ -20,9 +20,11 @@ try{
 	$ejey = $_GET['ejey'];
 	$chart = $_GET['chart'];
 	$filtros = $_GET['filtros'];
+	$series = $_GET['series'];
 	
 	$q = "INSERT INTO favoritos
-		(`userid`, `grid`, `groupby`, `nombre`, `lastused`, `sortby`, `sortbyasc`, `ejex`, `ejey`, `filtros`, `chart`) VALUES ('$userid', '$grid', '$groupby', '$nombre', '".date("Y-m-d H:i:s")."', '$sortby', '$sortbyasc', '$ejex', '$ejey', '$filtros', '$chart')";
+		(`userid`, `grid`, `groupby`, `nombre`, `lastused`, `sortby`, `sortbyasc`, `ejex`, `ejey`, `filtros`, `chart`, `series`) VALUES 
+		('$userid', '$grid', '$groupby', '$nombre', '".date("Y-m-d H:i:s")."', '$sortby', '$sortbyasc', '$ejex', '$ejey', '$filtros', '$chart', '$series')";
 		
 	//error case
 	if(!$q)

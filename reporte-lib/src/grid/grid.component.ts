@@ -99,7 +99,7 @@ export class GridComponent implements OnInit {
       this.totales = {};
       this.filters = this.defaultFilters;
       
-      this.tipoGrafico = "line";          
+      this.tipoGrafico = "bar";          
   
       this.datePickerConfigMes = { appendTo : "body", format: "YYYY-MM", disableKeypress: true, 
         monthBtnFormatter : m => { return this.mesesEspanol[m.month()] }                                 
@@ -109,8 +109,8 @@ export class GridComponent implements OnInit {
         };        
       
       this.tiposGrafico =  [
-                  {value: 'line', label: 'Líneas' },
-                  {value: 'pie', label: 'Circular' }
+                  {value: 'bar', label: 'Barras'},
+                  {value: 'line', label: 'Curvas' }
              ];
       
       this.multiselectValues = {};
@@ -222,7 +222,7 @@ export class GridComponent implements OnInit {
               }
           }
       });      
-      
+
       this.calculadas();
 
       if(this.agruparCol != "") {      
@@ -253,8 +253,7 @@ export class GridComponent implements OnInit {
       else {
           this.sortBy(this.selectedCol, this.orderAscDesc);
           //this.filas = this.filasDesagrupado;
-      }
-      
+      }      
       
       this.calcularTotales();      
       //this.reloadChartData();
@@ -280,7 +279,7 @@ export class GridComponent implements OnInit {
   
   reloadChartData() {
 
-      let rows;
+      let rows : Fila[];
       if(this.filteredValues)
           rows = this.filteredValues;
       else
@@ -289,34 +288,68 @@ export class GridComponent implements OnInit {
       if(!rows)
           return;
 
-      //this.msgs.push({severity:'info', summary:'Gráfico', detail:'Eje X: ' + this.chartX + ', Eje Y: ' + this.chartY });
-            
-      let groupedArray = this.groupByAndSum(rows, this.chartX, this.chartY);
-      //this.sortedArray = this.groupedArray.sort((x,y) => x[this.selectedCol] - y[this.selectedCol] );
-      
-      let displayLabels = Object.keys(groupedArray);
-      let displayData = this.values(groupedArray);
+      if(!this.series || !this.chartX || !this.chartY)
+        return;
 
-      let backgroundColors = this.colorsByHash(displayLabels);
-      
+      //this.msgs.push({severity:'info', summary:'Gráfico', detail:'Eje X: ' + this.chartX + ', Eje Y: ' + this.chartY });
+    
+      let displayData = [];
+      let ss = this.groupBy(rows.sort((r1,r2)=>{ return r1[this.series] > r2[this.series] ? 1 : -1; }),   // Ordenamiento para que funcione el groupBy
+            f => f[this.series]);
+      let groupedSeries = ss.map(grupo => { 
+        return [grupo, this.groupByAndSum(grupo.members, this.chartX, this.chartY)];
+      }); 
+      let displayLabels = this.filas.map(f=>f[this.chartX]).filter(function(item, i, ar){ return ar.indexOf(item) === i; })
+                .map(x => {
+                    let toRet = [];
+                    if(this.colsMetadata[this.chartX].fk_mostrar) {
+                        toRet.push(this.getMostrarFk(this.chartX, x)); toRet.push(x);
+                    } else {
+                        toRet.push(x); toRet.push(x);
+                    }
+                    return toRet;
+                })
+                .sort((r1,r2)=>{ return r1[1] > r2[1] ? 1 : -1; }); // Eje X
+
+      let seriesData = {};
+      groupedSeries.forEach(s => {
+        let nombre = s[0].members[0][this.series];
+        let vals = displayLabels.map(x => {          
+            let ix = x[1];
+            return s[1][ix] ? s[1][ix] : 0;
+        });    
+        seriesData[nombre] = vals;                    
+      });
+
+      // *ngIf="colsMetadata[col.value].fk_mostrar">{{getMostrarFk(col.value, fila[col.value])
       this.chartData = {
-              datasets: [{
-                  data: displayData,
-                  label: this.chartY,
-                  borderColor: this.tipoGrafico == "line" ? '#FF4444' : '#FFFFFF',
-                  fill: false,
-                  backgroundColor: this.tipoGrafico == "line" ? ["#FF4444"] : backgroundColors
-              }],
-              labels: displayLabels     
+        datasets: [],
+        labels: displayLabels.map(x=>x[0])
       }
+      let colors = ["#e6194b","#3cb44b","#ffe119","#0082c8","#f58231","#911eb4","#46f0f0","#f032e6","#d2f53c","#fabebe","#008080","#e6beff","#aa6e28","#fffac8","#800000","#aaffc3","#808000","#ffd8b1","#000080","#808080"];
+      let colnum = 0;      
+      Object.keys(seriesData).forEach(serie => {
+        this.chartData.datasets.push({
+            data: seriesData[serie],
+            label: this.colsMetadata[this.series].fk_mostrar ? this.getMostrarFk(this.series, serie) : serie,
+            backgroundColor: colors[colnum],
+            borderColor: colors[colnum], //'#FF4444',
+            fill: this.tipoGrafico == 'bar'
+        });
+        colnum++;
+      });
   }
   
   colorsByHash(labels : string[]) {
       return labels.map(str => {
-          var stringHexNumber = '#' + md5(str).slice(0, 6);
+          var stringHexNumber = '#' + md5(str).slice(6, 12);
          
           return stringHexNumber;
       });
+  }
+  colorByHash(str: string) {
+      var stringHexNumber = '#' + md5(str).slice(6, 12);
+      return stringHexNumber;
   }
       
   nameToColor(name) {
@@ -383,13 +416,25 @@ export class GridComponent implements OnInit {
   // Agrupa sumando!
   groupByAndSum(xs, key, val) {
       return xs.reduce((rv, x) => {
+        
         rv[x[key]] = rv[x[key]] || 0;
         rv[x[key]] = parseFloat(rv[x[key]]) + parseFloat(x[val]);
         return rv;
       }, {});
     };
 
-      
+    /*
+  groupBy(xs, key) {
+        return xs.reduce((rv, x) => {
+          
+            if(!rv[key])
+                rv[key] = {};
+            else
+                rv[key].push(rv[x[key]]);
+            return rv;  
+        }, {});
+    }*/
+
 
   debounce(func, wait, immediate) : any {    
       return function() {
@@ -458,7 +503,7 @@ export class GridComponent implements OnInit {
 
   
   showModal(ev, inputNombre) {
-      this.msgs.push({severity:'info', summary:'Show', detail:''});   
+      //this.msgs.push({severity:'info', summary:'Show', detail:''});   
       inputNombre.focus();
   }
   
@@ -480,6 +525,7 @@ export class GridComponent implements OnInit {
       params.set('ejex', this.chartX);
       params.set('ejey', this.chartY);
       params.set('chart', this.tipoGrafico);
+      params.set('series', this.series);
       
       let filtros = JSON.stringify(this.filters);
       params.set('filtros', filtros);
@@ -501,7 +547,8 @@ export class GridComponent implements OnInit {
       this.chartY = sidebar.selected.ejey;        
       this.tipoGrafico = sidebar.selected.chart;    
       this.tituloGridArmado = this.tituloGrid + ": " + sidebar.selected.nombre;
-      
+      this.series = sidebar.selected.series;
+
       this.filters = JSON.parse(sidebar.selected.filtros);
       
       this.agruparChanged(null);

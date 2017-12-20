@@ -109,8 +109,6 @@ export class ConsumosComponent implements OnInit {
         return (row["horas_hombre"] == null || row["horas_hombre"] == 0) && 
                 (row["factura_numero"] == null || row["factura_numero"] == "") 
                     ? "Pendiente" : "Finalizada";
-
-
       }
 
       // Funciones para agrupar
