@@ -175,11 +175,11 @@ export class GridComponent implements OnInit {
   }
   
   msg(severity, summary, detail)
-  {
+  {      
       let sev = severity;
       if(severity=="")
           sev = "info";
-      this.msgs.push({severity: sev, summary: summary, detail: detail });
+      this.msgs = [{severity: sev, summary: summary, detail: detail }];
   }
  
   // SIN USO
@@ -539,7 +539,7 @@ export class GridComponent implements OnInit {
   }
   
   cargarConsultaSeleccionada($event, sidebar) {
-      this.msg('info', 'Cargada consulta', ''+sidebar.selected.nombre);
+      //this.msg('info', 'Cargada consulta', ''+sidebar.selected.nombre);
       this.agruparCol = sidebar.selected.groupby;
       this.selectedCol = sidebar.selected.sortby;
       this.orderAscDesc = sidebar.selected.sortbyasc;
@@ -668,6 +668,11 @@ export class GridComponent implements OnInit {
   }
 
   editarNuevo(dt) {
+    if(this.agruparCol != "") {
+        this.msg('info', 'Info', 'No se puede agregar en modo Agrupado');
+        return;
+    }
+
     this.accion = 1;    
     this.editRow = { isEditing:true };
     this.cols.forEach(c=> { // Por defecto la fila nueva tiene el valor del filtro activo en cada columna

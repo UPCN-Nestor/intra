@@ -106,10 +106,9 @@ export class AppComponent implements OnInit {
       //this.baseURL = el.nativeElement.getAttribute('base');          
   }
 
+
   ngOnInit() {
 
-      this.entidades = [ {value: '0', label: 'Tareas'}, {value: '1', label: 'Vehiculos'}, 
-        {value: '2', label: 'Proveedores'}, {value: '3', label: 'Responsables'}, {value: '4', label: 'Tipos de entidades'}];
       //this.inicializarGrilla();
       this.entidadSeleccionada = 0;
       
@@ -125,24 +124,27 @@ export class AppComponent implements OnInit {
                   {value: 'factura_numero', label: 'Nº Factura'},  
                   {value: 'id_proveedor', label: 'Proveedor'},
                   {value: 'factura_importe', label: 'Monto'},
-                  {value: 'horas_hombre', label: 'Horas hombre'}
-                  
+                  {value: 'horas_hombre', label: 'Horas hombre'},
+                  {value: 'estado', label: 'Estado'}                     
               ];
       
       this.colsMetadata = { 
                               id: { hidden: 'true '},
-                              id_vehiculo: { orden: 'alfabetico', filtro: this.equals, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_vehiculos_r.php',
+                              id_vehiculo: { orden: 'alfabetico', filtro: this.inArray, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_vehiculos_r.php',
                                 fk_mostrar:'numero'},
-                              id_tipo_tarea: { orden: 'alfabetico', filtro: this.equals, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_tipos_tareas_r.php',
+                              id_tipo_tarea: { orden: 'alfabetico', filtro: this.inArray, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_tipos_tareas_r.php',
                                   fk_mostrar:'nombre'},
-                              id_responsable: { orden: 'alfabetico', filtro: this.equals, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_responsables_r.php',
+                              id_responsable: { orden: 'alfabetico', filtro: this.inArray, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_responsables_r.php',
                                   fk_mostrar:'nombre'},
                               fecha_creacion: { orden : 'alfabetico', filtro: this.inDateRange, inputFiltro: 'dateRangeDia', defaultNew:'%hoy%', lazy: true},
                               factura_numero: { orden : 'alfabetico', filtro: this.startsWith, inputFiltro: 'text', defaultNew:'A'},
-                              id_proveedor: { orden: 'alfabetico', filtro: this.equals, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_proveedores_r.php',
+                              id_proveedor: { orden: 'alfabetico', filtro: this.inArray, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_proveedores_r.php',
                                   fk_mostrar:'nombre'},
                               factura_importe: { orden: 'numerico', filtro: this.mayor, inputFiltro: 'text', agrupado: this.sum},
-                              horas_hombre: { orden: 'numerico', filtro: this.mayor, inputFiltro: 'text', agrupado: this.sum}
+                              horas_hombre: { orden: 'numerico', filtro: this.mayor, inputFiltro: 'text', agrupado: this.sum},
+                              estado: { orden: 'alfabetico', filtro: this.startsWith, inputFiltro: 'text', agrupado: this.vacio, calculada: this.estado,
+                                    tooltip: 'Una tarea se considera finalizada si se le cargó número de factura u horas hombre' }
+                             
 
                               //'Consumo': { 'orden': 'numerico', 'agrupado': this.sum, 'filtro': this.mayor, 'inputFiltro': 'text', tooltip: 'En <<unidad>>' },      
 
@@ -164,12 +166,21 @@ export class AppComponent implements OnInit {
 
     return this.header['permissions'].filter(x=>x.name==cual).length > 0;
   }
-  
+
+  getEntidades() {    
+    let entidades = [ {value: '0', label: 'Tareas'} ];
+    
+    if(this.tienePermiso('tal_gerencia'))
+        entidades.push({value: '1', label: 'Vehiculos'}, {value: '2', label: 'Proveedores'}, {value: '3', label: 'Responsables'}, {value: '4', label: 'Tipos de entidades'});
+
+    return entidades;
+  }
+
   getPanelTitle() {
     let panelTitle = 'Módulo de Administración de Taller';
     if(this.tienePermiso("tal_gerencia"))
         panelTitle += " - Gerencia";
-    else if(this.tienePermiso("tal_usuarios"))
+    else if(this.tienePermiso("tal_usuario"))
         panelTitle += " - Usuario";
     else 
         panelTitle += " - No autorizado     ";
@@ -183,6 +194,8 @@ export class AppComponent implements OnInit {
 
   // Funciones para agrupar
   
+  vacio() : string { return ""; }
+
   avg(values:number[]) : number {
       let toRet = 0;
       for(var n of values)
@@ -210,6 +223,14 @@ export class AppComponent implements OnInit {
       a1= A[0], a2= A[A.length-1], L= a1.length, i= 0;
       while(i<L && a1.charAt(i)=== a2.charAt(i)) i++;
       return a1.substring(0, i);
+  }
+
+  // Funciones para columnas calculadas 
+
+  estado(row) {
+    return (row["horas_hombre"] == null || row["horas_hombre"] == 0) && 
+            (row["factura_numero"] == null || row["factura_numero"] == "") 
+                ? "Pendiente" : "Finalizada";
   }
       
   // Predicados para filtros
