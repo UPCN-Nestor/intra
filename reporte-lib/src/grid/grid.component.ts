@@ -49,7 +49,7 @@ export class GridComponent implements OnInit {
   @Input() userId: string;
 
   @Input() selectedCol : string;
-  orderAscDesc = "1";
+  orderAscDesc = "0";
   agruparCol: string = "";
   
   agrupar : boolean = false;
@@ -99,7 +99,7 @@ export class GridComponent implements OnInit {
       this.totales = {};
       this.filters = this.defaultFilters;
       
-      this.tipoGrafico = "bar";          
+      this.tipoGrafico = "line";          
   
       this.datePickerConfigMes = { appendTo : "body", format: "YYYY-MM", disableKeypress: true, 
         monthBtnFormatter : m => { return this.mesesEspanol[m.month()] }                                 
@@ -109,8 +109,9 @@ export class GridComponent implements OnInit {
         };        
       
       this.tiposGrafico =  [
-                  {value: 'bar', label: 'Barras'},
-                  {value: 'line', label: 'Curvas' }
+                {value: 'line', label: 'Curvas' },
+                  {value: 'bar', label: 'Barras'}
+                  
              ];
       
       this.multiselectValues = {};
@@ -288,8 +289,13 @@ export class GridComponent implements OnInit {
       if(!rows)
           return;
 
-      if(!this.series || !this.chartX || !this.chartY)
+      if(!this.series || !this.chartX || !this.chartY) {
+        this.chartData = {
+            datasets: [],
+            labels: []
+        };
         return;
+      }
 
       //this.msgs.push({severity:'info', summary:'Gráfico', detail:'Eje X: ' + this.chartX + ', Eje Y: ' + this.chartY });
     
@@ -675,6 +681,10 @@ export class GridComponent implements OnInit {
 
     this.accion = 1;    
     this.editRow = { isEditing:true };
+
+    this.filas =  [ this.editRow, ...this.filas ];
+    this.filasDesagrupado =  [ this.editRow, ...this.filasDesagrupado ];
+
     this.cols.forEach(c=> { // Por defecto la fila nueva tiene el valor del filtro activo en cada columna
         if(this.colsMetadata[c.value]["defaultNew"]) {
             if(this.colsMetadata[c.value]["defaultNew"] == "%hoy%")
@@ -687,8 +697,6 @@ export class GridComponent implements OnInit {
         else if(!this.isObject(this.filters[c.value]))
             this.editRow[c.value] = this.filters[c.value];
     });
-    this.filas =  [ this.editRow, ...this.filas ];
-    this.filasDesagrupado =  [ ...this.filasDesagrupado, this.editRow ];
   }
 
   editarIniciar(e) {
@@ -703,7 +711,7 @@ export class GridComponent implements OnInit {
 
     let params: URLSearchParams = new URLSearchParams();
     this.cols.forEach(c => { 
-        if(this.colsMetadata[c.value].calculada === undefined)
+        if(this.colsMetadata[c.value].calculada === undefined && this.colsMetadata[c.value].accionBoton === undefined)
             params.set(c.value, this.editRow[c.value]);
     });
 
@@ -717,7 +725,7 @@ export class GridComponent implements OnInit {
             } else {        
                 this.accion = 0;
                 this.calculadas();
-                this.calcularTotales();
+                this.agruparChanged(null);
             }
         });
     else {        
@@ -731,7 +739,7 @@ export class GridComponent implements OnInit {
                 this.editRow["id"] = res.json();
                 this.accion = 0;
                 this.calculadas();
-                this.calcularTotales();
+                this.agruparChanged(null);
             }
         });
     }

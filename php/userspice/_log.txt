@@ -3175,3 +3175,366 @@
 2017-12-20 11:53:11		SELECT * FROM tal_responsables 
 2017-12-20 11:53:11		SELECT * FROM tal_proveedores 
 2017-12-20 11:53:11		SELECT * FROM tal_tipos_vehiculos 
+2017-12-20 12:13:58		SELECT * FROM tal_tipos_tareas 
+2017-12-20 12:13:58		SELECT * FROM tal_vehiculos 
+2017-12-20 12:13:58		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-20 12:13:58		SELECT * FROM tal_responsables 
+2017-12-20 12:13:58		SELECT * FROM tal_proveedores 
+2017-12-20 12:13:58		SELECT * FROM tal_tipos_vehiculos 
+2017-12-20 16:14:01		[{"name":"tal_gerencia"}]
+2017-12-20 12:14:01		SELECT * FROM tal_tipos_vehiculos 
+2017-12-20 12:14:01		SELECT * FROM tal_vehiculos 
+2017-12-20 12:14:01		SELECT * FROM tal_tipos_tareas 
+2017-12-20 12:14:01		SELECT * FROM tal_responsables 
+2017-12-20 12:14:01		SELECT * FROM tal_proveedores 
+2017-12-20 12:16:47		SELECT * FROM tal_tipos_vehiculos 
+2017-12-20 12:16:47		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-20 12:16:47		SELECT * FROM tal_vehiculos 
+2017-12-20 12:16:47		SELECT * FROM tal_proveedores 
+2017-12-20 12:16:47		SELECT * FROM tal_responsables 
+2017-12-20 12:16:48		SELECT * FROM tal_tipos_tareas 
+2017-12-20 16:16:50		[{"name":"tal_gerencia"}]
+2017-12-20 12:16:50		SELECT * FROM tal_vehiculos 
+2017-12-20 12:16:50		SELECT * FROM tal_tipos_tareas 
+2017-12-20 12:16:50		SELECT * FROM tal_responsables 
+2017-12-20 12:16:50		SELECT * FROM tal_proveedores 
+2017-12-20 12:16:51		SELECT * FROM tal_tipos_vehiculos 
+2017-12-20 12:20:06		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-20 12:20:06		SELECT * FROM tal_responsables 
+2017-12-20 12:20:06		SELECT * FROM tal_vehiculos 
+2017-12-20 12:20:06		SELECT * FROM tal_tipos_tareas 
+2017-12-20 12:20:06		SELECT * FROM tal_tipos_vehiculos 
+2017-12-20 12:20:06		SELECT * FROM tal_proveedores 
+2017-12-20 16:20:09		[{"name":"tal_gerencia"}]
+2017-12-20 12:20:09		SELECT * FROM tal_vehiculos 
+2017-12-20 12:20:09		SELECT * FROM tal_tipos_tareas 
+2017-12-20 12:20:09		SELECT * FROM tal_responsables 
+2017-12-20 12:20:09		SELECT * FROM tal_proveedores 
+2017-12-20 12:20:09		SELECT * FROM tal_tipos_vehiculos 
+2017-12-20 13:52:38		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2018-12-01'
+2017-12-20 13:52:39		SELECT * FROM tal_tipos_tareas 
+2017-12-20 13:52:39		SELECT * FROM tal_vehiculos 
+2017-12-20 13:52:39		SELECT * FROM tal_proveedores 
+2017-12-20 13:52:39		SELECT * FROM tal_responsables 
+2017-12-20 13:52:49		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-20 13:53:16		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-31'
+2017-12-20 13:53:36		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2018-12-01'
+2017-12-20 13:53:41		SELECT * FROM tal_vehiculos 
+2017-12-20 13:53:41		SELECT * FROM tal_responsables 
+2017-12-20 13:53:41		SELECT * FROM tal_tipos_tareas 
+2017-12-20 13:53:41		SELECT * FROM tal_proveedores 
+2017-12-20 13:54:48		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-20 13:55:00		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2018-12-01'
+2017-12-20 13:55:05		SELECT * FROM tal_tipos_tareas 
+2017-12-20 13:55:05		SELECT * FROM tal_vehiculos 
+2017-12-20 13:55:05		SELECT * FROM tal_responsables 
+2017-12-20 13:55:05		SELECT * FROM tal_proveedores 
+2017-12-21 07:10:22		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-21 07:10:22		SELECT * FROM tal_proveedores 
+2017-12-21 07:10:22		SELECT * FROM tal_tipos_tareas 
+2017-12-21 07:10:22		SELECT * FROM tal_responsables 
+2017-12-21 07:10:22		SELECT * FROM tal_vehiculos 
+2017-12-21 07:10:22		SELECT * FROM tal_tipos_vehiculos 
+2017-12-21 11:10:24		[{"name":"tal_gerencia"}]
+2017-12-21 07:10:24		SELECT * FROM tal_vehiculos 
+2017-12-21 07:10:24		SELECT * FROM tal_tipos_tareas 
+2017-12-21 07:10:24		SELECT * FROM tal_responsables 
+2017-12-21 07:10:24		SELECT * FROM tal_proveedores 
+2017-12-21 07:10:26		SELECT * FROM tal_tipos_vehiculos 
+2017-12-21 07:12:07		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2018-12-01'
+2017-12-21 07:12:30		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-21 07:12:30		SELECT * FROM tal_vehiculos 
+2017-12-21 07:12:30		SELECT * FROM tal_proveedores 
+2017-12-21 07:12:30		SELECT * FROM tal_responsables 
+2017-12-21 07:12:30		SELECT * FROM tal_tipos_tareas 
+2017-12-21 07:12:30		SELECT * FROM tal_tipos_vehiculos 
+2017-12-21 11:12:32		[{"name":"tal_gerencia"}]
+2017-12-21 07:12:32		SELECT * FROM tal_vehiculos 
+2017-12-21 07:12:32		SELECT * FROM tal_tipos_tareas 
+2017-12-21 07:12:32		SELECT * FROM tal_proveedores 
+2017-12-21 07:12:32		SELECT * FROM tal_responsables 
+2017-12-21 07:12:32		SELECT * FROM tal_tipos_vehiculos 
+2017-12-21 07:12:38		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2018-12-01'
+2017-12-21 07:13:05		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2017-12-01'
+2017-12-21 07:13:07		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2018-12-01'
+2017-12-21 07:14:27		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2020-12-31'
+2017-12-21 07:14:27		SELECT * FROM tal_proveedores 
+2017-12-21 07:14:27		SELECT * FROM tal_responsables 
+2017-12-21 07:14:27		SELECT * FROM tal_vehiculos 
+2017-12-21 07:14:27		SELECT * FROM tal_tipos_tareas 
+2017-12-21 07:14:27		SELECT * FROM tal_tipos_vehiculos 
+2017-12-21 11:14:28		[{"name":"tal_gerencia"}]
+2017-12-21 07:14:29		SELECT * FROM tal_vehiculos 
+2017-12-21 07:14:29		SELECT * FROM tal_tipos_tareas 
+2017-12-21 07:14:29		SELECT * FROM tal_responsables 
+2017-12-21 07:14:29		SELECT * FROM tal_proveedores 
+2017-12-21 07:14:30		SELECT * FROM tal_tipos_vehiculos 
+2017-12-21 07:19:07		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2018-12-01'
+2017-12-21 07:19:21		SELECT * FROM tal_vehiculos 
+2017-12-21 07:19:21		SELECT * FROM tal_tipos_tareas 
+2017-12-21 07:19:21		SELECT * FROM tal_proveedores 
+2017-12-21 07:19:21		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2020-12-31'
+2017-12-21 07:19:21		SELECT * FROM tal_responsables 
+2017-12-21 07:19:21		SELECT * FROM tal_tipos_vehiculos 
+2017-12-21 11:19:23		[{"name":"tal_gerencia"}]
+2017-12-21 07:19:23		SELECT * FROM tal_tipos_vehiculos 
+2017-12-21 07:19:24		SELECT * FROM tal_vehiculos 
+2017-12-21 07:19:24		SELECT * FROM tal_responsables 
+2017-12-21 07:19:24		SELECT * FROM tal_proveedores 
+2017-12-21 07:19:24		SELECT * FROM tal_tipos_tareas 
+2017-12-21 07:19:28		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2018-12-01'
+2017-12-21 07:19:43		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2020-12-31'
+2017-12-21 07:19:43		SELECT * FROM tal_vehiculos 
+2017-12-21 07:19:43		SELECT * FROM tal_proveedores 
+2017-12-21 07:19:43		SELECT * FROM tal_responsables 
+2017-12-21 07:19:43		SELECT * FROM tal_tipos_tareas 
+2017-12-21 07:19:43		SELECT * FROM tal_tipos_vehiculos 
+2017-12-21 11:19:45		[{"name":"tal_gerencia"}]
+2017-12-21 07:19:45		SELECT * FROM tal_vehiculos 
+2017-12-21 07:19:45		SELECT * FROM tal_tipos_tareas 
+2017-12-21 07:19:46		SELECT * FROM tal_responsables 
+2017-12-21 07:19:46		SELECT * FROM tal_proveedores 
+2017-12-21 07:19:46		SELECT * FROM tal_tipos_vehiculos 
+2017-12-21 07:20:13		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2020-12-31'
+2017-12-21 07:20:13		SELECT * FROM tal_vehiculos 
+2017-12-21 07:20:13		SELECT * FROM tal_proveedores 
+2017-12-21 07:20:13		SELECT * FROM tal_responsables 
+2017-12-21 07:20:14		SELECT * FROM tal_tipos_tareas 
+2017-12-21 07:20:14		SELECT * FROM tal_tipos_vehiculos 
+2017-12-21 11:20:15		[{"name":"tal_gerencia"}]
+2017-12-21 07:20:15		SELECT * FROM tal_vehiculos 
+2017-12-21 07:20:15		SELECT * FROM tal_proveedores 
+2017-12-21 07:20:15		SELECT * FROM tal_tipos_tareas 
+2017-12-21 07:20:15		SELECT * FROM tal_responsables 
+2017-12-21 07:20:16		SELECT * FROM tal_tipos_vehiculos 
+2017-12-21 11:27:19		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2018-12-01'
+2017-12-21 11:27:31		SELECT * FROM tal_vehiculos 
+2017-12-21 11:27:31		SELECT * FROM tal_tipos_tareas 
+2017-12-21 11:27:31		SELECT * FROM tal_responsables 
+2017-12-21 11:27:31		SELECT * FROM tal_proveedores 
+2017-12-21 11:27:45		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2018-01-31'
+2017-12-21 11:28:00		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2018-12-01'
+2017-12-21 11:28:02		SELECT * FROM tal_vehiculos 
+2017-12-21 11:28:02		SELECT * FROM tal_tipos_tareas 
+2017-12-21 11:28:02		SELECT * FROM tal_responsables 
+2017-12-21 11:28:02		SELECT * FROM tal_proveedores 
+2017-12-21 11:28:32		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2018-12-01'
+2017-12-21 11:28:34		SELECT * FROM tal_vehiculos 
+2017-12-21 11:28:34		SELECT * FROM tal_responsables 
+2017-12-21 11:28:34		SELECT * FROM tal_tipos_tareas 
+2017-12-21 11:28:34		SELECT * FROM tal_proveedores 
+2017-12-22 09:03:42		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2020-12-31'
+2017-12-22 09:03:43		SELECT * FROM tal_responsables 
+2017-12-22 09:03:43		SELECT * FROM tal_proveedores 
+2017-12-22 09:03:43		SELECT * FROM tal_vehiculos 
+2017-12-22 09:03:43		SELECT * FROM tal_tipos_tareas 
+2017-12-22 09:03:43		SELECT * FROM tal_tipos_vehiculos 
+2017-12-22 09:03:43		SELECT * FROM tal_tipos_tareas 
+2017-12-22 09:03:43		SELECT * FROM tal_responsables 
+2017-12-22 09:03:43		SELECT * FROM tal_proveedores 
+2017-12-22 09:03:43		SELECT * FROM tal_vehiculos 
+2017-12-22 13:03:44		[{"name":"tal_gerencia"}]
+2017-12-22 09:03:44		SELECT * FROM tal_tipos_vehiculos 
+2017-12-22 09:27:55		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2020-12-31'
+2017-12-22 09:27:55		SELECT * FROM tal_tipos_tareas 
+2017-12-22 09:27:55		SELECT * FROM tal_tipos_vehiculos 
+2017-12-22 09:27:55		SELECT * FROM tal_responsables 
+2017-12-22 09:27:55		SELECT * FROM tal_proveedores 
+2017-12-22 09:27:56		SELECT * FROM tal_vehiculos 
+2017-12-22 13:27:58		[{"name":"tal_gerencia"}]
+2017-12-22 09:27:58		SELECT * FROM tal_vehiculos 
+2017-12-22 09:27:58		SELECT * FROM tal_tipos_tareas 
+2017-12-22 09:27:58		SELECT * FROM tal_responsables 
+2017-12-22 09:27:58		SELECT * FROM tal_proveedores 
+2017-12-22 09:28:00		SELECT * FROM tal_tipos_vehiculos 
+2017-12-22 09:28:42		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2020-12-31'
+2017-12-22 09:28:42		SELECT * FROM tal_vehiculos 
+2017-12-22 09:28:42		SELECT * FROM tal_proveedores 
+2017-12-22 09:28:42		SELECT * FROM tal_tipos_tareas 
+2017-12-22 09:28:42		SELECT * FROM tal_tipos_vehiculos 
+2017-12-22 09:28:42		SELECT * FROM tal_responsables 
+2017-12-22 09:28:44		SELECT * FROM tal_vehiculos 
+2017-12-22 09:28:45		SELECT * FROM tal_responsables 
+2017-12-22 09:28:45		SELECT * FROM tal_proveedores 
+2017-12-22 09:28:45		SELECT * FROM tal_tipos_tareas 
+2017-12-22 13:28:45		[{"name":"tal_gerencia"}]
+2017-12-22 09:28:45		SELECT * FROM tal_tipos_vehiculos 
+2017-12-22 09:29:09		SELECT * FROM tal_vehiculos 
+2017-12-22 09:29:09		SELECT * FROM tal_proveedores 
+2017-12-22 09:29:09		SELECT * FROM tal_tipos_tareas 
+2017-12-22 09:29:09		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2020-12-31'
+2017-12-22 09:29:09		SELECT * FROM tal_responsables 
+2017-12-22 09:29:09		SELECT * FROM tal_tipos_vehiculos 
+2017-12-22 13:29:11		[{"name":"tal_gerencia"}]
+2017-12-22 09:29:11		SELECT * FROM tal_tipos_vehiculos 
+2017-12-22 09:29:12		SELECT * FROM tal_vehiculos 
+2017-12-22 09:29:12		SELECT * FROM tal_tipos_tareas 
+2017-12-22 09:29:13		SELECT * FROM tal_responsables 
+2017-12-22 09:29:13		SELECT * FROM tal_proveedores 
+2017-12-22 09:30:05		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2020-12-31'
+2017-12-22 09:30:05		SELECT * FROM tal_vehiculos 
+2017-12-22 09:30:05		SELECT * FROM tal_proveedores 
+2017-12-22 09:30:05		SELECT * FROM tal_responsables 
+2017-12-22 09:30:05		SELECT * FROM tal_tipos_tareas 
+2017-12-22 09:30:06		SELECT * FROM tal_tipos_vehiculos 
+2017-12-22 13:30:16		[{"name":"tal_gerencia"}]
+2017-12-22 09:30:16		SELECT * FROM tal_vehiculos 
+2017-12-22 09:30:16		SELECT * FROM tal_responsables 
+2017-12-22 09:30:16		SELECT * FROM tal_tipos_tareas 
+2017-12-22 09:30:16		SELECT * FROM tal_proveedores 
+2017-12-22 09:30:17		SELECT * FROM tal_tipos_vehiculos 
+2017-12-22 09:30:30		SELECT * FROM tal_vehiculos 
+2017-12-22 09:30:30		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2020-12-31'
+2017-12-22 09:30:30		SELECT * FROM tal_responsables 
+2017-12-22 09:30:30		SELECT * FROM tal_tipos_tareas 
+2017-12-22 09:30:30		SELECT * FROM tal_proveedores 
+2017-12-22 09:30:30		SELECT * FROM tal_tipos_vehiculos 
+2017-12-22 09:30:33		SELECT * FROM tal_tipos_vehiculos 
+2017-12-22 13:30:33		[{"name":"tal_gerencia"}]
+2017-12-22 09:30:33		SELECT * FROM tal_vehiculos 
+2017-12-22 09:30:34		SELECT * FROM tal_tipos_tareas 
+2017-12-22 09:30:34		SELECT * FROM tal_responsables 
+2017-12-22 09:30:34		SELECT * FROM tal_proveedores 
+2017-12-22 09:31:37		SELECT * FROM tal_tipos_vehiculos 
+2017-12-22 09:31:37		SELECT * FROM tal_vehiculos 
+2017-12-22 09:31:37		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2020-12-31'
+2017-12-22 09:31:37		SELECT * FROM tal_proveedores 
+2017-12-22 09:31:37		SELECT * FROM tal_responsables 
+2017-12-22 09:31:38		SELECT * FROM tal_tipos_tareas 
+2017-12-22 13:31:40		[{"name":"tal_gerencia"}]
+2017-12-22 09:31:40		SELECT * FROM tal_tipos_vehiculos 
+2017-12-22 09:31:41		SELECT * FROM tal_vehiculos 
+2017-12-22 09:31:41		SELECT * FROM tal_tipos_tareas 
+2017-12-22 09:31:41		SELECT * FROM tal_responsables 
+2017-12-22 09:31:41		SELECT * FROM tal_proveedores 
+2017-12-22 09:38:49		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2020-12-31'
+2017-12-22 09:38:49		SELECT * FROM tal_proveedores 
+2017-12-22 09:38:49		SELECT * FROM tal_responsables 
+2017-12-22 09:38:49		SELECT * FROM tal_tipos_tareas 
+2017-12-22 09:38:49		SELECT * FROM tal_tipos_vehiculos 
+2017-12-22 09:38:49		SELECT * FROM tal_vehiculos 
+2017-12-22 13:38:51		[{"name":"tal_gerencia"}]
+2017-12-22 09:38:52		SELECT * FROM tal_vehiculos 
+2017-12-22 09:38:52		SELECT * FROM tal_tipos_tareas 
+2017-12-22 09:38:52		SELECT * FROM tal_responsables 
+2017-12-22 09:38:52		SELECT * FROM tal_proveedores 
+2017-12-22 09:38:53		SELECT * FROM tal_tipos_vehiculos 
+2017-12-22 09:49:39		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2020-12-31'
+2017-12-22 09:49:39		SELECT * FROM tal_vehiculos 
+2017-12-22 09:49:39		SELECT * FROM tal_proveedores 
+2017-12-22 09:49:39		SELECT * FROM tal_responsables 
+2017-12-22 09:49:39		SELECT * FROM tal_tipos_vehiculos 
+2017-12-22 09:49:39		SELECT * FROM tal_tipos_tareas 
+2017-12-22 13:49:41		[{"name":"tal_gerencia"}]
+2017-12-22 09:49:41		SELECT * FROM tal_vehiculos 
+2017-12-22 09:49:41		SELECT * FROM tal_tipos_tareas 
+2017-12-22 09:49:41		SELECT * FROM tal_responsables 
+2017-12-22 09:49:41		SELECT * FROM tal_proveedores 
+2017-12-22 09:49:42		SELECT * FROM tal_tipos_vehiculos 
+2017-12-22 10:22:11		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2020-12-31'
+2017-12-22 10:22:11		SELECT * FROM tal_vehiculos 
+2017-12-22 10:22:11		SELECT * FROM tal_proveedores 
+2017-12-22 10:22:11		SELECT * FROM tal_tipos_tareas 
+2017-12-22 10:22:11		SELECT * FROM tal_responsables 
+2017-12-22 10:22:11		SELECT * FROM tal_tipos_vehiculos 
+2017-12-22 10:22:12		SELECT * FROM tal_vehiculos 
+2017-12-22 10:22:12		SELECT * FROM tal_tipos_tareas 
+2017-12-22 10:22:12		SELECT * FROM tal_responsables 
+2017-12-22 10:22:12		SELECT * FROM tal_proveedores 
+2017-12-22 10:22:13		SELECT * FROM tal_tipos_vehiculos 
+2017-12-22 10:22:16		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2020-12-31'
+2017-12-22 10:22:16		SELECT * FROM tal_vehiculos 
+2017-12-22 10:22:16		SELECT * FROM tal_proveedores 
+2017-12-22 10:22:16		SELECT * FROM tal_responsables 
+2017-12-22 10:22:16		SELECT * FROM tal_tipos_tareas 
+2017-12-22 10:22:16		SELECT * FROM tal_tipos_vehiculos 
+2017-12-22 14:22:21		[{"name":"tal_gerencia"}]
+2017-12-22 10:22:21		SELECT * FROM tal_vehiculos 
+2017-12-22 10:22:21		SELECT * FROM tal_tipos_tareas 
+2017-12-22 10:22:21		SELECT * FROM tal_responsables 
+2017-12-22 10:22:21		SELECT * FROM tal_proveedores 
+2017-12-22 10:22:24		SELECT * FROM tal_tipos_vehiculos 
+2017-12-22 10:27:25		SELECT * FROM tal_responsables 
+2017-12-22 10:27:25		SELECT * FROM tal_tipos_tareas 
+2017-12-22 10:27:25		SELECT * FROM tal_proveedores 
+2017-12-22 10:27:25		SELECT * FROM tal_vehiculos 
+2017-12-22 10:27:25		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2020-12-31'
+2017-12-22 10:27:25		SELECT * FROM tal_tipos_vehiculos 
+2017-12-22 10:27:28		SELECT * FROM tal_tipos_vehiculos 
+2017-12-22 14:27:29		[{"name":"tal_gerencia"}]
+2017-12-22 10:27:29		SELECT * FROM tal_vehiculos 
+2017-12-22 10:27:29		SELECT * FROM tal_tipos_tareas 
+2017-12-22 10:27:29		SELECT * FROM tal_responsables 
+2017-12-22 10:27:29		SELECT * FROM tal_proveedores 
+2017-12-22 10:28:46		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2020-12-31'
+2017-12-22 10:28:46		SELECT * FROM tal_vehiculos 
+2017-12-22 10:28:46		SELECT * FROM tal_proveedores 
+2017-12-22 10:28:46		SELECT * FROM tal_responsables 
+2017-12-22 10:28:46		SELECT * FROM tal_tipos_vehiculos 
+2017-12-22 10:28:46		SELECT * FROM tal_tipos_tareas 
+2017-12-22 14:28:49		[{"name":"tal_gerencia"}]
+2017-12-22 10:28:49		SELECT * FROM tal_vehiculos 
+2017-12-22 10:28:49		SELECT * FROM tal_tipos_tareas 
+2017-12-22 10:28:49		SELECT * FROM tal_responsables 
+2017-12-22 10:28:49		SELECT * FROM tal_proveedores 
+2017-12-22 10:28:50		SELECT * FROM tal_tipos_vehiculos 
+2017-12-22 10:29:11		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2020-12-31'
+2017-12-22 10:29:11		SELECT * FROM tal_vehiculos 
+2017-12-22 10:29:11		SELECT * FROM tal_proveedores 
+2017-12-22 10:29:11		SELECT * FROM tal_responsables 
+2017-12-22 10:29:11		SELECT * FROM tal_tipos_tareas 
+2017-12-22 10:29:11		SELECT * FROM tal_tipos_vehiculos 
+2017-12-22 14:29:14		[{"name":"tal_gerencia"}]
+2017-12-22 10:29:14		SELECT * FROM tal_vehiculos 
+2017-12-22 10:29:14		SELECT * FROM tal_tipos_tareas 
+2017-12-22 10:29:14		SELECT * FROM tal_responsables 
+2017-12-22 10:29:14		SELECT * FROM tal_proveedores 
+2017-12-22 10:29:15		SELECT * FROM tal_tipos_vehiculos 
+2017-12-22 12:26:27		SELECT * FROM tal_tipos_tareas 
+2017-12-22 12:26:28		SELECT * FROM tal_responsables 
+2017-12-22 12:26:28		SELECT * FROM tal_vehiculos 
+2017-12-22 12:26:28		SELECT * FROM tal_proveedores 
+2017-12-22 12:26:28		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2020-12-31'
+2017-12-22 12:26:28		SELECT * FROM tal_tipos_vehiculos 
+2017-12-22 16:26:30		[{"name":"tal_gerencia"}]
+2017-12-22 12:26:31		SELECT * FROM tal_tipos_vehiculos 
+2017-12-22 12:26:32		SELECT * FROM tal_vehiculos 
+2017-12-22 12:26:32		SELECT * FROM tal_tipos_tareas 
+2017-12-22 12:26:32		SELECT * FROM tal_responsables 
+2017-12-22 12:26:32		SELECT * FROM tal_proveedores 
+2017-12-22 13:50:17		SELECT * FROM tal_vehiculos 
+2017-12-22 13:50:17		SELECT * FROM tal_proveedores 
+2017-12-22 13:50:17		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2020-12-31'
+2017-12-22 13:50:17		SELECT * FROM tal_responsables 
+2017-12-22 13:50:18		SELECT * FROM tal_tipos_tareas 
+2017-12-22 13:50:18		SELECT * FROM tal_tipos_vehiculos 
+2017-12-22 17:50:20		[{"name":"User"},{"name":"tal_usuario"}]
+2017-12-22 13:50:20		SELECT * FROM tal_tipos_vehiculos 
+2017-12-22 13:50:20		SELECT * FROM tal_vehiculos 
+2017-12-22 13:50:20		SELECT * FROM tal_responsables 
+2017-12-22 13:50:20		SELECT * FROM tal_proveedores 
+2017-12-22 13:50:20		SELECT * FROM tal_tipos_tareas 
+2017-12-27 08:53:22		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2020-12-31'
+2017-12-27 08:53:22		SELECT * FROM tal_tipos_vehiculos 
+2017-12-27 08:53:22		SELECT * FROM tal_responsables 
+2017-12-27 08:53:22		SELECT * FROM tal_vehiculos 
+2017-12-27 08:53:22		SELECT * FROM tal_tipos_tareas 
+2017-12-27 08:53:22		SELECT * FROM tal_proveedores 
+2017-12-27 12:53:24		[{"name":"User"},{"name":"Administrator"}]
+2017-12-27 08:53:25		SELECT * FROM tal_vehiculos 
+2017-12-27 08:53:25		SELECT * FROM tal_responsables 
+2017-12-27 08:53:25		SELECT * FROM tal_proveedores 
+2017-12-27 08:53:25		SELECT * FROM tal_tipos_tareas 
+2017-12-27 08:53:27		SELECT * FROM tal_tipos_vehiculos 
+2017-12-28 08:33:38		SELECT * FROM tal_tareas WHERE fecha_creacion >= '2017-01-01' AND fecha_creacion <= '2020-12-31'
+2017-12-28 08:33:39		SELECT * FROM tal_tipos_tareas 
+2017-12-28 12:33:39		[{"name":"User"},{"name":"Administrator"}]
+2017-12-28 08:33:39		SELECT * FROM tal_proveedores 
+2017-12-28 08:33:39		SELECT * FROM tal_responsables 
+2017-12-28 08:33:39		SELECT * FROM tal_vehiculos 
+2017-12-28 08:33:39		SELECT * FROM tal_tipos_vehiculos 
+2017-12-28 08:33:39		SELECT * FROM tal_vehiculos 
+2017-12-28 08:33:39		SELECT * FROM tal_tipos_tareas 
+2017-12-28 08:33:39		SELECT * FROM tal_responsables 
+2017-12-28 08:33:39		SELECT * FROM tal_proveedores 
+2017-12-28 08:33:42		SELECT * FROM tal_tipos_vehiculos 

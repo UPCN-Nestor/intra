@@ -112,7 +112,7 @@ export class AppComponent implements OnInit {
       //this.inicializarGrilla();
       this.entidadSeleccionada = 0;
       
-      this.defaultFilters["fecha_creacion"] = {desde: "2017-01-01", hasta: "2017-12-01"};
+      this.defaultFilters["fecha_creacion"] = {desde: "2017-01-01", hasta: "2020-12-31"};
       //this.defaultFilters["Consumo"] = "100000";
       
       this.cols = [
@@ -121,30 +121,37 @@ export class AppComponent implements OnInit {
                   {value: 'id_tipo_tarea', label: 'Tipo tarea'},
                   {value: 'id_responsable', label: 'Responsable'},
                   {value: 'fecha_creacion', label: 'Fecha' },
+                  {value: 'fecha_mensual', label: 'Fecha - Mensual'},
                   {value: 'factura_numero', label: 'Nº Factura'},  
                   {value: 'id_proveedor', label: 'Proveedor'},
                   {value: 'factura_importe', label: 'Monto'},
                   {value: 'horas_hombre', label: 'Horas hombre'},
-                  {value: 'estado', label: 'Estado'}                     
+                  {value: 'estado', label: 'Estado'},
+                  {value: 'boton', label: 'Botón'}
+                            
               ];
       
       this.colsMetadata = { 
-                              id: { hidden: 'true '},
+                              id: { hidden: 'true'},
                               id_vehiculo: { orden: 'alfabetico', filtro: this.inArray, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_vehiculos_r.php',
                                 fk_mostrar:'numero'},
                               id_tipo_tarea: { orden: 'alfabetico', filtro: this.inArray, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_tipos_tareas_r.php',
                                   fk_mostrar:'nombre'},
                               id_responsable: { orden: 'alfabetico', filtro: this.inArray, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_responsables_r.php',
                                   fk_mostrar:'nombre'},
-                              fecha_creacion: { orden : 'alfabetico', filtro: this.inDateRange, inputFiltro: 'dateRangeDia', defaultNew:'%hoy%', lazy: true},
+                              fecha_creacion: { orden : 'alfabetico', filtro: this.inDateRange, inputFiltro: 'dateRangeDia', agrupado: this.sharedStart,
+                                  defaultNew:'%hoy%', lazy: true},
                               factura_numero: { orden : 'alfabetico', filtro: this.startsWith, inputFiltro: 'text', defaultNew:'A'},
                               id_proveedor: { orden: 'alfabetico', filtro: this.inArray, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_proveedores_r.php',
                                   fk_mostrar:'nombre'},
-                              factura_importe: { orden: 'numerico', filtro: this.mayor, inputFiltro: 'text', agrupado: this.sum},
-                              horas_hombre: { orden: 'numerico', filtro: this.mayor, inputFiltro: 'text', agrupado: this.sum},
+                              factura_importe: { orden: 'numerico', filtro: this.mayor, inputFiltro: 'text', agrupado: this.sum, defaultNew: '0'},
+                              horas_hombre: { orden: 'numerico', filtro: this.mayor, inputFiltro: 'text', agrupado: this.sum, defaultNew: '0'},
                               estado: { orden: 'alfabetico', filtro: this.startsWith, inputFiltro: 'text', agrupado: this.vacio, calculada: this.estado,
-                                    tooltip: 'Una tarea se considera finalizada si se le cargó número de factura u horas hombre' }
+                                    tooltip: 'Una tarea se considera finalizada si se le cargó número de factura u horas hombre' },
+                              fecha_mensual: { hidden: 'true', calculada: this.mensual },
+                              boton: { iconoBoton: 'fa-check', accionBoton: ()=>{alert("x");}} 
                              
+                              // iconoBoton, accionBoton
 
                               //'Consumo': { 'orden': 'numerico', 'agrupado': this.sum, 'filtro': this.mayor, 'inputFiltro': 'text', tooltip: 'En <<unidad>>' },      
 
@@ -233,6 +240,10 @@ export class AppComponent implements OnInit {
                 ? "Pendiente" : "Finalizada";
   }
       
+  mensual(row) {
+    return row["fecha_creacion"].substring(0,7);
+  }
+
   // Predicados para filtros
               
   exactStr(s1:string, s2:string) : boolean {      

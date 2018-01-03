@@ -100,7 +100,7 @@
 				</div>
 				<div *ngIf="!fila.isEditing">
 					<div *ngIf="colsMetadata[col.value].fk_mostrar">{{getMostrarFk(col.value, fila[col.value])}}</div>
-					<div *ngIf="!colsMetadata[col.value].fk_mostrar">{{fila[col.value]}}</div>
+					<div *ngIf="!colsMetadata[col.value].fk_mostrar">{{fila[col.value] == "0" || fila[col.value] == "0.00" ? "" : fila[col.value]}}</div>
 				</div>																									
 			</div>         
         </ng-template>

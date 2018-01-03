@@ -11,7 +11,7 @@
 <div [hidden]="entidadSeleccionada!=0">
 <app-grid tituloGrid="Listado de tareas" nombreGrid="taller" [cols]="cols" [colsMetadata]="colsMetadata" [selectedCol]="selectedCol" 
     [backendURL]="backendURL" [writeURL]="writeURL" [jsonURL]="jsonURL" [defaultFilters]="defaultFilters" [userId]="user"
-     mostrarSidebar="true" mostrarGrafico="true">Grid...
+     mostrarSidebar="true" [mostrarGrafico]="tienePermiso('tal_gerencia')">Grid...
 </app-grid></div>
 
 <div [hidden]="entidadSeleccionada!=1">
