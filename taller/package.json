@@ -34,7 +34,7 @@
     "ts-helpers": "^1.1.1",
     "zone.js": "^0.8.14",
     "upcn-header-lib": "^4.2.0",
-    "upcn-reporte-lib": "^1.9.12"
+    "upcn-reporte-lib": "^1.9.16"
   },
   "devDependencies": {
     "@angular/cli": "1.4.7",

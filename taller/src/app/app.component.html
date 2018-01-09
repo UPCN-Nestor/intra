@@ -1,17 +1,73 @@
 
 <app-header #header [backendURL]="baseURL">Header...</app-header>
 
-<p-panel [header]="getPanelTitle()">  
-    <div class="ui-inputgroup">
-        <span class="ui-inputgroup-addon"><i class="fa fa-table"></i></span>
-        <p-dropdown [options]="getEntidades()" [(ngModel)]="entidadSeleccionada"></p-dropdown>
+
+<div *ngIf="tienePermiso('tal_usuario')">
+
+    <!-- FORM LIB?? -->
+    <div class="ui-g ui-g-4"></div>
+    <div class="ui-g ui-g-4">
+    <p-panel header="Cargar nueva tarea" >
+        <div style="width:430px;">            
+            <div *ngFor="let col of keys(formCols)">
+                <span style="padding: 2px; display: inline-block; width:120px; vertical-align:top;">{{formCols[col].label}}</span>
+                <span style="padding: 2px; display: inline-block; width:300px;">
+                <span style="text-align:left;" *ngIf="!formCols[col].inputFiltro"> 
+                    <input type="text" size="34" pInputText [(ngModel)]="editRow[col]"/>
+                </span>
+                <span style="text-align:left; vertical-align:top;" *ngIf="formCols[col].inputFiltro == 'area'">
+                    <textarea pInputTextarea cols="36" rows="3" [(ngModel)]="editRow[col]"></textarea>
+                </span>
+                
+                <span id="dateAnchor">
+                    <span *ngIf="formCols[col].inputFiltro == 'dateMes' "> 
+                        <dp-date-picker type="month" [ngModel]="editRow[col]" (ngModelChange)="onDateChange($event, col)" [config]="datePickerConfigMes"></dp-date-picker>
+                    </span>
+                    <span *ngIf="formCols[col].inputFiltro == 'dateDia' "> 
+                        <dp-date-picker [ngModel]="editRow[col]" (ngModelChange)="onDateChange($event, col)" [config]="datePickerConfigDia"></dp-date-picker>
+                    </span>
+                </span>
+            
+                <span *ngIf="formCols[col].inputFiltro == 'multiselect'"> 
+                    <p-dropdown placeholder="(elegir)" [style]="{'width':'300px'}" [options]="multiselectValues[col]" [(ngModel)]="editRow[col]"
+                        ></p-dropdown>
+                </span>			
+                <!--
+                <div style="text-align:center;" *ngIf="formColsMetadata[col.value].inputFiltro == 'range' "> 
+                    {{filters[col.value][0]}} a {{filters[col.value][1]}}
+                    <p-slider [(ngModel)]="filters[col.value]" [range]="true"></p-slider>
+                </div>    
+                -->
+                </span>
+            </div>
+            <div style="height:25px;"></div>
+            <div><button [label]="formSubmitLabel" pButton type="button" [disabled]="formSubmitDisabled" (click)="formSubmit()" icon="fa-plus"></button></div>
+        </div>
+    </p-panel>
     </div>
+    <div class="ui-g ui-g-4"></div>
+
+    <p-dialog header="Error" [(visible)]="formError" modal="true" dismissableMask="true"> 
+            <div style="color:red;">No se pudo insertar la tarea en la base de datos, verifique los campos necesarios (marcados con '*')</div> 
+    </p-dialog>
+    <p-dialog header="Error" [(visible)]="formOk" modal="true" dismissableMask="true">
+            Tarea cargada con éxito
+    </p-dialog>
+</div>
+
+<div *ngIf="tienePermiso('tal_gerencia')">
+
+<p-panel [header]="getPanelTitle()">  
+        <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon"><i class="fa fa-table"></i></span>
+            <p-dropdown [options]="getEntidades()" [(ngModel)]="entidadSeleccionada"></p-dropdown>
+        </div>
 </p-panel>
 
 <div [hidden]="entidadSeleccionada!=0">
 <app-grid tituloGrid="Listado de tareas" nombreGrid="taller" [cols]="cols" [colsMetadata]="colsMetadata" [selectedCol]="selectedCol" 
     [backendURL]="backendURL" [writeURL]="writeURL" [jsonURL]="jsonURL" [defaultFilters]="defaultFilters" [userId]="user"
-     mostrarSidebar="true" [mostrarGrafico]="tienePermiso('tal_gerencia')">Grid...
+     mostrarSidebar="true" mostrarGrafico="true">Grid...
 </app-grid></div>
 
 <div [hidden]="entidadSeleccionada!=1">
@@ -25,15 +81,22 @@
 </app-grid></div>
 
 <div [hidden]="entidadSeleccionada!=3">
+        <app-grid tituloGrid="Ordenes de trabajo" nombreGrid="ordenes" [cols]="otcols" [colsMetadata]="otcolsMetadata" [selectedCol]="otselectedCol" 
+        [backendURL]="backendURL" [writeURL]="otwriteURL" [jsonURL]="otjsonURL" [defaultFilters]="otdefaultFilters" [userId]="user">Grid...
+    </app-grid></div>
+
+<div [hidden]="entidadSeleccionada!=4">
     <app-grid tituloGrid="Listado de responsables" nombreGrid="responsables" [cols]="rcols" [colsMetadata]="rcolsMetadata" [selectedCol]="rselectedCol" 
     [backendURL]="backendURL" [writeURL]="rwriteURL" [jsonURL]="rjsonURL" [defaultFilters]="rdefaultFilters" [userId]="user">Grid...
 </app-grid></div>
 
-<div [hidden]="entidadSeleccionada!=4" class="ui-g-6">
+<div [hidden]="entidadSeleccionada!=5" class="ui-g-6">
     <app-grid tituloGrid="Listado de tipos de tareas" nombreGrid="tiposTareas" [cols]="ttcols" [colsMetadata]="ttcolsMetadata" selectedCol="nombre" 
     [backendURL]="backendURL" [writeURL]="ttwriteURL" [jsonURL]="ttjsonURL" [defaultFilters]="ttdefaultFilters" [userId]="user">Grid...
 </app-grid></div>
-<div [hidden]="entidadSeleccionada!=4" class="ui-g-6">
+<div [hidden]="entidadSeleccionada!=6" class="ui-g-6">
     <app-grid tituloGrid="Listado de tipos de vehículos" nombreGrid="tiposVehiculos" [cols]="tvcols" [colsMetadata]="tvcolsMetadata" selectedCol="descripcion" 
     [backendURL]="backendURL" [writeURL]="tvwriteURL" [jsonURL]="tvjsonURL" [defaultFilters]="tvdefaultFilters" [userId]="user">Grid...
 </app-grid></div>
+
+</div>

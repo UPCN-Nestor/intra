@@ -77,7 +77,7 @@
 					(click)="gridButtonClick(fila, col)" [pTooltip]="colsMetadata[col.value].tooltipBoton"></button>
 			</div>
 			<div *ngIf="colsMetadata[col.value] ? !colsMetadata[col.value].iconoBoton :_false">
-				<div *ngIf="fila.isEditing && !colsMetadata[col.value].calculada">
+				<div *ngIf="fila.isEditing && !colsMetadata[col.value].calculada && !colsMetadata[col.value].accionBoton">
 					<div style="text-align:center;" *ngIf="colsMetadata[col.value] ? colsMetadata[col.value].inputFiltro == 'text' : 0"> 
 						<input type="text" size="10" pInputText [(ngModel)]="editRow[col.value]"/>
 					</div>
@@ -98,7 +98,7 @@
 						<p-slider [(ngModel)]="filters[col.value]" [range]="true"></p-slider>
 					</div>    
 				</div>
-				<div *ngIf="!fila.isEditing">
+				<div *ngIf="!fila.isEditing">					
 					<div *ngIf="colsMetadata[col.value].fk_mostrar">{{getMostrarFk(col.value, fila[col.value])}}</div>
 					<div *ngIf="!colsMetadata[col.value].fk_mostrar">{{fila[col.value] == "0" || fila[col.value] == "0.00" ? "" : fila[col.value]}}</div>
 				</div>																									

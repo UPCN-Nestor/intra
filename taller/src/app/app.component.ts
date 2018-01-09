@@ -7,6 +7,9 @@ import {GrowlModule, ButtonModule, ToolbarModule} from 'primeng/primeng';
 import { FormsModule } from '@angular/forms';
 import {HttpModule, Response, Http, Headers, URLSearchParams, RequestOptions} from '@angular/http';
 import { AsyncPipe } from '@angular/common';
+import {InputTextareaModule} from 'primeng/primeng';
+import {DpDatePickerModule, IDatePickerConfig} from 'ng2-date-picker';
+import {DialogModule} from 'primeng/primeng';
 
 import { environment } from '../environments/environment';
 
@@ -36,6 +39,8 @@ export class AppComponent implements OnInit {
   entidades: SelectItem[];
   entidadSeleccionada: any;
 
+
+
   @ViewChild('header')
   private header : ElementRef;
 
@@ -57,9 +62,10 @@ export class AppComponent implements OnInit {
   vdefaultFilters = {};
 
   // Configuración de ABM Tipos de tareas
-  ttcols = [ {value: 'id', label: ''}, {value: 'nombre', label: 'Descripción'}];
+  ttcols = [ {value: 'id', label: ''}, {value: 'tipo', label: 'Tipo'}, {value: 'nombre', label: 'Descripción'}];
   ttcolsMetadata = {
     id: { hidden: 'true '},
+    tipo: { orden : 'alfabetico', filtro: this.startsWith, inputFiltro: 'text'},
     nombre: { orden : 'alfabetico', filtro: this.startsWith, inputFiltro: 'text'}
   }
   ttjsonURL = environment.baseUrl + 'php/userspice/tal_tipos_tareas_r.php';
@@ -101,6 +107,20 @@ export class AppComponent implements OnInit {
   pwriteURL = environment.baseUrl + 'php/userspice/tal_proveedores_w.php';     
   pdefaultFilters = {};
 
+  // Configuración de órdenes de trabajo
+  otcols = [ {value: 'id', label: ''}, {value: 'id_vehiculo', label: 'Vehículo'}, {value: 'fecha', label: 'Fecha'}, {value: 'descripcion', label: 'Número'}];
+  otcolsMetadata = {
+    id: { hidden: 'true '},
+    id_vehiculo: { orden: 'alfabetico', filtro: this.equals, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_vehiculos_r.php',
+        fk_mostrar:'descripcion'},
+    descripcion: { orden : 'alfabetico', filtro: this.startsWith, inputFiltro: 'text'},
+    fecha: { orden : 'alfabetico', filtro: this.inDateRange, inputFiltro: 'dateRangeDia', agrupado: this.sharedStart,
+        defaultNew:'%hoy%'},
+    }
+  otjsonURL = environment.baseUrl + 'php/userspice/tal_ordenes_trabajo_r.php';
+  otwriteURL = environment.baseUrl + 'php/userspice/tal_ordenes_trabajo_w.php';     
+  otdefaultFilters = {};
+
   constructor(private http: Http, private el:ElementRef) { 
       //alert(el.nativeElement.getAttribute('base'));
       //this.baseURL = el.nativeElement.getAttribute('base');          
@@ -118,25 +138,27 @@ export class AppComponent implements OnInit {
       this.cols = [
                   {value: 'id', label: ''},
                   {value: 'id_vehiculo', label: 'Vehículo'},
+                  {value: 'id_orden_trabajo', label: 'Ord. trabajo'},
                   {value: 'id_tipo_tarea', label: 'Tipo tarea'},
                   {value: 'id_responsable', label: 'Responsable'},
                   {value: 'fecha_creacion', label: 'Fecha' },
                   {value: 'fecha_mensual', label: 'Fecha - Mensual'},
                   {value: 'factura_numero', label: 'Nº Factura'},  
                   {value: 'id_proveedor', label: 'Proveedor'},
+                  {value: 'descripcion', label: 'Descripción'},
                   {value: 'factura_importe', label: 'Monto'},
                   {value: 'horas_hombre', label: 'Horas hombre'},
-                  {value: 'estado', label: 'Estado'},
-                  {value: 'boton', label: 'Botón'}
-                            
+                  {value: 'estado', label: 'Estado'}                            
               ];
       
       this.colsMetadata = { 
                               id: { hidden: 'true'},
                               id_vehiculo: { orden: 'alfabetico', filtro: this.inArray, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_vehiculos_r.php',
                                 fk_mostrar:'numero'},
+                              id_orden_trabajo: { orden: 'alfabetico', filtro: this.inArray, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_ordenes_trabajo_r.php',
+                                fk_mostrar:'descripcion'},
                               id_tipo_tarea: { orden: 'alfabetico', filtro: this.inArray, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_tipos_tareas_r.php',
-                                  fk_mostrar:'nombre'},
+                                  fk_mostrar:'tipo,nombre'},
                               id_responsable: { orden: 'alfabetico', filtro: this.inArray, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_responsables_r.php',
                                   fk_mostrar:'nombre'},
                               fecha_creacion: { orden : 'alfabetico', filtro: this.inDateRange, inputFiltro: 'dateRangeDia', agrupado: this.sharedStart,
@@ -144,17 +166,15 @@ export class AppComponent implements OnInit {
                               factura_numero: { orden : 'alfabetico', filtro: this.startsWith, inputFiltro: 'text', defaultNew:'A'},
                               id_proveedor: { orden: 'alfabetico', filtro: this.inArray, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_proveedores_r.php',
                                   fk_mostrar:'nombre'},
+                              descripcion: { orden : 'alfabetico', filtro: this.startsWith, inputFiltro: 'text'},
                               factura_importe: { orden: 'numerico', filtro: this.mayor, inputFiltro: 'text', agrupado: this.sum, defaultNew: '0'},
                               horas_hombre: { orden: 'numerico', filtro: this.mayor, inputFiltro: 'text', agrupado: this.sum, defaultNew: '0'},
                               estado: { orden: 'alfabetico', filtro: this.startsWith, inputFiltro: 'text', agrupado: this.vacio, calculada: this.estado,
                                     tooltip: 'Una tarea se considera finalizada si se le cargó número de factura u horas hombre' },
-                              fecha_mensual: { hidden: 'true', calculada: this.mensual },
-                              boton: { iconoBoton: 'fa-check', accionBoton: ()=>{alert("x");}} 
+                              fecha_mensual: { hidden: 'true', calculada: this.mensual }
                              
                               // iconoBoton, accionBoton
-
                               //'Consumo': { 'orden': 'numerico', 'agrupado': this.sum, 'filtro': this.mayor, 'inputFiltro': 'text', tooltip: 'En <<unidad>>' },      
-
       };
               
       this.selectedCol = "fecha_creacion";     
@@ -163,7 +183,36 @@ export class AppComponent implements OnInit {
       this.writeURL = environment.baseUrl + 'php/userspice/tal_tareas_w.php';      
       this.backendURL = environment.baseUrl;
       
-      //this.setupPermissions();
+
+      // Para formulario (lib?)
+
+      this.formCols = {id_vehiculo: { label: 'Vehículo *', inputFiltro: 'multiselect'},
+            id_tipo_tarea: { label: 'Tipo tarea *', inputFiltro: 'multiselect'},
+            id_responsable: { label: 'Responsable *', inputFiltro: 'multiselect'},
+            fecha_creacion: { label: 'Fecha', inputFiltro: 'dateDia'},
+            factura_numero: { label: 'Nº Factura'},  
+            id_proveedor: { label: 'Proveedor', inputFiltro: 'multiselect'},
+            descripcion: { label: 'Descripción', inputFiltro: 'area'},
+            factura_importe: { label: 'Monto'},
+            horas_hombre: { label: 'Horas hombre'}                
+        };
+       
+      this.multiselectValues = [];
+      this.loadMultiselectValues("id_vehiculo", environment.baseUrl + 'php/userspice/tal_vehiculos_r.php', 'numero,descripcion');
+      this.loadMultiselectValues("id_tipo_tarea", environment.baseUrl + 'php/userspice/tal_tipos_tareas_r.php', 'tipo,nombre');
+      this.loadMultiselectValues("id_responsable", environment.baseUrl + 'php/userspice/tal_responsables_r.php', 'legajo,nombre');
+      this.loadMultiselectValues("id_proveedor", environment.baseUrl + 'php/userspice/tal_proveedores_r.php', 'nombre');
+    
+      this.editRow = {};
+      this.resetDefaults(this.editRow);
+
+      this.datePickerConfigMes = { appendTo : "body", format: "YYYY-MM", disableKeypress: true, 
+        monthBtnFormatter : m => { return this.mesesEspanol[m.month()] }                                 
+      };     
+      this.datePickerConfigDia = { appendTo : "body", format: "YYYY-MM-DD", disableKeypress: true, 
+        monthBtnFormatter : m => { return this.mesesEspanol[m.month()] }                                 
+      };    
+
   }
 
 
@@ -178,7 +227,8 @@ export class AppComponent implements OnInit {
     let entidades = [ {value: '0', label: 'Tareas'} ];
     
     if(this.tienePermiso('tal_gerencia'))
-        entidades.push({value: '1', label: 'Vehiculos'}, {value: '2', label: 'Proveedores'}, {value: '3', label: 'Responsables'}, {value: '4', label: 'Tipos de entidades'});
+        entidades.push({value: '1', label: 'Vehiculos'}, {value: '2', label: 'Proveedores'}, {value: '4', label: 'Responsables'}, {value: '5', label: 'Tipos de entidades'}, 
+            {value: '3', label: 'Órdenes de trabajo'});
 
     return entidades;
   }
@@ -197,6 +247,64 @@ export class AppComponent implements OnInit {
 
   click(fila) {
       alert(fila.Cons_area);
+  }
+
+
+  // Para formulario (llevar a lib?)
+
+  mesesEspanol = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
+  datePickerConfigMes;
+  datePickerConfigDia;
+  formCols: {};
+  editRow : {};
+  multiselectValues : any[];
+  keys = (x) => Object.keys(x);
+  formSubmitLabel = "Aceptar";
+  formSubmitURL = environment.baseUrl + 'php/userspice/tal_tareas_w.php'
+  formSubmitDisabled = false;
+  formError = false;
+  formOk = false;
+
+  loadMultiselectValues(col, fk_url, fk_mostrar) : any {
+
+    this.http.get(fk_url, {withCredentials: true}).toPromise().then(d => {
+        let toRet = [];
+        let mostrar = fk_mostrar.split(",");
+        d.json().forEach(x => toRet.push({'value': x.id, 'label': mostrar.length == 1 ? x[mostrar[0]] : mostrar.reduce((m,n) => x[m] + "-" + x[n])}));                
+        this.multiselectValues[col] = toRet;            
+    });;  
+  }
+
+  formSubmit() {
+    let params: URLSearchParams = new URLSearchParams();
+    this.keys(this.formCols).forEach(c => { 
+        params.set(c, this.editRow[c]);
+    });
+
+    this.formSubmitDisabled = true;
+    this.http.post(this.writeURL, params, {withCredentials: true}).toPromise().then(res => {
+        console.log(res);
+        if(res.json()[0] == "error")
+            this.formError = true;        
+        else
+            this.formOk = true;
+        this.editRow = {};
+        this.resetDefaults(this.editRow);
+
+        this.formSubmitDisabled = false;
+    });
+  }
+
+  onDateChange(event, col) {
+    if(typeof event === "object")
+        this.editRow[col] = event.format("YYYY-MM-DD");
+    else
+        this.editRow[col] = event.length == 7 ? event + "-01" : event;
+  }
+
+  // Esta debe ser un Input() de la lib
+  resetDefaults(row) {
+    row["fecha_creacion"] = new Date().toISOString().substr(0,10);
   }
 
   // Funciones para agrupar

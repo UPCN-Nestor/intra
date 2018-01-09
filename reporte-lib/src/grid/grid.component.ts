@@ -644,8 +644,8 @@ export class GridComponent implements OnInit {
             this.http.get(this.colsMetadata[c.value].fk_url, {withCredentials: true})
                 .toPromise().then(d => {
                     let toRet = [];
-                    let mostrar = this.colsMetadata[c.value].fk_mostrar;
-                    d.json().forEach(x => toRet.push({'value': x.id, 'label': x[mostrar]}));                
+                    let mostrar = this.colsMetadata[c.value].fk_mostrar.split(",");
+                    d.json().forEach(x => toRet.push({'value': x.id, 'label': mostrar.length == 1 ? x[mostrar[0]] : mostrar.reduce((m,n) => x[m] + "-" + x[n])}));                
                     this.multiselectValues[c.value] = toRet;
                 });
           }        

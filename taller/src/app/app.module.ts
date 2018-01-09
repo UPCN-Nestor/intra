@@ -10,8 +10,8 @@ import { HttpModule } from '@angular/http';
 import { HeaderModule } from 'upcn-header-lib';
 import { GridModule } from 'upcn-reporte-lib';
 
-import { DropdownModule, PanelModule } from 'primeng/primeng';
-
+import { DropdownModule, PanelModule, InputTextareaModule, ButtonModule, DialogModule } from 'primeng/primeng';
+import {DpDatePickerModule, IDatePickerConfig} from 'ng2-date-picker';
 
 
 @NgModule({
@@ -19,12 +19,16 @@ import { DropdownModule, PanelModule } from 'primeng/primeng';
     AppComponent
   ],
   imports: [
-    DropdownModule, PanelModule,
+    DropdownModule, PanelModule, InputTextareaModule,
     BrowserModule,
     FormsModule,
     HttpModule,
     HeaderModule.forRoot(),
-    GridModule.forRoot()
+    GridModule.forRoot(),
+    // Para form
+    DpDatePickerModule,
+    ButtonModule,
+    DialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

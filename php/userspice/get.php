@@ -38,7 +38,9 @@ switch ($method) {
 			$where = "WHERE $key = '$value'";
 	}
 	
-	$sql = "SELECT * FROM $tabla $where";
+	if(!isset($orderby))
+		$orderby="";
+	$sql = "SELECT * FROM $tabla $where $orderby";
 
 	upc_log($sql);
 	$q = $pdo->query($sql);

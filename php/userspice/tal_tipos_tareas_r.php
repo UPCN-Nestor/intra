@@ -3,5 +3,7 @@
 	require('check_permissions.php');
 
 	$tabla = "tal_tipos_tareas";
+	$orderby = "ORDER BY TIPO ASC, NOMBRE ASC";
+	
 	include('get.php');
 ?>
