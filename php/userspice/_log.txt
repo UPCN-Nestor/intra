@@ -7967,3 +7967,53 @@
 2018-01-09 11:49:00		SELECT * FROM tal_responsables  ORDER BY LEGAJO ASC
 2018-01-09 11:49:00		SELECT * FROM tal_proveedores  ORDER BY NOMBRE ASC
 2018-01-09 15:49:00		[{"name":"User"},{"name":"tal_usuario"}]
+2018-01-09 11:59:14		SELECT * FROM tal_vehiculos  ORDER BY NUMERO ASC
+2018-01-09 11:59:14		SELECT * FROM tal_tipos_tareas  ORDER BY TIPO ASC, NOMBRE ASC
+2018-01-09 11:59:14		SELECT * FROM tal_responsables  ORDER BY LEGAJO ASC
+2018-01-09 11:59:14		SELECT * FROM tal_proveedores  ORDER BY NOMBRE ASC
+2018-01-09 15:59:15		[{"name":"User"},{"name":"tal_usuario"}]
+2018-01-09 12:00:48		SELECT * FROM tal_vehiculos  ORDER BY NUMERO ASC
+2018-01-09 12:00:48		SELECT * FROM tal_tipos_tareas  ORDER BY TIPO ASC, NOMBRE ASC
+2018-01-09 12:00:48		SELECT * FROM tal_responsables  ORDER BY LEGAJO ASC
+2018-01-09 12:00:48		SELECT * FROM tal_proveedores  ORDER BY NOMBRE ASC
+2018-01-09 16:00:49		[{"name":"User"},{"name":"tal_usuario"}]
+2018-01-09 12:02:07		SELECT * FROM tal_tipos_tareas  ORDER BY TIPO ASC, NOMBRE ASC
+2018-01-09 12:02:07		SELECT * FROM tal_vehiculos  ORDER BY NUMERO ASC
+2018-01-09 12:02:07		SELECT * FROM tal_responsables  ORDER BY LEGAJO ASC
+2018-01-09 12:02:07		SELECT * FROM tal_proveedores  ORDER BY NOMBRE ASC
+2018-01-09 16:02:08		[{"name":"User"},{"name":"tal_usuario"}]
+2018-01-09 12:03:00		SELECT * FROM tal_vehiculos  ORDER BY NUMERO ASC
+2018-01-09 12:03:00		SELECT * FROM tal_tipos_tareas  ORDER BY TIPO ASC, NOMBRE ASC
+2018-01-09 12:03:00		SELECT * FROM tal_responsables  ORDER BY LEGAJO ASC
+2018-01-09 12:03:00		SELECT * FROM tal_proveedores  ORDER BY NOMBRE ASC
+2018-01-09 16:03:01		[{"name":"User"},{"name":"tal_usuario"}]
+2018-01-09 12:05:46		SELECT * FROM tal_vehiculos  ORDER BY NUMERO ASC
+2018-01-09 12:05:46		SELECT * FROM tal_tipos_tareas  ORDER BY TIPO ASC, NOMBRE ASC
+2018-01-09 12:05:46		SELECT * FROM tal_responsables  ORDER BY LEGAJO ASC
+2018-01-09 12:05:46		SELECT * FROM tal_proveedores  ORDER BY NOMBRE ASC
+2018-01-09 16:05:47		[{"name":"User"},{"name":"tal_usuario"}]
+2018-01-09 12:06:53		SELECT * FROM tal_vehiculos  ORDER BY NUMERO ASC
+2018-01-09 12:06:53		SELECT * FROM tal_tipos_tareas  ORDER BY TIPO ASC, NOMBRE ASC
+2018-01-09 12:06:54		SELECT * FROM tal_responsables  ORDER BY LEGAJO ASC
+2018-01-09 12:06:54		SELECT * FROM tal_proveedores  ORDER BY NOMBRE ASC
+2018-01-09 16:06:54		[{"name":"User"},{"name":"tal_usuario"}]
+2018-01-09 12:08:09		SELECT * FROM tal_vehiculos  ORDER BY NUMERO ASC
+2018-01-09 12:08:09		SELECT * FROM tal_tipos_tareas  ORDER BY TIPO ASC, NOMBRE ASC
+2018-01-09 12:08:09		SELECT * FROM tal_responsables  ORDER BY LEGAJO ASC
+2018-01-09 12:08:09		SELECT * FROM tal_proveedores  ORDER BY NOMBRE ASC
+2018-01-09 16:08:09		[{"name":"User"},{"name":"tal_usuario"}]
+2018-01-09 12:09:46		SELECT * FROM tal_vehiculos  ORDER BY NUMERO ASC
+2018-01-09 12:09:46		SELECT * FROM tal_tipos_tareas  ORDER BY TIPO ASC, NOMBRE ASC
+2018-01-09 12:09:46		SELECT * FROM tal_responsables  ORDER BY LEGAJO ASC
+2018-01-09 12:09:46		SELECT * FROM tal_proveedores  ORDER BY NOMBRE ASC
+2018-01-09 16:09:46		[{"name":"User"},{"name":"tal_usuario"}]
+2018-01-09 12:10:45		SELECT * FROM tal_vehiculos  ORDER BY NUMERO ASC
+2018-01-09 12:10:45		SELECT * FROM tal_tipos_tareas  ORDER BY TIPO ASC, NOMBRE ASC
+2018-01-09 12:10:45		SELECT * FROM tal_responsables  ORDER BY LEGAJO ASC
+2018-01-09 12:10:45		SELECT * FROM tal_proveedores  ORDER BY NOMBRE ASC
+2018-01-09 16:10:45		[{"name":"User"},{"name":"tal_usuario"}]
+2018-01-09 12:11:56		SELECT * FROM tal_vehiculos  ORDER BY NUMERO ASC
+2018-01-09 12:11:56		SELECT * FROM tal_tipos_tareas  ORDER BY TIPO ASC, NOMBRE ASC
+2018-01-09 12:11:56		SELECT * FROM tal_responsables  ORDER BY LEGAJO ASC
+2018-01-09 12:11:56		SELECT * FROM tal_proveedores  ORDER BY NOMBRE ASC
+2018-01-09 16:11:56		[{"name":"User"},{"name":"tal_usuario"}]
