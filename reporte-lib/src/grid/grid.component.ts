@@ -311,7 +311,7 @@ export class GridComponent implements OnInit {
                     if(this.colsMetadata[this.chartX].fk_mostrar) {
                         toRet.push(this.getMostrarFk(this.chartX, x)); toRet.push(x);
                     } else {
-                        toRet.push(x); toRet.push(x);
+                        toRet.push(x); toRet.push(x
                     }
                     return toRet;
                 })

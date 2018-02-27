@@ -1,12 +1,12 @@
 
 
 .big  {
-	font-size: 2.2em;
+	font-size: 2em;
 	text-align: center;
 }
 
 .big2 {
-	font-size: 2em;
+	font-size: 1.6em;
 	text-align: center;
 	font-family: "Verdana", Verdana, sans-serif; 	
 }
@@ -20,12 +20,12 @@
 }
 
 .small {
-	font-size: 0.75em;
+	font-size: 0.7em;
 	font-family: "Verdana", Verdana, sans-serif; 	
 }
 
 .space {
-	margin: 15px;	
+	margin: 12px;	
 }
 
 .hide {
