@@ -171,6 +171,7 @@ export class ImpresionFacturaComponent implements OnInit {
               }
           });       
   }
+
      
 
 
@@ -367,7 +368,7 @@ export class ImpresionFacturaComponent implements OnInit {
       this.msgs = []; 
       if(this.paso == 2 && this.socios.length == 0) {
           this.restart();
-          this.msgs.push({severity:'error', summary:'Advertencia', detail:'No se han encontrado socios con facturas adeudadas con los datos ingresados.'});
+          this.msgs.push({severity:'error', summary:'Advertencia', detail:'No se han encontrado socios con facturas con los datos ingresados.'});
       }
       if(this.paso == 25 && this.suministros.length == 0) {
         this.restart();
@@ -375,7 +376,7 @@ export class ImpresionFacturaComponent implements OnInit {
     }
       if(this.paso == 3 && this.facturas.length == 0) {
           this.restart();
-          this.msgs.push({severity:'error', summary:'Advertencia', detail:'No se han encontrado facturas adeudadas con los datos ingresados.'});
+          this.msgs.push({severity:'error', summary:'Advertencia', detail:'No se han encontrado facturas con los datos ingresados.'});
       }
   }
   

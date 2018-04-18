@@ -55,12 +55,13 @@
 			<div class="big2">Seleccione factura a imprimir</div>
 		</p-header>
 			<ng-template let-fact pTemplate="item">
-			<div style="padding:15px" class="ui-md-3">
-				<p-panel class="big2" [header]="fact.Comp_letra + '-' + fact.Comp_sucur + '-' + fact.Comp_numer + ' / $' + fact.CompSaldo.substring(0, fact.CompSaldo.length - 2).replace('.', ',') + (fact.Pagada=='S'?'':' (Impaga)')" [style]="{'text-align':'center'}">
+			<div style="padding:15px;" class="ui-md-3">
+				<p-panel class="big2" [header]="fact.Comp_letra + '-' + fact.Comp_sucur + '-' + fact.Comp_numer + ' / $' + fact.CompSaldo.substring(0, fact.CompSaldo.length - 2).replace('.', ',')" 
+						[style]="{'text-align':'center', 'background-color':(fact.Pagada=='S'?'':'#FFDDDD')}">
 					<div> <button pButton type="button" style="height: 128px; width: 128px;" icon="fa-print fa-3x" (click)="imprimir(fact.Comp_letra, fact.Comp_sucur, fact.Comp_numer, fact.Fac1Servic)"></button> </div>	                
 						<hr class="ui-widget-content" style="border-top:0">
 						<div class="small">Emisión: {{fact.Comp_fecha}}</div>
-						<div class="small">Vencimiento: {{fact.Comp_vto1}}</div>
+						<div class="small">Vence: {{fact.Comp_vto1}} {{(fact.Pagada=='S'?'':' (Impaga)')}}</div>
 				</p-panel> 
 			</div>
 		</ng-template>
@@ -88,8 +89,8 @@
 						<span style=""></span>			
 						 /  ${{sumi.Impago.substring(0, sumi.Impago.length - 2).replace('.', ',')}}
 					</p-header>
-					<div> <button pButton type="button" style="height: 100px; width: 380px;" icon="fa-list-ul fa-2x" label="Comprobantes" (click)="seleccionarSuministro(sumi.Soc_numero, sumi.Sumi_numer)"></button> </div>	 
-					<div> <button pButton type="button" style="height: 100px; width: 380px;" icon="fa-print fa-2x" label="Estado de deuda" (click)="imprimirEstadoDeuda(sumi.Soc_numero, sumi.Sumi_numer)"></button> </div>	                
+					<div> <button pButton type="button" style="height: 90px; width: 300px;" icon="fa-list-ul" label="  Comprobantes" (click)="seleccionarSuministro(sumi.Soc_numero, sumi.Sumi_numer)"></button> </div>	 
+					<div> <button pButton type="button" style="height: 90px; width: 300px;" icon="fa-print" label="   Estado de deuda" (click)="imprimirEstadoDeuda(sumi.Soc_numero, sumi.Sumi_numer)"></button> </div>	                
 						<hr class="ui-widget-content" style="border-top:0">
 						<div class="small">Domicilio: {{sumi.Sumi_calle}} {{sumi.Sumi_nroca}} {{(sumi.Sumi_piso == 0 ? "" : " Piso " + sumi.Sumi_piso)}} {{(sumi.Sumi_depto.trim() == "" ? "" : "Depto. " + sumi.Sumi_depto)}}</div>
 				</p-panel> 
