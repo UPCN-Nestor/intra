@@ -18,7 +18,7 @@
 	<div class="space"></div>	
 	
 	<div class="big">
-	<input class="big" #soc_sumi id="soc_sumi" size="20" placeholder="Socio/suministro" />
+	<input class="big" #soc_sumi id="soc_sumi" size="20" placeholder="Socio" />
 	</div>
 
 	<div class="space"></div>	
@@ -36,7 +36,7 @@
 	<div class="space"></div>	
 	
 	<div class="big">
-	<input class="big" #direccion id="direccion"  size="20" placeholder="Calle y altura" />
+	<input class="big" #direccion id="direccion"  size="20" placeholder="Domicilio" />
 	</div>
 	
 </div>
@@ -55,12 +55,44 @@
 			<div class="big2">Seleccione factura a imprimir</div>
 		</p-header>
 			<ng-template let-fact pTemplate="item">
-			<div style="padding:15px" class="ui-md-3">
-				<p-panel class="big2" [header]="fact.Comp_letra + '-' + fact.Comp_numer + ' / $' + fact.CompSaldo.substring(0, fact.CompSaldo.length - 2).replace('.', ',')" [style]="{'text-align':'center'}">
-					<div> <button pButton type="button" style="height: 128px; width: 128px;" icon="fa-print fa-3x" (click)="imprimir(fact.Comp_letra, fact.Comp_numer)"></button> </div>	                
+			<div style="padding:15px;" class="ui-md-3">
+				<p-panel class="big2" [header]="fact.Comp_letra + '-' + fact.Comp_sucur + '-' + fact.Comp_numer + ' / $' + fact.CompSaldo.substring(0, fact.CompSaldo.length - 2).replace('.', ',')" 
+						[style]="{'text-align':'center', 'background-color':(fact.Pagada=='S'?'':'#FFDDDD')}">
+					<div> <button pButton type="button" style="height: 128px; width: 128px;" icon="fa-print fa-3x" (click)="imprimir(fact.Comp_letra, fact.Comp_sucur, fact.Comp_numer, fact.Fac1Servic)"></button> </div>	                
 						<hr class="ui-widget-content" style="border-top:0">
 						<div class="small">Emisión: {{fact.Comp_fecha}}</div>
-						<div class="small">Vencimiento: {{fact.Comp_vto1}}</div>
+						<div class="small">Vence: {{fact.Comp_vto1}} {{(fact.Pagada=='S'?'':' (Impaga)')}}</div>
+				</p-panel> 
+			</div>
+		</ng-template>
+		</p-dataGrid>
+	</div>
+</div>
+
+<div *ngIf="paso == 25" ui-g>
+	<div style="margin: 25px; background-color:transparent;">
+		<p-dataGrid [value]="suministros" >
+		<p-header>
+			<div class="big2">Suministros de {{suministros[0].Soc_apelli}}</div>
+		</p-header>
+			<ng-template let-sumi pTemplate="item">
+			<div style="padding:15px" class="ui-md-3">
+				<p-panel class="big2" [style]="{'text-align':'center'}">
+					<p-header>
+						<span class="fa-stack">						
+							<span class="fa fa-circle-o fa-stack-2x"></span>
+							<strong class="fa-stack-1x">{{sumi.Sumi_numer}}</strong>
+						</span>
+						<span *ngIf="sumi.Servicios % 2 == 0" class="fa fa-plug"></span>
+						<span *ngIf="sumi.Servicios % 3 == 0" class="fa fa-wifi"></span>
+						<span *ngIf="sumi.Servicios % 5 == 0" class="fa fa-medkit"></span>		
+						<span style=""></span>			
+						 /  ${{sumi.Impago.substring(0, sumi.Impago.length - 2).replace('.', ',')}}
+					</p-header>
+					<div> <button pButton type="button" style="height: 90px; width: 300px;" icon="fa-list-ul" label="  Comprobantes" (click)="seleccionarSuministro(sumi.Soc_numero, sumi.Sumi_numer)"></button> </div>	 
+					<div> <button pButton type="button" style="height: 90px; width: 300px;" icon="fa-print" label="   Estado de deuda" (click)="imprimirEstadoDeuda(sumi.Soc_numero, sumi.Sumi_numer)"></button> </div>	                
+						<hr class="ui-widget-content" style="border-top:0">
+						<div class="small">Domicilio: {{sumi.Sumi_calle}} {{sumi.Sumi_nroca}} {{(sumi.Sumi_piso == 0 ? "" : " Piso " + sumi.Sumi_piso)}} {{(sumi.Sumi_depto.trim() == "" ? "" : "Depto. " + sumi.Sumi_depto)}}</div>
 				</p-panel> 
 			</div>
 		</ng-template>

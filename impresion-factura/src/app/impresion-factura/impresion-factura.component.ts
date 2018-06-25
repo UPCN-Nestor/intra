@@ -27,11 +27,14 @@ export class ImpresionFacturaComponent implements OnInit {
   url_factura_individual : string;
   url_deuda : string;
   url_socios: string;
-  
+  url_suministros : string;
+  url_estado_deuda : string;
+
   loading : boolean; 
       
   facturas : any;
   socios : any; // Posibles socios/sumi a los cuales se refiere el usuario (consulta por nombre o dirección)
+  suministros: any;
 
   paso : number;
 
@@ -52,17 +55,17 @@ export class ImpresionFacturaComponent implements OnInit {
       this.loading = false;
       this.msgs = [];
       this.socios = [];
-      this.facturas = [];
-      
-      
+      this.facturas = [];            
 
       this.paso = 1;
       
       //this.url_fondo = "https://source.unsplash.com/random";
       this.url_deuda = environment.baseUrl + 'php/userspice/factura_getDeuda.php';
       this.url_socios = environment.baseUrl + 'php/userspice/factura_getSocios.php';
- 
+      this.url_suministros = environment.baseUrl + 'php/userspice/factura_getSuministros.php';
+       
       this.url_factura_individual = environment.baseUrl + 'php/userspice/factura_getFactura.php';
+      this.url_estado_deuda =  environment.baseUrl + 'php/userspice/IReport/estadodeuda.php';
       
       this.renderer.addClass(document.body, 'fondo_upc'); 
               
@@ -87,7 +90,7 @@ export class ImpresionFacturaComponent implements OnInit {
           customLayout: { 'normal': ['{sp:1} 1 2 3 {sp:1} {a}', 
                                      '{sp:1} 4 5 6 {sp:1} {b}', 
                                      '{sp:1} 7 8 9 {sp:4}', 
-                                     '{sp:2} 0 / {sp:3.5}'] },
+                                     '{sp:2} 0 {sp:5}'] },
           display: { 'accept' : 'Aceptar', 'clear' : 'Borrar' },
           //beforeInsert: this.agregarBarra
       });
@@ -137,26 +140,28 @@ export class ImpresionFacturaComponent implements OnInit {
   }
   
 
-  imprimir(letra, numero) {
+  imprimir(letra, pto, numero, servicio) {
 
       this.blockUI.start('Preparando impresión...');
       
       let params: URLSearchParams = new URLSearchParams();
       params.set('letra', letra);
+      params.set('pto', pto);
       params.set('numero', numero);
-     
+      params.set('servicio', servicio);
+
       // Pide al servidor que descargue el PDF generado (para evitar problemas de cross origin)
       this.http.get(this.url_factura_individual, {withCredentials: true, search: params}) 
           .toPromise()
           .then(data => {
               try {
                   //printJS(environment.clientUrl + "intra/src/app/autoservicio/impresion-factura/fact_mensual_B-0-7906179.pdf");
-                  printJS(environment.baseUrl + "php/userspice/facturas/fact_mensual_" + letra + "-0-" + numero + ".pdf");  
+                  printJS(environment.baseUrl + "php/userspice/facturas/fact_mensual_" + letra + "-" + pto + "-" + numero + ".pdf");  
                   this.blockUI.stop();
                   this.blockUI.start("Imprimiendo factura " + letra + "-" + numero + ". Por favor espere.");
                   setTimeout(() => {
                       this.blockUI.stop();
-                  }, 6000);
+                  }, 12000);
                   
                   //this.msgs.push({severity:'info', summary:'Éxito', detail:"La factura " + letra + "-" + numero + " se está imprimiendo."});
               }
@@ -166,7 +171,39 @@ export class ImpresionFacturaComponent implements OnInit {
               }
           });       
   }
+
      
+
+
+  imprimirEstadoDeuda(socio, suministro) {
+    
+    this.blockUI.start('Preparando impresión...');
+    
+    let params: URLSearchParams = new URLSearchParams();
+    params.set('socio', socio);
+    params.set('suministro', suministro);
+   
+    // Pide al servidor que descargue el PDF generado (para evitar problemas de cross origin)
+    this.http.get(this.url_estado_deuda, {withCredentials: true, search: params}) 
+        .toPromise()
+        .then(data => {
+            try {
+                //printJS(environment.clientUrl + "intra/src/app/autoservicio/impresion-factura/fact_mensual_B-0-7906179.pdf");
+                printJS(environment.baseUrl + "php/userspice/IReport/report/pdf/estado_deuda_" + socio + "-" + suministro + ".pdf");  
+                this.blockUI.stop();
+                this.blockUI.start("Imprimiendo estado de deuda de socio/suministro " + socio + "/" + suministro + ". Por favor espere.");
+                setTimeout(() => {
+                    this.blockUI.stop();
+                }, 12000);            
+            }
+            catch(e) {
+                this.msgs.push({severity:'error', summary:'Error', detail:"No se pudo imprimir el estado de deuda del socio/suministro " + socio + "/" + suministro + "."});
+                this.blockUI.stop();
+            }
+        });   
+
+  }
+      
   
   seleccionarSocio(numero) {
 
@@ -176,7 +213,7 @@ export class ImpresionFacturaComponent implements OnInit {
       params.set('dni', "0");   
       params.set('nombre', "0");   
       
-      this.http.get(this.url_deuda, {withCredentials: true, search: params}) 
+      this.http.get(this.url_suministros, {withCredentials: true, search: params}) 
           .toPromise()
           .then(res => { 
               if(res.json() == "error") 
@@ -184,10 +221,27 @@ export class ImpresionFacturaComponent implements OnInit {
               else
                   return res.json();
               })
-          .then(data => { this.facturas = data; this.paso = 3; 
-                this.checkNoResults(); });    
+          .then(data => { this.suministros = data; this.paso = 25; this.checkNoResults(); });    
   }
   
+  seleccionarSuministro(soc, sumi) {
+    let params: URLSearchParams = new URLSearchParams();
+    params.set('socio', soc);
+    params.set('sumi', sumi);      
+    params.set('dni', "0");   
+    params.set('nombre', "0");   
+
+    this.http.get(this.url_deuda, {withCredentials: true, search: params}) 
+        .toPromise()
+        .then(res => { 
+            if(res.json() == "error") 
+                return null;              
+            else
+                return res.json();
+            })
+        .then(data => { this.facturas = data; this.paso = 3; this.checkNoResults(); });    
+  }
+
 
   @ViewChild('soc_sumi') ss:ElementRef;
   @ViewChild('dni') dni:ElementRef;
@@ -230,7 +284,7 @@ export class ImpresionFacturaComponent implements OnInit {
               else
                   return res.json();
               })
-          .then(data => { this.socios = data;  this.paso = 2; this.checkNoResults(); });               
+          .then(data => { this.socios = data; this.paso = 2; this.checkNoResults(); });               
   }
   
   
@@ -261,6 +315,7 @@ export class ImpresionFacturaComponent implements OnInit {
           .then(data => { this.socios = data; this.paso = 2; this.checkNoResults(); });               
   }
   
+
   
   socSumiChange(event) {    
 
@@ -274,7 +329,7 @@ export class ImpresionFacturaComponent implements OnInit {
       params.set('dni', "0");   
       params.set('nombre', "0");   
       
-      this.http.get(this.url_deuda, {withCredentials: true, search: params}) 
+      this.http.get(this.url_suministros, {withCredentials: true, search: params}) 
           .toPromise()
           .then(res => { 
               if(res.json() == "error") 
@@ -282,7 +337,7 @@ export class ImpresionFacturaComponent implements OnInit {
               else
                   return res.json();
               })
-          .then(data => { this.facturas = data; this.paso = 3; this.checkNoResults(); });    
+          .then(data => { this.suministros = data; this.paso = 25; this.checkNoResults(); });       
   }
    
   
@@ -296,7 +351,7 @@ export class ImpresionFacturaComponent implements OnInit {
       params.set('dni', this.dni.nativeElement.value);   
       params.set('nombre', "0");   
       
-      this.http.get(this.url_deuda, {withCredentials: true, search: params}) 
+      this.http.get(this.url_suministros, {withCredentials: true, search: params}) 
           .toPromise()
           .then(res => { 
               if(res.json() == "error") 
@@ -304,7 +359,7 @@ export class ImpresionFacturaComponent implements OnInit {
               else
                   return res.json();
               })
-          .then(data => { this.facturas = data; this.paso = 3; this.checkNoResults(); });    
+          .then(data => { this.suministros = data; this.paso = 25; this.checkNoResults(); });      
   }
   
   
@@ -313,11 +368,15 @@ export class ImpresionFacturaComponent implements OnInit {
       this.msgs = []; 
       if(this.paso == 2 && this.socios.length == 0) {
           this.restart();
-          this.msgs.push({severity:'error', summary:'Advertencia', detail:'No se han encontrado socios con facturas adeudadas con los parámetros de búsqueda ingresados.'});
+          this.msgs.push({severity:'error', summary:'Advertencia', detail:'No se han encontrado socios con facturas con los datos ingresados.'});
       }
+      if(this.paso == 25 && this.suministros.length == 0) {
+        this.restart();
+        this.msgs.push({severity:'error', summary:'Advertencia', detail:'No se han encontrado socios con suministros activos con los datos ingresados.'});
+    }
       if(this.paso == 3 && this.facturas.length == 0) {
           this.restart();
-          this.msgs.push({severity:'error', summary:'Advertencia', detail:'No se han encontrado facturas adeudadas con los parámetros de búsqueda ingresados.'});
+          this.msgs.push({severity:'error', summary:'Advertencia', detail:'No se han encontrado facturas con los datos ingresados.'});
       }
   }
   
