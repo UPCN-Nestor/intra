@@ -264,6 +264,7 @@ export class AppComponent implements OnInit {
   formSubmitDisabled = false;
   formError = false;
   formOk = false;
+  formConfirm = false;
 
   loadMultiselectValues(col, fk_url, fk_mostrar) : any {
 
@@ -276,6 +277,16 @@ export class AppComponent implements OnInit {
   }
 
   formSubmit() {
+    this.formConfirm = true;
+  }
+
+  formNoConfirmar() {
+    this.formConfirm=false;    
+  }
+
+  formConfirmar() {
+    this.formConfirm=false;
+
     let params: URLSearchParams = new URLSearchParams();
     this.keys(this.formCols).forEach(c => { 
         params.set(c, this.editRow[c]);
