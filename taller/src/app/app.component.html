@@ -20,15 +20,15 @@
                 </span>
                 
                 <span id="dateAnchor">
-                    <span *ngIf="formCols[col].inputFiltro == 'dateMes' "> 
+                    <span style="text-align:left; vertical-align:top;" *ngIf="formCols[col].inputFiltro == 'dateMes' "> 
                         <dp-date-picker type="month" [ngModel]="editRow[col]" (ngModelChange)="onDateChange($event, col)" [config]="datePickerConfigMes"></dp-date-picker>
                     </span>
-                    <span *ngIf="formCols[col].inputFiltro == 'dateDia' "> 
+                    <span style="text-align:left; vertical-align:top;" *ngIf="formCols[col].inputFiltro == 'dateDia' "> 
                         <dp-date-picker [ngModel]="editRow[col]" (ngModelChange)="onDateChange($event, col)" [config]="datePickerConfigDia"></dp-date-picker>
                     </span>
                 </span>
             
-                <span *ngIf="formCols[col].inputFiltro == 'multiselect'"> 
+                <span style="text-align:left; vertical-align:top;" *ngIf="formCols[col].inputFiltro == 'multiselect'"> 
                     <p-dropdown placeholder="(elegir)" [style]="{'width':'300px'}" [options]="multiselectValues[col]" [(ngModel)]="editRow[col]"
                         ></p-dropdown>
                 </span>			
@@ -45,7 +45,15 @@
         </div>
     </p-panel>
     </div>
+
     <div class="ui-g ui-g-4"></div>
+
+    <div class="ui-g ui-g-6">
+        <app-grid tituloGrid="Tareas programadas" nombreGrid="mantenimiento" [cols]="mcols" [colsMetadata]="mcolsMetadata" [selectedCol]="mselectedCol" 
+        [backendURL]="mbackendURL" [writeURL]="mwriteURL" [jsonURL]="mjsonURL" [defaultFilters]="mdefaultFilters" [userId]="user" soloConsulta="true"
+             >Grid...
+        </app-grid>
+    </div> 
 
     <p-dialog header="Error" [(visible)]="formError" modal="true" dismissableMask="true"> 
             <div style="color:red;">No se pudo insertar la tarea en la base de datos, verifique los campos necesarios (marcados con '*')</div> 
@@ -55,6 +63,19 @@
             {{formCols[col].label}}: 
             {{multiselectValues[col] && multiselectValues[col][editRow[col]] ? multiselectValues[col][editRow[col]].label : editRow[col]}}
         </div>
+        <br/>
+        <div *ngIf="formTipoMantenimiento=='Preventivo'">
+            <div style="color:blue;">Indique el próximo mantenimiento:</div>
+            Fecha 
+            <div style="text-align:left; vertical-align:top;"> 
+                <dp-date-picker [ngModel]="formProximaFecha" [config]="datePickerConfigDia"></dp-date-picker>
+            </div>
+            y/o Kilometraje 
+            <div>
+                <input type="text" size="10" pInputText [(ngModel)]="formProximoKms"/>
+            </div>
+        </div>
+        <br/>
         <button label="Aceptar" pButton type="button" (click)="formConfirmar()" ></button>
         <button label="Cancelar" pButton type="button" (click)="formNoConfirmar()"></button>
     </p-dialog>
@@ -62,6 +83,8 @@
             Tarea cargada con éxito
     </p-dialog>
 </div>
+
+
 
 <div *ngIf="tienePermiso('tal_gerencia')">
 
@@ -75,7 +98,7 @@
 <div [hidden]="entidadSeleccionada!=0">
 <app-grid tituloGrid="Listado de tareas" nombreGrid="taller" [cols]="cols" [colsMetadata]="colsMetadata" [selectedCol]="selectedCol" 
     [backendURL]="backendURL" [writeURL]="writeURL" [jsonURL]="jsonURL" [defaultFilters]="defaultFilters" [userId]="user"
-     mostrarSidebar="true" >Grid...
+     mostrarSidebar="true" mostrarAgrupar="true" >Grid...
 </app-grid></div>
 
 <div [hidden]="entidadSeleccionada!=1">

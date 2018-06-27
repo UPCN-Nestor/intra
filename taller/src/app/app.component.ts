@@ -46,15 +46,18 @@ export class AppComponent implements OnInit {
 
   // Configuración de ABM Vehículos   
   vcols = [ {value: 'id', label: ''}, {value: 'numero', label: 'Número'}, {value: 'id_tipo_vehiculo', label: 'Tipo vehículo'}, 
-    {value: 'patente', label: 'Patente'}, {value: 'descripcion', label: 'Descripción'}];
+    {value: 'patente', label: 'Patente'}, {value: 'descripcion', label: 'Descripción'}, {value: 'marca', label: 'Marca'}, 
+    {value: 'modelo', label: 'Modelo'}];
 
   vcolsMetadata = {
     id: { hidden: 'true '},
-    id_tipo_vehiculo: { orden: 'alfabetico', filtro: this.equals, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_tipos_vehiculos_r.php',
+    id_tipo_vehiculo: { orden: 'fk', filtro: this.equals, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_tipos_vehiculos_r.php',
       fk_mostrar:'descripcion'},
     numero: { orden : 'alfabetico', filtro: this.startsWith, inputFiltro: 'text'},
     patente: { orden : 'alfabetico', filtro: this.startsWith, inputFiltro: 'text'}, 
-    descripcion: { orden : 'alfabetico', filtro: this.startsWith, inputFiltro: 'text'}
+    descripcion: { orden : 'alfabetico', filtro: this.startsWith, inputFiltro: 'text'},
+    marca: { orden : 'alfabetico', filtro: this.startsWith, inputFiltro: 'text'},
+    modelo: { orden : 'alfabetico', filtro: this.startsWith, inputFiltro: 'text'}
   }
   vselectedCol = "numero";     
   vjsonURL = environment.baseUrl + 'php/userspice/tal_vehiculos_r.php';
@@ -83,11 +86,14 @@ export class AppComponent implements OnInit {
   tvdefaultFilters = {};
 
   // Configuración de ABM Responsables
-  rcols = [ {value: 'id', label: ''}, {value: 'legajo', label: 'Legajo'}, {value: 'nombre', label: 'Nombre'}];
+  rcols = [ {value: 'id', label: ''}, {value: 'legajo', label: 'Legajo'}, {value: 'nombre', label: 'Nombre'}, {value: 'tipo_carnet', label: 'Tipo carnet'},
+        {value: 'vencimiento', label: 'Vencimiento'}];
   rcolsMetadata = {
     id: { hidden: 'true '},
     nombre: { orden : 'alfabetico', filtro: this.startsWith, inputFiltro: 'text'},
-    legajo: { orden: 'numerico', filtro: this.mayor, inputFiltro: 'text'}
+    legajo: { orden: 'numerico', filtro: this.mayor, inputFiltro: 'text'},
+    tipo_carnet: { orden : 'alfabetico', filtro: this.startsWith, inputFiltro: 'text'},
+    vencimiento: { orden : 'alfabetico', filtro: this.startsWith, inputFiltro: 'text'},
   }
   rjsonURL = environment.baseUrl + 'php/userspice/tal_responsables_r.php';
   rwriteURL = environment.baseUrl + 'php/userspice/tal_responsables_w.php';     
@@ -108,18 +114,38 @@ export class AppComponent implements OnInit {
   pdefaultFilters = {};
 
   // Configuración de órdenes de trabajo
-  otcols = [ {value: 'id', label: ''}, {value: 'id_vehiculo', label: 'Vehículo'}, {value: 'fecha', label: 'Fecha'}, {value: 'descripcion', label: 'Número'}];
+  otcols = [ {value: 'id', label: ''}, {value: 'id_vehiculo', label: 'Vehículo'}, {value: 'descripcion', label: 'Número'}, {value: 'fecha', label: 'Fecha inicio'}, 
+        {value: 'fecha_cierre', label: 'Fecha cierre'}]; 
   otcolsMetadata = {
     id: { hidden: 'true '},
-    id_vehiculo: { orden: 'alfabetico', filtro: this.equals, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_vehiculos_r.php',
+    id_vehiculo: { orden: 'fk', filtro: this.equals, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_vehiculos_r.php',
         fk_mostrar:'descripcion'},
     descripcion: { orden : 'alfabetico', filtro: this.startsWith, inputFiltro: 'text'},
     fecha: { orden : 'alfabetico', filtro: this.inDateRange, inputFiltro: 'dateRangeDia', agrupado: this.sharedStart,
+        defaultNew:'%hoy%'},
+    fecha_cierre: { orden : 'alfabetico', filtro: this.inDateRange, inputFiltro: 'dateRangeDia', agrupado: this.sharedStart,
         defaultNew:'%hoy%'},
     }
   otjsonURL = environment.baseUrl + 'php/userspice/tal_ordenes_trabajo_r.php';
   otwriteURL = environment.baseUrl + 'php/userspice/tal_ordenes_trabajo_w.php';     
   otdefaultFilters = {};
+
+  // Configuración mantenimiento
+  mcols = [ {value: 'id', label: ''}, {value: 'id_vehiculo', label: 'Vehículo'}, {value: 'id_tipo_tarea', label: 'Tipo tarea'}, 
+    {value: 'fecha', label: 'Prox. fecha'}, 
+    {value: 'kms', label: 'Prox. kilometraje'}]; 
+  mcolsMetadata = {
+        id: { hidden: 'true '},
+        id_vehiculo: { orden: 'fk', filtro: this.equals, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_vehiculos_r.php',
+            fk_mostrar:'numero'},
+        id_tipo_tarea: { orden: 'fk', filtro: this.inArray, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_tipos_tareas_r.php',
+            fk_mostrar:'tipo,nombre'},
+        fecha: { orden : 'alfabetico', filtro: this.inDateRange, inputFiltro: 'dateRangeDia' },
+        kms: { orden: 'numerico', filtro: this.mayor, inputFiltro: 'text', agrupado: this.avg, defaultNew: '0'},
+  }
+  mjsonURL = environment.baseUrl + 'php/userspice/tal_mantenimiento_r.php';
+  mwriteURL = environment.baseUrl + 'php/userspice/tal_mantenimiento_w.php';     
+  mdefaultFilters = {};
 
   constructor(private http: Http, private el:ElementRef) { 
       //alert(el.nativeElement.getAttribute('base'));
@@ -147,31 +173,33 @@ export class AppComponent implements OnInit {
                   {value: 'id_proveedor', label: 'Proveedor'},
                   {value: 'descripcion', label: 'Descripción'},
                   {value: 'factura_importe', label: 'Monto'},
-                  {value: 'horas_hombre', label: 'Horas hombre'},
+                  {value: 'horas_hombre', label: 'Hs. hombre'},
+                  {value: 'kms', label: 'Kms.'},
                   {value: 'estado', label: 'Estado'}                            
               ];
       
       this.colsMetadata = { 
                               id: { hidden: 'true'},
-                              id_vehiculo: { orden: 'alfabetico', filtro: this.inArray, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_vehiculos_r.php',
+                              id_vehiculo: { orden: 'fk', filtro: this.inArray, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_vehiculos_r.php',
                                 fk_mostrar:'numero'},
-                              id_orden_trabajo: { orden: 'alfabetico', filtro: this.inArray, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_ordenes_trabajo_r.php',
+                              id_orden_trabajo: { orden: 'fk', filtro: this.inArray, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_ordenes_trabajo_r.php',
                                 fk_mostrar:'descripcion'},
-                              id_tipo_tarea: { orden: 'alfabetico', filtro: this.inArray, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_tipos_tareas_r.php',
+                              id_tipo_tarea: { orden: 'fk', filtro: this.inArray, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_tipos_tareas_r.php',
                                   fk_mostrar:'tipo,nombre'},
-                              id_responsable: { orden: 'alfabetico', filtro: this.inArray, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_responsables_r.php',
+                              id_responsable: { orden: 'fk', filtro: this.inArray, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_responsables_r.php',
                                   fk_mostrar:'nombre'},
-                              fecha_creacion: { orden : 'alfabetico', filtro: this.inDateRange, inputFiltro: 'dateRangeDia', agrupado: this.sharedStart,
+                              fecha_creacion: { orden : 'alfabetico', filtro: this.inDateRange, inputFiltro: 'dateRangeDia', 
                                   defaultNew:'%hoy%', lazy: true},
                               factura_numero: { orden : 'alfabetico', filtro: this.startsWith, inputFiltro: 'text', defaultNew:'A'},
-                              id_proveedor: { orden: 'alfabetico', filtro: this.inArray, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_proveedores_r.php',
+                              id_proveedor: { orden: 'fk', filtro: this.inArray, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_proveedores_r.php',
                                   fk_mostrar:'nombre'},
                               descripcion: { orden : 'alfabetico', filtro: this.startsWith, inputFiltro: 'text'},
                               factura_importe: { orden: 'numerico', filtro: this.mayor, inputFiltro: 'text', agrupado: this.sum, defaultNew: '0'},
                               horas_hombre: { orden: 'numerico', filtro: this.mayor, inputFiltro: 'text', agrupado: this.sum, defaultNew: '0'},
                               estado: { orden: 'alfabetico', filtro: this.startsWith, inputFiltro: 'text', agrupado: this.vacio, calculada: this.estado,
                                     tooltip: 'Una tarea se considera finalizada si se le cargó número de factura u horas hombre' },
-                              fecha_mensual: { hidden: 'true', calculada: this.mensual }
+                              fecha_mensual: { hidden: 'true', calculada: this.mensual },
+                              kms: { orden: 'numerico', filtro: this.mayor, inputFiltro: 'text', agrupado: this.sum, defaultNew: '0'}
                              
                               // iconoBoton, accionBoton
                               //'Consumo': { 'orden': 'numerico', 'agrupado': this.sum, 'filtro': this.mayor, 'inputFiltro': 'text', tooltip: 'En <<unidad>>' },      
@@ -194,7 +222,8 @@ export class AppComponent implements OnInit {
             id_proveedor: { label: 'Proveedor', inputFiltro: 'multiselect'},
             descripcion: { label: 'Descripción', inputFiltro: 'area'},
             factura_importe: { label: 'Monto'},
-            horas_hombre: { label: 'Horas hombre'}                
+            horas_hombre: { label: 'Horas hombre'},
+            kms: { label: 'Kms.' }
         };
        
       this.multiselectValues = [];
@@ -266,6 +295,10 @@ export class AppComponent implements OnInit {
   formOk = false;
   formConfirm = false;
 
+  formTipoMantenimiento: string;
+  formProximaFecha : string;
+  formProximoKms : string;
+
   loadMultiselectValues(col, fk_url, fk_mostrar) : any {
 
     this.http.get(fk_url, {withCredentials: true}).toPromise().then(d => {
@@ -277,7 +310,20 @@ export class AppComponent implements OnInit {
   }
 
   formSubmit() {
-    this.formConfirm = true;
+    let params: URLSearchParams = new URLSearchParams();     
+    params.set("id", this.editRow["id_tipo_tarea"]);  
+
+    this.formSubmitDisabled = true;  
+
+    this.http.get(this.ttjsonURL, {withCredentials: true, search: params}).toPromise().then(res => {
+        console.log(res);
+
+        this.formProximaFecha = new Date().toISOString().substr(0,10);
+        this.formProximoKms = ""
+        this.formTipoMantenimiento = res.json()[0]["tipo"];
+        this.formSubmitDisabled = false;
+        this.formConfirm = true;
+    });   
   }
 
   formNoConfirmar() {
@@ -287,12 +333,24 @@ export class AppComponent implements OnInit {
   formConfirmar() {
     this.formConfirm=false;
 
+    let mparams: URLSearchParams = new URLSearchParams();
+    mparams.set("id_vehiculo", this.editRow["id_vehiculo"]);
+    mparams.set("id_tipo_tarea", this.editRow["id_tipo_tarea"]);
+    mparams.set("kms", this.formProximoKms);
+    mparams.set("fecha", this.formProximaFecha);
+
+    this.formSubmitDisabled = true;
+    this.http.post(this.mwriteURL, mparams, {withCredentials: true}).toPromise().then(res => {
+        console.log(res);
+        if(res.json()[0] == "error")
+            this.formError = true;        
+    });
+
     let params: URLSearchParams = new URLSearchParams();
     this.keys(this.formCols).forEach(c => { 
         params.set(c, this.editRow[c]);
     });
 
-    this.formSubmitDisabled = true;
     this.http.post(this.writeURL, params, {withCredentials: true}).toPromise().then(res => {
         console.log(res);
         if(res.json()[0] == "error")

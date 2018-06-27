@@ -48,6 +48,9 @@ export class GridComponent implements OnInit {
   @Input() backendURL : string;
   @Input() userId: string;
 
+  @Input() mostrarAgrupar : boolean;
+  @Input() soloConsulta : boolean;
+
   @Input() selectedCol : string;
   orderAscDesc = "0";
   agruparCol: string = "";
@@ -582,7 +585,14 @@ export class GridComponent implements OnInit {
   }
   
   sortBy(field, order) {
-
+        
+      if(this.colsMetadata[field] && this.colsMetadata[field] .orden == "fk") {
+            //this.multiselectValues[field].map()
+            if(order == 1)
+                this.filas = this.filas.sort((a,b) => {return this.getMostrarFk(field, a[field]) > this.getMostrarFk(field, b[field]) ? 1 : -1;});
+            else
+                this.filas = this.filas.sort((a,b) => {return this.getMostrarFk(field, b[field]) > this.getMostrarFk(field, a[field]) ? 1 : -1;});
+      }
       if(this.colsMetadata[field] && this.colsMetadata[field] .orden == "numerico") {
           if(order == 1)
               this.filas = this.filas.sort((a,b) => {return a[field] - b[field];});
@@ -601,8 +611,6 @@ export class GridComponent implements OnInit {
           else
               this.filas = this.filas.sort((a,b) => {return b[field] > a[field] ? 1 : -1;});
       }
-      
-      //return filas;
   }
 
   getStyle(col) {
@@ -611,6 +619,8 @@ export class GridComponent implements OnInit {
         style['text-align'] = 'right';
     if (this.colsMetadata[col].iconoBoton) 
         style['width'] = '48px';  
+    if (this.colsMetadata[col].ancho) 
+        style['width'] = this.colsMetadata[col].ancho;  
 
     return style;
   }
@@ -623,8 +633,24 @@ export class GridComponent implements OnInit {
     this.agruparChanged(null);
   }
   
+  resetFilters() {
+      this.filters={};
+      this.cols.forEach(c => {
+        if(this.colsMetadata[c.value].inputFiltro == "dateRangeMes" || this.colsMetadata[c.value].inputFiltro == "dateRangeDia")              
+            this.filters[c.value]={"desde" : "", "hasta" : ""};
+        else
+            this.filters[c.value]="";
+      });
+
+      this.agruparChanged(null);
+  }
+
+
 
   rowClick(e, dt) {
+
+    if(this.soloConsulta)
+        return;
     //console.log(dt);
     if(this.agruparCol != "") {
         this.msg('info', 'Info', 'No se puede editar en modo Agrupado');
@@ -645,8 +671,11 @@ export class GridComponent implements OnInit {
                 .toPromise().then(d => {
                     let toRet = [];
                     let mostrar = this.colsMetadata[c.value].fk_mostrar.split(",");
-                    d.json().forEach(x => toRet.push({'value': x.id, 'label': mostrar.length == 1 ? x[mostrar[0]] : mostrar.reduce((m,n) => x[m] + "-" + x[n])}));                
+                    d.json().forEach(x => {
+                        toRet.push({'value': x.id, 'label': mostrar.length == 1 ? x[mostrar[0]] : mostrar.reduce((m,n) => x[m] + "-" + x[n])})                        
+                    });                
                     this.multiselectValues[c.value] = toRet;
+
                 });
           }        
       });
