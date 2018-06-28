@@ -25,7 +25,7 @@ require_once $abs_us_root.$us_url_root.'users/helpers/helpers.php';
 $GLOBALS['config'] = array(
 	'mysql'      => array('host'         => '127.0.0.1',
 'username'     => 'root',
-'password'     => 'bitnami',
+'password'     => '123',
 'db'           => 'userspice',
 ),
 'remember'        => array(

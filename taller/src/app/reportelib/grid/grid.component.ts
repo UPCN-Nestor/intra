@@ -7,7 +7,7 @@ import 'rxjs/add/operator/debounceTime';
 
 import { DataTableModule,SharedModule, DataTable, DropdownModule, SelectItem, GrowlModule, Message, CheckboxModule, DragDropModule, 
     PanelModule, InputTextModule, SliderModule, ButtonModule, DialogModule , OverlayPanelModule, MultiSelectModule, TooltipModule, PaginatorModule} from 'primeng/primeng';
-import {ConfirmDialogModule,ConfirmationService} from 'primeng/primeng';
+import {ConfirmDialogModule,ConfirmationService,ToggleButtonModule} from 'primeng/primeng';
 
 import { SidebarComponent } from '../sidebar/sidebar.component';
 
@@ -52,7 +52,7 @@ export class GridComponent implements OnInit {
   @Input() soloConsulta : boolean;
 
   @Input() selectedCol : string;
-  orderAscDesc = "0";
+  @Input() orderAscDesc = "0";
   agruparCol: string = "";
   
   agrupar : boolean = false;
@@ -64,7 +64,8 @@ export class GridComponent implements OnInit {
   
   @Input() defaultFilters : {}
   filters : any;
-  
+  filtroActivo;
+
   multiselectValues : {};
   
   msgs : Message[] = [];
@@ -599,7 +600,7 @@ export class GridComponent implements OnInit {
           else
               this.filas = this.filas.sort((a,b) => {return b[field] - a[field];});
       }
-      else if(this.colsMetadata[field] && this.colsMetadata[field] .orden == "alfabetico") {
+      else if(this.colsMetadata[field] && this.colsMetadata[field] .orden == "alfabetico") { 
           if(order == 1)
               this.filas = this.filas.sort((a,b) => {return a[field] > b[field] ? 1 : -1;});
           else

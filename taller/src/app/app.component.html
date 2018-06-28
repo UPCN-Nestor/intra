@@ -49,8 +49,15 @@
     <div class="ui-g ui-g-4"></div>
 
     <div class="ui-g ui-g-6">
-        <app-grid tituloGrid="Tareas programadas" nombreGrid="mantenimiento" [cols]="mcols" [colsMetadata]="mcolsMetadata" [selectedCol]="mselectedCol" 
+        <app-grid #mant tituloGrid="Tareas programadas" nombreGrid="mantenimiento" [cols]="mcols" [colsMetadata]="mcolsMetadata" [selectedCol]="mselectedCol" 
         [backendURL]="mbackendURL" [writeURL]="mwriteURL" [jsonURL]="mjsonURL" [defaultFilters]="mdefaultFilters" [userId]="user" soloConsulta="true"
+             >Grid...
+        </app-grid>
+    </div> 
+
+    <div class="ui-g ui-g-6">
+        <app-grid #realizadas tituloGrid="Tareas realizadas" nombreGrid="realizadas" [cols]="recols" [colsMetadata]="recolsMetadata" [selectedCol]="reselectedCol" 
+        [backendURL]="rebackendURL" [jsonURL]="rejsonURL" [defaultFilters]="redefaultFilters" [userId]="user" soloConsulta="true" orderAscDesc="1"
              >Grid...
         </app-grid>
     </div> 
@@ -61,14 +68,14 @@
     <p-dialog header="Confirme nueva tarea" [(visible)]="formConfirm" modal="true" dismissableMask="true">
         <div *ngFor="let col of keys(formCols)">            
             {{formCols[col].label}}: 
-            {{multiselectValues[col] && multiselectValues[col][editRow[col]] ? multiselectValues[col][editRow[col]].label : editRow[col]}}
+            {{multiselectValues[col] ? getMostrarFk(col, editRow[col]) : editRow[col]}}
         </div>
         <br/>
         <div *ngIf="formTipoMantenimiento=='Preventivo'">
             <div style="color:blue;">Indique el próximo mantenimiento:</div>
             Fecha 
             <div style="text-align:left; vertical-align:top;"> 
-                <dp-date-picker [ngModel]="formProximaFecha" [config]="datePickerConfigDia"></dp-date-picker>
+                <dp-date-picker [(ngModel)]="formProximaFecha" [config]="datePickerConfigDia"></dp-date-picker>
             </div>
             y/o Kilometraje 
             <div>

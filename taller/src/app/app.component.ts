@@ -12,7 +12,7 @@ import {DpDatePickerModule, IDatePickerConfig} from 'ng2-date-picker';
 import {DialogModule} from 'primeng/primeng';
 
 import { environment } from '../environments/environment';
-
+import { GridComponent } from './reportelib/grid/grid.component';
 
 @Component({
   selector: 'app-root',
@@ -39,7 +39,10 @@ export class AppComponent implements OnInit {
   entidades: SelectItem[];
   entidadSeleccionada: any;
 
-
+  @ViewChild('mant') 
+  private gridMant: GridComponent;
+  @ViewChild('realizadas') 
+  private gridRealizadas: GridComponent;
 
   @ViewChild('header')
   private header : ElementRef;
@@ -146,6 +149,22 @@ export class AppComponent implements OnInit {
   mjsonURL = environment.baseUrl + 'php/userspice/tal_mantenimiento_r.php';
   mwriteURL = environment.baseUrl + 'php/userspice/tal_mantenimiento_w.php';     
   mdefaultFilters = {};
+  
+  // Configuración realizadas
+  recols = [ {value: 'id', label: ''}, {value: 'id_vehiculo', label: 'Vehículo'}, {value: 'id_tipo_tarea', label: 'Tipo tarea'}, 
+    {value: 'fecha', label: 'Última fecha'}]; 
+  recolsMetadata = {
+        id: { hidden: 'true '},
+        id_vehiculo: { orden: 'fk', filtro: this.equals, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_vehiculos_r.php',
+            fk_mostrar:'numero'},
+        id_tipo_tarea: { orden: 'fk', filtro: this.inArray, inputFiltro: 'multiselect', fk_url: environment.baseUrl + 'php/userspice/tal_tipos_tareas_r.php',
+            fk_mostrar:'tipo,nombre'},
+        fecha: { orden : 'alfabetico', filtro: this.inDateRange, inputFiltro: 'dateRangeDia' },
+  }
+  reselectedCol = "fecha";
+  rejsonURL = environment.baseUrl + 'php/userspice/tal_tareas_realizadas.php';  
+  redefaultFilters = {};
+
 
   constructor(private http: Http, private el:ElementRef) { 
       //alert(el.nativeElement.getAttribute('base'));
@@ -241,7 +260,6 @@ export class AppComponent implements OnInit {
       this.datePickerConfigDia = { appendTo : "body", format: "YYYY-MM-DD", disableKeypress: true, 
         monthBtnFormatter : m => { return this.mesesEspanol[m.month()] }                                 
       };    
-
   }
 
 
@@ -299,6 +317,12 @@ export class AppComponent implements OnInit {
   formProximaFecha : string;
   formProximoKms : string;
 
+  getMostrarFk(col, val) {
+    if(!this.multiselectValues[col]) 
+        return;
+    return this.multiselectValues[col].filter(x=>x.value==val).length > 0 ? this.multiselectValues[col].filter(x=>x.value==val)[0].label : "";
+  }
+
   loadMultiselectValues(col, fk_url, fk_mostrar) : any {
 
     this.http.get(fk_url, {withCredentials: true}).toPromise().then(d => {
@@ -333,23 +357,18 @@ export class AppComponent implements OnInit {
   formConfirmar() {
     this.formConfirm=false;
 
-    let mparams: URLSearchParams = new URLSearchParams();
-    mparams.set("id_vehiculo", this.editRow["id_vehiculo"]);
-    mparams.set("id_tipo_tarea", this.editRow["id_tipo_tarea"]);
-    mparams.set("kms", this.formProximoKms);
-    mparams.set("fecha", this.formProximaFecha);
-
     this.formSubmitDisabled = true;
-    this.http.post(this.mwriteURL, mparams, {withCredentials: true}).toPromise().then(res => {
-        console.log(res);
-        if(res.json()[0] == "error")
-            this.formError = true;        
-    });
 
     let params: URLSearchParams = new URLSearchParams();
     this.keys(this.formCols).forEach(c => { 
         params.set(c, this.editRow[c]);
     });
+            
+    let mparams: URLSearchParams = new URLSearchParams();
+    mparams.set("id_vehiculo", this.editRow["id_vehiculo"]);
+    mparams.set("id_tipo_tarea", this.editRow["id_tipo_tarea"]);
+    mparams.set("kms", this.formProximoKms);
+    mparams.set("fecha", this.formProximaFecha);
 
     this.http.post(this.writeURL, params, {withCredentials: true}).toPromise().then(res => {
         console.log(res);
@@ -360,7 +379,18 @@ export class AppComponent implements OnInit {
         this.editRow = {};
         this.resetDefaults(this.editRow);
 
+        if(this.formTipoMantenimiento=="Preventivo")
+        this.http.post(this.mwriteURL, mparams, {withCredentials: true}).toPromise().then(res => {
+            console.log(res);
+            if(res.json()[0] == "error")
+                this.formError = true;     
+            
+            this.gridMant.ngOnInit();   
+            this.gridRealizadas.ngOnInit();
+        });
+        
         this.formSubmitDisabled = false;
+
     });
   }
 

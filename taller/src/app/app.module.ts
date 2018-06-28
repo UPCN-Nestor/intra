@@ -18,7 +18,7 @@ import { BlockUIModule } from 'ng-block-ui';
 
 import { InputTextareaModule, ConfirmDialogModule, DataTableModule,SharedModule, DataTable, DropdownModule, SelectItem, GrowlModule, Message, CheckboxModule, DragDropModule, MessagesModule,
     PanelModule, InputTextModule, SliderModule, ButtonModule, DialogModule, OverlayPanelModule, MultiSelectModule, ToolbarModule, PasswordModule, DataGridModule, TooltipModule, InputMaskModule,
-    DataListModule, ChartModule } from 'primeng/primeng';
+    DataListModule, ChartModule, ToggleButtonModule } from 'primeng/primeng';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -61,7 +61,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ToolbarModule,
     TooltipModule,    
     InputMaskModule,
-    ChartModule
+    ChartModule,
+    ToggleButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
