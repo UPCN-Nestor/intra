@@ -24,14 +24,56 @@
     	
     <div class="ui-toolbar-group-right">
 		<div style="white-space: nowrap; vertical-align: middle;">
+			<span style="vertical-align: middle; display: inline-block; ">			
+					<p-toggleButton [(ngModel)]="mostrarAgrupar" offIcon="fa-object-group" onIcon="fa-times-circle" onLabel="" offLabel="" (onChange)="resetAgrupar()"></p-toggleButton>					
+			</span>
 			<span *ngIf="mostrarAgrupar" style="display: inline-block; vertical-align: middle;" class="ui-inputgroup">
 				Agrupar por
 				<p-dropdown [options]="colsParaAgrupar" [(ngModel)]="agruparCol" (onChange)="agruparChanged($event)"></p-dropdown>		
+
+				<span style="vertical-align: middle; display: inline-block; width:20px"></span>				
+			</span>			
+			
+			<span style="vertical-align: middle; display: inline-block; ">		
+				<p-toggleButton [(ngModel)]="filtroActivo" offIcon="fa-filter" onIcon="fa-times-circle" onLabel="" offLabel="" (onChange)="resetFilters()"></p-toggleButton>					
 			</span>
-			<span style="vertical-align: middle; display: inline-block; width:20px"></span>
-			<button style="vertical-align: middle; display: inline-block;" type="button" pButton icon="fa-filter" iconPos="left" (click)="resetFilters()"
-				tooltipPosition="top" pTooltip="Limpiar filtros" 
-			></button>	
+		
+			<span style="vertical-align: middle; display: inline-block;" *ngIf="filtroActivo">
+				Filtrar por	
+				<p-dropdown [options]="colsParaAgrupar" [(ngModel)]="filtrarCol" (onChange)="resetFilters()"></p-dropdown></span>
+			
+				<span *ngIf="filtroActivo" style="vertical-align: middle !important; display: inline-block;">											
+					
+					<span style="text-align:center !important; " *ngIf="colsMetadata[filtrarCol] ? colsMetadata[filtrarCol].inputFiltro == 'text' : 0"> 
+						<input type="text" size="6" pInputText (input)="manualFilter(filtrarCol, $event.target.value)" [value]="filters[filtrarCol]"/>
+					</span>
+					<span id="dateAnchor">
+						<span style="text-align:center;" *ngIf="colsMetadata[filtrarCol] ? colsMetadata[filtrarCol].inputFiltro == 'dateRangeMes' : 0"> 
+							<span >
+							<dp-date-picker placeholder="desde..." type="month" [ngModel]="filters[filtrarCol]['desde']" (ngModelChange)="onDateDesdeChange($event, filtrarCol)" [config]="datePickerConfigMes"></dp-date-picker>
+							<dp-date-picker placeholder="hasta..." type="month" [ngModel]="filters[filtrarCol]['hasta']" (ngModelChange)="onDateHastaChange($event, filtrarCol)" [config]="datePickerConfigMes"></dp-date-picker>
+							</span>
+						</span>
+						<span style="text-align:center;" *ngIf="colsMetadata[filtrarCol] ? colsMetadata[filtrarCol].inputFiltro == 'dateRangeDia' : 0"> 
+							<span id="dateAnchor">
+							<dp-date-picker placeholder="desde..." [ngModel]="filters[filtrarCol]['desde']" (ngModelChange)="onDateDesdeChange($event, filtrarCol)" [config]="datePickerConfigDia"></dp-date-picker>
+							<dp-date-picker placeholder="hasta..." [ngModel]="filters[filtrarCol]['hasta']" (ngModelChange)="onDateHastaChange($event, filtrarCol)" [config]="datePickerConfigDia"></dp-date-picker>
+							</span>
+						</span>
+					</span>
+					<span style="text-align:center; " *ngIf="colsMetadata[filtrarCol] ? colsMetadata[filtrarCol].inputFiltro == 'multiselect' : 0"> 
+						<p-multiSelect defaultLabel="Todos" filter="false" maxSelectedLabels="3" selectedItemsLabel="{0} seleccionados" [options]="multiselectValues[filtrarCol]" 
+							appendTo="body" [ngModel]="filters[filtrarCol]" (ngModelChange)="onMultiselectChange($event, filtrarCol)"></p-multiSelect>
+					</span>
+					
+					<span style="text-align:center; " *ngIf="colsMetadata[filtrarCol] ? colsMetadata[filtrarCol].inputFiltro == 'range' : 0"> 
+						{{filters[filtrarCol][0]}} a {{filters[filtrarCol][1]}}
+						<p-slider [(ngModel)]="filters[filtrarCol]" [range]="true"></p-slider>
+					</span>    
+				
+					<span style="vertical-align: middle; display: inline-block; width:20px"></span>
+			
+			</span>
 				
 			<button style="vertical-align: middle; display: inline-block;" type="button" pButton icon="fa-file-excel-o" iconPos="left" (click)="dt.exportCSV()"
 				tooltipPosition="top" pTooltip="Exportar a .csv (para Excel)" ></button>			
@@ -54,37 +96,6 @@
 		<ng-template pTemplate="header" >
 			<div style="text-align:center;" tooltipPosition="top" pTooltip="{{colsMetadata[col.value].tooltip ? colsMetadata[col.value].tooltip : ''}}" showDelay="0"
 				tooltipStyleClass="tooltip">{{col.label}}</div>	
-			
-			<div style="height: 10px;"></div>
-
-			<div>			
-				<div style="text-align:center !important; font-size:small;" *ngIf="colsMetadata[col.value] ? colsMetadata[col.value].inputFiltro == 'text' : 0"> 
-					<input type="text" size="6" pInputText (input)="manualFilter(col.value, $event.target.value)" [value]="filters[col.value]"/>
-				</div>
-				<div id="dateAnchor">
-					<div style="text-align:center; font-size:small;" *ngIf="colsMetadata[col.value] ? colsMetadata[col.value].inputFiltro == 'dateRangeMes' : 0"> 
-						<div >
-						<dp-date-picker placeholder="desde..." type="month" [ngModel]="filters[col.value]['desde']" (ngModelChange)="onDateDesdeChange($event, col.value)" [config]="datePickerConfigMes"></dp-date-picker>
-						<dp-date-picker placeholder="hasta..." type="month" [ngModel]="filters[col.value]['hasta']" (ngModelChange)="onDateHastaChange($event, col.value)" [config]="datePickerConfigMes"></dp-date-picker>
-						</div>
-					</div>
-					<div style="text-align:center; font-size:small;" *ngIf="colsMetadata[col.value] ? colsMetadata[col.value].inputFiltro == 'dateRangeDia' : 0"> 
-						<div id="dateAnchor">
-						<dp-date-picker placeholder="desde..." [ngModel]="filters[col.value]['desde']" (ngModelChange)="onDateDesdeChange($event, col.value)" [config]="datePickerConfigDia"></dp-date-picker>
-						<dp-date-picker placeholder="hasta..." [ngModel]="filters[col.value]['hasta']" (ngModelChange)="onDateHastaChange($event, col.value)" [config]="datePickerConfigDia"></dp-date-picker>
-						</div>
-					</div>
-				</div>
-				<div style="text-align:center; font-size:small;" *ngIf="colsMetadata[col.value] ? colsMetadata[col.value].inputFiltro == 'multiselect' : 0"> 
-					<p-multiSelect defaultLabel="Todos" filter="false" maxSelectedLabels="3" selectedItemsLabel="{0} seleccionados" [options]="multiselectValues[col.value]" 
-						appendTo="body" [ngModel]="filters[col.value]" (ngModelChange)="onMultiselectChange($event, col.value)"></p-multiSelect>
-				</div>
-				
-				<div style="text-align:center; font-size:small;" *ngIf="colsMetadata[col.value] ? colsMetadata[col.value].inputFiltro == 'range' : 0"> 
-					{{filters[col.value][0]}} a {{filters[col.value][1]}}
-					<p-slider [(ngModel)]="filters[col.value]" [range]="true"></p-slider>
-				</div>    
-			</div>
 		</ng-template>	 
 		
 		<ng-template let-fila="rowData" pTemplate="body">

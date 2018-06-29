@@ -64,7 +64,7 @@ export class GridComponent implements OnInit {
   
   @Input() defaultFilters : {}
   filters : any;
-  filtroActivo;
+  filtrarCol;
 
   multiselectValues : {};
   
@@ -634,6 +634,12 @@ export class GridComponent implements OnInit {
     this.agruparChanged(null);
   }
   
+
+  resetAgrupar() {
+      this.agruparCol="";
+      this.agruparChanged(null);
+  }
+
   resetFilters() {
       this.filters={};
       this.cols.forEach(c => {
