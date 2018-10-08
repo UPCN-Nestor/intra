@@ -15,6 +15,7 @@
 			ON T.id_vehiculo = M.id_vehiculo AND T.id_tipo_tarea = M.id_tipo_tarea
 			WHERE 
 				(M.fecha > T.fecha OR M.kms > T.kms)
+			ORDER BY M.fecha, M.id_vehiculo, M.id_tipo_tarea
 		";
 
 	$q = $pdo->query($sql);

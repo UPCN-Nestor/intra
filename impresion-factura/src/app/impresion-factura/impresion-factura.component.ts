@@ -188,8 +188,9 @@ export class ImpresionFacturaComponent implements OnInit {
         .toPromise()
         .then(data => {
             try {
+                let fecha = (new Date()).toISOString().slice(0,10).replace(/-/g,"");
                 //printJS(environment.clientUrl + "intra/src/app/autoservicio/impresion-factura/fact_mensual_B-0-7906179.pdf");
-                printJS(environment.baseUrl + "php/userspice/IReport/report/pdf/estado_deuda_" + socio + "-" + suministro + ".pdf");  
+                printJS(environment.baseUrl + "php/userspice/IReport/report/pdf/estado_deuda_" + socio + "-" + suministro + "-" + fecha +".pdf");  
                 this.blockUI.stop();
                 this.blockUI.start("Imprimiendo estado de deuda de socio/suministro " + socio + "/" + suministro + ". Por favor espere.");
                 setTimeout(() => {

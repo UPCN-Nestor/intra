@@ -1,0 +1,32 @@
+
+<head>
+<meta charset="utf-8">
+</head>
+
+
+<p-toolbar>
+    <div class="ui-toolbar-group-left">
+		<img style="vertical-align: middle" src="assets/UPC_logopie.png" alt="UPC" >
+    </div>
+    
+    <div class="ui-toolbar-group-right">
+    	<div *ngIf="user">
+			{{user.username}}
+			<button style="vertical-align: middle" pButton type="button" (click)="logout()" icon="fa-sign-out"></button>
+			<button style="vertical-align: middle" pButton type="button" (click)="home()" icon="fa-home"></button>
+		</div>
+		<div *ngIf="user == null">
+
+			Usuario
+			<input style="vertical-align: middle" type="text" pInputText [(ngModel)]="username" />
+			Contraseña
+			<input style="vertical-align: middle" type="password" pPassword [feedback]="false" [(ngModel)]="password" (keyup.enter)="login()" />
+			<button style="vertical-align: middle" pButton type="button" (click)="login()" icon="fa-sign-in"></button>
+			<button style="vertical-align: middle" pButton type="button" (click)="home()" icon="fa-home"></button>
+		</div>			
+	</div>
+	
+</p-toolbar>
+
+
+<p-growl id="growlError" [(value)]="msgs"></p-growl>
