@@ -3,6 +3,6 @@ export const environment = {
   //baseUrl: "http://192.168.0.4/",
   //clientUrl: "http://192.168.0.4/"
   
-  baseUrl: "http://192.168.0.4:80/",
-  clientUrl: "http://192.168.0.4:80/"
+  baseUrl: "http://192.168.0.3:80/",
+  clientUrl: "http://192.168.0.3:80/"
 };

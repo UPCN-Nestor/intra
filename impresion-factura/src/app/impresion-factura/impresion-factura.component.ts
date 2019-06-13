@@ -64,8 +64,8 @@ export class ImpresionFacturaComponent implements OnInit {
       this.url_socios = environment.baseUrl + 'php/userspice/factura_getSocios.php';
       this.url_suministros = environment.baseUrl + 'php/userspice/factura_getSuministros.php';
        
-      this.url_factura_individual = environment.baseUrl + 'php/userspice/factura_getFactura.php';
-      this.url_estado_deuda =  environment.baseUrl + 'php/userspice/IReport/estadodeuda.php';
+      this.url_factura_individual = environment.baseUrl + 'php/userspice/factura_getFactura_jasper.php';
+      this.url_estado_deuda =  environment.baseUrl + 'php/userspice/factura_getEstadoDeuda_jasper.php';
       
       this.renderer.addClass(document.body, 'fondo_upc'); 
               
@@ -140,7 +140,7 @@ export class ImpresionFacturaComponent implements OnInit {
   }
   
 
-  imprimir(letra, pto, numero, servicio) {
+  imprimir(letra, pto, numero, servicio, tipofactura) {
 
       this.blockUI.start('Preparando impresión...');
       
@@ -149,6 +149,7 @@ export class ImpresionFacturaComponent implements OnInit {
       params.set('pto', pto);
       params.set('numero', numero);
       params.set('servicio', servicio);
+      params.set('tipofactura', tipofactura);
 
       // Pide al servidor que descargue el PDF generado (para evitar problemas de cross origin)
       this.http.get(this.url_factura_individual, {withCredentials: true, search: params}) 
@@ -170,9 +171,7 @@ export class ImpresionFacturaComponent implements OnInit {
                   this.blockUI.stop();
               }
           });       
-  }
-
-     
+  }  
 
 
   imprimirEstadoDeuda(socio, suministro) {
@@ -190,7 +189,7 @@ export class ImpresionFacturaComponent implements OnInit {
             try {
                 let fecha = (new Date()).toISOString().slice(0,10).replace(/-/g,"");
                 //printJS(environment.clientUrl + "intra/src/app/autoservicio/impresion-factura/fact_mensual_B-0-7906179.pdf");
-                printJS(environment.baseUrl + "php/userspice/IReport/report/pdf/estado_deuda_" + socio + "-" + suministro + "-" + fecha +".pdf");  
+                printJS(environment.baseUrl + "php/userspice/facturas/estado_deuda_" + socio + "-" + suministro + "-" + fecha +".pdf");  
                 this.blockUI.stop();
                 this.blockUI.start("Imprimiendo estado de deuda de socio/suministro " + socio + "/" + suministro + ". Por favor espere.");
                 setTimeout(() => {
