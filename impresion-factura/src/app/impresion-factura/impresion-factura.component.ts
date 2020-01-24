@@ -70,6 +70,7 @@ export class ImpresionFacturaComponent implements OnInit {
       this.renderer.addClass(document.body, 'fondo_upc'); 
               
       this.setupKeyboards();
+      this.idleTimer();
   }
   
   setupKeyboards() {
@@ -275,6 +276,8 @@ export class ImpresionFacturaComponent implements OnInit {
       params.set('nombre', nom);   
       params.set('calle', "0"); 
       params.set('altura', "0"); 
+      params.set('piso', "x"); 
+      params.set('depto', "x"); 
       
       this.http.get(this.url_socios, {withCredentials: true, search: params}) 
           .toPromise()
@@ -291,9 +294,13 @@ export class ImpresionFacturaComponent implements OnInit {
   direccionChange(e) {
       
       var dir = this.direccion.nativeElement.value;
-      var calle = dir.substring(0, dir.lastIndexOf(' '));
-      var altura = dir.substring(dir.lastIndexOf(' '));
-      
+      var partes = dir.split(' ');
+
+      var calle = partes[0];
+      var altura = partes[1];
+      var piso = partes[2] || 'x';
+      var depto = partes[3] || 'x';
+
       if(dir=="") return;
       
       if(calle.indexOf("DIAG") > -1)
@@ -303,6 +310,8 @@ export class ImpresionFacturaComponent implements OnInit {
       params.set('nombre', "0");   
       params.set('calle', calle); 
       params.set('altura', altura); 
+      params.set('piso', piso);
+      params.set('depto', depto);
       
       this.http.get(this.url_socios, {withCredentials: true, search: params}) 
           .toPromise()
@@ -375,12 +384,18 @@ export class ImpresionFacturaComponent implements OnInit {
         this.msgs.push({severity:'error', summary:'Advertencia', detail:'No se han encontrado socios con suministros activos con los datos ingresados.'});
     }
       if(this.paso == 3 && this.facturas.length == 0) {
-          this.restart();
-          this.msgs.push({severity:'error', summary:'Advertencia', detail:'No se han encontrado facturas con los datos ingresados.'});
+          this.atras();
+          this.msgs.push({severity:'error', summary:'Advertencia', detail:'No se han encontrado facturas en el suministro seleccionado.'});
       }
   }
   
   
+  atras() {
+    if(this.paso==2) this.paso = 1;
+    if(this.paso==25) this.paso = 1;
+    if(this.paso==3) this.paso = 25;
+  }
+
   restart() {
     // collection/658265
       this.cualFoto++;
@@ -396,4 +411,26 @@ export class ImpresionFacturaComponent implements OnInit {
       this.msgs = [];
   }
   
+
+  // TIMER INACTIVIDAD
+
+  idleTimer() {
+   var t;
+    //window.onload = resetTimer;
+   window.onmousemove = resetTimer; // catches mouse movements
+   window.onmousedown = resetTimer; // catches mouse movements
+   window.onclick = resetTimer;     // catches mouse clicks
+   window.onscroll = resetTimer;    // catches scrolling
+   window.onkeypress = resetTimer;  //catches keyboard actions
+
+   function reload() {
+        window.location.href = self.location.href;  //Reloads the current page
+   }
+
+   function resetTimer() {
+        clearTimeout(t);
+        t = setTimeout(reload, 300000);  // time is in milliseconds (1000 is 1 second)
+    }
+  }
+
 }

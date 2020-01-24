@@ -1,18 +1,18 @@
 <?php
 
 
-require_once 'users/init.php';
+//require_once 'users/init.php';
 require_once 'pdo_glm.php';
 require_once 'loc.php';
 
 
-if (!securePage($_SERVER['PHP_SELF'])){ 
+//if (!securePage($_SERVER['PHP_SELF'])){ 
 	//header("Location: $loc");
 	//die();
-	echo json_encode("error");
-}
+//	echo json_encode("error");
+//}
 
-else
+//else
 try{
 	ini_set('memory_limit', '512M');
 
@@ -20,6 +20,8 @@ try{
 	$nombre = $_GET["nombre"];
 	$calle = $_GET["calle"];
 	$altura = $_GET["altura"];
+	$piso = $_GET["piso"];
+	$depto = $_GET["depto"];
 	
     $pdo->query("SET NAMES 'utf8'");
 
@@ -27,7 +29,9 @@ try{
 		FROM UPCCOMPROD.dbo.SOCIOS S JOIN UPCCOMPROD.dbo.SUMINI SU ON (S.SucCodigo = SU.SucCodigo AND S.Soc_numero = SU.Soc_numero)
 		WHERE SU.Sumi_estad < 4
 			AND (S.Soc_apelli LIKE '%$nombre%' OR '$nombre'='0')
-			AND ((SU.Sumi_calle = '$calle' AND SU.Sumi_nroca = '$altura') OR '$calle'='0')						
+			AND ((SU.Sumi_calle = '$calle' AND SU.Sumi_nroca = '$altura') OR '$calle'='0')		
+			AND (SU.Sumi_piso = '$piso' OR '$piso'='x')
+			AND (SU.Sumi_depto = '$depto' OR '$depto'='x')			
 		GROUP BY S.Soc_apelli, S.Soc_numero
 		;";
 	
