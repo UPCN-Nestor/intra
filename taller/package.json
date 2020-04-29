@@ -25,7 +25,7 @@
     "chart.js": "^2.7.1",
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.2.1",
+    "jquery": "^3.5.0",
     "ng-block-ui": "^1.0.0-beta.15",
     "ng2-date-picker": "^1.4.3",
     "primeng": "^4.3.0",
