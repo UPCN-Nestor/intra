@@ -87,7 +87,7 @@
 						<span *ngIf="sumi.Servicios % 3 == 0" class="fa fa-wifi"></span>
 						<span *ngIf="sumi.Servicios % 5 == 0" class="fa fa-medkit"></span>		
 						<span style=""></span>			
-						 /  ${{sumi.Impago.substring(0, sumi.Impago.length - 2).replace('.', ',')}}
+						/  ${{sumi.Impago.substring(0, sumi.Impago.length - 2).replace('.', ',')}}
 					</p-header>
 					<div> <button pButton type="button" style="height: 90px; width: 300px;" icon="fa-list-ul" label="  Comprobantes" (click)="seleccionarSuministro(sumi.Soc_numero, sumi.Sumi_numer)"></button> </div>	 
 					<div> <button pButton type="button" style="height: 90px; width: 300px;" icon="fa-print" label="   Estado de deuda" (click)="imprimirEstadoDeuda(sumi.Soc_numero, sumi.Sumi_numer)"></button> </div>	                

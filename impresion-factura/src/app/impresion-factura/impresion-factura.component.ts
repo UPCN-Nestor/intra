@@ -297,6 +297,7 @@ export class ImpresionFacturaComponent implements OnInit {
       var partes = dir.split(' ');
 
       var calle = partes[0];
+      calle = calle.replace('-', ' ');
       var altura = partes[1];
       var piso = partes[2] || 'x';
       var depto = partes[3] || 'x';
