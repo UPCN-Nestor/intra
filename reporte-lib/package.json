@@ -90,7 +90,7 @@
     "lite-server": "^2.3.0",
     "ng-block-ui": "^1.0.0-beta.15",
     "ng2-date-picker": "^1.4.3",
-    "node-sass": "^4.5.2",
+    "node-sass": "^4.13.1",
     "node-sass-tilde-importer": "^1.0.0",
     "node-watch": "^0.5.2",
     "primeng": "^4.2.2",
