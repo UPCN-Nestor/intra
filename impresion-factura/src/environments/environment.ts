@@ -5,7 +5,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: "http://localhost:80/intra/",
+  baseUrl: "http://192.168.0.3:80/",
   clientUrl: "http://localhost:4200/"
   //clientUrl: "http://localhost:80/"
 };
+

@@ -58,7 +58,7 @@
 			<div style="padding:15px;" class="ui-md-3">
 				<p-panel class="big2" [header]="fact.Comp_letra + '-' + fact.Comp_sucur + '-' + fact.Comp_numer + ' / $' + fact.CompSaldo.substring(0, fact.CompSaldo.length - 2).replace('.', ',')" 
 						[style]="{'text-align':'center', 'background-color':(fact.Pagada=='S'?'':'#FFDDDD')}">
-					<div> <button pButton type="button" style="height: 128px; width: 128px;" icon="fa-print fa-3x" (click)="imprimir(fact.Comp_letra, fact.Comp_sucur, fact.Comp_numer, fact.Fac1Servic, fact.TipoFactura)"></button> </div>	                
+					<div> <button pButton type="button" style="height: 128px; width: 128px;" icon="fa-print fa-3x" (click)="imprimir(fact.Comp_letra, fact.Ptovta_base_impresion, fact.Comp_base_impresion, fact.Fac1Servic, fact.TipoFactura)"></button> </div>	                
 						<hr class="ui-widget-content" style="border-top:0">
 						<div class="small">Emisión: {{fact.Comp_fecha}}</div>
 						<div class="small">Vence: {{fact.Comp_vto1}} {{(fact.Pagada=='S'?'':' (Impaga)')}}</div>
