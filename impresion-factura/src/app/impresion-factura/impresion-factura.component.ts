@@ -1,12 +1,8 @@
 import { Component, OnInit, Inject, Injectable, ViewChild, ElementRef, AfterViewInit, Renderer2, ApplicationRef } from '@angular/core';
-import {InputMaskModule, InputTextModule} from 'primeng/primeng';
 import { environment } from '../../environments/environment';
-import {HttpModule, Response, Http, Headers, URLSearchParams} from '@angular/http';
-import {OverlayPanelModule, OverlayPanel} from 'primeng/primeng';
+import {Http, URLSearchParams} from '@angular/http';
+import {OverlayPanel} from 'primeng/primeng';
 import 'rxjs/add/operator/toPromise';
-import {DataListModule} from 'primeng/primeng';
-import {DataGridModule} from 'primeng/primeng';
-import {MessagesModule} from 'primeng/primeng';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 
 const jQuery = require('jquery');
@@ -49,6 +45,7 @@ export class ImpresionFacturaComponent implements OnInit {
   }
   
   ngOnInit() {
+    try{
       this.cualFoto = 0;
       document.body.style.backgroundImage = this.urlFoto + this.cualFoto + '")';
     
@@ -60,17 +57,21 @@ export class ImpresionFacturaComponent implements OnInit {
       this.paso = 1;
       
       //this.url_fondo = "https://source.unsplash.com/random";
-      this.url_deuda = environment.baseUrl + 'php/userspice/factura_getDeuda.php';
-      this.url_socios = environment.baseUrl + 'php/userspice/factura_getSocios.php';
-      this.url_suministros = environment.baseUrl + 'php/userspice/factura_getSuministros.php';
+      this.url_deuda = environment.baseUrl + 'php/factura_getDeuda.php';
+      this.url_socios = environment.baseUrl + 'php/factura_getSocios.php';
+      this.url_suministros = environment.baseUrl + 'php/factura_getSuministros.php';
        
-      this.url_factura_individual = environment.baseUrl + 'php/userspice/factura_getFactura_jasper.php';
-      this.url_estado_deuda =  environment.baseUrl + 'php/userspice/factura_getEstadoDeuda_jasper.php';
+      this.url_factura_individual = environment.baseUrl + 'php/factura_getFactura.php';
+      this.url_estado_deuda =  environment.baseUrl + 'php/factura_getEstadoDeuda.php';
       
       this.renderer.addClass(document.body, 'fondo_upc'); 
               
       this.setupKeyboards();
       this.idleTimer();
+    }
+    catch(el) {
+
+    }
   }
   
   setupKeyboards() {
@@ -141,34 +142,31 @@ export class ImpresionFacturaComponent implements OnInit {
   }
   
 
-  imprimir(letra, pto, numero, servicio, tipofactura) {
+  imprimir(fecha, cat, numero) {
 
       this.blockUI.start('Preparando impresión...');
       
       let params: URLSearchParams = new URLSearchParams();
-      params.set('letra', letra);
-      params.set('pto', pto);
+      params.set('fecha', fecha);
+      params.set('cat', cat);
       params.set('numero', numero);
-      params.set('servicio', servicio);
-      params.set('tipofactura', tipofactura);
-
       // Pide al servidor que descargue el PDF generado (para evitar problemas de cross origin)
       this.http.get(this.url_factura_individual, {withCredentials: true, search: params}) 
           .toPromise()
           .then(data => {
               try {
                   //printJS(environment.clientUrl + "intra/src/app/autoservicio/impresion-factura/fact_mensual_B-0-7906179.pdf");
-                  printJS(environment.baseUrl + "php/userspice/facturas/fact_mensual_" + letra + "-" + pto + "-" + numero + ".pdf");  
+                  printJS(environment.baseUrl + "php/facturas/fact_mensual_" + numero + ".pdf");  
                   this.blockUI.stop();
-                  this.blockUI.start("Imprimiendo factura " + letra + "-" + numero + ". Por favor espere.");
+                  this.blockUI.start("Imprimiendo factura " + numero + ". Por favor espere.");
                   setTimeout(() => {
                       this.blockUI.stop();
-                  }, 12000);
+                  }, 6000);
                   
                   //this.msgs.push({severity:'info', summary:'Éxito', detail:"La factura " + letra + "-" + numero + " se está imprimiendo."});
               }
               catch(e) {
-                  this.msgs.push({severity:'error', summary:'Error', detail:'No se pudo imprimir la factura ' + letra + "-" + numero + "."});
+                  this.msgs.push({severity:'error', summary:'Error', detail:'No se pudo imprimir la factura ' + numero + "."});
                   this.blockUI.stop();
               }
           });       
@@ -181,16 +179,17 @@ export class ImpresionFacturaComponent implements OnInit {
     
     let params: URLSearchParams = new URLSearchParams();
     params.set('socio', socio);
-    params.set('suministro', suministro);
-   
+    params.set('sumi', suministro);
+
     // Pide al servidor que descargue el PDF generado (para evitar problemas de cross origin)
     this.http.get(this.url_estado_deuda, {withCredentials: true, search: params}) 
         .toPromise()
         .then(data => {
             try {
                 let fecha = (new Date()).toISOString().slice(0,10).replace(/-/g,"");
+                
                 //printJS(environment.clientUrl + "intra/src/app/autoservicio/impresion-factura/fact_mensual_B-0-7906179.pdf");
-                printJS(environment.baseUrl + "php/userspice/facturas/estado_deuda_" + socio + "-" + suministro + "-" + fecha +".pdf");  
+                printJS(environment.baseUrl + "php/facturas/estado_deuda_" + socio + "-" + suministro + "-" + fecha +".pdf");  
                 this.blockUI.stop();
                 this.blockUI.start("Imprimiendo estado de deuda de socio/suministro " + socio + "/" + suministro + ". Por favor espere.");
                 setTimeout(() => {
@@ -222,7 +221,7 @@ export class ImpresionFacturaComponent implements OnInit {
               else
                   return res.json();
               })
-          .then(data => { this.suministros = data; this.paso = 25; this.checkNoResults(); });    
+          .then(data => { this.suministros = data; this.paso = 25; this.checkNoResults(); });            
   }
   
   seleccionarSuministro(soc, sumi) {
@@ -378,15 +377,15 @@ export class ImpresionFacturaComponent implements OnInit {
       this.msgs = []; 
       if(this.paso == 2 && this.socios.length == 0) {
           this.restart();
-          this.msgs.push({severity:'error', summary:'Advertencia', detail:'No se han encontrado socios con facturas con los datos ingresados.'});
+          this.msgs.push({severity:'error', summary:'Advertencia', detail:'El suministro no tiene facturas recientes.'});
       }
       if(this.paso == 25 && this.suministros.length == 0) {
         this.restart();
-        this.msgs.push({severity:'error', summary:'Advertencia', detail:'No se han encontrado socios con suministros activos con los datos ingresados.'});
+        this.msgs.push({severity:'error', summary:'Advertencia', detail:'No hay socios activos con los datos ingresados.'});
     }
       if(this.paso == 3 && this.facturas.length == 0) {
           this.atras();
-          this.msgs.push({severity:'error', summary:'Advertencia', detail:'No se han encontrado facturas en el suministro seleccionado.'});
+          this.msgs.push({severity:'error', summary:'Advertencia', detail:'El suministro no tiene facturas recientes.'});
       }
   }
   
@@ -395,6 +394,7 @@ export class ImpresionFacturaComponent implements OnInit {
     if(this.paso==2) this.paso = 1;
     if(this.paso==25) this.paso = 1;
     if(this.paso==3) this.paso = 25;
+    this.msgs = [];
   }
 
   restart() {

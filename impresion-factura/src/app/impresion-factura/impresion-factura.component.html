@@ -58,10 +58,10 @@
 			<div style="padding:15px;" class="ui-md-3">
 				<p-panel class="big2" [header]="fact.Comp_letra + '-' + fact.Comp_sucur + '-' + fact.Comp_numer + ' / $' + fact.CompSaldo.substring(0, fact.CompSaldo.length - 2).replace('.', ',')" 
 						[style]="{'text-align':'center', 'background-color':(fact.Pagada=='S'?'':'#FFDDDD')}">
-					<div> <button pButton type="button" style="height: 128px; width: 128px;" icon="fa-print fa-3x" (click)="imprimir(fact.Comp_letra, fact.Ptovta_base_impresion, fact.Comp_base_impresion, fact.Fac1Servic, fact.TipoFactura)"></button> </div>	                
+					<div> <button pButton type="button" style="height: 128px; width: 128px;" icon="fa-print fa-3x" (click)="imprimir(fact.fecha, fact.cat, fact.numero)"></button> </div>	                
 						<hr class="ui-widget-content" style="border-top:0">
 						<div class="small">Emisión: {{fact.Comp_fecha}}</div>
-						<div class="small">Vence: {{fact.Comp_vto1}} {{(fact.Pagada=='S'?'':' (Impaga)')}}</div>
+						<div class="small">Vencimiento: {{fact.Comp_vto1}} {{(fact.Pagada=='S'?'':' (Impaga)')}}</div>
 				</p-panel> 
 			</div>
 		</ng-template>
@@ -73,7 +73,7 @@
 	<div style="margin: 25px; background-color:transparent;">
 		<p-dataGrid [value]="suministros" >
 		<p-header>
-			<div class="big2">Suministros de {{suministros[0].Soc_apelli}}</div>
+			<div class="big2">Suministros de {{suministros[0].Soc_nombre}}</div>
 		</p-header>
 			<ng-template let-sumi pTemplate="item">
 			<div style="padding:15px" class="ui-md-3">
@@ -81,13 +81,15 @@
 					<p-header>
 						<span class="fa-stack">						
 							<span class="fa fa-circle-o fa-stack-2x"></span>
-							<strong class="fa-stack-1x">{{sumi.Sumi_numer}}</strong>
+							 <strong class="fa-stack-1x">{{sumi.Sumi_numer}}</strong>
 						</span>
-						<span *ngIf="sumi.Servicios % 2 == 0" class="fa fa-plug"></span>
-						<span *ngIf="sumi.Servicios % 3 == 0" class="fa fa-wifi"></span>
-						<span *ngIf="sumi.Servicios % 5 == 0" class="fa fa-medkit"></span>		
+						<div *ngIf="sumi.Impago > 0">Adeuda ${{sumi.Impago.substring(0, sumi.Impago.length - 2).replace('.', ',')}}</div>
+						<div *ngIf="sumi.Impago == 0">Sin deuda</div>
+						<div *ngIf="sumi.Servicios % 2 == 0">Energía <span class="fa fa-plug"></span></div>
+						<div *ngIf="sumi.Servicios % 3 == 0">Telecomunicaciones <span class="fa fa-wifi"></span></div>
+						<div *ngIf="sumi.Servicios % 5 == 0">Servicios Sociales <span class="fa fa-medkit"></span></div>
 						<span style=""></span>			
-						/  ${{sumi.Impago.substring(0, sumi.Impago.length - 2).replace('.', ',')}}
+
 					</p-header>
 					<div> <button pButton type="button" style="height: 90px; width: 300px;" icon="fa-list-ul" label="  Comprobantes" (click)="seleccionarSuministro(sumi.Soc_numero, sumi.Sumi_numer)"></button> </div>	 
 					<div> <button pButton type="button" style="height: 90px; width: 300px;" icon="fa-print" label="   Estado de deuda" (click)="imprimirEstadoDeuda(sumi.Soc_numero, sumi.Sumi_numer)"></button> </div>	                
@@ -108,7 +110,7 @@
 		   <ng-template let-socio pTemplate="item">
 			<div  style="padding:10px" >
 				  <div> <input class="big" type="button" style="height: 100px; width: 782px;" 
-						 value="{{socio.Soc_apelli}}"
+						 value="{{socio.Soc_nombre}}"
 						 (click)="seleccionarSocio(socio.Soc_numero)"/> 
 				  </div>	                
 			</div>

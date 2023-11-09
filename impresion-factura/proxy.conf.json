@@ -1,0 +1,6 @@
+{
+  "/php": {
+    "target": "http://localhost:8070",
+    "secure": false
+  }
+}
